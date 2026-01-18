@@ -95,3 +95,10 @@
 - [x] Update Gallery form to use ImageUpload component
 - [x] Add image preview functionality
 - [x] Handle upload progress and error states
+
+## Client-Side Image Compression
+- [x] Implement canvas-based image compression
+- [x] Add quality and max dimension settings
+- [x] Show compression stats (original vs compressed size)
+- [x] Maintain aspect ratio during resize
+- [x] Support JPEG and PNG formats
