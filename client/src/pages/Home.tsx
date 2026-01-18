@@ -12,17 +12,14 @@ import { trpc } from "@/lib/trpc";
 const testimonials = [
   {
     id: 1,
-    name: "Kate Crisp",
-    company: "Property Renovation",
+    name: "Jordan King",
+    company: "Factory Owner",
     rating: 5,
-    text: "We have been renovating our 500plus year old property which is steeped in character but most of the beams were painted black. The transformation could not be more worth it.",
-    project: "Beam Restoration",
+    text: "Really happy with this team. Our factory cladding had original plastisol and multiple layers of paint. It turned out to be a much more difficult job than expected but Graham didn't let us down and put in extra hours to make sure we stayed in budget. The surfaces were left flawless and we're looking forward to painting.",
+    project: "Factory Cladding Blasting",
     images: [
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600",
-      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600",
-      "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=600",
-      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600",
-      "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=600",
+      "/jordan-king-review-1.webp",
+      "/jordan-king-review-2.webp",
     ],
     isNew: true,
   },

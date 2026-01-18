@@ -489,7 +489,16 @@
 ## Move Review Section from Gallery to Home Page
 - [x] Identify review section component in Gallery page
 - [x] Determine optimal placement on Home page
-- [ ] Move review section to Home page
-- [ ] Test display and layout
+- [x] Move review section to Home page
+- [x] Test display and layout
 - [ ] Save checkpoint
 - [ ] Push changes to GitHub
+
+
+## Replace Featured Review with Actual Shot Blasting Review
+- [x] Fetch review details from Google link
+- [x] Copy provided metal roof/cladding images to project
+- [x] Update Home.tsx with new review content and images
+- [x] Test updated testimonial section
+- [x] Save checkpoint
+- [x] Push changes to GitHub
