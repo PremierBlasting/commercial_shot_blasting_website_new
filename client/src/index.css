@@ -127,11 +127,11 @@
   }
 }
 
-/* Hero Background Carousel Animation */
+/* Hero Background Carousel Animation - 11 Images */
 @keyframes fadeInOut {
   0%, 100% { opacity: 0; }
-  33.33% { opacity: 0.3; }
-  66.66% { opacity: 0; }
+  9.09% { opacity: 0.3; }
+  18.18% { opacity: 0; }
 }
 
 /* Client Logo Carousel Animation */

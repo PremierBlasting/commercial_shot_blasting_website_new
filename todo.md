@@ -526,5 +526,14 @@
 - [x] Use warehouse door and metal cladding photos
 - [x] Add autoplay with 5-second intervals
 - [x] Test animation performance and visual appeal
+- [x] Save checkpoint
+- [x] Push changes to GitHub
+
+
+## Update Hero Carousel with 11 Specific Project Images
+- [ ] Copy all 11 provided images to public directory
+- [ ] Update Home.tsx carousel to use all 11 images
+- [ ] Adjust animation timing for 11-image rotation
+- [ ] Test carousel display and transitions
 - [ ] Save checkpoint
 - [ ] Push changes to GitHub
