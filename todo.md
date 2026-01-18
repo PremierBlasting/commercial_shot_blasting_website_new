@@ -318,6 +318,7 @@
 ## Bug Fixes
 - [x] Fix Google Maps API being loaded multiple times on Service Areas page
 - [x] Fix duplicate key error in Areas submenu navigation
+- [x] Fix remaining duplicate key errors in Areas submenu with location-specific anchors
 
 
 ## Navigation Menu Enhancement
