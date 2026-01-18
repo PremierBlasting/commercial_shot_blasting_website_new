@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 import Gallery from "./pages/Gallery";
 import Admin from "./pages/Admin";
 import ServiceDetail from "./pages/ServiceDetail";
+import { CookieConsent } from "./components/CookieConsent";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -39,6 +40,7 @@ function App() {
         <TooltipProvider>
           <Toaster />
           <Router />
+          <CookieConsent />
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>

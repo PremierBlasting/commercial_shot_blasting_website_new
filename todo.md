@@ -153,3 +153,11 @@
 - [x] Update on Home page
 - [x] Update on Gallery page
 - [x] Update on ServiceDetail page
+
+## Cookie Consent Banner
+- [x] Create CookieConsent component with accept/decline options
+- [x] Store user preference in localStorage
+- [x] Add smooth slide-up animation
+- [x] Style to match teal/cream color scheme
+- [x] Integrate into main App layout
+- [x] Add link to privacy policy
