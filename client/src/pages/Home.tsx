@@ -19,7 +19,7 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-[#2C5F7F] to-[#1a3d52] text-white py-20 lg:py-32">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1920')] bg-cover bg-center opacity-20"></div>
+        <div className="absolute inset-0 bg-[url('/images/premier/commercial-unit-shot-blasting.jpeg')] bg-cover bg-center opacity-20"></div>
         <div className="container relative z-10">
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
@@ -53,12 +53,12 @@ export default function Home() {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { title: "Steel Shot Blasting", desc: "High-performance cleaning for steel structures, removing rust, mill scale, and old coatings.", img: "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=400", link: "/services/steel-shot-blasting" },
-              { title: "Concrete Preparation", desc: "Surface profiling for optimal coating adhesion on floors, walls, and structural elements.", img: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=400", link: "/services/concrete-preparation" },
-              { title: "Automotive Restoration", desc: "Precision cleaning for vehicle restoration, removing rust, paint, and underseal.", img: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=400", link: "/services/automotive-restoration" },
-              { title: "Marine Services", desc: "Hull and deck surface preparation for boats, ships, and offshore structures.", img: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=400", link: "/services/marine-services" },
-              { title: "Agricultural Equipment", desc: "Restoring farm machinery and implements to peak condition.", img: "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=400", link: "/services/agricultural-equipment" },
-              { title: "Infrastructure Projects", desc: "Large-scale surface preparation for bridges, tunnels, and industrial facilities.", img: "https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=400", link: "/services/infrastructure-projects" },
+              { title: "Steel Shot Blasting", desc: "High-performance cleaning for steel structures, removing rust, mill scale, and old coatings.", img: "/images/premier/warehouse-bars-after.jpeg", link: "/services/steel-shot-blasting" },
+              { title: "Concrete Preparation", desc: "Surface profiling for optimal coating adhesion on floors, walls, and structural elements.", img: "/images/premier/warehouse-outside-after.jpeg", link: "/services/concrete-preparation" },
+              { title: "Automotive Restoration", desc: "Precision cleaning for vehicle restoration, removing rust, paint, and underseal.", img: "/images/premier/gate-metal-after.jpeg", link: "/services/automotive-restoration" },
+              { title: "Marine Services", desc: "Hull and deck surface preparation for boats, ships, and offshore structures.", img: "/images/premier/steel-container-after.jpeg", link: "/services/marine-services" },
+              { title: "Agricultural Equipment", desc: "Restoring farm machinery and implements to peak condition.", img: "/images/premier/steel-container-commercial-after.jpeg", link: "/services/agricultural-equipment" },
+              { title: "Infrastructure Projects", desc: "Large-scale surface preparation for bridges, tunnels, and industrial facilities.", img: "/images/premier/steel-balustrade.jpeg", link: "/services/infrastructure-projects" },
             ].map((service, i) => (
               <Link key={i} href={service.link}>
                 <Card className="group overflow-hidden hover:shadow-lg transition-shadow h-full cursor-pointer">
@@ -109,7 +109,7 @@ export default function Home() {
               </div>
             </div>
             <div className="relative">
-              <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600" alt="Professional shot blasting" className="rounded-lg shadow-xl" />
+              <img src="/images/premier/storage-unit-after.jpeg" alt="Professional shot blasting" className="rounded-lg shadow-xl" />
               <div className="absolute -bottom-6 -left-6 bg-[#2C5F7F] text-white p-6 rounded-lg shadow-lg">
                 <p className="text-3xl font-bold" style={{ fontFamily: "'Playfair Display', serif" }}>20+</p>
                 <p className="text-sm">Years Experience</p>

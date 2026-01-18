@@ -170,3 +170,15 @@
 - [x] Style to match site theme
 - [x] Add route in App.tsx
 - [x] Link from cookie consent banner and footer
+
+## Premier Blasting Image Integration
+- [x] Extract images from shot-blasting-near-me page
+- [x] Extract images from steel-container-blasting page
+- [x] Extract images from steel-shot-blasting page
+- [x] Extract images from our-work#shot-blasting section
+- [x] Extract metal gate images from our-work#gates section
+- [x] Download and organize all images
+- [x] Replace Unsplash template images with Premier Blasting images
+- [x] Update Home page hero and service sections
+- [x] Update Gallery page with real project images
+- [x] Update Service Detail pages with relevant images

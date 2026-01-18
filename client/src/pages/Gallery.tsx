@@ -16,16 +16,16 @@ const galleryItems = [
     title: "Industrial Steel Framework",
     category: "Industrial",
     description: "Complete rust and scale removal from structural steel beams in manufacturing facility",
-    before: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600",
-    after: "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=600",
+    before: "/images/premier/warehouse-bars-before.jpeg",
+    after: "/images/premier/warehouse-bars-after.jpeg",
   },
   {
     id: 2,
     title: "Factory Floor Preparation",
     category: "Industrial",
     description: "Surface profiling for epoxy coating application in warehouse",
-    before: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600",
-    after: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600",
+    before: "/images/premier/warehouse-outside-before.jpeg",
+    after: "/images/premier/warehouse-outside-after.jpeg",
   },
   {
     id: 7,
@@ -37,20 +37,20 @@ const galleryItems = [
   },
   {
     id: 8,
-    title: "Industrial Tank Cleaning",
+    title: "Steel Container Blasting",
     category: "Industrial",
-    description: "Storage tank interior surface preparation for recoating",
-    before: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600",
-    after: "https://images.unsplash.com/photo-1530124566582-a618bc2615dc?w=600",
+    description: "Storage container surface preparation for recoating",
+    before: "/images/premier/steel-container-before.jpeg",
+    after: "/images/premier/steel-container-after.jpeg",
   },
   // Automotive Projects
   {
     id: 3,
-    title: "Vehicle Chassis Restoration",
+    title: "Metal Gate Restoration",
     category: "Automotive",
-    description: "Full chassis blast cleaning and rust removal for classic car",
-    before: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=600",
-    after: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600",
+    description: "Full gate blast cleaning and rust removal",
+    before: "/images/premier/gate-metal-before.jpeg",
+    after: "/images/premier/gate-metal-after.jpeg",
   },
   {
     id: 9,
@@ -79,11 +79,11 @@ const galleryItems = [
   // Marine Projects
   {
     id: 4,
-    title: "Marine Equipment",
+    title: "Steel Storage Unit",
     category: "Marine",
-    description: "Corrosion removal from marine vessel components",
-    before: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600",
-    after: "https://images.unsplash.com/photo-1559825481-12a05cc00344?w=600",
+    description: "Corrosion removal from steel storage containers",
+    before: "/images/premier/storage-unit-before.jpeg",
+    after: "/images/premier/storage-unit-after.jpeg",
   },
   {
     id: 12,
@@ -96,11 +96,11 @@ const galleryItems = [
   // Agriculture Projects
   {
     id: 5,
-    title: "Agricultural Machinery",
+    title: "Commercial Container",
     category: "Agriculture",
     description: "Heavy equipment restoration and paint preparation",
-    before: "https://images.unsplash.com/photo-1530267981375-f0de937f5f13?w=600",
-    after: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=600",
+    before: "/images/premier/steel-container-commercial-before.jpeg",
+    after: "/images/premier/steel-container-commercial-after.jpeg",
   },
   {
     id: 13,
@@ -113,11 +113,11 @@ const galleryItems = [
   // Infrastructure Projects
   {
     id: 6,
-    title: "Bridge Steelwork",
+    title: "Steel Balustrade",
     category: "Infrastructure",
     description: "Structural steel preparation for protective coating",
-    before: "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=600",
-    after: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600",
+    before: "/images/premier/gate-metal-before.jpeg",
+    after: "/images/premier/steel-balustrade.jpeg",
   },
   {
     id: 14,

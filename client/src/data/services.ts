@@ -28,7 +28,7 @@ export const services: ServiceData[] = [
     shortTitle: "Steel",
     tagline: "High-Performance Cleaning for Steel Structures",
     description: "Our steel shot blasting service delivers superior surface preparation for all types of steel structures. Using advanced abrasive blasting technology, we remove rust, mill scale, old coatings, and contaminants to create the ideal surface profile for protective coating adhesion. Whether you're preparing structural steel for a new coating system or restoring aged infrastructure, our precision techniques ensure optimal results every time.",
-    heroImage: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1200",
+    heroImage: "/images/premier/warehouse-bars-after.jpeg",
     benefits: [
       "Complete removal of rust, mill scale, and old coatings",
       "Creates optimal surface profile for coating adhesion",
@@ -59,7 +59,7 @@ export const services: ServiceData[] = [
         challenge: "A 50,000 sq ft warehouse had severe rust and coating failure on its steel framework, threatening structural integrity.",
         solution: "We deployed our mobile shot blasting equipment to treat all exposed steel surfaces, achieving SA 2.5 cleanliness standard.",
         result: "The framework was restored to bare metal, allowing for a new protective coating system that will protect the structure for 20+ years.",
-        image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600"
+        image: "/images/premier/warehouse-bars-before.jpeg"
       },
       {
         title: "Historic Railway Bridge Restoration",
@@ -67,7 +67,7 @@ export const services: ServiceData[] = [
         challenge: "A Victorian-era railway bridge required complete surface preparation while maintaining its heritage features.",
         solution: "Using precision shot blasting with fine media, we carefully removed decades of corrosion without damaging decorative ironwork.",
         result: "The bridge was successfully restored and recoated, preserving its historic character while ensuring another century of service.",
-        image: "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=600"
+        image: "/images/premier/warehouse-bars-after.jpeg"
       }
     ],
     faqs: [
@@ -82,7 +82,7 @@ export const services: ServiceData[] = [
     shortTitle: "Concrete",
     tagline: "Surface Profiling for Optimal Coating Adhesion",
     description: "Professional concrete preparation is essential for any successful flooring or coating project. Our shot blasting services create the perfect surface profile on concrete floors, removing laitance, contaminants, and existing coatings while opening up the pores of the concrete for maximum adhesion. From warehouse floors to car parks, we prepare surfaces that ensure your coating system performs to its full potential.",
-    heroImage: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200",
+    heroImage: "/images/premier/warehouse-outside-after.jpeg",
     benefits: [
       "Creates consistent surface profile across large areas",
       "Removes laitance, oils, and contaminants",
@@ -113,7 +113,7 @@ export const services: ServiceData[] = [
         challenge: "A 100,000 sq ft distribution centre floor needed preparation for a new epoxy coating system, with minimal disruption to operations.",
         solution: "Working in phases over weekends, we shot blasted the entire floor area, achieving CSP 3-4 profile throughout.",
         result: "The new epoxy system bonded perfectly, and the client reported zero coating failures after 3 years of heavy forklift traffic.",
-        image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600"
+        image: "/images/premier/warehouse-outside-before.jpeg"
       },
       {
         title: "Multi-Storey Car Park Deck",
@@ -121,7 +121,7 @@ export const services: ServiceData[] = [
         challenge: "Deteriorating waterproof coating on a busy car park deck needed removal before applying a new membrane system.",
         solution: "We removed the failed coating and prepared all deck surfaces, including ramps and stairwells, to receive the new waterproofing.",
         result: "The new membrane system was successfully applied, eliminating water ingress issues that had plagued the structure for years.",
-        image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600"
+        image: "/images/premier/warehouse-outside-after.jpeg"
       }
     ],
     faqs: [
@@ -136,7 +136,7 @@ export const services: ServiceData[] = [
     shortTitle: "Automotive",
     tagline: "Precision Cleaning for Vehicle Restoration",
     description: "Restore your classic car, motorcycle, or commercial vehicle to its former glory with our specialist automotive shot blasting services. We carefully remove rust, paint, and underseal from chassis, body panels, and components, revealing clean metal ready for restoration. Our controlled blasting techniques ensure thorough cleaning without warping thin panels or damaging delicate areas.",
-    heroImage: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1200",
+    heroImage: "/images/premier/gate-metal-after.jpeg",
     benefits: [
       "Complete removal of rust, paint, and underseal",
       "Reveals hidden corrosion for proper repair",
@@ -167,7 +167,7 @@ export const services: ServiceData[] = [
         challenge: "A barn-find E-Type with extensive rust and multiple layers of paint needed complete stripping for a concours restoration.",
         solution: "We carefully blasted the entire body shell and chassis, using fine media on thin panels and more aggressive treatment on structural areas.",
         result: "The owner discovered the car was more original than expected, with factory markings preserved. The restoration won its class at a national concours.",
-        image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600"
+        image: "/images/premier/gate-metal-after.jpeg"
       },
       {
         title: "Fleet of Vintage Buses",
@@ -175,7 +175,7 @@ export const services: ServiceData[] = [
         challenge: "Six vintage buses from the 1950s-60s required chassis and panel preparation for museum display restoration.",
         solution: "We established an on-site blasting facility to process all vehicles efficiently, treating chassis, panels, and components.",
         result: "All six buses were successfully restored and are now star attractions at the museum, with the blasting work praised for its quality.",
-        image: "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=600"
+        image: "/images/premier/shot-blasting-gate.jpeg"
       }
     ],
     faqs: [
@@ -190,7 +190,7 @@ export const services: ServiceData[] = [
     shortTitle: "Marine",
     tagline: "Hull and Deck Surface Preparation",
     description: "The marine environment presents unique challenges for surface preparation. Our marine shot blasting services are designed to tackle the tough conditions of boats, ships, and offshore structures. We remove marine growth, antifouling coatings, rust, and corrosion to prepare surfaces for new protective systems that will withstand the harshest maritime conditions.",
-    heroImage: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1200",
+    heroImage: "/images/premier/steel-container-after.jpeg",
     benefits: [
       "Removes antifouling, marine growth, and corrosion",
       "Prepares surfaces for marine-grade coatings",
@@ -221,7 +221,7 @@ export const services: ServiceData[] = [
         challenge: "A 100-year-old steel-hulled sailing vessel required complete hull preparation for a heritage restoration project.",
         solution: "Working in dry dock, we carefully removed decades of coatings and corrosion, revealing the original hull plating for assessment.",
         result: "The survey revealed the hull was in better condition than expected. After repairs and recoating, the vessel returned to active sailing.",
-        image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600"
+        image: "/images/premier/steel-container-after.jpeg"
       },
       {
         title: "Commercial Fishing Fleet",
@@ -229,7 +229,7 @@ export const services: ServiceData[] = [
         challenge: "A fleet of 12 fishing vessels needed hull preparation during their annual maintenance period, with tight scheduling constraints.",
         solution: "We established an efficient workflow, blasting and preparing two vessels per week to meet the fleet's return-to-service deadlines.",
         result: "All vessels were completed on schedule with improved hull performance, and the cooperative has engaged us for annual maintenance since.",
-        image: "https://images.unsplash.com/photo-1559825481-12a05cc00344?w=600"
+        image: "/images/premier/storage-unit-after.jpeg"
       }
     ],
     faqs: [
@@ -244,7 +244,7 @@ export const services: ServiceData[] = [
     shortTitle: "Agricultural",
     tagline: "Restoring Farm Machinery to Peak Condition",
     description: "Agricultural equipment faces some of the toughest operating conditions, from corrosive fertilizers to constant exposure to the elements. Our shot blasting services restore farm machinery, implements, and structures to like-new condition, removing years of rust, old paint, and accumulated grime. Proper surface preparation extends equipment life and ensures protective coatings perform at their best.",
-    heroImage: "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=1200",
+    heroImage: "/images/premier/steel-container-commercial-after.jpeg",
     benefits: [
       "Removes rust, old paint, and agricultural residues",
       "Prepares surfaces for durable protective coatings",
@@ -275,7 +275,7 @@ export const services: ServiceData[] = [
         challenge: "A collection of 20 vintage tractors spanning 1920-1970 needed restoration for a new museum exhibition.",
         solution: "We established a production line approach, blasting chassis, wheels, and body panels for each tractor systematically.",
         result: "All tractors were beautifully restored and now form the centrepiece of the museum's agricultural heritage exhibition.",
-        image: "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=600"
+        image: "/images/premier/steel-container-commercial-after.jpeg"
       },
       {
         title: "Grain Storage Facility",
@@ -283,7 +283,7 @@ export const services: ServiceData[] = [
         challenge: "Steel grain silos and handling equipment showed significant corrosion after 30 years of service.",
         solution: "We blasted all steel surfaces including silos, conveyors, and structural supports, preparing them for a new coating system.",
         result: "The refurbished facility looks and performs like new, with the protective coatings expected to last another 25+ years.",
-        image: "https://images.unsplash.com/photo-1530124566582-a618bc2615dc?w=600"
+        image: "/images/premier/storage-unit-before.jpeg"
       }
     ],
     faqs: [
@@ -298,7 +298,7 @@ export const services: ServiceData[] = [
     shortTitle: "Infrastructure",
     tagline: "Large-Scale Surface Preparation Solutions",
     description: "From bridges and tunnels to water treatment facilities and power stations, infrastructure projects demand the highest standards of surface preparation. Our experienced teams and extensive equipment fleet can handle projects of any scale, delivering consistent quality across thousands of square meters. We work to the most demanding specifications and maintain full compliance with health, safety, and environmental requirements.",
-    heroImage: "https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=1200",
+    heroImage: "/images/premier/steel-balustrade.jpeg",
     benefits: [
       "Capability for large-scale projects",
       "Experienced in working to strict specifications",
@@ -329,7 +329,7 @@ export const services: ServiceData[] = [
         challenge: "A 500-meter steel bridge required complete repainting, with surface preparation needed on 15,000 sq meters of steelwork.",
         solution: "Working from suspended access platforms, our team blasted all surfaces over a 12-week programme, achieving SA 2.5 throughout.",
         result: "The project was completed on schedule and budget, with the new coating system providing 25-year protection for this critical crossing.",
-        image: "https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=600"
+        image: "/images/premier/steel-balustrade.jpeg"
       },
       {
         title: "Water Treatment Works Upgrade",
@@ -337,7 +337,7 @@ export const services: ServiceData[] = [
         challenge: "Aging steel tanks and pipework at a treatment works needed preparation for new protective coatings while maintaining operations.",
         solution: "We developed a phased approach, taking individual tanks out of service for blasting while others maintained supply.",
         result: "All structures were successfully treated without any interruption to water supply, extending the facility's operational life by decades.",
-        image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600"
+        image: "/images/premier/commercial-unit-shot-blasting.jpeg"
       }
     ],
     faqs: [
