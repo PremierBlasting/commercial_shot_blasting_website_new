@@ -245,3 +245,9 @@
 - [x] Style with WhatsApp green colour
 - [x] Include WhatsApp icon
 - [x] Test on mobile viewport
+
+## Footer Clickable Contact Links
+- [x] Add clickable phone number (tel: link)
+- [x] Add clickable email address (mailto: link)
+- [x] Update all page footers consistently (Home, Gallery, ServiceDetail, PrivacyPolicy)
+- [x] Test links on desktop and mobile

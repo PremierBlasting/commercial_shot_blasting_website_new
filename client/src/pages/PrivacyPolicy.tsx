@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Header } from "@/components/Header";
 import { QuotePopup } from "@/components/QuotePopup";
 import { Link } from "wouter";
-import { ArrowLeft, Shield, Cookie, Database, Mail, Lock, Users, Clock } from "lucide-react";
+import { ArrowLeft, Shield, Cookie, Database, Mail, Phone, MapPin, Lock, Users, Clock } from "lucide-react";
 
 export default function PrivacyPolicy() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
@@ -292,10 +292,23 @@ export default function PrivacyPolicy() {
             </div>
             <div>
               <h4 className="font-semibold mb-4">Contact</h4>
-              <ul className="space-y-2 text-white/70 text-sm">
-                <li>07970 566409</li>
-                <li>info@commercialshotblasting.co.uk</li>
-                <li>Nationwide UK Service</li>
+              <ul className="space-y-3 text-white/70 text-sm">
+                <li>
+                  <a href="tel:07970566409" className="flex items-center gap-2 hover:text-white transition-colors">
+                    <Phone className="w-4 h-4" />
+                    07970 566409
+                  </a>
+                </li>
+                <li>
+                  <a href="mailto:info@commercialshotblasting.co.uk" className="flex items-center gap-2 hover:text-white transition-colors">
+                    <Mail className="w-4 h-4" />
+                    info@commercialshotblasting.co.uk
+                  </a>
+                </li>
+                <li className="flex items-center gap-2">
+                  <MapPin className="w-4 h-4" />
+                  Nationwide UK Service
+                </li>
               </ul>
             </div>
           </div>

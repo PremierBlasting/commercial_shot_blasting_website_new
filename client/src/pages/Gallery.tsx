@@ -4,7 +4,7 @@ import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { OptimizedImage, getWebPUrl, getThumbnailUrl } from "@/components/OptimizedImage";
 import { QuotePopup } from "@/components/QuotePopup";
 import { Header } from "@/components/Header";
-import { Phone, ArrowLeft, ArrowRight, Star, Quote, X } from "lucide-react";
+import { Phone, Mail, MapPin, ArrowLeft, ArrowRight, Star, Quote, X } from "lucide-react";
 import { useState, useMemo } from "react";
 import { Link } from "wouter";
 import { trpc } from "@/lib/trpc";
@@ -619,10 +619,23 @@ export default function Gallery() {
             </div>
             <div>
               <h4 className="font-semibold mb-4">Contact</h4>
-              <ul className="space-y-2 text-white/70 text-sm">
-                <li>07970 566409</li>
-                <li>info@commercialshotblasting.co.uk</li>
-                <li>Nationwide UK Service</li>
+              <ul className="space-y-3 text-white/70 text-sm">
+                <li>
+                  <a href="tel:07970566409" className="flex items-center gap-2 hover:text-white transition-colors">
+                    <Phone className="w-4 h-4" />
+                    07970 566409
+                  </a>
+                </li>
+                <li>
+                  <a href="mailto:info@commercialshotblasting.co.uk" className="flex items-center gap-2 hover:text-white transition-colors">
+                    <Mail className="w-4 h-4" />
+                    info@commercialshotblasting.co.uk
+                  </a>
+                </li>
+                <li className="flex items-center gap-2">
+                  <MapPin className="w-4 h-4" />
+                  Nationwide UK Service
+                </li>
               </ul>
             </div>
           </div>

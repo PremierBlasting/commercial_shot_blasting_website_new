@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link, useParams } from "wouter";
-import { Phone, Mail, CheckCircle, ArrowRight, ArrowLeft, Clock, Shield, Award, ChevronDown, ChevronUp } from "lucide-react";
+import { Phone, Mail, MapPin, CheckCircle, ArrowRight, ArrowLeft, Clock, Shield, Award, ChevronDown, ChevronUp } from "lucide-react";
 import { useState } from "react";
 import { getServiceById, services } from "@/data/services";
 import { QuotePopup } from "@/components/QuotePopup";
@@ -560,14 +560,22 @@ export default function ServiceDetail() {
             </div>
             <div>
               <h4 className="font-semibold mb-4">Contact</h4>
-              <ul className="space-y-2 text-white/70 text-sm">
-                <li className="flex items-center gap-2">
-                  <Phone className="w-4 h-4" />
-                  07970 566409
+              <ul className="space-y-3 text-white/70 text-sm">
+                <li>
+                  <a href="tel:07970566409" className="flex items-center gap-2 hover:text-white transition-colors">
+                    <Phone className="w-4 h-4" />
+                    07970 566409
+                  </a>
+                </li>
+                <li>
+                  <a href="mailto:info@commercialshotblasting.co.uk" className="flex items-center gap-2 hover:text-white transition-colors">
+                    <Mail className="w-4 h-4" />
+                    info@commercialshotblasting.co.uk
+                  </a>
                 </li>
                 <li className="flex items-center gap-2">
-                  <Mail className="w-4 h-4" />
-                  info@commercialshotblasting.co.uk
+                  <MapPin className="w-4 h-4" />
+                  Nationwide UK Service
                 </li>
               </ul>
             </div>
