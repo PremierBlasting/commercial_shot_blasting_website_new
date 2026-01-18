@@ -325,3 +325,11 @@
 - [x] Add Birmingham as sub-sub-menu item under West Midlands
 - [x] Add Birmingham as clickable link in Areas page
 - [x] Test submenu navigation and links
+
+
+## Breadcrumb Navigation for Location Pages
+- [x] Create reusable Breadcrumb component
+- [x] Add breadcrumb to Birmingham landing page
+- [x] Add breadcrumb schema markup (JSON-LD) for SEO
+- [x] Test breadcrumb navigation and styling
+- [x] Verify breadcrumb links work correctly

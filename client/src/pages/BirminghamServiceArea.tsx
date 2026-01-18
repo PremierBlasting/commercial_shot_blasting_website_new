@@ -5,6 +5,7 @@ import { useState } from "react";
 import { QuotePopup } from "@/components/QuotePopup";
 import { Header } from "@/components/Header";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
+import { Breadcrumb } from "@/components/Breadcrumb";
 
 export default function BirminghamServiceArea() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
@@ -13,6 +14,18 @@ export default function BirminghamServiceArea() {
     <div className="min-h-screen bg-white">
       <Header onOpenQuotePopup={() => setQuotePopupOpen(true)} />
       <QuotePopup open={quotePopupOpen} onOpenChange={setQuotePopupOpen} />
+
+      {/* Breadcrumb Navigation */}
+      <section className="py-4 bg-gray-50 border-b border-gray-200">
+        <div className="container">
+          <Breadcrumb items={[
+            { label: "Home", href: "/" },
+            { label: "Service Areas", href: "/service-areas" },
+            { label: "West Midlands", href: "/service-areas" },
+            { label: "Birmingham", href: "/service-areas/birmingham", isCurrentPage: true }
+          ]} />
+        </div>
+      </section>
 
       {/* Hero Section */}
       <section className="relative py-16 md:py-24 bg-gradient-to-r from-[#2C5F7F] to-[#1a3d52] text-white">
