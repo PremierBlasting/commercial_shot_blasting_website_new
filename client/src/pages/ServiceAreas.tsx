@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Header } from "@/components/Header";
 import { QuotePopup } from "@/components/QuotePopup";
+import { ServiceAreasMap } from "@/components/ServiceAreasMap";
 import { Link } from "wouter";
 import { 
   MapPin, 
@@ -150,8 +151,31 @@ export default function ServiceAreas() {
         </div>
       </section>
 
-      {/* Why Local Matters Section */}
+      {/* Interactive Map Section */}
       <section className="py-16 bg-white">
+        <div className="container">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl font-bold text-[#1a3d52] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Our Coverage Area
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Explore our service coverage across the West Midlands. Click on any area to learn more about our local services.
+            </p>
+          </div>
+          <ServiceAreasMap 
+            onAreaClick={(areaId) => {
+              const element = document.getElementById(areaId);
+              if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }
+            }}
+            onQuoteClick={() => setQuotePopupOpen(true)}
+          />
+        </div>
+      </section>
+
+      {/* Why Local Matters Section */}
+      <section className="py-16 bg-[#f8f5f0]">
         <div className="container">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-[#1a3d52] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>

@@ -260,3 +260,10 @@
 - [x] Add route in App.tsx
 - [x] Add navigation link in Header (desktop and mobile)
 - [x] Test page functionality
+
+## Interactive Map on Service Areas Page
+- [x] Create ServiceAreasMap component using Google Maps
+- [x] Add markers for Birmingham, West Midlands, and Wolverhampton
+- [x] Add coverage area circles/polygons
+- [x] Integrate map into Service Areas page
+- [x] Test map interactivity
