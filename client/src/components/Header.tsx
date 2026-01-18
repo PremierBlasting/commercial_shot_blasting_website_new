@@ -127,6 +127,7 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
           <a href="/#about" className="hover:text-white/80 transition">About</a>
           <a href="/#industries" className="hover:text-white/80 transition">Industries</a>
           <Link href="/gallery" className="hover:text-white/80 transition">Gallery</Link>
+          <Link href="/service-areas" className="hover:text-white/80 transition">Areas</Link>
           <a href="/#contact" className="hover:text-white/80 transition">Contact</a>
         </nav>
 
@@ -200,6 +201,7 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
             <a href="/#about" onClick={closeMobileMenu} className="py-3 hover:text-white/80 transition border-b border-white/10">About</a>
             <a href="/#industries" onClick={closeMobileMenu} className="py-3 hover:text-white/80 transition border-b border-white/10">Industries</a>
             <Link href="/gallery" onClick={closeMobileMenu} className="py-3 hover:text-white/80 transition border-b border-white/10">Gallery</Link>
+            <Link href="/service-areas" onClick={closeMobileMenu} className="py-3 hover:text-white/80 transition border-b border-white/10">Service Areas</Link>
             <a href="/#contact" onClick={closeMobileMenu} className="py-3 hover:text-white/80 transition border-b border-white/10">Contact</a>
             
             <div className="flex flex-col gap-3 pt-4">
