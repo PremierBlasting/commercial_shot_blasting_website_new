@@ -456,4 +456,14 @@
 - [x] Include NAP (Name, Address, Phone) details
 - [x] Add service areas and hours
 - [x] Test schema with Google Rich Results Test
+- [x] Push changes to GitHub
+
+
+## Birmingham Case Study
+- [x] Draft detailed case study content with project scope
+- [x] Source or generate before/after photos
+- [x] Include measurable outcomes and client testimonial
+- [x] Create CaseStudy component
+- [x] Add case study section to Birmingham page
+- [x] Test case study display
 - [ ] Push changes to GitHub
