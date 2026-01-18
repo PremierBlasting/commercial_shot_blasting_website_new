@@ -14,6 +14,7 @@ const serviceLinks = [
   { title: "Marine Services", href: "/services/marine-services", description: "Hull and deck surface preparation" },
   { title: "Agricultural Equipment", href: "/services/agricultural-equipment", description: "Restoring farm machinery and implements" },
   { title: "Infrastructure Projects", href: "/services/infrastructure-projects", description: "Large-scale surface preparation" },
+  { title: "Gate Restoration", href: "/services/gate-restoration", description: "Expert metal gate blasting and restoration" },
 ];
 
 export function Header({ onOpenQuotePopup }: HeaderProps) {

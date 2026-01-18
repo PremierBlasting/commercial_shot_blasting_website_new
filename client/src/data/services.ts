@@ -345,6 +345,66 @@ export const services: ServiceData[] = [
       { question: "How do you manage health and safety on large projects?", answer: "We maintain comprehensive RAMS (Risk Assessments and Method Statements) for all projects, hold principal contractor status, and our teams are fully trained in working at height, confined spaces, and other high-risk activities." },
       { question: "Can you work around live operations?", answer: "Yes, we have extensive experience working on operational sites. We develop detailed programmes to minimise disruption and can work nights and weekends if required." }
     ]
+  },
+  {
+    id: "gate-restoration",
+    title: "Gate Restoration",
+    shortTitle: "Gates",
+    tagline: "Expert Metal Gate Blasting and Restoration Services",
+    description: "Transform your metal gates from rusty eyesores to stunning entrances with our specialist gate restoration services. Whether you have wrought iron entrance gates, steel security gates, or decorative garden gates, our precision shot blasting removes years of rust, old paint, and corrosion to reveal clean metal ready for a fresh protective finish. We work with residential, commercial, and heritage properties across the UK, restoring gates of all sizes and styles to their former glory.",
+    heroImage: "/images/premier/gate-metal-after.jpeg",
+    benefits: [
+      "Complete removal of rust, paint, and corrosion",
+      "Preserves intricate decorative details and patterns",
+      "Prepares metal for long-lasting protective coatings",
+      "Suitable for wrought iron, steel, and cast iron gates",
+      "On-site or workshop-based service available",
+      "Extends gate lifespan by decades",
+      "Restores kerb appeal and property value",
+      "Environmentally friendly process"
+    ],
+    process: [
+      { step: 1, title: "Assessment", description: "We inspect your gates to assess their condition, identify any structural issues, and determine the best blasting approach for the metal type and decorative features." },
+      { step: 2, title: "Removal or Protection", description: "Gates can be removed and transported to our workshop, or we can blast on-site with appropriate masking and containment to protect surrounding areas." },
+      { step: 3, title: "Shot Blasting", description: "Using carefully selected media and pressure settings, we blast all surfaces including intricate scrollwork, hinges, and hard-to-reach areas." },
+      { step: 4, title: "Inspection", description: "The cleaned gates are thoroughly inspected for any remaining corrosion, damage, or areas requiring repair before coating." },
+      { step: 5, title: "Priming & Protection", description: "We apply high-quality primer immediately after blasting to prevent flash rust, preparing the gates for final painting or powder coating." }
+    ],
+    applications: [
+      "Entrance and driveway gates",
+      "Garden and side gates",
+      "Security gates and barriers",
+      "Wrought iron decorative gates",
+      "Heritage and listed property gates",
+      "Commercial and industrial gates",
+      "Estate and farm gates",
+      "Railings and balustrades"
+    ],
+    caseStudies: [
+      {
+        title: "Victorian Estate Entrance Gates",
+        client: "Private Estate, Worcestershire",
+        challenge: "A pair of ornate Victorian wrought iron gates had suffered decades of neglect, with heavy rust obscuring the beautiful scrollwork and threatening structural integrity.",
+        solution: "We carefully removed the gates and transported them to our workshop. Using fine media at low pressure, we meticulously cleaned every detail without damaging the delicate ironwork.",
+        result: "The restored gates revealed stunning craftsmanship hidden for years. After priming and professional painting, they now form a magnificent entrance that has transformed the property's kerb appeal.",
+        image: "/images/premier/gate-metal-after.jpeg"
+      },
+      {
+        title: "Commercial Security Gate Refurbishment",
+        client: "Industrial Park, Birmingham",
+        challenge: "Heavy-duty steel security gates at a busy industrial entrance were severely corroded and due for replacement at significant cost.",
+        solution: "We blasted the gates on-site over a weekend to minimise disruption, removing all rust and old coatings to reveal sound steel beneath.",
+        result: "The refurbished gates were recoated and returned to service at a fraction of replacement cost, with an expected additional service life of 20+ years.",
+        image: "/images/premier/shot-blasting-gate.jpeg"
+      }
+    ],
+    faqs: [
+      { question: "Can you blast gates on-site or do they need removing?", answer: "We offer both options. Smaller gates and those in accessible locations can often be blasted on-site with appropriate containment. Larger or more intricate gates may benefit from workshop treatment where we have more control over the process." },
+      { question: "Will shot blasting damage decorative ironwork?", answer: "No, when performed correctly. We use appropriate media and pressure settings for delicate work, and our experienced technicians know how to treat ornate features without causing damage. The process actually helps preserve details by removing corrosion that would otherwise continue to deteriorate the metal." },
+      { question: "How long does gate restoration take?", answer: "A typical pair of driveway gates can be blasted in 1-2 days. The total turnaround including collection, blasting, priming, and return is usually 3-5 working days, though this varies with gate size and complexity." },
+      { question: "Do you paint or powder coat the gates after blasting?", answer: "We prepare gates ready for finishing and can apply primer. For final painting or powder coating, we can recommend trusted partners or work with your preferred finisher. Some clients prefer to arrange their own painting to match existing property colours." },
+      { question: "Is it worth restoring old gates versus buying new?", answer: "Often yes, especially for quality older gates. Wrought iron and heavy steel gates were built to last and can be restored to excellent condition. Restoration typically costs 30-50% of replacement and preserves the character and craftsmanship of original gates that modern reproductions often can't match." }
+    ]
   }
 ];
 

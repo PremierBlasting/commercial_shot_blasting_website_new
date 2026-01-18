@@ -187,3 +187,10 @@
 - [x] Add gate restoration before/after images to gallery
 - [x] Create new "Gates" category in gallery filter
 - [x] Test gallery filtering with new gate items
+
+## Gate Restoration Service Page
+- [x] Create Gate Restoration service data with full content
+- [x] Add benefits, process steps, applications, case studies, and FAQs
+- [x] Update Header navigation dropdown with Gate Restoration link
+- [x] Route automatically handled by ServiceDetail dynamic routing
+- [x] Test the new service page
