@@ -277,3 +277,12 @@
 - [x] Update map to show England-wide coverage with 25+ markers
 - [x] Update Service Areas page with 7 regional sections
 - [x] Test expanded map functionality
+
+## Map Zoom and Location Updates
+- [x] Zoom out map to show more of England/Wales (center adjusted to lat 52.8)
+- [x] Add Wrexham location marker
+- [x] Add Chesterfield location marker
+- [x] Add Ipswich location marker
+- [x] Add Cardiff location marker
+- [x] Bring headquarters marker to front (z-index 9999)
+- [x] Test updated map

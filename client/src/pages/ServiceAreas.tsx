@@ -33,8 +33,8 @@ const serviceRegions = [
     id: "east-midlands",
     name: "East Midlands",
     tagline: "Manufacturing Heartland",
-    description: "The East Midlands is home to some of the UK's most important manufacturing centres. We serve clients across Nottingham, Leicester, Derby and Northampton with the same quality and reliability.",
-    locations: ["Nottingham", "Leicester", "Derby", "Northampton"],
+    description: "The East Midlands is home to some of the UK's most important manufacturing centres. We serve clients across Nottingham, Leicester, Derby, Chesterfield and Northampton with the same quality and reliability.",
+    locations: ["Nottingham", "Leicester", "Derby", "Northampton", "Chesterfield"],
     industries: ["Heavy engineering", "Textile machinery", "Food processing equipment", "Rail components", "Industrial equipment"],
     stats: { projects: "800+", clients: "200+" }
   },
@@ -51,8 +51,8 @@ const serviceRegions = [
     id: "east-england",
     name: "East of England",
     tagline: "Growing Coverage",
-    description: "Our East of England coverage extends from Cambridge's high-tech industries to Norwich's agricultural equipment manufacturers and beyond.",
-    locations: ["Norwich", "Cambridge", "Peterborough", "St Albans"],
+    description: "Our East of England coverage extends from Cambridge's high-tech industries to Norwich's agricultural equipment manufacturers, Ipswich and beyond.",
+    locations: ["Norwich", "Cambridge", "Peterborough", "St Albans", "Ipswich"],
     industries: ["Agricultural machinery", "Scientific equipment", "Food processing", "Construction", "Heritage restoration"],
     stats: { projects: "400+", clients: "100+" }
   },
@@ -76,24 +76,24 @@ const serviceRegions = [
   },
   {
     id: "welsh-borders",
-    name: "Welsh Borders",
-    tagline: "Shrewsbury & Hereford",
-    description: "We serve clients along the Welsh borders, from Shrewsbury's engineering firms to Hereford's agricultural equipment manufacturers.",
-    locations: ["Shrewsbury", "Hereford"],
-    industries: ["Agricultural machinery", "Farm equipment", "Construction steel", "Heritage restoration", "Architectural metalwork"],
-    stats: { projects: "200+", clients: "50+" }
+    name: "Welsh Borders & Wales",
+    tagline: "Shrewsbury to Cardiff",
+    description: "We serve clients along the Welsh borders and into Wales, from Shrewsbury and Wrexham in the north to Hereford and Cardiff in the south.",
+    locations: ["Shrewsbury", "Hereford", "Wrexham", "Cardiff"],
+    industries: ["Agricultural machinery", "Farm equipment", "Construction steel", "Heritage restoration", "Architectural metalwork", "Marine & port equipment"],
+    stats: { projects: "300+", clients: "70+" }
   }
 ];
 
 // All individual locations for the comprehensive list
 const allLocations = [
   "Birmingham", "Wolverhampton", "Coventry", "Worcester", "Stratford Upon Avon",
-  "Nottingham", "Leicester", "Derby", "Northampton",
+  "Nottingham", "Leicester", "Derby", "Northampton", "Chesterfield",
   "Liverpool", "Manchester", "Chester", "Stoke-on-Trent",
-  "Norwich", "Cambridge", "Peterborough", "St Albans",
+  "Norwich", "Cambridge", "Peterborough", "St Albans", "Ipswich",
   "Bristol", "Gloucester", "Swindon",
   "Oxford", "Milton Keynes",
-  "Shrewsbury", "Hereford"
+  "Shrewsbury", "Hereford", "Wrexham", "Cardiff"
 ];
 
 export default function ServiceAreas() {

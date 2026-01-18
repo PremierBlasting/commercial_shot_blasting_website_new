@@ -10,7 +10,7 @@ interface ServiceLocation {
   region?: string;
 }
 
-// All service locations across England
+// All service locations across England and Wales
 const serviceLocations: ServiceLocation[] = [
   // West Midlands Core
   { name: "Birmingham", position: { lat: 52.4862, lng: -1.8904 }, region: "West Midlands" },
@@ -24,6 +24,7 @@ const serviceLocations: ServiceLocation[] = [
   { name: "Leicester", position: { lat: 52.6369, lng: -1.1398 }, region: "East Midlands" },
   { name: "Derby", position: { lat: 52.9225, lng: -1.4746 }, region: "East Midlands" },
   { name: "Northampton", position: { lat: 52.2405, lng: -0.9027 }, region: "East Midlands" },
+  { name: "Chesterfield", position: { lat: 53.2350, lng: -1.4210 }, region: "East Midlands" },
   
   // North West
   { name: "Liverpool", position: { lat: 53.4084, lng: -2.9916 }, region: "North West" },
@@ -36,6 +37,7 @@ const serviceLocations: ServiceLocation[] = [
   { name: "Cambridge", position: { lat: 52.2053, lng: 0.1218 }, region: "East of England" },
   { name: "Peterborough", position: { lat: 52.5695, lng: -0.2405 }, region: "East of England" },
   { name: "St Albans", position: { lat: 51.7520, lng: -0.3390 }, region: "East of England" },
+  { name: "Ipswich", position: { lat: 52.0567, lng: 1.1482 }, region: "East of England" },
   
   // South West
   { name: "Bristol", position: { lat: 51.4545, lng: -2.5879 }, region: "South West" },
@@ -46,9 +48,11 @@ const serviceLocations: ServiceLocation[] = [
   { name: "Oxford", position: { lat: 51.7520, lng: -1.2577 }, region: "South East" },
   { name: "Milton Keynes", position: { lat: 52.0406, lng: -0.7594 }, region: "South East" },
   
-  // Welsh Borders
+  // Welsh Borders & Wales
   { name: "Shrewsbury", position: { lat: 52.7077, lng: -2.7540 }, region: "Welsh Borders" },
   { name: "Hereford", position: { lat: 52.0565, lng: -2.7160 }, region: "Welsh Borders" },
+  { name: "Wrexham", position: { lat: 53.0469, lng: -2.9927 }, region: "Welsh Borders" },
+  { name: "Cardiff", position: { lat: 51.4816, lng: -3.1791 }, region: "Wales" },
 ];
 
 // Regional coverage areas for circles
@@ -67,7 +71,7 @@ const regionalCoverage = [
     center: { lat: 52.7500, lng: -1.2000 },
     radius: 45000,
     color: "#1a3d52",
-    description: "Nottingham, Leicester, Derby & Northampton"
+    description: "Nottingham, Leicester, Derby, Chesterfield & Northampton"
   },
   {
     id: "north-west",
@@ -83,7 +87,7 @@ const regionalCoverage = [
     center: { lat: 52.4000, lng: 0.5000 },
     radius: 55000,
     color: "#4a8fb8",
-    description: "Norwich, Cambridge, Peterborough & St Albans"
+    description: "Norwich, Cambridge, Peterborough, Ipswich & St Albans"
   },
   {
     id: "south-west",
@@ -103,11 +107,11 @@ const regionalCoverage = [
   },
   {
     id: "welsh-borders",
-    name: "Welsh Borders",
-    center: { lat: 52.4000, lng: -2.7500 },
-    radius: 35000,
+    name: "Welsh Borders & Wales",
+    center: { lat: 52.2000, lng: -3.0000 },
+    radius: 50000,
     color: "#d4a853",
-    description: "Shrewsbury & Hereford"
+    description: "Shrewsbury, Hereford, Wrexham & Cardiff"
   }
 ];
 
@@ -195,7 +199,7 @@ export function ServiceAreasMap({ onAreaClick, onQuoteClick }: ServiceAreasMapPr
       });
     });
 
-    // Add HQ marker
+    // Add HQ marker LAST so it renders on top (highest z-index)
     const hqContent = document.createElement("div");
     hqContent.innerHTML = `
       <div style="
@@ -205,9 +209,11 @@ export function ServiceAreasMap({ onAreaClick, onQuoteClick }: ServiceAreasMapPr
         border-radius: 8px;
         font-weight: bold;
         font-size: 14px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.4);
         cursor: pointer;
-        border: 2px solid #1a3d52;
+        border: 3px solid #1a3d52;
+        position: relative;
+        z-index: 9999;
       ">
         🏭 CSB HQ
       </div>
@@ -218,6 +224,7 @@ export function ServiceAreasMap({ onAreaClick, onQuoteClick }: ServiceAreasMapPr
       position: { lat: 52.5200, lng: -2.0500 },
       content: hqContent,
       title: "Commercial Shot Blasting HQ",
+      zIndex: 9999,
     });
   };
 
@@ -234,7 +241,7 @@ export function ServiceAreasMap({ onAreaClick, onQuoteClick }: ServiceAreasMapPr
 
   const handleShowAll = () => {
     if (mapRef.current) {
-      mapRef.current.setCenter({ lat: 52.5, lng: -1.5 });
+      mapRef.current.setCenter({ lat: 52.8, lng: -1.8 });
       mapRef.current.setZoom(6);
       setSelectedRegion(null);
     }
@@ -246,7 +253,7 @@ export function ServiceAreasMap({ onAreaClick, onQuoteClick }: ServiceAreasMapPr
       <div className="relative rounded-xl overflow-hidden shadow-2xl border-4 border-white">
         <MapView
           className="h-[500px] md:h-[600px]"
-          initialCenter={{ lat: 52.5, lng: -1.5 }}
+          initialCenter={{ lat: 52.8, lng: -1.8 }}
           initialZoom={6}
           onMapReady={handleMapReady}
         />
@@ -387,7 +394,7 @@ export function ServiceAreasMap({ onAreaClick, onQuoteClick }: ServiceAreasMapPr
       {/* Contact CTA */}
       <div className="bg-[#1a3d52] rounded-xl p-6 text-center text-white">
         <h3 className="text-xl font-semibold mb-2">Not sure if we cover your area?</h3>
-        <p className="text-white/70 mb-4">We travel across England for larger projects. Give us a call to discuss your requirements.</p>
+        <p className="text-white/70 mb-4">We travel across England and Wales for larger projects. Give us a call to discuss your requirements.</p>
         <Button 
           className="bg-[#d4a853] hover:bg-[#c49843] text-[#1a3d52] font-semibold"
           asChild
