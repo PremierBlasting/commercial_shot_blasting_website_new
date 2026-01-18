@@ -6,6 +6,7 @@ import { useState } from "react";
 import { getServiceById, services } from "@/data/services";
 import { QuotePopup } from "@/components/QuotePopup";
 import { Header } from "@/components/Header";
+import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 
 export default function ServiceDetail() {
   const params = useParams<{ id: string }>();
@@ -73,6 +74,23 @@ export default function ServiceDetail() {
           <div className="grid lg:grid-cols-3 gap-12">
             {/* Main Content */}
             <div className="lg:col-span-2 space-y-12">
+              {/* Before/After Slider for Gate Restoration */}
+              {service.id === "gate-restoration" && (
+                <div>
+                  <h2 className="text-3xl font-bold text-[#2C5F7F] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
+                    See the Transformation
+                  </h2>
+                  <BeforeAfterSlider
+                    beforeImage="/images/premier/gate-metal-before.jpeg"
+                    afterImage="/images/premier/gate-metal-after.jpeg"
+                    beforeLabel="Before"
+                    afterLabel="After"
+                    className="shadow-xl"
+                  />
+                  <p className="text-center text-gray-600 mt-4 text-sm">Drag the slider to see the dramatic transformation</p>
+                </div>
+              )}
+
               {/* Description */}
               <div>
                 <h2 className="text-3xl font-bold text-[#2C5F7F] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>

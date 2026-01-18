@@ -194,3 +194,9 @@
 - [x] Update Header navigation dropdown with Gate Restoration link
 - [x] Route automatically handled by ServiceDetail dynamic routing
 - [x] Test the new service page
+
+## Before-After Image Slider
+- [x] Create BeforeAfterSlider component with drag functionality
+- [x] Add smooth transitions and touch support
+- [x] Integrate slider into Gate Restoration service page
+- [x] Test on desktop and mobile
