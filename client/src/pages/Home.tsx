@@ -6,6 +6,7 @@ import { useState } from "react";
 import { QuotePopup } from "@/components/QuotePopup";
 import { HubSpotForm } from "@/components/HubSpotForm";
 import { Header } from "@/components/Header";
+import { ServiceAreasMap } from "@/components/ServiceAreasMap";
 
 export default function Home() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
@@ -260,7 +261,7 @@ export default function Home() {
                   </div>
                   <div>
                     <p className="text-sm text-gray-500">Phone</p>
-                    <p className="font-medium">07970 566409</p>
+                    <a href="tel:07970566409" className="font-medium hover:text-[#2C5F7F] transition-colors">07970 566409</a>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
@@ -269,7 +270,7 @@ export default function Home() {
                   </div>
                   <div>
                     <p className="text-sm text-gray-500">Email</p>
-                    <p className="font-medium">info@commercialshotblasting.co.uk</p>
+                    <a href="mailto:info@commercialshotblasting.co.uk" className="font-medium hover:text-[#2C5F7F] transition-colors">info@commercialshotblasting.co.uk</a>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
@@ -286,6 +287,32 @@ export default function Home() {
             <Card className="p-6">
               <HubSpotForm />
             </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Service Areas Map Section */}
+      <section className="py-20 bg-[#F5F1E8]">
+        <div className="container">
+          <div className="text-center mb-12">
+            <p className="text-[#2C5F7F] font-medium mb-2">Our Coverage</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#2C2C2C] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Serving Clients Across the UK
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              From our headquarters in the West Midlands, we provide professional shot blasting services across England and Wales. Click on any location to learn more.
+            </p>
+          </div>
+          <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+            <ServiceAreasMap />
+          </div>
+          <div className="text-center mt-8">
+            <Link href="/service-areas">
+              <Button size="lg" className="bg-[#2C5F7F] hover:bg-[#1a3d52]">
+                View All Service Areas
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+            </Link>
           </div>
         </div>
       </section>

@@ -29,6 +29,8 @@ const serviceLocations: ServiceLocation[] = [
   
   // Yorkshire
   { name: "Sheffield", position: { lat: 53.3811, lng: -1.4701 }, region: "Yorkshire" },
+  { name: "Leeds", position: { lat: 53.8008, lng: -1.5491 }, region: "Yorkshire" },
+  { name: "Bradford", position: { lat: 53.7960, lng: -1.7594 }, region: "Yorkshire" },
   
   // North West
   { name: "Liverpool", position: { lat: 53.4084, lng: -2.9916 }, region: "North West" },
@@ -80,10 +82,10 @@ const regionalCoverage = [
   {
     id: "yorkshire",
     name: "Yorkshire",
-    center: { lat: 53.3811, lng: -1.4701 },
-    radius: 35000,
+    center: { lat: 53.6000, lng: -1.6000 },
+    radius: 50000,
     color: "#2a6b8a",
-    description: "Sheffield & South Yorkshire"
+    description: "Sheffield, Leeds, Bradford & Yorkshire"
   },
   {
     id: "north-west",

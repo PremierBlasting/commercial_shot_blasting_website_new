@@ -293,3 +293,11 @@
 - [x] Add Yorkshire region with Sheffield
 - [x] Update Service Areas page with new locations and Yorkshire section
 - [x] Test updated map
+
+## Contact Page Map and New Locations
+- [x] Add Leeds location marker to map
+- [x] Add Bradford location marker to map
+- [x] Update Yorkshire region to include Leeds and Bradford
+- [x] Add interactive map to Contact page
+- [x] Style map section to match Contact page design
+- [ ] Test Contact page with map

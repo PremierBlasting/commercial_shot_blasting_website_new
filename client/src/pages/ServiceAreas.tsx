@@ -42,10 +42,10 @@ const serviceRegions = [
     id: "yorkshire",
     name: "Yorkshire",
     tagline: "Steel City & Beyond",
-    description: "Sheffield's legendary steel industry heritage makes it a natural fit for our shot blasting services. We serve manufacturers and restoration specialists across South Yorkshire.",
-    locations: ["Sheffield"],
-    industries: ["Steel manufacturing", "Cutlery & tools", "Heavy engineering", "Automotive components", "Industrial equipment"],
-    stats: { projects: "300+", clients: "75+" }
+    description: "From Sheffield's legendary steel industry to Leeds and Bradford's diverse manufacturing sectors, we serve clients across Yorkshire with comprehensive shot blasting services.",
+    locations: ["Sheffield", "Leeds", "Bradford"],
+    industries: ["Steel manufacturing", "Cutlery & tools", "Heavy engineering", "Textile machinery", "Automotive components"],
+    stats: { projects: "450+", clients: "100+" }
   },
   {
     id: "north-west",
@@ -98,7 +98,7 @@ const serviceRegions = [
 const allLocations = [
   "Birmingham", "Wolverhampton", "Coventry", "Worcester", "Stratford Upon Avon",
   "Nottingham", "Leicester", "Derby", "Northampton", "Chesterfield", "Lincoln",
-  "Sheffield",
+  "Sheffield", "Leeds", "Bradford",
   "Liverpool", "Manchester", "Chester", "Stoke-on-Trent",
   "Norwich", "Cambridge", "Peterborough", "St Albans", "Ipswich",
   "Bristol", "Gloucester", "Swindon",
