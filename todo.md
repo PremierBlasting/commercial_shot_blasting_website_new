@@ -123,3 +123,9 @@
 - [x] Update HubSpotForm component to use exact embed code
 - [x] Remove custom styling that may interfere with form loading
 - [x] Verify form loads and submits correctly
+
+## Clickable Logo Links
+- [x] Make header logo clickable link to home page
+- [x] Make company name clickable link to home page
+- [x] Update on Home page
+- [x] Update on Gallery page

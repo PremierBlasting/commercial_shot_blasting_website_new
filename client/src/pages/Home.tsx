@@ -18,7 +18,7 @@ export default function Home() {
       {/* Header */}
       <header className="bg-[#2C5F7F] text-white sticky top-0 z-50">
         <div className="container flex items-center justify-between py-4">
-          <div className="flex items-center gap-3">
+          <Link href="/" className="flex items-center gap-3 hover:opacity-90 transition">
             <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center border-2 border-white/30">
               <span className="text-xl font-bold">CSB</span>
             </div>
@@ -26,7 +26,7 @@ export default function Home() {
               <h1 className="text-xl font-bold" style={{ fontFamily: "'Playfair Display', serif" }}>Commercial Shot Blasting</h1>
               <p className="text-xs text-white/80">Professional Surface Preparation</p>
             </div>
-          </div>
+          </Link>
           <nav className="hidden md:flex items-center gap-8">
             <a href="#services" className="hover:text-white/80 transition">Services</a>
             <a href="#about" className="hover:text-white/80 transition">About</a>

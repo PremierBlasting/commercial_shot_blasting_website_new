@@ -276,7 +276,7 @@ export default function Gallery() {
       {/* Header */}
       <header className="bg-[#2C5F7F] text-white sticky top-0 z-50">
         <div className="container flex items-center justify-between py-4">
-          <Link href="/" className="flex items-center gap-3">
+          <Link href="/" className="flex items-center gap-3 hover:opacity-90 transition">
             <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center border-2 border-white/30">
               <span className="text-xl font-bold">CSB</span>
             </div>
