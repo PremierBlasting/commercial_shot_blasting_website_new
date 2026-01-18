@@ -25,6 +25,10 @@ const serviceLocations: ServiceLocation[] = [
   { name: "Derby", position: { lat: 52.9225, lng: -1.4746 }, region: "East Midlands" },
   { name: "Northampton", position: { lat: 52.2405, lng: -0.9027 }, region: "East Midlands" },
   { name: "Chesterfield", position: { lat: 53.2350, lng: -1.4210 }, region: "East Midlands" },
+  { name: "Lincoln", position: { lat: 53.2307, lng: -0.5406 }, region: "East Midlands" },
+  
+  // Yorkshire
+  { name: "Sheffield", position: { lat: 53.3811, lng: -1.4701 }, region: "Yorkshire" },
   
   // North West
   { name: "Liverpool", position: { lat: 53.4084, lng: -2.9916 }, region: "North West" },
@@ -71,7 +75,15 @@ const regionalCoverage = [
     center: { lat: 52.7500, lng: -1.2000 },
     radius: 45000,
     color: "#1a3d52",
-    description: "Nottingham, Leicester, Derby, Chesterfield & Northampton"
+    description: "Nottingham, Leicester, Derby, Chesterfield, Lincoln & Northampton"
+  },
+  {
+    id: "yorkshire",
+    name: "Yorkshire",
+    center: { lat: 53.3811, lng: -1.4701 },
+    radius: 35000,
+    color: "#2a6b8a",
+    description: "Sheffield & South Yorkshire"
   },
   {
     id: "north-west",

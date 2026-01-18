@@ -286,3 +286,10 @@
 - [x] Add Cardiff location marker
 - [x] Bring headquarters marker to front (z-index 9999)
 - [x] Test updated map
+
+## Add Lincoln and Sheffield
+- [x] Add Lincoln location marker to map
+- [x] Add Sheffield location marker to map
+- [x] Add Yorkshire region with Sheffield
+- [x] Update Service Areas page with new locations and Yorkshire section
+- [x] Test updated map

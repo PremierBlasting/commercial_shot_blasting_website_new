@@ -33,10 +33,19 @@ const serviceRegions = [
     id: "east-midlands",
     name: "East Midlands",
     tagline: "Manufacturing Heartland",
-    description: "The East Midlands is home to some of the UK's most important manufacturing centres. We serve clients across Nottingham, Leicester, Derby, Chesterfield and Northampton with the same quality and reliability.",
-    locations: ["Nottingham", "Leicester", "Derby", "Northampton", "Chesterfield"],
+    description: "The East Midlands is home to some of the UK's most important manufacturing centres. We serve clients across Nottingham, Leicester, Derby, Lincoln, Chesterfield and Northampton with the same quality and reliability.",
+    locations: ["Nottingham", "Leicester", "Derby", "Northampton", "Chesterfield", "Lincoln"],
     industries: ["Heavy engineering", "Textile machinery", "Food processing equipment", "Rail components", "Industrial equipment"],
     stats: { projects: "800+", clients: "200+" }
+  },
+  {
+    id: "yorkshire",
+    name: "Yorkshire",
+    tagline: "Steel City & Beyond",
+    description: "Sheffield's legendary steel industry heritage makes it a natural fit for our shot blasting services. We serve manufacturers and restoration specialists across South Yorkshire.",
+    locations: ["Sheffield"],
+    industries: ["Steel manufacturing", "Cutlery & tools", "Heavy engineering", "Automotive components", "Industrial equipment"],
+    stats: { projects: "300+", clients: "75+" }
   },
   {
     id: "north-west",
@@ -88,7 +97,8 @@ const serviceRegions = [
 // All individual locations for the comprehensive list
 const allLocations = [
   "Birmingham", "Wolverhampton", "Coventry", "Worcester", "Stratford Upon Avon",
-  "Nottingham", "Leicester", "Derby", "Northampton", "Chesterfield",
+  "Nottingham", "Leicester", "Derby", "Northampton", "Chesterfield", "Lincoln",
+  "Sheffield",
   "Liverpool", "Manchester", "Chester", "Stoke-on-Trent",
   "Norwich", "Cambridge", "Peterborough", "St Albans", "Ipswich",
   "Bristol", "Gloucester", "Swindon",
