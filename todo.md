@@ -238,3 +238,10 @@
 - [x] Style with phone icon and teal brand colour
 - [x] Add to App layout
 - [x] Test on mobile viewport
+
+## Floating WhatsApp Button (Mobile)
+- [x] Add WhatsApp button next to Call Now button
+- [x] Use WhatsApp number +44 7721 375756
+- [x] Style with WhatsApp green colour
+- [x] Include WhatsApp icon
+- [x] Test on mobile viewport
