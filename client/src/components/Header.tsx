@@ -158,6 +158,8 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-6">
+          <Link href="/" className="hover:text-white/80 transition">Home</Link>
+          
           {/* Services Dropdown */}
           <div 
             ref={dropdownRef}
@@ -300,6 +302,8 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
       >
         <nav className="container py-4 border-t border-white/20">
           <div className="flex flex-col gap-2">
+            <Link href="/" onClick={closeMobileMenu} className="py-3 hover:text-white/80 transition border-b border-white/10">Home</Link>
+            
             {/* Services with Sub-menu */}
             <div className="border-b border-white/10">
               <button

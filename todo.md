@@ -353,3 +353,9 @@
 - [x] Add navigation links to Service Areas page
 - [x] Add locations to Areas submenu in Header
 - [x] Test all new location pages
+
+
+## Navigation Menu - Home Link
+- [x] Add Home link to desktop navigation menu
+- [x] Add Home link to mobile hamburger menu
+- [x] Test Home links on both desktop and mobile
