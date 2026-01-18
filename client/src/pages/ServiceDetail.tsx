@@ -91,6 +91,40 @@ export default function ServiceDetail() {
                 </div>
               )}
 
+              {/* Before/After Slider for Steel Shot Blasting */}
+              {service.id === "steel-shot-blasting" && (
+                <div>
+                  <h2 className="text-3xl font-bold text-[#2C5F7F] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
+                    See the Transformation
+                  </h2>
+                  <BeforeAfterSlider
+                    beforeImage="/images/premier/steel-container-before.jpeg"
+                    afterImage="/images/premier/steel-container-after.jpeg"
+                    beforeLabel="Before"
+                    afterLabel="After"
+                    className="shadow-xl"
+                  />
+                  <p className="text-center text-gray-600 mt-4 text-sm">Drag the slider to see the dramatic transformation</p>
+                </div>
+              )}
+
+              {/* Before/After Slider for Automotive Restoration */}
+              {service.id === "automotive-restoration" && (
+                <div>
+                  <h2 className="text-3xl font-bold text-[#2C5F7F] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
+                    See the Transformation
+                  </h2>
+                  <BeforeAfterSlider
+                    beforeImage="/images/premier/steel-container-commercial-before.jpeg"
+                    afterImage="/images/premier/steel-container-commercial-after.jpeg"
+                    beforeLabel="Before"
+                    afterLabel="After"
+                    className="shadow-xl"
+                  />
+                  <p className="text-center text-gray-600 mt-4 text-sm">Drag the slider to see the dramatic transformation</p>
+                </div>
+              )}
+
               {/* Description */}
               <div>
                 <h2 className="text-3xl font-bold text-[#2C5F7F] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>

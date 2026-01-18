@@ -200,3 +200,8 @@
 - [x] Add smooth transitions and touch support
 - [x] Integrate slider into Gate Restoration service page
 - [x] Test on desktop and mobile
+
+## Extend Before-After Slider to More Pages
+- [x] Add slider to Steel Shot Blasting service page
+- [x] Add slider to Automotive Restoration service page
+- [x] Test both sliders
