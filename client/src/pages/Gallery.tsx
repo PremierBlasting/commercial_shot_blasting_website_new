@@ -7,30 +7,73 @@ import { Link } from "wouter";
 import { trpc } from "@/lib/trpc";
 
 const galleryItems = [
+  // Industrial Projects
   {
     id: 1,
     title: "Industrial Steel Framework",
-    category: "Steel Shot Blasting",
-    description: "Complete rust and scale removal from structural steel beams",
+    category: "Industrial",
+    description: "Complete rust and scale removal from structural steel beams in manufacturing facility",
     before: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600",
     after: "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=600",
   },
   {
     id: 2,
     title: "Factory Floor Preparation",
-    category: "Concrete Preparation",
-    description: "Surface profiling for epoxy coating application",
+    category: "Industrial",
+    description: "Surface profiling for epoxy coating application in warehouse",
     before: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600",
     after: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600",
   },
   {
+    id: 7,
+    title: "Manufacturing Equipment",
+    category: "Industrial",
+    description: "Heavy machinery restoration and protective coating preparation",
+    before: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600",
+    after: "https://images.unsplash.com/photo-1581092162384-8987c1d64718?w=600",
+  },
+  {
+    id: 8,
+    title: "Industrial Tank Cleaning",
+    category: "Industrial",
+    description: "Storage tank interior surface preparation for recoating",
+    before: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600",
+    after: "https://images.unsplash.com/photo-1530124566582-a618bc2615dc?w=600",
+  },
+  // Automotive Projects
+  {
     id: 3,
     title: "Vehicle Chassis Restoration",
     category: "Automotive",
-    description: "Full chassis blast cleaning and rust removal",
+    description: "Full chassis blast cleaning and rust removal for classic car",
     before: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=600",
     after: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600",
   },
+  {
+    id: 9,
+    title: "Classic Car Body Panels",
+    category: "Automotive",
+    description: "Paint stripping and rust removal from vintage vehicle body",
+    before: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=600",
+    after: "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=600",
+  },
+  {
+    id: 10,
+    title: "Engine Components",
+    category: "Automotive",
+    description: "Precision cleaning of engine blocks and components",
+    before: "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=600",
+    after: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600",
+  },
+  {
+    id: 11,
+    title: "Motorcycle Frame Restoration",
+    category: "Automotive",
+    description: "Complete frame stripping for custom motorcycle build",
+    before: "https://images.unsplash.com/photo-1558981285-6f0c94958bb6?w=600",
+    after: "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=600",
+  },
+  // Marine Projects
   {
     id: 4,
     title: "Marine Equipment",
@@ -40,6 +83,15 @@ const galleryItems = [
     after: "https://images.unsplash.com/photo-1559825481-12a05cc00344?w=600",
   },
   {
+    id: 12,
+    title: "Boat Hull Preparation",
+    category: "Marine",
+    description: "Antifouling removal and hull surface preparation",
+    before: "https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?w=600",
+    after: "https://images.unsplash.com/photo-1540946485063-a40da27545f8?w=600",
+  },
+  // Agriculture Projects
+  {
     id: 5,
     title: "Agricultural Machinery",
     category: "Agriculture",
@@ -48,6 +100,15 @@ const galleryItems = [
     after: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=600",
   },
   {
+    id: 13,
+    title: "Tractor Restoration",
+    category: "Agriculture",
+    description: "Complete rust removal from vintage tractor body",
+    before: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=600",
+    after: "https://images.unsplash.com/photo-1592878904946-b3cd8ae243d0?w=600",
+  },
+  // Infrastructure Projects
+  {
     id: 6,
     title: "Bridge Steelwork",
     category: "Infrastructure",
@@ -55,9 +116,24 @@ const galleryItems = [
     before: "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=600",
     after: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600",
   },
+  {
+    id: 14,
+    title: "Railway Components",
+    category: "Infrastructure",
+    description: "Rail infrastructure maintenance and surface preparation",
+    before: "https://images.unsplash.com/photo-1474487548417-781cb71495f3?w=600",
+    after: "https://images.unsplash.com/photo-1527684651001-731c474bbb5a?w=600",
+  },
 ];
 
-const categories = ["All", "Steel Shot Blasting", "Concrete Preparation", "Automotive", "Marine", "Agriculture", "Infrastructure"];
+const categories = [
+  { name: "All", icon: "🔍" },
+  { name: "Industrial", icon: "🏭" },
+  { name: "Automotive", icon: "🚗" },
+  { name: "Marine", icon: "⚓" },
+  { name: "Agriculture", icon: "🚜" },
+  { name: "Infrastructure", icon: "🌉" },
+];
 
 const testimonials = [
   {
@@ -275,22 +351,39 @@ export default function Gallery() {
       </section>
 
       {/* Category Filter */}
-      <section className="bg-[#F5F1E8] py-6 border-b border-[#e5e0d5]">
+      <section className="bg-[#F5F1E8] py-8 border-b border-[#e5e0d5]">
         <div className="container">
-          <div className="flex flex-wrap gap-2">
-            {categories.map((category) => (
-              <button
-                key={category}
-                onClick={() => setSelectedCategory(category)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition ${
-                  selectedCategory === category
-                    ? "bg-[#2C5F7F] text-white"
-                    : "bg-white text-[#2C2C2C] hover:bg-[#2C5F7F]/10"
-                }`}
-              >
-                {category}
-              </button>
-            ))}
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-lg font-semibold text-[#2C2C2C]">Filter by Category</h2>
+            <span className="text-sm text-gray-500">{filteredItems.length} project{filteredItems.length !== 1 ? 's' : ''}</span>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            {categories.map((category) => {
+              const count = category.name === "All" 
+                ? displayGalleryItems.length 
+                : displayGalleryItems.filter(item => item.category === category.name).length;
+              return (
+                <button
+                  key={category.name}
+                  onClick={() => setSelectedCategory(category.name)}
+                  className={`group flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-medium transition-all duration-200 ${
+                    selectedCategory === category.name
+                      ? "bg-[#2C5F7F] text-white shadow-lg scale-105"
+                      : "bg-white text-[#2C2C2C] hover:bg-[#2C5F7F]/10 hover:scale-102 shadow-sm"
+                  }`}
+                >
+                  <span className="text-lg">{category.icon}</span>
+                  <span>{category.name}</span>
+                  <span className={`ml-1 px-2 py-0.5 rounded-full text-xs font-bold ${
+                    selectedCategory === category.name
+                      ? "bg-white/20 text-white"
+                      : "bg-[#2C5F7F]/10 text-[#2C5F7F]"
+                  }`}>
+                    {count}
+                  </span>
+                </button>
+              );
+            })}
           </div>
         </div>
       </section>
