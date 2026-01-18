@@ -10,6 +10,7 @@ import Admin from "./pages/Admin";
 import ServiceDetail from "./pages/ServiceDetail";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import { CookieConsent } from "./components/CookieConsent";
+import { FloatingCallButton } from "./components/FloatingCallButton";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -43,6 +44,7 @@ function App() {
           <Toaster />
           <Router />
           <CookieConsent />
+          <FloatingCallButton />
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>

@@ -230,3 +230,11 @@
 - [x] Style to match existing hero buttons
 - [x] Include phone icon
 - [x] Test on desktop and mobile
+
+## Floating Call Now Button (Mobile)
+- [x] Create FloatingCallButton component
+- [x] Show only on mobile devices (hidden on desktop)
+- [x] Fixed position at bottom of screen
+- [x] Style with phone icon and teal brand colour
+- [x] Add to App layout
+- [x] Test on mobile viewport
