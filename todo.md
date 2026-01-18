@@ -267,3 +267,13 @@
 - [x] Add coverage area circles/polygons
 - [x] Integrate map into Service Areas page
 - [x] Test map interactivity
+
+## Expanded Service Areas Coverage
+- [x] Add all locations from Premier Blasting sandblasting-near-me page
+- [x] Include: Nottingham, Norwich, Northampton, Cambridge, Gloucester, Oxford
+- [x] Include: Bristol, Chester, Peterborough, Shrewsbury, Hereford, Swindon
+- [x] Include: Stoke, Leicester, Coventry, St Albans, Worcester, Stratford Upon Avon
+- [x] Include: Liverpool, Manchester, Derby, Milton Keynes
+- [x] Update map to show England-wide coverage with 25+ markers
+- [x] Update Service Areas page with 7 regional sections
+- [x] Test expanded map functionality

@@ -4,54 +4,111 @@ import { Card, CardContent } from "@/components/ui/card";
 import { MapPin, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-interface ServiceArea {
-  id: string;
+interface ServiceLocation {
   name: string;
   position: google.maps.LatLngLiteral;
-  radius: number; // in meters
-  color: string;
-  description: string;
+  region?: string;
 }
 
-const serviceAreas: ServiceArea[] = [
-  {
-    id: "birmingham",
-    name: "Birmingham",
-    position: { lat: 52.4862, lng: -1.8904 },
-    radius: 15000, // 15km radius
-    color: "#2C5F7F",
-    description: "Central Birmingham & surrounding industrial areas"
-  },
-  {
-    id: "wolverhampton",
-    name: "Wolverhampton",
-    position: { lat: 52.5870, lng: -2.1288 },
-    radius: 12000, // 12km radius
-    color: "#1a3d52",
-    description: "Wolverhampton & the Black Country"
-  },
+// All service locations across England
+const serviceLocations: ServiceLocation[] = [
+  // West Midlands Core
+  { name: "Birmingham", position: { lat: 52.4862, lng: -1.8904 }, region: "West Midlands" },
+  { name: "Wolverhampton", position: { lat: 52.5870, lng: -2.1288 }, region: "West Midlands" },
+  { name: "Coventry", position: { lat: 52.4068, lng: -1.5197 }, region: "West Midlands" },
+  { name: "Worcester", position: { lat: 52.1936, lng: -2.2216 }, region: "West Midlands" },
+  { name: "Stratford Upon Avon", position: { lat: 52.1917, lng: -1.7083 }, region: "West Midlands" },
+  
+  // East Midlands
+  { name: "Nottingham", position: { lat: 52.9548, lng: -1.1581 }, region: "East Midlands" },
+  { name: "Leicester", position: { lat: 52.6369, lng: -1.1398 }, region: "East Midlands" },
+  { name: "Derby", position: { lat: 52.9225, lng: -1.4746 }, region: "East Midlands" },
+  { name: "Northampton", position: { lat: 52.2405, lng: -0.9027 }, region: "East Midlands" },
+  
+  // North West
+  { name: "Liverpool", position: { lat: 53.4084, lng: -2.9916 }, region: "North West" },
+  { name: "Manchester", position: { lat: 53.4808, lng: -2.2426 }, region: "North West" },
+  { name: "Chester", position: { lat: 53.1930, lng: -2.8931 }, region: "North West" },
+  { name: "Stoke", position: { lat: 53.0027, lng: -2.1794 }, region: "North West" },
+  
+  // East of England
+  { name: "Norwich", position: { lat: 52.6309, lng: 1.2974 }, region: "East of England" },
+  { name: "Cambridge", position: { lat: 52.2053, lng: 0.1218 }, region: "East of England" },
+  { name: "Peterborough", position: { lat: 52.5695, lng: -0.2405 }, region: "East of England" },
+  { name: "St Albans", position: { lat: 51.7520, lng: -0.3390 }, region: "East of England" },
+  
+  // South West
+  { name: "Bristol", position: { lat: 51.4545, lng: -2.5879 }, region: "South West" },
+  { name: "Gloucester", position: { lat: 51.8642, lng: -2.2382 }, region: "South West" },
+  { name: "Swindon", position: { lat: 51.5558, lng: -1.7797 }, region: "South West" },
+  
+  // South East / Thames Valley
+  { name: "Oxford", position: { lat: 51.7520, lng: -1.2577 }, region: "South East" },
+  { name: "Milton Keynes", position: { lat: 52.0406, lng: -0.7594 }, region: "South East" },
+  
+  // Welsh Borders
+  { name: "Shrewsbury", position: { lat: 52.7077, lng: -2.7540 }, region: "Welsh Borders" },
+  { name: "Hereford", position: { lat: 52.0565, lng: -2.7160 }, region: "Welsh Borders" },
+];
+
+// Regional coverage areas for circles
+const regionalCoverage = [
   {
     id: "west-midlands",
     name: "West Midlands",
-    position: { lat: 52.4751, lng: -1.8298 },
-    radius: 35000, // 35km radius - covers the whole region
+    center: { lat: 52.4862, lng: -1.9500 },
+    radius: 40000,
+    color: "#2C5F7F",
+    description: "Our home region - Birmingham, Wolverhampton, Coventry & surrounding areas"
+  },
+  {
+    id: "east-midlands",
+    name: "East Midlands",
+    center: { lat: 52.7500, lng: -1.2000 },
+    radius: 45000,
+    color: "#1a3d52",
+    description: "Nottingham, Leicester, Derby & Northampton"
+  },
+  {
+    id: "north-west",
+    name: "North West",
+    center: { lat: 53.3500, lng: -2.5000 },
+    radius: 50000,
+    color: "#3d7a9e",
+    description: "Liverpool, Manchester, Chester & Stoke"
+  },
+  {
+    id: "east-england",
+    name: "East of England",
+    center: { lat: 52.4000, lng: 0.5000 },
+    radius: 55000,
+    color: "#4a8fb8",
+    description: "Norwich, Cambridge, Peterborough & St Albans"
+  },
+  {
+    id: "south-west",
+    name: "South West",
+    center: { lat: 51.6500, lng: -2.3000 },
+    radius: 40000,
+    color: "#5a9fc8",
+    description: "Bristol, Gloucester & Swindon"
+  },
+  {
+    id: "south-east",
+    name: "South East",
+    center: { lat: 51.9000, lng: -0.9000 },
+    radius: 35000,
+    color: "#6aafda",
+    description: "Oxford & Milton Keynes"
+  },
+  {
+    id: "welsh-borders",
+    name: "Welsh Borders",
+    center: { lat: 52.4000, lng: -2.7500 },
+    radius: 35000,
     color: "#d4a853",
-    description: "Full West Midlands regional coverage"
+    description: "Shrewsbury & Hereford"
   }
-];
-
-// Additional specific locations we serve
-const serviceLocations = [
-  { name: "Digbeth", position: { lat: 52.4750, lng: -1.8820 } },
-  { name: "Longbridge", position: { lat: 52.3960, lng: -1.9780 } },
-  { name: "Tyseley", position: { lat: 52.4580, lng: -1.8480 } },
-  { name: "Coventry", position: { lat: 52.4068, lng: -1.5197 } },
-  { name: "Dudley", position: { lat: 52.5086, lng: -2.0872 } },
-  { name: "Walsall", position: { lat: 52.5860, lng: -1.9829 } },
-  { name: "West Bromwich", position: { lat: 52.5190, lng: -1.9945 } },
-  { name: "Solihull", position: { lat: 52.4130, lng: -1.7780 } },
-  { name: "Bilston", position: { lat: 52.5660, lng: -2.0730 } },
-  { name: "Willenhall", position: { lat: 52.5850, lng: -2.0580 } },
 ];
 
 interface ServiceAreasMapProps {
@@ -61,103 +118,84 @@ interface ServiceAreasMapProps {
 
 export function ServiceAreasMap({ onAreaClick, onQuoteClick }: ServiceAreasMapProps) {
   const mapRef = useRef<google.maps.Map | null>(null);
-  const [selectedArea, setSelectedArea] = useState<ServiceArea | null>(null);
+  const [selectedRegion, setSelectedRegion] = useState<typeof regionalCoverage[0] | null>(null);
   const [isMapLoaded, setIsMapLoaded] = useState(false);
 
   const handleMapReady = (map: google.maps.Map) => {
     mapRef.current = map;
     setIsMapLoaded(true);
 
-    // Add coverage circles for each service area
-    serviceAreas.forEach((area) => {
-      // Create coverage circle
+    // Add coverage circles for each region
+    regionalCoverage.forEach((region) => {
       const circle = new google.maps.Circle({
         map,
-        center: area.position,
-        radius: area.radius,
-        fillColor: area.color,
-        fillOpacity: area.id === "west-midlands" ? 0.1 : 0.2,
-        strokeColor: area.color,
-        strokeOpacity: 0.8,
+        center: region.center,
+        radius: region.radius,
+        fillColor: region.color,
+        fillOpacity: 0.15,
+        strokeColor: region.color,
+        strokeOpacity: 0.6,
         strokeWeight: 2,
         clickable: true,
       });
 
-      // Add click listener to circle
       circle.addListener("click", () => {
-        setSelectedArea(area);
-        map.panTo(area.position);
+        setSelectedRegion(region);
+        map.panTo(region.center);
+        map.setZoom(9);
         if (onAreaClick) {
-          onAreaClick(area.id);
+          onAreaClick(region.id);
         }
       });
     });
 
-    // Add markers for main service areas
-    serviceAreas.filter(a => a.id !== "west-midlands").forEach((area) => {
+    // Add markers for all service locations
+    serviceLocations.forEach((location) => {
       const markerContent = document.createElement("div");
       markerContent.innerHTML = `
         <div style="
-          background: ${area.color};
+          background: #2C5F7F;
           color: white;
-          padding: 8px 12px;
-          border-radius: 8px;
-          font-weight: bold;
-          font-size: 14px;
-          box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+          padding: 6px 10px;
+          border-radius: 6px;
+          font-weight: 600;
+          font-size: 12px;
+          box-shadow: 0 3px 10px rgba(0,0,0,0.3);
           cursor: pointer;
           display: flex;
           align-items: center;
-          gap: 6px;
+          gap: 4px;
+          white-space: nowrap;
         ">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
             <circle cx="12" cy="10" r="3"></circle>
           </svg>
-          ${area.name}
+          ${location.name}
         </div>
       `;
 
       const marker = new google.maps.marker.AdvancedMarkerElement({
         map,
-        position: area.position,
+        position: location.position,
         content: markerContent,
-        title: area.name,
+        title: location.name,
       });
 
       marker.addListener("click", () => {
-        setSelectedArea(area);
-        map.panTo(area.position);
-        map.setZoom(11);
-        if (onAreaClick) {
-          onAreaClick(area.id);
+        const region = regionalCoverage.find(r => 
+          serviceLocations.filter(l => l.region === location.region)
+            .some(l => l.name === location.name)
+        );
+        if (region) {
+          setSelectedRegion(region);
         }
+        map.panTo(location.position);
+        map.setZoom(11);
       });
     });
 
-    // Add smaller markers for specific locations
-    serviceLocations.forEach((location) => {
-      const smallMarker = document.createElement("div");
-      smallMarker.innerHTML = `
-        <div style="
-          background: white;
-          border: 2px solid #2C5F7F;
-          width: 12px;
-          height: 12px;
-          border-radius: 50%;
-          box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-        "></div>
-      `;
-
-      new google.maps.marker.AdvancedMarkerElement({
-        map,
-        position: location.position,
-        content: smallMarker,
-        title: location.name,
-      });
-    });
-
-    // Add company HQ marker
+    // Add HQ marker
     const hqContent = document.createElement("div");
     hqContent.innerHTML = `
       <div style="
@@ -177,20 +215,28 @@ export function ServiceAreasMap({ onAreaClick, onQuoteClick }: ServiceAreasMapPr
 
     new google.maps.marker.AdvancedMarkerElement({
       map,
-      position: { lat: 52.5200, lng: -2.0500 }, // Approximate HQ location
+      position: { lat: 52.5200, lng: -2.0500 },
       content: hqContent,
       title: "Commercial Shot Blasting HQ",
     });
   };
 
-  const handleZoomToArea = (area: ServiceArea) => {
+  const handleZoomToRegion = (region: typeof regionalCoverage[0]) => {
     if (mapRef.current) {
-      mapRef.current.panTo(area.position);
-      mapRef.current.setZoom(area.id === "west-midlands" ? 9 : 11);
-      setSelectedArea(area);
+      mapRef.current.panTo(region.center);
+      mapRef.current.setZoom(9);
+      setSelectedRegion(region);
       if (onAreaClick) {
-        onAreaClick(area.id);
+        onAreaClick(region.id);
       }
+    }
+  };
+
+  const handleShowAll = () => {
+    if (mapRef.current) {
+      mapRef.current.setCenter({ lat: 52.5, lng: -1.5 });
+      mapRef.current.setZoom(6);
+      setSelectedRegion(null);
     }
   };
 
@@ -200,8 +246,8 @@ export function ServiceAreasMap({ onAreaClick, onQuoteClick }: ServiceAreasMapPr
       <div className="relative rounded-xl overflow-hidden shadow-2xl border-4 border-white">
         <MapView
           className="h-[500px] md:h-[600px]"
-          initialCenter={{ lat: 52.4862, lng: -1.9500 }}
-          initialZoom={9}
+          initialCenter={{ lat: 52.5, lng: -1.5 }}
+          initialZoom={6}
           onMapReady={handleMapReady}
         />
         
@@ -215,20 +261,20 @@ export function ServiceAreasMap({ onAreaClick, onQuoteClick }: ServiceAreasMapPr
           </div>
         )}
 
-        {/* Selected Area Info Card */}
-        {selectedArea && (
+        {/* Selected Region Info Card */}
+        {selectedRegion && (
           <Card className="absolute bottom-4 left-4 right-4 md:left-auto md:right-4 md:w-80 bg-white/95 backdrop-blur shadow-xl border-0">
             <CardContent className="p-4">
               <div className="flex items-start gap-3">
                 <div 
                   className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0"
-                  style={{ backgroundColor: selectedArea.color }}
+                  style={{ backgroundColor: selectedRegion.color }}
                 >
                   <MapPin className="w-5 h-5 text-white" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="font-bold text-[#1a3d52]">{selectedArea.name}</h3>
-                  <p className="text-sm text-gray-600 mb-3">{selectedArea.description}</p>
+                  <h3 className="font-bold text-[#1a3d52]">{selectedRegion.name}</h3>
+                  <p className="text-sm text-gray-600 mb-3">{selectedRegion.description}</p>
                   <div className="flex gap-2">
                     <Button 
                       size="sm" 
@@ -241,16 +287,14 @@ export function ServiceAreasMap({ onAreaClick, onQuoteClick }: ServiceAreasMapPr
                       size="sm" 
                       variant="outline" 
                       className="text-xs"
-                      asChild
+                      onClick={handleShowAll}
                     >
-                      <a href={`#${selectedArea.id}`}>
-                        View Details
-                      </a>
+                      View All Areas
                     </Button>
                   </div>
                 </div>
                 <button 
-                  onClick={() => setSelectedArea(null)}
+                  onClick={() => setSelectedRegion(null)}
                   className="text-gray-400 hover:text-gray-600"
                 >
                   ×
@@ -261,48 +305,89 @@ export function ServiceAreasMap({ onAreaClick, onQuoteClick }: ServiceAreasMapPr
         )}
       </div>
 
-      {/* Area Quick Links */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        {serviceAreas.filter(a => a.id !== "west-midlands").map((area) => (
+      {/* Region Quick Links */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+        {regionalCoverage.slice(0, 4).map((region) => (
           <button
-            key={area.id}
-            onClick={() => handleZoomToArea(area)}
-            className="flex items-center gap-3 p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition group text-left"
+            key={region.id}
+            onClick={() => handleZoomToRegion(region)}
+            className="flex items-center gap-2 p-3 bg-white rounded-lg shadow-md hover:shadow-lg transition group text-left"
           >
             <div 
-              className="w-12 h-12 rounded-full flex items-center justify-center group-hover:scale-110 transition"
-              style={{ backgroundColor: area.color }}
+              className="w-8 h-8 rounded-full flex items-center justify-center group-hover:scale-110 transition flex-shrink-0"
+              style={{ backgroundColor: region.color }}
             >
-              <MapPin className="w-6 h-6 text-white" />
+              <MapPin className="w-4 h-4 text-white" />
             </div>
-            <div>
-              <h4 className="font-semibold text-[#1a3d52] group-hover:text-[#2C5F7F] transition">
-                {area.name}
+            <div className="min-w-0">
+              <h4 className="font-semibold text-[#1a3d52] text-sm group-hover:text-[#2C5F7F] transition truncate">
+                {region.name}
               </h4>
-              <p className="text-sm text-gray-500">Click to view on map</p>
+            </div>
+          </button>
+        ))}
+      </div>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+        {regionalCoverage.slice(4).map((region) => (
+          <button
+            key={region.id}
+            onClick={() => handleZoomToRegion(region)}
+            className="flex items-center gap-2 p-3 bg-white rounded-lg shadow-md hover:shadow-lg transition group text-left"
+          >
+            <div 
+              className="w-8 h-8 rounded-full flex items-center justify-center group-hover:scale-110 transition flex-shrink-0"
+              style={{ backgroundColor: region.color }}
+            >
+              <MapPin className="w-4 h-4 text-white" />
+            </div>
+            <div className="min-w-0">
+              <h4 className="font-semibold text-[#1a3d52] text-sm group-hover:text-[#2C5F7F] transition truncate">
+                {region.name}
+              </h4>
             </div>
           </button>
         ))}
         <button
-          onClick={() => handleZoomToArea(serviceAreas.find(a => a.id === "west-midlands")!)}
-          className="flex items-center gap-3 p-4 bg-[#d4a853]/10 border-2 border-[#d4a853] rounded-lg hover:bg-[#d4a853]/20 transition group text-left"
+          onClick={handleShowAll}
+          className="flex items-center gap-2 p-3 bg-[#d4a853]/10 border-2 border-[#d4a853] rounded-lg hover:bg-[#d4a853]/20 transition group text-left"
         >
-          <div className="w-12 h-12 rounded-full flex items-center justify-center bg-[#d4a853] group-hover:scale-110 transition">
-            <MapPin className="w-6 h-6 text-[#1a3d52]" />
+          <div className="w-8 h-8 rounded-full flex items-center justify-center bg-[#d4a853] group-hover:scale-110 transition flex-shrink-0">
+            <MapPin className="w-4 h-4 text-[#1a3d52]" />
           </div>
-          <div>
-            <h4 className="font-semibold text-[#1a3d52] group-hover:text-[#2C5F7F] transition">
-              Full Region
+          <div className="min-w-0">
+            <h4 className="font-semibold text-[#1a3d52] text-sm group-hover:text-[#2C5F7F] transition">
+              All Regions
             </h4>
-            <p className="text-sm text-gray-500">View all coverage</p>
           </div>
         </button>
+      </div>
+
+      {/* Location List */}
+      <div className="bg-white rounded-xl p-6 shadow-lg">
+        <h3 className="text-lg font-semibold text-[#1a3d52] mb-4">All Service Locations</h3>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2">
+          {serviceLocations.map((location) => (
+            <div 
+              key={location.name}
+              className="flex items-center gap-2 p-2 rounded-lg hover:bg-gray-50 cursor-pointer transition"
+              onClick={() => {
+                if (mapRef.current) {
+                  mapRef.current.panTo(location.position);
+                  mapRef.current.setZoom(11);
+                }
+              }}
+            >
+              <div className="w-2 h-2 rounded-full bg-[#2C5F7F]" />
+              <span className="text-sm text-gray-700">{location.name}</span>
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* Contact CTA */}
       <div className="bg-[#1a3d52] rounded-xl p-6 text-center text-white">
         <h3 className="text-xl font-semibold mb-2">Not sure if we cover your area?</h3>
-        <p className="text-white/70 mb-4">Give us a call and we'll confirm coverage for your location.</p>
+        <p className="text-white/70 mb-4">We travel across England for larger projects. Give us a call to discuss your requirements.</p>
         <Button 
           className="bg-[#d4a853] hover:bg-[#c49843] text-[#1a3d52] font-semibold"
           asChild
