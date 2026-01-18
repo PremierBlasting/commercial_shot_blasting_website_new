@@ -201,15 +201,33 @@ export function ServiceAreasMap({ onAreaClick, onQuoteClick }: ServiceAreasMapPr
       });
 
       marker.addListener("click", () => {
-        const region = regionalCoverage.find(r => 
-          serviceLocations.filter(l => l.region === location.region)
-            .some(l => l.name === location.name)
-        );
-        if (region) {
-          setSelectedRegion(region);
+        // Convert location name to URL slug
+        const slug = location.name.toLowerCase().replace(/\s+/g, '-');
+        // Navigate to location page if it exists, otherwise zoom to location
+        const locationPages = [
+          'birmingham', 'wolverhampton', 'coventry', 'worcester', 'stratford-upon-avon',
+          'nottingham', 'leicester', 'derby', 'lincoln',
+          'sheffield', 'leeds',
+          'manchester', 'liverpool', 'chester', 'stoke',
+          'norwich', 'cambridge', 'ipswich', 'st-albans',
+          'bristol', 'gloucester', 'swindon',
+          'milton-keynes',
+          'shrewsbury', 'hereford', 'cardiff'
+        ];
+        
+        if (locationPages.includes(slug)) {
+          window.location.href = `/service-areas/${slug}`;
+        } else {
+          const region = regionalCoverage.find(r => 
+            serviceLocations.filter(l => l.region === location.region)
+              .some(l => l.name === location.name)
+          );
+          if (region) {
+            setSelectedRegion(region);
+          }
+          map.panTo(location.position);
+          map.setZoom(11);
         }
-        map.panTo(location.position);
-        map.setZoom(11);
       });
     });
 

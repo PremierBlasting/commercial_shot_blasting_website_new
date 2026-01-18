@@ -421,5 +421,12 @@
 - [x] Implement mega menu for desktop Areas dropdown with multi-column layout
 - [x] Implement scrollable accordion for mobile hamburger menu
 - [x] Test desktop mega menu functionality
-- [ ] Test mobile accordion menu functionality
-- [ ] Push changes to GitHub repository
+- [x] Test mobile accordion menu functionality
+- [x] Push changes to GitHub repository
+
+
+## Fix Location Links - Use Proper URLs
+- [x] Update Header component to use `/service-areas/location` for all locations with landing pages
+- [x] Update ServiceAreasMap component pin links to use proper URLs
+- [x] Test all location links in menu and map
+- [ ] Push changes to GitHub
