@@ -473,5 +473,5 @@
 - [x] Update ServiceAreas.tsx to make all location names clickable links
 - [x] Link to dedicated landing pages where they exist
 - [x] Test all location links
-- [ ] Save checkpoint
+- [x] Save checkpoint
 - [ ] Push changes to GitHub
