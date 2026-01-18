@@ -43,15 +43,32 @@ const galleryItems = [
     before: "/images/premier/steel-container-before.jpeg",
     after: "/images/premier/steel-container-after.jpeg",
   },
-  // Automotive Projects
+  // Gates Projects
   {
     id: 3,
     title: "Metal Gate Restoration",
-    category: "Automotive",
-    description: "Full gate blast cleaning and rust removal",
+    category: "Gates",
+    description: "Full gate blast cleaning and rust removal - transforming rusty gates to pristine condition",
     before: "/images/premier/gate-metal-before.jpeg",
     after: "/images/premier/gate-metal-after.jpeg",
   },
+  {
+    id: 15,
+    title: "Decorative Gate Blasting",
+    category: "Gates",
+    description: "Shot blasting ornamental metal gates for paint preparation and rust removal",
+    before: "/images/premier/gate-metal-1.jpeg",
+    after: "/images/premier/gate-main.jpeg",
+  },
+  {
+    id: 16,
+    title: "Commercial Gate Restoration",
+    category: "Gates",
+    description: "Industrial gate surface preparation for protective coating application",
+    before: "/images/premier/shot-blasting-gate.jpeg",
+    after: "/images/premier/gate-metal-after.jpeg",
+  },
+  // Automotive Projects
   {
     id: 9,
     title: "Classic Car Body Panels",
@@ -132,6 +149,7 @@ const galleryItems = [
 const categories = [
   { name: "All", icon: "🔍" },
   { name: "Industrial", icon: "🏭" },
+  { name: "Gates", icon: "🚪" },
   { name: "Automotive", icon: "🚗" },
   { name: "Marine", icon: "⚓" },
   { name: "Agriculture", icon: "🚜" },

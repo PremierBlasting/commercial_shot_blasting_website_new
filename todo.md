@@ -182,3 +182,8 @@
 - [x] Update Home page hero and service sections
 - [x] Update Gallery page with real project images
 - [x] Update Service Detail pages with relevant images
+
+## Metal Gate Gallery Items
+- [x] Add gate restoration before/after images to gallery
+- [x] Create new "Gates" category in gallery filter
+- [x] Test gallery filtering with new gate items
