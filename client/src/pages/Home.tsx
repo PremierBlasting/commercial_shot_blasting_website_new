@@ -112,25 +112,27 @@ export default function Home() {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { title: "Steel Shot Blasting", desc: "High-performance cleaning for steel structures, removing rust, mill scale, and old coatings.", img: "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=400" },
-              { title: "Concrete Preparation", desc: "Surface profiling for optimal coating adhesion on floors, walls, and structural elements.", img: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=400" },
-              { title: "Rust Removal", desc: "Complete corrosion removal restoring metal surfaces to pristine condition.", img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400" },
-              { title: "Paint Stripping", desc: "Safe and effective removal of old paint, primers, and protective coatings.", img: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400" },
-              { title: "Surface Profiling", desc: "Precision surface preparation achieving exact anchor patterns for coatings.", img: "https://images.unsplash.com/photo-1530124566582-a618bc2615dc?w=400" },
-              { title: "Industrial Cleaning", desc: "Heavy-duty cleaning for machinery, equipment, and industrial components.", img: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=400" },
+              { title: "Steel Shot Blasting", desc: "High-performance cleaning for steel structures, removing rust, mill scale, and old coatings.", img: "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=400", link: "/services/steel-shot-blasting" },
+              { title: "Concrete Preparation", desc: "Surface profiling for optimal coating adhesion on floors, walls, and structural elements.", img: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=400", link: "/services/concrete-preparation" },
+              { title: "Automotive Restoration", desc: "Precision cleaning for vehicle restoration, removing rust, paint, and underseal.", img: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=400", link: "/services/automotive-restoration" },
+              { title: "Marine Services", desc: "Hull and deck surface preparation for boats, ships, and offshore structures.", img: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=400", link: "/services/marine-services" },
+              { title: "Agricultural Equipment", desc: "Restoring farm machinery and implements to peak condition.", img: "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=400", link: "/services/agricultural-equipment" },
+              { title: "Infrastructure Projects", desc: "Large-scale surface preparation for bridges, tunnels, and industrial facilities.", img: "https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=400", link: "/services/infrastructure-projects" },
             ].map((service, i) => (
-              <Card key={i} className="group overflow-hidden hover:shadow-lg transition-shadow">
-                <div className="h-48 overflow-hidden">
-                  <img src={service.img} alt={service.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-                </div>
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold mb-2 text-[#2C5F7F]" style={{ fontFamily: "'Playfair Display', serif" }}>{service.title}</h3>
-                  <p className="text-gray-600 mb-4">{service.desc}</p>
-                  <a href="#contact" className="inline-flex items-center text-[#2C5F7F] font-medium hover:gap-2 transition-all">
-                    Learn More <ArrowRight className="w-4 h-4 ml-1" />
-                  </a>
-                </CardContent>
-              </Card>
+              <Link key={i} href={service.link}>
+                <Card className="group overflow-hidden hover:shadow-lg transition-shadow h-full cursor-pointer">
+                  <div className="h-48 overflow-hidden">
+                    <img src={service.img} alt={service.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                  </div>
+                  <CardContent className="p-6">
+                    <h3 className="text-xl font-semibold mb-2 text-[#2C5F7F]" style={{ fontFamily: "'Playfair Display', serif" }}>{service.title}</h3>
+                    <p className="text-gray-600 mb-4">{service.desc}</p>
+                    <span className="inline-flex items-center text-[#2C5F7F] font-medium group-hover:gap-2 transition-all">
+                      Learn More <ArrowRight className="w-4 h-4 ml-1" />
+                    </span>
+                  </CardContent>
+                </Card>
+              </Link>
             ))}
           </div>
         </div>

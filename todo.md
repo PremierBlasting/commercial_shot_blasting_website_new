@@ -134,3 +134,14 @@
 - [x] Create SVG favicon with CSB branding
 - [x] Add favicon to public folder
 - [x] Update index.html with favicon link
+
+## Individual Service Pages
+- [x] Create Steel Shot Blasting service page
+- [x] Create Concrete Preparation service page
+- [x] Create Automotive Restoration service page
+- [x] Create Marine Services service page
+- [x] Create Agricultural Equipment service page
+- [x] Create Infrastructure Projects service page
+- [x] Add case studies to each service page
+- [x] Update navigation to link to service pages
+- [x] Add routes in App.tsx
