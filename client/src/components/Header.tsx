@@ -93,10 +93,21 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
   const [mobileAreasOpen, setMobileAreasOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [areasOpen, setAreasOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
   const dropdownRef = useRef<HTMLDivElement>(null);
   const areasDropdownRef = useRef<HTMLDivElement>(null);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const areasTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Filter locations based on search query
+  const filteredAreasLinks = searchQuery.trim() === "" 
+    ? areasLinks 
+    : areasLinks.map(region => ({
+        ...region,
+        locations: region.locations.filter(loc => 
+          loc.title.toLowerCase().includes(searchQuery.toLowerCase())
+        )
+      })).filter(region => region.locations.length > 0);
 
   const closeMobileMenu = () => {
     setMobileMenuOpen(false);
@@ -251,8 +262,18 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
             >
               <div className="w-[800px] bg-white rounded-lg shadow-2xl border border-gray-100 overflow-hidden">
                 <div className="p-6">
+                  {/* Search Bar */}
+                  <div className="mb-4">
+                    <input
+                      type="text"
+                      placeholder="Search locations..."
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2C5F7F] focus:border-transparent text-gray-700 text-sm"
+                    />
+                  </div>
                   <div className="grid grid-cols-3 gap-6">
-                    {areasLinks.map((area) => (
+                    {filteredAreasLinks.map((area) => (
                       <div key={area.region}>
                         <div className="font-semibold text-[#2C5F7F] text-sm mb-3 pb-2 border-b border-gray-200">
                           {area.region}
@@ -272,11 +293,16 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
                       </div>
                     ))}
                   </div>
+                  {filteredAreasLinks.length === 0 && (
+                    <div className="col-span-3 text-center py-8 text-gray-500">
+                      No locations found matching "{searchQuery}"
+                    </div>
+                  )}
                   <div className="mt-6 pt-4 border-t border-gray-200">
                     <Link
                       href="/service-areas"
                       className="inline-flex items-center text-[#2C5F7F] font-medium hover:text-[#1a3d52] transition-colors text-sm"
-                      onClick={() => setAreasOpen(false)}
+                      onClick={() => { setAreasOpen(false); setSearchQuery(""); }}
                     >
                       View All Service Areas →
                     </Link>
