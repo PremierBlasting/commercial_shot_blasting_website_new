@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
-import { Phone, ArrowLeft, ArrowRight, Star, Quote, X } from "lucide-react";
+import { Phone, ArrowLeft, ArrowRight, Star, Quote, X, Menu } from "lucide-react";
 import { useState, useMemo } from "react";
 import { Link } from "wouter";
 import { trpc } from "@/lib/trpc";
@@ -124,6 +124,9 @@ export default function Gallery() {
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
   const [lightboxImages, setLightboxImages] = useState<string[]>([]);
   const [lightboxIndex, setLightboxIndex] = useState(0);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const closeMobileMenu = () => setMobileMenuOpen(false);
 
   // Fetch data from database
   const { data: dbGalleryItems } = trpc.gallery.list.useQuery();
@@ -197,7 +200,7 @@ export default function Gallery() {
             <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center border-2 border-white/30">
               <span className="text-xl font-bold">CSB</span>
             </div>
-            <div>
+            <div className="hidden sm:block">
               <h1 className="text-xl font-bold" style={{ fontFamily: "'Playfair Display', serif" }}>Commercial Shot Blasting</h1>
               <p className="text-xs text-white/80">Professional Surface Preparation</p>
             </div>
@@ -210,14 +213,48 @@ export default function Gallery() {
             <Link href="/#contact" className="hover:text-white/80 transition">Contact</Link>
           </nav>
           <div className="flex items-center gap-4">
-            <a href="tel:07970566409" className="hidden sm:flex items-center gap-2 text-sm">
+            <a href="tel:07970566409" className="hidden lg:flex items-center gap-2 text-sm">
               <Phone className="w-4 h-4" />
               07970 566409
             </a>
             <Link href="/#contact">
-              <Button className="bg-white text-[#2C5F7F] hover:bg-white/90">Get a Quote</Button>
+              <Button className="hidden sm:flex bg-white text-[#2C5F7F] hover:bg-white/90">Get a Quote</Button>
             </Link>
+            {/* Mobile Menu Button */}
+            <button 
+              className="md:hidden p-2 hover:bg-white/10 rounded-lg transition"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
           </div>
+        </div>
+
+        {/* Mobile Menu */}
+        <div 
+          className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+            mobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+          }`}
+        >
+          <nav className="container py-4 border-t border-white/20">
+            <div className="flex flex-col gap-4">
+              <Link href="/" onClick={closeMobileMenu} className="py-2 hover:text-white/80 transition border-b border-white/10">Home</Link>
+              <Link href="/#services" onClick={closeMobileMenu} className="py-2 hover:text-white/80 transition border-b border-white/10">Services</Link>
+              <Link href="/#about" onClick={closeMobileMenu} className="py-2 hover:text-white/80 transition border-b border-white/10">About</Link>
+              <Link href="/gallery" onClick={closeMobileMenu} className="py-2 hover:text-white/80 transition border-b border-white/10 font-semibold">Gallery</Link>
+              <Link href="/#contact" onClick={closeMobileMenu} className="py-2 hover:text-white/80 transition border-b border-white/10">Contact</Link>
+              <div className="flex flex-col gap-3 pt-2">
+                <a href="tel:07970566409" className="flex items-center gap-2 text-sm">
+                  <Phone className="w-4 h-4" />
+                  07970 566409
+                </a>
+                <Link href="/#contact" onClick={closeMobileMenu}>
+                  <Button className="bg-white text-[#2C5F7F] hover:bg-white/90 w-full">Get a Quote</Button>
+                </Link>
+              </div>
+            </div>
+          </nav>
         </div>
       </header>
 

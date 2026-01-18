@@ -43,5 +43,12 @@
 - [x] Write testimonials API test
 
 ## Deployment
-- [ ] Create GitHub repository
-- [ ] Push code to repository
+- [x] Create GitHub repository
+- [x] Push code to repository
+
+## Mobile Navigation
+- [x] Add hamburger menu icon for mobile
+- [x] Create slide-out mobile menu with all navigation links
+- [x] Add smooth open/close animations
+- [x] Implement on Home page
+- [x] Implement on Gallery page

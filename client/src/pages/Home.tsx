@@ -3,13 +3,14 @@ import { Link } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Phone, Mail, MapPin, CheckCircle, ArrowRight, Shield, Clock, Award, Users } from "lucide-react";
+import { Phone, Mail, MapPin, CheckCircle, ArrowRight, Shield, Clock, Award, Users, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 import { trpc } from "@/lib/trpc";
 
 export default function Home() {
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "" });
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const submitContact = trpc.contact.submit.useMutation({
     onSuccess: () => {
@@ -26,6 +27,8 @@ export default function Home() {
     submitContact.mutate(formData);
   };
 
+  const closeMobileMenu = () => setMobileMenuOpen(false);
+
   return (
     <div className="min-h-screen flex flex-col" style={{ fontFamily: "'Open Sans', sans-serif" }}>
       {/* Header */}
@@ -35,7 +38,7 @@ export default function Home() {
             <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center border-2 border-white/30">
               <span className="text-xl font-bold">CSB</span>
             </div>
-            <div>
+            <div className="hidden sm:block">
               <h1 className="text-xl font-bold" style={{ fontFamily: "'Playfair Display', serif" }}>Commercial Shot Blasting</h1>
               <p className="text-xs text-white/80">Professional Surface Preparation</p>
             </div>
@@ -48,12 +51,44 @@ export default function Home() {
             <a href="#contact" className="hover:text-white/80 transition">Contact</a>
           </nav>
           <div className="flex items-center gap-4">
-            <a href="tel:07970566409" className="hidden sm:flex items-center gap-2 text-sm">
+            <a href="tel:07970566409" className="hidden lg:flex items-center gap-2 text-sm">
               <Phone className="w-4 h-4" />
               07970 566409
             </a>
-            <Button className="bg-white text-[#2C5F7F] hover:bg-white/90">Get a Quote</Button>
+            <Button className="hidden sm:flex bg-white text-[#2C5F7F] hover:bg-white/90">Get a Quote</Button>
+            {/* Mobile Menu Button */}
+            <button 
+              className="md:hidden p-2 hover:bg-white/10 rounded-lg transition"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
           </div>
+        </div>
+
+        {/* Mobile Menu */}
+        <div 
+          className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+            mobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+          }`}
+        >
+          <nav className="container py-4 border-t border-white/20">
+            <div className="flex flex-col gap-4">
+              <a href="#services" onClick={closeMobileMenu} className="py-2 hover:text-white/80 transition border-b border-white/10">Services</a>
+              <a href="#about" onClick={closeMobileMenu} className="py-2 hover:text-white/80 transition border-b border-white/10">About</a>
+              <a href="#industries" onClick={closeMobileMenu} className="py-2 hover:text-white/80 transition border-b border-white/10">Industries</a>
+              <Link href="/gallery" onClick={closeMobileMenu} className="py-2 hover:text-white/80 transition border-b border-white/10">Gallery</Link>
+              <a href="#contact" onClick={closeMobileMenu} className="py-2 hover:text-white/80 transition border-b border-white/10">Contact</a>
+              <div className="flex flex-col gap-3 pt-2">
+                <a href="tel:07970566409" className="flex items-center gap-2 text-sm">
+                  <Phone className="w-4 h-4" />
+                  07970 566409
+                </a>
+                <Button className="bg-white text-[#2C5F7F] hover:bg-white/90 w-full">Get a Quote</Button>
+              </div>
+            </div>
+          </nav>
         </div>
       </header>
 
