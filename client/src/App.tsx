@@ -10,6 +10,7 @@ import Admin from "./pages/Admin";
 import ServiceDetail from "./pages/ServiceDetail";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import ServiceAreas from "./pages/ServiceAreas";
+import BirminghamServiceArea from "./pages/BirminghamServiceArea";
 import { CookieConsent } from "./components/CookieConsent";
 import { FloatingCallButton } from "./components/FloatingCallButton";
 
@@ -23,6 +24,7 @@ function Router() {
       <Route path="/services/:id" component={ServiceDetail} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route path="/service-areas" component={ServiceAreas} />
+      <Route path="/service-areas/birmingham" component={BirminghamServiceArea} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />

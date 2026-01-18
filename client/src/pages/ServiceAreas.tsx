@@ -280,14 +280,26 @@ export default function ServiceAreas() {
                       Locations We Serve
                     </h3>
                     <div className="flex flex-wrap gap-2 mb-6">
-                      {region.locations.map((location) => (
-                        <span 
-                          key={location}
-                          className="px-3 py-1 bg-[#2C5F7F]/10 text-[#2C5F7F] rounded-full text-sm font-medium"
-                        >
-                          {location}
-                        </span>
-                      ))}
+                      {region.locations.map((location) => {
+                        // Add link for Birmingham
+                        if (location === "Birmingham" && region.id === "west-midlands") {
+                          return (
+                            <Link key={location} href="/service-areas/birmingham">
+                              <span className="px-3 py-1 bg-[#2C5F7F]/10 text-[#2C5F7F] rounded-full text-sm font-medium hover:bg-[#2C5F7F]/20 cursor-pointer transition-colors">
+                                {location}
+                              </span>
+                            </Link>
+                          );
+                        }
+                        return (
+                          <span 
+                            key={location}
+                            className="px-3 py-1 bg-[#2C5F7F]/10 text-[#2C5F7F] rounded-full text-sm font-medium"
+                          >
+                            {location}
+                          </span>
+                        );
+                      })}
                     </div>
 
                     <h3 className="font-semibold text-[#1a3d52] mb-4 flex items-center gap-2">

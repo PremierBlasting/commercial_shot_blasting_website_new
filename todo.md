@@ -300,4 +300,16 @@
 - [x] Update Yorkshire region to include Leeds and Bradford
 - [x] Add interactive map to Contact page
 - [x] Style map section to match Contact page design
-- [ ] Test Contact page with map
+- [x] Test Contact page with map
+
+
+## Local SEO - Birmingham Landing Page
+- [x] Create Birmingham landing page component
+- [x] Add Birmingham-specific content sections
+- [x] Add local industry focus (automotive, manufacturing, engineering)
+- [x] Add service highlights for Birmingham area
+- [x] Add local testimonials/case studies
+- [x] Add route in App.tsx (/service-areas/birmingham)
+- [x] Add navigation links from Service Areas page
+- [ ] Add LocalBusiness schema markup for Birmingham
+- [x] Test Birmingham page functionality
