@@ -6,6 +6,7 @@ import { QuotePopup } from "@/components/QuotePopup";
 import { Header } from "@/components/Header";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { Breadcrumb } from "@/components/Breadcrumb";
+import { LocalBusinessSchema } from "@/components/LocalBusinessSchema";
 
 export default function LeedsServiceArea() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
@@ -14,6 +15,13 @@ export default function LeedsServiceArea() {
     <div className="min-h-screen bg-white">
       <Header onOpenQuotePopup={() => setQuotePopupOpen(true)} />
       <QuotePopup open={quotePopupOpen} onOpenChange={setQuotePopupOpen} />
+      <LocalBusinessSchema
+        name="Leeds"
+        city="Leeds"
+        region="Yorkshire"
+        description="Professional shot blasting services in Leeds and Yorkshire"
+        url="https://shotblast-lwspuaik.manus.space/service-areas/leeds"
+      />
 
       {/* Breadcrumb Navigation */}
       <section className="py-4 bg-gray-50 border-b border-gray-200">
