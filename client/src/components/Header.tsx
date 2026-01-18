@@ -22,63 +22,63 @@ const areasLinks = [
     region: "West Midlands",
     locations: [
       { title: "Birmingham", href: "/service-areas/birmingham" },
-      { title: "Wolverhampton", href: "/service-areas" },
-      { title: "Coventry", href: "/service-areas" },
+      { title: "Wolverhampton", href: "/service-areas#west-midlands" },
+      { title: "Coventry", href: "/service-areas#west-midlands" },
     ]
   },
   {
     region: "East Midlands",
     locations: [
-      { title: "Nottingham", href: "/service-areas" },
-      { title: "Leicester", href: "/service-areas" },
-      { title: "Derby", href: "/service-areas" },
+      { title: "Nottingham", href: "/service-areas#east-midlands" },
+      { title: "Leicester", href: "/service-areas#east-midlands" },
+      { title: "Derby", href: "/service-areas#east-midlands" },
     ]
   },
   {
     region: "Yorkshire",
     locations: [
-      { title: "Sheffield", href: "/service-areas" },
-      { title: "Leeds", href: "/service-areas" },
-      { title: "Bradford", href: "/service-areas" },
+      { title: "Sheffield", href: "/service-areas/sheffield" },
+      { title: "Leeds", href: "/service-areas#yorkshire" },
+      { title: "Bradford", href: "/service-areas#yorkshire" },
     ]
   },
   {
     region: "North West",
     locations: [
-      { title: "Manchester", href: "/service-areas" },
-      { title: "Liverpool", href: "/service-areas" },
-      { title: "Chester", href: "/service-areas" },
+      { title: "Manchester", href: "/service-areas/manchester" },
+      { title: "Liverpool", href: "/service-areas#north-west" },
+      { title: "Chester", href: "/service-areas#north-west" },
     ]
   },
   {
     region: "East of England",
     locations: [
-      { title: "Norwich", href: "/service-areas" },
-      { title: "Cambridge", href: "/service-areas" },
-      { title: "Peterborough", href: "/service-areas" },
+      { title: "Norwich", href: "/service-areas#east-england" },
+      { title: "Cambridge", href: "/service-areas#east-england" },
+      { title: "Peterborough", href: "/service-areas#east-england" },
     ]
   },
   {
     region: "South West",
     locations: [
-      { title: "Bristol", href: "/service-areas" },
-      { title: "Gloucester", href: "/service-areas" },
-      { title: "Swindon", href: "/service-areas" },
+      { title: "Bristol", href: "/service-areas/bristol" },
+      { title: "Gloucester", href: "/service-areas#south-west" },
+      { title: "Swindon", href: "/service-areas#south-west" },
     ]
   },
   {
     region: "South East",
     locations: [
-      { title: "Oxford", href: "/service-areas" },
-      { title: "Milton Keynes", href: "/service-areas" },
+      { title: "Oxford", href: "/service-areas#south-east" },
+      { title: "Milton Keynes", href: "/service-areas#south-east" },
     ]
   },
   {
     region: "Welsh Borders & Wales",
     locations: [
-      { title: "Shrewsbury", href: "/service-areas" },
-      { title: "Hereford", href: "/service-areas" },
-      { title: "Cardiff", href: "/service-areas" },
+      { title: "Shrewsbury", href: "/service-areas#welsh-borders" },
+      { title: "Hereford", href: "/service-areas#welsh-borders" },
+      { title: "Cardiff", href: "/service-areas#welsh-borders" },
     ]
   },
 ];
