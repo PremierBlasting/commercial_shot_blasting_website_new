@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { OptimizedImage, getWebPUrl, getThumbnailUrl } from "@/components/OptimizedImage";
 import { Phone, ArrowLeft, ArrowRight, Star, Quote, X, Menu } from "lucide-react";
 import { useState, useMemo } from "react";
 import { Link } from "wouter";
@@ -400,15 +401,21 @@ export default function Gallery() {
                     onClick={() => { setSelectedItem(item); setShowAfter(false); }}
                   >
                     <div className="relative h-64 overflow-hidden">
-                      <img 
+                      <OptimizedImage 
                         src={item.before} 
                         alt={`${item.title} - Before`} 
-                        className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 group-hover:opacity-0"
+                        className="absolute inset-0 w-full h-full transition-opacity duration-500 group-hover:opacity-0"
+                        webpSrc={getWebPUrl(item.before)}
+                        thumbnailSrc={getThumbnailUrl(item.before)}
+                        loading="lazy"
                       />
-                      <img 
+                      <OptimizedImage 
                         src={item.after} 
                         alt={`${item.title} - After`} 
-                        className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                        className="absolute inset-0 w-full h-full opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                        webpSrc={getWebPUrl(item.after)}
+                        thumbnailSrc={getThumbnailUrl(item.after)}
+                        loading="lazy"
                       />
                       <div className="absolute top-3 left-3 flex gap-2">
                         <span className="bg-red-500 text-white text-xs px-2 py-1 rounded font-medium group-hover:opacity-0 transition-opacity">BEFORE</span>

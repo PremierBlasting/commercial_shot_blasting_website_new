@@ -69,6 +69,48 @@ export const appRouter = router({
         
         return { url, key: fileKey };
       }),
+
+    // Upload with WebP variants for optimized loading
+    imageWithWebP: adminProcedure
+      .input(z.object({
+        fileName: z.string(),
+        mainData: z.string(), // Base64 encoded main image (JPEG)
+        mainContentType: z.string(),
+        webpData: z.string(), // Base64 encoded WebP version
+        thumbnailData: z.string(), // Base64 encoded WebP thumbnail
+        folder: z.string().optional(),
+      }))
+      .mutation(async ({ input }) => {
+        const { fileName, mainData, mainContentType, webpData, thumbnailData, folder = "gallery" } = input;
+        
+        const uniqueId = nanoid(10);
+        const timestamp = Date.now();
+        const baseName = fileName.replace(/\.[^/.]+$/, "");
+        
+        // Upload main image (JPEG)
+        const mainBuffer = Buffer.from(mainData, "base64");
+        const mainKey = `${folder}/${uniqueId}-${timestamp}.jpg`;
+        const { url: mainUrl } = await storagePut(mainKey, mainBuffer, mainContentType);
+        
+        // Upload WebP version
+        const webpBuffer = Buffer.from(webpData, "base64");
+        const webpKey = `${folder}/${uniqueId}-${timestamp}.webp`;
+        const { url: webpUrl } = await storagePut(webpKey, webpBuffer, "image/webp");
+        
+        // Upload thumbnail WebP
+        const thumbBuffer = Buffer.from(thumbnailData, "base64");
+        const thumbKey = `${folder}/${uniqueId}-${timestamp}-thumb.webp`;
+        const { url: thumbnailUrl } = await storagePut(thumbKey, thumbBuffer, "image/webp");
+        
+        return { 
+          url: mainUrl, 
+          key: mainKey,
+          webpUrl,
+          webpKey,
+          thumbnailUrl,
+          thumbnailKey: thumbKey,
+        };
+      }),
   }),
 
   // Gallery Items

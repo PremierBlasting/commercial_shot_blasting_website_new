@@ -102,3 +102,10 @@
 - [x] Show compression stats (original vs compressed size)
 - [x] Maintain aspect ratio during resize
 - [x] Support JPEG and PNG formats
+
+## WebP Thumbnail Generation
+- [x] Generate WebP versions during image upload
+- [x] Create multiple sizes (thumbnail, medium, full)
+- [x] Update upload API to return WebP URLs
+- [x] Update gallery to use WebP with fallback
+- [x] Add lazy loading for gallery images

@@ -6,81 +6,153 @@ import { toast } from "sonner";
 
 interface ImageUploadProps {
   value?: string;
-  onChange: (url: string) => void;
+  onChange: (url: string, thumbnailUrl?: string) => void;
   folder?: string;
   label?: string;
   className?: string;
   maxWidth?: number;
   maxHeight?: number;
   quality?: number;
+  generateWebP?: boolean;
 }
 
 interface CompressionStats {
   originalSize: number;
   compressedSize: number;
+  webpSize?: number;
   savings: number;
 }
 
-// Compress image using canvas
-async function compressImage(
+interface ImageVariant {
+  base64: string;
+  contentType: string;
+  width: number;
+  height: number;
+}
+
+// Generate multiple image variants (original size + WebP thumbnail)
+async function generateImageVariants(
   file: File,
   maxWidth: number = 1920,
   maxHeight: number = 1080,
-  quality: number = 0.8
-): Promise<{ base64: string; contentType: string; stats: CompressionStats }> {
+  quality: number = 0.85,
+  generateWebP: boolean = true
+): Promise<{ 
+  main: ImageVariant; 
+  webp?: ImageVariant;
+  thumbnail?: ImageVariant;
+  stats: CompressionStats 
+}> {
   return new Promise((resolve, reject) => {
     const img = new Image();
-    const canvas = document.createElement("canvas");
-    const ctx = canvas.getContext("2d");
-
-    if (!ctx) {
-      reject(new Error("Failed to get canvas context"));
-      return;
-    }
 
     img.onload = () => {
-      // Calculate new dimensions while maintaining aspect ratio
-      let { width, height } = img;
+      // Calculate main dimensions while maintaining aspect ratio
+      let mainWidth = img.width;
+      let mainHeight = img.height;
       
-      if (width > maxWidth) {
-        height = (height * maxWidth) / width;
-        width = maxWidth;
+      if (mainWidth > maxWidth) {
+        mainHeight = (mainHeight * maxWidth) / mainWidth;
+        mainWidth = maxWidth;
       }
       
-      if (height > maxHeight) {
-        width = (width * maxHeight) / height;
-        height = maxHeight;
+      if (mainHeight > maxHeight) {
+        mainWidth = (mainWidth * maxHeight) / mainHeight;
+        mainHeight = maxHeight;
       }
 
-      // Set canvas dimensions
-      canvas.width = width;
-      canvas.height = height;
-
-      // Draw image with white background (for transparency)
-      ctx.fillStyle = "#FFFFFF";
-      ctx.fillRect(0, 0, width, height);
-      ctx.drawImage(img, 0, 0, width, height);
-
-      // Determine output format - use JPEG for better compression unless PNG is needed
-      const outputType = file.type === "image/png" && hasTransparency(img, ctx, canvas) 
-        ? "image/png" 
-        : "image/jpeg";
+      // Create main image (JPEG)
+      const mainCanvas = document.createElement("canvas");
+      const mainCtx = mainCanvas.getContext("2d");
+      if (!mainCtx) {
+        reject(new Error("Failed to get canvas context"));
+        return;
+      }
       
-      // Convert to base64 with compression
-      const dataUrl = canvas.toDataURL(outputType, quality);
-      const base64 = dataUrl.split(",")[1];
+      mainCanvas.width = mainWidth;
+      mainCanvas.height = mainHeight;
+      mainCtx.fillStyle = "#FFFFFF";
+      mainCtx.fillRect(0, 0, mainWidth, mainHeight);
+      mainCtx.drawImage(img, 0, 0, mainWidth, mainHeight);
       
-      // Calculate compressed size (base64 is ~33% larger than binary)
-      const compressedSize = Math.round((base64.length * 3) / 4);
+      const mainDataUrl = mainCanvas.toDataURL("image/jpeg", quality);
+      const mainBase64 = mainDataUrl.split(",")[1];
+
+      let webpVariant: ImageVariant | undefined;
+      let thumbnailVariant: ImageVariant | undefined;
+      let webpSize = 0;
+
+      // Generate WebP version if supported and requested
+      if (generateWebP) {
+        // Check WebP support
+        const testCanvas = document.createElement("canvas");
+        testCanvas.width = 1;
+        testCanvas.height = 1;
+        const supportsWebP = testCanvas.toDataURL("image/webp").startsWith("data:image/webp");
+
+        if (supportsWebP) {
+          // Full-size WebP
+          const webpDataUrl = mainCanvas.toDataURL("image/webp", quality);
+          const webpBase64 = webpDataUrl.split(",")[1];
+          webpSize = Math.round((webpBase64.length * 3) / 4);
+          
+          webpVariant = {
+            base64: webpBase64,
+            contentType: "image/webp",
+            width: mainWidth,
+            height: mainHeight,
+          };
+
+          // Generate smaller thumbnail WebP (400px max width for gallery grid)
+          const thumbMaxWidth = 600;
+          let thumbWidth = mainWidth;
+          let thumbHeight = mainHeight;
+          
+          if (thumbWidth > thumbMaxWidth) {
+            thumbHeight = (thumbHeight * thumbMaxWidth) / thumbWidth;
+            thumbWidth = thumbMaxWidth;
+          }
+
+          const thumbCanvas = document.createElement("canvas");
+          const thumbCtx = thumbCanvas.getContext("2d");
+          if (thumbCtx) {
+            thumbCanvas.width = thumbWidth;
+            thumbCanvas.height = thumbHeight;
+            thumbCtx.fillStyle = "#FFFFFF";
+            thumbCtx.fillRect(0, 0, thumbWidth, thumbHeight);
+            thumbCtx.drawImage(img, 0, 0, thumbWidth, thumbHeight);
+            
+            const thumbDataUrl = thumbCanvas.toDataURL("image/webp", 0.75);
+            const thumbBase64 = thumbDataUrl.split(",")[1];
+            
+            thumbnailVariant = {
+              base64: thumbBase64,
+              contentType: "image/webp",
+              width: thumbWidth,
+              height: thumbHeight,
+            };
+          }
+        }
+      }
+
+      // Calculate stats
+      const compressedSize = Math.round((mainBase64.length * 3) / 4);
       const originalSize = file.size;
       const savings = Math.round(((originalSize - compressedSize) / originalSize) * 100);
 
       resolve({
-        base64,
-        contentType: outputType,
+        main: {
+          base64: mainBase64,
+          contentType: "image/jpeg",
+          width: mainWidth,
+          height: mainHeight,
+        },
+        webp: webpVariant,
+        thumbnail: thumbnailVariant,
         stats: {
           originalSize,
           compressedSize,
+          webpSize: webpSize || undefined,
           savings: Math.max(0, savings),
         },
       });
@@ -102,13 +174,6 @@ async function compressImage(
   });
 }
 
-// Check if image has transparency (simplified check)
-function hasTransparency(img: HTMLImageElement, ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement): boolean {
-  // For simplicity, we'll assume PNGs might have transparency
-  // A more thorough check would scan pixel data
-  return false; // Default to JPEG for better compression
-}
-
 // Format file size for display
 function formatFileSize(bytes: number): string {
   if (bytes < 1024) return `${bytes} B`;
@@ -125,6 +190,7 @@ export function ImageUpload({
   maxWidth = 1920,
   maxHeight = 1080,
   quality = 0.85,
+  generateWebP = true,
 }: ImageUploadProps) {
   const [isDragging, setIsDragging] = useState(false);
   const [isUploading, setIsUploading] = useState(false);
@@ -133,11 +199,13 @@ export function ImageUpload({
   const [statusText, setStatusText] = useState("");
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const uploadMutation = trpc.upload.image.useMutation({
+  const uploadMutation = trpc.upload.image.useMutation();
+  const uploadWithWebPMutation = trpc.upload.imageWithWebP.useMutation({
     onSuccess: (data) => {
-      onChange(data.url);
+      onChange(data.url, data.thumbnailUrl);
       if (compressionStats && compressionStats.savings > 0) {
-        toast.success(`Image uploaded! Saved ${compressionStats.savings}% (${formatFileSize(compressionStats.originalSize - compressionStats.compressedSize)})`);
+        const webpInfo = data.webpUrl ? " + WebP" : "";
+        toast.success(`Image uploaded${webpInfo}! Saved ${compressionStats.savings}%`);
       } else {
         toast.success("Image uploaded successfully");
       }
@@ -173,15 +241,21 @@ export function ImageUpload({
     setStatusText("Reading image...");
 
     try {
-      // Compress image
+      // Generate image variants
       setUploadProgress(20);
       setStatusText("Compressing image...");
       
-      const { base64, contentType, stats } = await compressImage(file, maxWidth, maxHeight, quality);
-      setCompressionStats(stats);
+      const variants = await generateImageVariants(file, maxWidth, maxHeight, quality, generateWebP);
+      setCompressionStats(variants.stats);
+      
+      setUploadProgress(40);
+      if (variants.webp) {
+        setStatusText("Generating WebP versions...");
+        await new Promise(resolve => setTimeout(resolve, 300));
+      }
       
       setUploadProgress(60);
-      setStatusText(`Compressed: ${formatFileSize(stats.originalSize)} → ${formatFileSize(stats.compressedSize)}`);
+      setStatusText(`Compressed: ${formatFileSize(variants.stats.originalSize)} → ${formatFileSize(variants.stats.compressedSize)}`);
       
       // Small delay to show compression stats
       await new Promise(resolve => setTimeout(resolve, 500));
@@ -189,16 +263,44 @@ export function ImageUpload({
       setUploadProgress(80);
       setStatusText("Uploading to server...");
       
-      // Get file extension from original name or content type
-      const ext = contentType === "image/png" ? "png" : "jpg";
-      const fileName = file.name.replace(/\.[^/.]+$/, "") + "." + ext;
+      // Get file name without extension
+      const baseName = file.name.replace(/\.[^/.]+$/, "");
       
-      uploadMutation.mutate({
-        fileName,
-        fileData: base64,
-        contentType,
-        folder,
-      });
+      // Upload with WebP variants if available
+      if (generateWebP && variants.webp && variants.thumbnail) {
+        uploadWithWebPMutation.mutate({
+          fileName: baseName + ".jpg",
+          mainData: variants.main.base64,
+          mainContentType: variants.main.contentType,
+          webpData: variants.webp.base64,
+          thumbnailData: variants.thumbnail.base64,
+          folder,
+        });
+      } else {
+        // Fallback to regular upload
+        uploadMutation.mutate({
+          fileName: baseName + ".jpg",
+          fileData: variants.main.base64,
+          contentType: variants.main.contentType,
+          folder,
+        }, {
+          onSuccess: (data) => {
+            onChange(data.url);
+            toast.success("Image uploaded successfully");
+            setIsUploading(false);
+            setUploadProgress(0);
+            setCompressionStats(null);
+            setStatusText("");
+          },
+          onError: (error) => {
+            toast.error(`Upload failed: ${error.message}`);
+            setIsUploading(false);
+            setUploadProgress(0);
+            setCompressionStats(null);
+            setStatusText("");
+          },
+        });
+      }
     } catch (error) {
       toast.error("Failed to process image");
       setIsUploading(false);
@@ -206,7 +308,7 @@ export function ImageUpload({
       setCompressionStats(null);
       setStatusText("");
     }
-  }, [folder, uploadMutation, maxWidth, maxHeight, quality]);
+  }, [folder, uploadMutation, uploadWithWebPMutation, maxWidth, maxHeight, quality, generateWebP, onChange]);
 
   const handleDrop = useCallback((e: React.DragEvent) => {
     e.preventDefault();
@@ -316,7 +418,7 @@ export function ImageUpload({
               {compressionStats && compressionStats.savings > 0 && (
                 <div className="flex items-center gap-1 text-xs text-green-600 mt-1">
                   <Zap className="w-3 h-3" />
-                  <span>Saved {compressionStats.savings}%</span>
+                  <span>Saved {compressionStats.savings}%{generateWebP ? " + WebP" : ""}</span>
                 </div>
               )}
             </>
@@ -337,7 +439,7 @@ export function ImageUpload({
                   {isDragging ? "Drop image here" : "Click or drag image"}
                 </p>
                 <p className="text-xs text-gray-500 mt-1">
-                  PNG, JPG up to 20MB • Auto-compressed
+                  PNG, JPG up to 20MB • Auto WebP
                 </p>
               </div>
             </>
