@@ -203,6 +203,17 @@ export const appRouter = router({
         return { success: true };
       }),
     
+    // Admin: Toggle read status
+    toggleRead: adminProcedure
+      .input(z.object({
+        id: z.number(),
+        isRead: z.boolean(),
+      }))
+      .mutation(async ({ input }) => {
+        await updateContactSubmissionStatus(input.id, input.isRead ? "read" : "new");
+        return { success: true };
+      }),
+    
     // Admin: Delete submission
     delete: adminProcedure
       .input(z.object({ id: z.number() }))
