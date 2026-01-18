@@ -35,6 +35,8 @@ const areasLinks = [
       { title: "Leicester", href: "/service-areas/leicester" },
       { title: "Derby", href: "/service-areas/derby" },
       { title: "Lincoln", href: "/service-areas/lincoln" },
+      { title: "Northampton", href: "/service-areas/northampton" },
+      { title: "Chesterfield", href: "/service-areas/chesterfield" },
     ]
   },
   {
@@ -61,6 +63,7 @@ const areasLinks = [
       { title: "Cambridge", href: "/service-areas/cambridge" },
       { title: "Ipswich", href: "/service-areas/ipswich" },
       { title: "St Albans", href: "/service-areas/st-albans" },
+      { title: "Peterborough", href: "/service-areas/peterborough" },
     ]
   },
   {
@@ -75,6 +78,7 @@ const areasLinks = [
     region: "South East",
     locations: [
       { title: "Milton Keynes", href: "/service-areas/milton-keynes" },
+      { title: "Oxford", href: "/service-areas/oxford" },
     ]
   },
   {

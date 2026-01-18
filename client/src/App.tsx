@@ -36,6 +36,10 @@ import SwindonServiceArea from "./pages/SwindonServiceArea";
 import StratfordUponAvonServiceArea from "./pages/StratfordUponAvonServiceArea";
 import WolverhamtonServiceArea from "./pages/WolverhamtonServiceArea";
 import WorcesterServiceArea from "./pages/WorcesterServiceArea";
+import NorthamptonServiceArea from "./pages/NorthamptonServiceArea";
+import OxfordServiceArea from "./pages/OxfordServiceArea";
+import PeterboroughServiceArea from "./pages/PeterboroughServiceArea";
+import ChesterfieldServiceArea from "./pages/ChesterfieldServiceArea";
 import { CookieConsent } from "./components/CookieConsent";
 import { FloatingCallButton } from "./components/FloatingCallButton";
 
@@ -75,6 +79,10 @@ function Router() {
       <Route path="/service-areas/stratford-upon-avon" component={StratfordUponAvonServiceArea} />
       <Route path="/service-areas/wolverhampton" component={WolverhamtonServiceArea} />
       <Route path="/service-areas/worcester" component={WorcesterServiceArea} />
+      <Route path="/service-areas/northampton" component={NorthamptonServiceArea} />
+      <Route path="/service-areas/oxford" component={OxfordServiceArea} />
+      <Route path="/service-areas/peterborough" component={PeterboroughServiceArea} />
+      <Route path="/service-areas/chesterfield" component={ChesterfieldServiceArea} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />
