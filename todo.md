@@ -313,3 +313,7 @@
 - [x] Add navigation links from Service Areas page
 - [ ] Add LocalBusiness schema markup for Birmingham
 - [x] Test Birmingham page functionality
+
+
+## Bug Fixes
+- [x] Fix Google Maps API being loaded multiple times on Service Areas page
