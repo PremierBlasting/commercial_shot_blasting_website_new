@@ -368,3 +368,36 @@
 - [x] Add navigation links to Service Areas page
 - [x] Update Areas submenu with Leeds and Liverpool links
 - [x] Test Leeds and Liverpool pages
+
+
+## Location Service Pages - Batch Creation
+- [ ] Create Wolverhampton landing page
+- [ ] Create Coventry landing page
+- [ ] Create Worcester landing page
+- [ ] Create Stratford Upon Avon landing page
+- [ ] Create Nottingham landing page
+- [ ] Create Leicester landing page
+- [ ] Create Derby landing page
+- [ ] Create Northampton landing page
+- [ ] Create Chesterfield landing page
+- [ ] Create Lincoln landing page
+- [ ] Create Norwich landing page
+- [ ] Create Cambridge landing page
+- [ ] Create Peterborough landing page
+- [ ] Create Oxford landing page
+- [ ] Create Swindon landing page
+- [ ] Create Gloucester landing page
+- [ ] Create Wrexham landing page
+- [ ] Create Cardiff landing page
+- [ ] Create Chester landing page
+- [ ] Create St Albans landing page
+- [ ] Create Milton Keynes landing page
+- [ ] Create Ipswich landing page
+- [ ] Create Shrewsbury landing page
+- [ ] Create Stoke landing page
+- [ ] Create Hereford landing page
+- [ ] Add all location routes to App.tsx
+- [ ] Update Service Areas page with all location links
+- [ ] Update Areas submenu with all locations
+- [ ] Add all locations as pins to interactive maps
+- [ ] Test all location pages and maps

@@ -16,6 +16,26 @@ import ManchesterServiceArea from "./pages/ManchesterServiceArea";
 import BristolServiceArea from "./pages/BristolServiceArea";
 import LeedsServiceArea from "./pages/LeedsServiceArea";
 import LiverpoolServiceArea from "./pages/LiverpoolServiceArea";
+import CambridgeServiceArea from "./pages/CambridgeServiceArea";
+import CardiffServiceArea from "./pages/CardiffServiceArea";
+import ChesterServiceArea from "./pages/ChesterServiceArea";
+import CoventryServiceArea from "./pages/CoventryServiceArea";
+import DerbyServiceArea from "./pages/DerbyServiceArea";
+import GloucesterServiceArea from "./pages/GloucesterServiceArea";
+import HerefordServiceArea from "./pages/HerefordServiceArea";
+import IpswichServiceArea from "./pages/IpswichServiceArea";
+import LeicesterServiceArea from "./pages/LeicesterServiceArea";
+import LincolnServiceArea from "./pages/LincolnServiceArea";
+import MiltonKeynesServiceArea from "./pages/MiltonKeynesServiceArea";
+import NorwichServiceArea from "./pages/NorwichServiceArea";
+import NottinghamServiceArea from "./pages/NottinghamServiceArea";
+import ShrewsburyServiceArea from "./pages/ShrewsburyServiceArea";
+import StAlbansServiceArea from "./pages/StAlbansServiceArea";
+import StokeServiceArea from "./pages/StokeServiceArea";
+import SwindonServiceArea from "./pages/SwindonServiceArea";
+import StratfordUponAvonServiceArea from "./pages/StratfordUponAvonServiceArea";
+import WolverhamtonServiceArea from "./pages/WolverhamtonServiceArea";
+import WorcesterServiceArea from "./pages/WorcesterServiceArea";
 import { CookieConsent } from "./components/CookieConsent";
 import { FloatingCallButton } from "./components/FloatingCallButton";
 
@@ -35,6 +55,26 @@ function Router() {
       <Route path="/service-areas/bristol" component={BristolServiceArea} />
       <Route path="/service-areas/leeds" component={LeedsServiceArea} />
       <Route path="/service-areas/liverpool" component={LiverpoolServiceArea} />
+      <Route path="/service-areas/cambridge" component={CambridgeServiceArea} />
+      <Route path="/service-areas/cardiff" component={CardiffServiceArea} />
+      <Route path="/service-areas/chester" component={ChesterServiceArea} />
+      <Route path="/service-areas/coventry" component={CoventryServiceArea} />
+      <Route path="/service-areas/derby" component={DerbyServiceArea} />
+      <Route path="/service-areas/gloucester" component={GloucesterServiceArea} />
+      <Route path="/service-areas/hereford" component={HerefordServiceArea} />
+      <Route path="/service-areas/ipswich" component={IpswichServiceArea} />
+      <Route path="/service-areas/leicester" component={LeicesterServiceArea} />
+      <Route path="/service-areas/lincoln" component={LincolnServiceArea} />
+      <Route path="/service-areas/milton-keynes" component={MiltonKeynesServiceArea} />
+      <Route path="/service-areas/norwich" component={NorwichServiceArea} />
+      <Route path="/service-areas/nottingham" component={NottinghamServiceArea} />
+      <Route path="/service-areas/shrewsbury" component={ShrewsburyServiceArea} />
+      <Route path="/service-areas/st-albans" component={StAlbansServiceArea} />
+      <Route path="/service-areas/stoke" component={StokeServiceArea} />
+      <Route path="/service-areas/swindon" component={SwindonServiceArea} />
+      <Route path="/service-areas/stratford-upon-avon" component={StratfordUponAvonServiceArea} />
+      <Route path="/service-areas/wolverhampton" component={WolverhamtonServiceArea} />
+      <Route path="/service-areas/worcester" component={WorcesterServiceArea} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />
