@@ -145,3 +145,11 @@
 - [x] Add case studies to each service page
 - [x] Update navigation to link to service pages
 - [x] Add routes in App.tsx
+
+## Services Dropdown Navigation
+- [x] Add desktop dropdown menu for Services nav item
+- [x] Add mobile collapsible sub-menu for Services
+- [x] Link to all 6 service pages
+- [x] Update on Home page
+- [x] Update on Gallery page
+- [x] Update on ServiceDetail page

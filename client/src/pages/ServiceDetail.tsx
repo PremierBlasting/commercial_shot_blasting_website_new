@@ -1,20 +1,19 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link, useParams } from "wouter";
-import { Phone, Mail, CheckCircle, ArrowRight, ArrowLeft, Clock, Shield, Award, ChevronDown, ChevronUp, Menu, X } from "lucide-react";
+import { Phone, Mail, CheckCircle, ArrowRight, ArrowLeft, Clock, Shield, Award, ChevronDown, ChevronUp } from "lucide-react";
 import { useState } from "react";
 import { getServiceById, services } from "@/data/services";
 import { QuotePopup } from "@/components/QuotePopup";
+import { Header } from "@/components/Header";
 
 export default function ServiceDetail() {
   const params = useParams<{ id: string }>();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
 
   const service = getServiceById(params.id || "");
 
-  const closeMobileMenu = () => setMobileMenuOpen(false);
   const openQuotePopup = () => setQuotePopupOpen(true);
 
   if (!service) {
@@ -35,60 +34,7 @@ export default function ServiceDetail() {
   return (
     <div className="min-h-screen flex flex-col" style={{ fontFamily: "'Open Sans', sans-serif" }}>
       {/* Header */}
-      <header className="bg-[#2C5F7F] text-white sticky top-0 z-50">
-        <div className="container flex items-center justify-between py-4">
-          <Link href="/" className="flex items-center gap-3 hover:opacity-90 transition">
-            <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center border-2 border-white/30">
-              <span className="text-xl font-bold">CSB</span>
-            </div>
-            <div className="hidden sm:block">
-              <h1 className="text-xl font-bold" style={{ fontFamily: "'Playfair Display', serif" }}>Commercial Shot Blasting</h1>
-              <p className="text-xs text-white/80">Professional Surface Preparation</p>
-            </div>
-          </Link>
-          <nav className="hidden md:flex items-center gap-8">
-            <Link href="/#services" className="hover:text-white/80 transition">Services</Link>
-            <Link href="/#about" className="hover:text-white/80 transition">About</Link>
-            <Link href="/#industries" className="hover:text-white/80 transition">Industries</Link>
-            <Link href="/gallery" className="hover:text-white/80 transition">Gallery</Link>
-            <Link href="/#contact" className="hover:text-white/80 transition">Contact</Link>
-          </nav>
-          <div className="flex items-center gap-4">
-            <a href="tel:07970566409" className="hidden lg:flex items-center gap-2 text-sm">
-              <Phone className="w-4 h-4" />
-              07970 566409
-            </a>
-            <Button className="hidden sm:flex bg-white text-[#2C5F7F] hover:bg-white/90" onClick={openQuotePopup}>Get a Quote</Button>
-            <button 
-              className="md:hidden p-2 hover:bg-white/10 rounded-lg transition"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label="Toggle menu"
-            >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile Menu */}
-        <div className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${mobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
-          <nav className="container py-4 border-t border-white/20">
-            <div className="flex flex-col gap-4">
-              <Link href="/" onClick={closeMobileMenu} className="py-2 hover:text-white/80 transition border-b border-white/10">Home</Link>
-              <Link href="/#services" onClick={closeMobileMenu} className="py-2 hover:text-white/80 transition border-b border-white/10">Services</Link>
-              <Link href="/#about" onClick={closeMobileMenu} className="py-2 hover:text-white/80 transition border-b border-white/10">About</Link>
-              <Link href="/gallery" onClick={closeMobileMenu} className="py-2 hover:text-white/80 transition border-b border-white/10">Gallery</Link>
-              <Link href="/#contact" onClick={closeMobileMenu} className="py-2 hover:text-white/80 transition border-b border-white/10">Contact</Link>
-              <div className="flex flex-col gap-3 pt-2">
-                <a href="tel:07970566409" className="flex items-center gap-2 text-sm">
-                  <Phone className="w-4 h-4" />
-                  07970 566409
-                </a>
-                <Button className="bg-white text-[#2C5F7F] hover:bg-white/90 w-full" onClick={() => { closeMobileMenu(); openQuotePopup(); }}>Get a Quote</Button>
-              </div>
-            </div>
-          </nav>
-        </div>
-      </header>
+      <Header onOpenQuotePopup={openQuotePopup} />
 
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-[#2C5F7F] to-[#1a3d52] text-white py-16 lg:py-24">
