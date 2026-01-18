@@ -30,6 +30,7 @@ import {
 import { useState } from "react";
 import { Link } from "wouter";
 import { toast } from "sonner";
+import { ImageUpload } from "@/components/ImageUpload";
 
 const categories = ["Industrial", "Automotive", "Marine", "Agriculture", "Infrastructure"];
 
@@ -389,24 +390,18 @@ function GalleryTab() {
                   rows={3}
                 />
               </div>
-              <div className="space-y-2">
-                <Label htmlFor="beforeImage">Before Image URL</Label>
-                <Input
-                  id="beforeImage"
+              <div className="grid grid-cols-2 gap-4">
+                <ImageUpload
+                  label="Before Image"
                   value={formData.beforeImage}
-                  onChange={(e) => setFormData({ ...formData, beforeImage: e.target.value })}
-                  placeholder="https://..."
-                  required
+                  onChange={(url) => setFormData({ ...formData, beforeImage: url })}
+                  folder="gallery/before"
                 />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="afterImage">After Image URL</Label>
-                <Input
-                  id="afterImage"
+                <ImageUpload
+                  label="After Image"
                   value={formData.afterImage}
-                  onChange={(e) => setFormData({ ...formData, afterImage: e.target.value })}
-                  placeholder="https://..."
-                  required
+                  onChange={(url) => setFormData({ ...formData, afterImage: url })}
+                  folder="gallery/after"
                 />
               </div>
               <DialogFooter>
@@ -459,22 +454,18 @@ function GalleryTab() {
                 rows={3}
               />
             </div>
-            <div className="space-y-2">
-              <Label htmlFor="edit-beforeImage">Before Image URL</Label>
-              <Input
-                id="edit-beforeImage"
+            <div className="grid grid-cols-2 gap-4">
+              <ImageUpload
+                label="Before Image"
                 value={formData.beforeImage}
-                onChange={(e) => setFormData({ ...formData, beforeImage: e.target.value })}
-                required
+                onChange={(url) => setFormData({ ...formData, beforeImage: url })}
+                folder="gallery/before"
               />
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="edit-afterImage">After Image URL</Label>
-              <Input
-                id="edit-afterImage"
+              <ImageUpload
+                label="After Image"
                 value={formData.afterImage}
-                onChange={(e) => setFormData({ ...formData, afterImage: e.target.value })}
-                required
+                onChange={(url) => setFormData({ ...formData, afterImage: url })}
+                folder="gallery/after"
               />
             </div>
             <DialogFooter>

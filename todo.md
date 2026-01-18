@@ -88,3 +88,10 @@
 - [x] Create contact submissions list view
 - [x] Add read/unread status toggle
 - [x] Implement delete submission functionality
+
+## S3 Image Upload Integration
+- [x] Create S3 upload API endpoint for images
+- [x] Create reusable ImageUpload component with drag-and-drop
+- [x] Update Gallery form to use ImageUpload component
+- [x] Add image preview functionality
+- [x] Handle upload progress and error states

@@ -20,6 +20,8 @@ import {
   updateContactSubmissionStatus,
   deleteContactSubmission,
 } from "./db";
+import { storagePut } from "./storage";
+import { nanoid } from "nanoid";
 
 // Admin check middleware
 const adminProcedure = protectedProcedure.use(({ ctx, next }) => {
@@ -40,6 +42,33 @@ export const appRouter = router({
         success: true,
       } as const;
     }),
+  }),
+
+  // Upload endpoint for S3 images
+  upload: router({
+    image: adminProcedure
+      .input(z.object({
+        fileName: z.string(),
+        fileData: z.string(), // Base64 encoded
+        contentType: z.string(),
+        folder: z.string().optional(),
+      }))
+      .mutation(async ({ input }) => {
+        const { fileName, fileData, contentType, folder = "gallery" } = input;
+        
+        // Decode base64 to buffer
+        const buffer = Buffer.from(fileData, "base64");
+        
+        // Generate unique file key
+        const ext = fileName.split(".").pop() || "jpg";
+        const uniqueId = nanoid(10);
+        const fileKey = `${folder}/${uniqueId}-${Date.now()}.${ext}`;
+        
+        // Upload to S3
+        const { url } = await storagePut(fileKey, buffer, contentType);
+        
+        return { url, key: fileKey };
+      }),
   }),
 
   // Gallery Items
