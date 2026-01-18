@@ -205,3 +205,10 @@
 - [x] Add slider to Steel Shot Blasting service page
 - [x] Add slider to Automotive Restoration service page
 - [x] Test both sliders
+
+## Add Sliders to Remaining Service Pages
+- [x] Add slider to Concrete Preparation page
+- [x] Add slider to Marine Services page
+- [x] Add slider to Agricultural Equipment page
+- [x] Add slider to Infrastructure Projects page
+- [x] Test all service pages

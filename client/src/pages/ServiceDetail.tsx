@@ -125,6 +125,74 @@ export default function ServiceDetail() {
                 </div>
               )}
 
+              {/* Before/After Slider for Concrete Preparation */}
+              {service.id === "concrete-preparation" && (
+                <div>
+                  <h2 className="text-3xl font-bold text-[#2C5F7F] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
+                    See the Transformation
+                  </h2>
+                  <BeforeAfterSlider
+                    beforeImage="/images/premier/warehouse-outside-before.jpeg"
+                    afterImage="/images/premier/warehouse-outside-after.jpeg"
+                    beforeLabel="Before"
+                    afterLabel="After"
+                    className="shadow-xl"
+                  />
+                  <p className="text-center text-gray-600 mt-4 text-sm">Drag the slider to see the dramatic transformation</p>
+                </div>
+              )}
+
+              {/* Before/After Slider for Marine Services */}
+              {service.id === "marine-services" && (
+                <div>
+                  <h2 className="text-3xl font-bold text-[#2C5F7F] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
+                    See the Transformation
+                  </h2>
+                  <BeforeAfterSlider
+                    beforeImage="/images/premier/storage-unit-before.jpeg"
+                    afterImage="/images/premier/storage-unit-after.jpeg"
+                    beforeLabel="Before"
+                    afterLabel="After"
+                    className="shadow-xl"
+                  />
+                  <p className="text-center text-gray-600 mt-4 text-sm">Drag the slider to see the dramatic transformation</p>
+                </div>
+              )}
+
+              {/* Before/After Slider for Agricultural Equipment */}
+              {service.id === "agricultural-equipment" && (
+                <div>
+                  <h2 className="text-3xl font-bold text-[#2C5F7F] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
+                    See the Transformation
+                  </h2>
+                  <BeforeAfterSlider
+                    beforeImage="/images/premier/warehouse-bars-before.jpeg"
+                    afterImage="/images/premier/warehouse-bars-after.jpeg"
+                    beforeLabel="Before"
+                    afterLabel="After"
+                    className="shadow-xl"
+                  />
+                  <p className="text-center text-gray-600 mt-4 text-sm">Drag the slider to see the dramatic transformation</p>
+                </div>
+              )}
+
+              {/* Before/After Slider for Infrastructure Projects */}
+              {service.id === "infrastructure-projects" && (
+                <div>
+                  <h2 className="text-3xl font-bold text-[#2C5F7F] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
+                    See the Transformation
+                  </h2>
+                  <BeforeAfterSlider
+                    beforeImage="/images/premier/steel-container-before.jpeg"
+                    afterImage="/images/premier/steel-container-after.jpeg"
+                    beforeLabel="Before"
+                    afterLabel="After"
+                    className="shadow-xl"
+                  />
+                  <p className="text-center text-gray-600 mt-4 text-sm">Drag the slider to see the dramatic transformation</p>
+                </div>
+              )}
+
               {/* Description */}
               <div>
                 <h2 className="text-3xl font-bold text-[#2C5F7F] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
