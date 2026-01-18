@@ -281,10 +281,20 @@ export default function ServiceAreas() {
                     </h3>
                     <div className="flex flex-wrap gap-2 mb-6">
                       {region.locations.map((location) => {
-                        // Add link for Birmingham
+                        let href = null;
                         if (location === "Birmingham" && region.id === "west-midlands") {
+                          href = "/service-areas/birmingham";
+                        } else if (location === "Sheffield" && region.id === "yorkshire") {
+                          href = "/service-areas/sheffield";
+                        } else if (location === "Manchester" && region.id === "north-west") {
+                          href = "/service-areas/manchester";
+                        } else if (location === "Bristol" && region.id === "south-west") {
+                          href = "/service-areas/bristol";
+                        }
+                        
+                        if (href) {
                           return (
-                            <Link key={location} href="/service-areas/birmingham">
+                            <Link key={location} href={href}>
                               <span className="px-3 py-1 bg-[#2C5F7F]/10 text-[#2C5F7F] rounded-full text-sm font-medium hover:bg-[#2C5F7F]/20 cursor-pointer transition-colors">
                                 {location}
                               </span>

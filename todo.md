@@ -341,3 +341,13 @@
 - [x] Gallery page - breadcrumb added
 - [x] Privacy Policy page - breadcrumb added
 - [x] Test all location page breadcrumbs
+
+
+## Additional Location Landing Pages
+- [x] Create Sheffield landing page
+- [x] Create Manchester landing page
+- [x] Create Bristol landing page
+- [x] Add routes for Sheffield, Manchester, Bristol in App.tsx
+- [x] Add navigation links to Service Areas page
+- [x] Add locations to Areas submenu in Header
+- [x] Test all new location pages
