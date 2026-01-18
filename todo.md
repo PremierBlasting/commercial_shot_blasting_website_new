@@ -129,3 +129,8 @@
 - [x] Make company name clickable link to home page
 - [x] Update on Home page
 - [x] Update on Gallery page
+
+## Custom Favicon
+- [x] Create SVG favicon with CSB branding
+- [x] Add favicon to public folder
+- [x] Update index.html with favicon link
