@@ -87,7 +87,12 @@ export default function ServiceDetail() {
                     afterLabel="After"
                     className="shadow-xl"
                   />
-                  <p className="text-center text-gray-600 mt-4 text-sm">Drag the slider to see the dramatic transformation</p>
+                  <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-6">
+                    <p className="text-gray-600 text-sm">Drag the slider to see the dramatic transformation</p>
+                    <Button onClick={openQuotePopup} className="bg-[#2C5F7F] hover:bg-[#234a63] text-white">
+                      Request a Quote
+                    </Button>
+                  </div>
                 </div>
               )}
 
@@ -104,7 +109,12 @@ export default function ServiceDetail() {
                     afterLabel="After"
                     className="shadow-xl"
                   />
-                  <p className="text-center text-gray-600 mt-4 text-sm">Drag the slider to see the dramatic transformation</p>
+                  <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-6">
+                    <p className="text-gray-600 text-sm">Drag the slider to see the dramatic transformation</p>
+                    <Button onClick={openQuotePopup} className="bg-[#2C5F7F] hover:bg-[#234a63] text-white">
+                      Request a Quote
+                    </Button>
+                  </div>
                 </div>
               )}
 
@@ -121,7 +131,12 @@ export default function ServiceDetail() {
                     afterLabel="After"
                     className="shadow-xl"
                   />
-                  <p className="text-center text-gray-600 mt-4 text-sm">Drag the slider to see the dramatic transformation</p>
+                  <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-6">
+                    <p className="text-gray-600 text-sm">Drag the slider to see the dramatic transformation</p>
+                    <Button onClick={openQuotePopup} className="bg-[#2C5F7F] hover:bg-[#234a63] text-white">
+                      Request a Quote
+                    </Button>
+                  </div>
                 </div>
               )}
 
@@ -138,7 +153,12 @@ export default function ServiceDetail() {
                     afterLabel="After"
                     className="shadow-xl"
                   />
-                  <p className="text-center text-gray-600 mt-4 text-sm">Drag the slider to see the dramatic transformation</p>
+                  <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-6">
+                    <p className="text-gray-600 text-sm">Drag the slider to see the dramatic transformation</p>
+                    <Button onClick={openQuotePopup} className="bg-[#2C5F7F] hover:bg-[#234a63] text-white">
+                      Request a Quote
+                    </Button>
+                  </div>
                 </div>
               )}
 
@@ -155,7 +175,12 @@ export default function ServiceDetail() {
                     afterLabel="After"
                     className="shadow-xl"
                   />
-                  <p className="text-center text-gray-600 mt-4 text-sm">Drag the slider to see the dramatic transformation</p>
+                  <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-6">
+                    <p className="text-gray-600 text-sm">Drag the slider to see the dramatic transformation</p>
+                    <Button onClick={openQuotePopup} className="bg-[#2C5F7F] hover:bg-[#234a63] text-white">
+                      Request a Quote
+                    </Button>
+                  </div>
                 </div>
               )}
 
@@ -172,7 +197,12 @@ export default function ServiceDetail() {
                     afterLabel="After"
                     className="shadow-xl"
                   />
-                  <p className="text-center text-gray-600 mt-4 text-sm">Drag the slider to see the dramatic transformation</p>
+                  <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-6">
+                    <p className="text-gray-600 text-sm">Drag the slider to see the dramatic transformation</p>
+                    <Button onClick={openQuotePopup} className="bg-[#2C5F7F] hover:bg-[#234a63] text-white">
+                      Request a Quote
+                    </Button>
+                  </div>
                 </div>
               )}
 
@@ -189,7 +219,12 @@ export default function ServiceDetail() {
                     afterLabel="After"
                     className="shadow-xl"
                   />
-                  <p className="text-center text-gray-600 mt-4 text-sm">Drag the slider to see the dramatic transformation</p>
+                  <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-6">
+                    <p className="text-gray-600 text-sm">Drag the slider to see the dramatic transformation</p>
+                    <Button onClick={openQuotePopup} className="bg-[#2C5F7F] hover:bg-[#234a63] text-white">
+                      Request a Quote
+                    </Button>
+                  </div>
                 </div>
               )}
 

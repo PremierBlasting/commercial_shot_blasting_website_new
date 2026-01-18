@@ -212,3 +212,9 @@
 - [x] Add slider to Agricultural Equipment page
 - [x] Add slider to Infrastructure Projects page
 - [x] Test all service pages
+
+## Request a Quote Button on Sliders
+- [x] Add Request a Quote button next to each before-after slider
+- [x] Style button to match site theme
+- [x] Connect button to quote popup
+- [x] Test on all service pages
