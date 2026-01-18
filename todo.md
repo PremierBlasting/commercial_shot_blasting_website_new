@@ -491,8 +491,8 @@
 - [x] Determine optimal placement on Home page
 - [x] Move review section to Home page
 - [x] Test display and layout
-- [ ] Save checkpoint
-- [ ] Push changes to GitHub
+- [x] Save checkpoint
+- [x] Push changes to GitHub
 
 
 ## Replace Featured Review with Actual Shot Blasting Review
@@ -508,5 +508,14 @@
 - [x] Update Home.tsx All Service Locations section with clickable links
 - [x] Link to dedicated landing pages where they exist
 - [x] Test all location links
+- [x] Save checkpoint
+- [x] Push changes to GitHub
+
+
+## Replace Hero Background Image
+- [x] Copy warehouse door image to project
+- [x] Update Home.tsx hero section with new background
+- [x] Optimize image positioning and overlay for text readability
+- [x] Test hero section appearance
 - [ ] Save checkpoint
 - [ ] Push changes to GitHub
