@@ -1,33 +1,17 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Phone, Mail, MapPin, CheckCircle, ArrowRight, Shield, Clock, Award, Users, Menu, X } from "lucide-react";
 import { useState } from "react";
-import { toast } from "sonner";
-import { trpc } from "@/lib/trpc";
+import { QuotePopup } from "@/components/QuotePopup";
+import { HubSpotForm } from "@/components/HubSpotForm";
 
 export default function Home() {
-  const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "" });
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  const submitContact = trpc.contact.submit.useMutation({
-    onSuccess: () => {
-      toast.success("Thank you! We'll be in touch shortly.");
-      setFormData({ name: "", email: "", phone: "", message: "" });
-    },
-    onError: (error) => {
-      toast.error(error.message || "Failed to submit. Please try again.");
-    },
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    submitContact.mutate(formData);
-  };
+  const [quotePopupOpen, setQuotePopupOpen] = useState(false);
 
   const closeMobileMenu = () => setMobileMenuOpen(false);
+  const openQuotePopup = () => setQuotePopupOpen(true);
 
   return (
     <div className="min-h-screen flex flex-col" style={{ fontFamily: "'Open Sans', sans-serif" }}>
@@ -55,7 +39,7 @@ export default function Home() {
               <Phone className="w-4 h-4" />
               07970 566409
             </a>
-            <Button className="hidden sm:flex bg-white text-[#2C5F7F] hover:bg-white/90">Get a Quote</Button>
+            <Button className="hidden sm:flex bg-white text-[#2C5F7F] hover:bg-white/90" onClick={openQuotePopup}>Get a Quote</Button>
             {/* Mobile Menu Button */}
             <button 
               className="md:hidden p-2 hover:bg-white/10 rounded-lg transition"
@@ -85,7 +69,7 @@ export default function Home() {
                   <Phone className="w-4 h-4" />
                   07970 566409
                 </a>
-                <Button className="bg-white text-[#2C5F7F] hover:bg-white/90 w-full">Get a Quote</Button>
+                <Button className="bg-white text-[#2C5F7F] hover:bg-white/90 w-full" onClick={() => { closeMobileMenu(); openQuotePopup(); }}>Get a Quote</Button>
               </div>
             </div>
           </nav>
@@ -104,7 +88,7 @@ export default function Home() {
               Specialist precision shot blasting company in the UK, removing rust, scale, and coatings from all types of surfaces. Transform your surfaces with our expert team.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-white/90">
+              <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-white/90" onClick={openQuotePopup}>
                 Get a Free Quote Today
               </Button>
               <Link href="/gallery">
@@ -274,9 +258,7 @@ export default function Home() {
               <p className="text-white/80">Contact us today for a free, no-obligation quote.</p>
             </div>
             <div className="flex gap-4">
-              <a href="#contact">
-                <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-white/90">Get a Quote</Button>
-              </a>
+              <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-white/90" onClick={openQuotePopup}>Get a Quote</Button>
               <a href="tel:07970566409">
                 <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
                   <Phone className="w-4 h-4 mr-2" /> Call Us
@@ -353,29 +335,7 @@ export default function Home() {
               </div>
             </div>
             <Card className="p-6">
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="text-sm font-medium mb-1 block">Name</label>
-                    <Input placeholder="Your name" value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} required />
-                  </div>
-                  <div>
-                    <label className="text-sm font-medium mb-1 block">Email</label>
-                    <Input type="email" placeholder="Your email" value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} required />
-                  </div>
-                </div>
-                <div>
-                  <label className="text-sm font-medium mb-1 block">Phone</label>
-                  <Input placeholder="Your phone number" value={formData.phone} onChange={(e) => setFormData({...formData, phone: e.target.value})} />
-                </div>
-                <div>
-                  <label className="text-sm font-medium mb-1 block">Project Details</label>
-                  <Textarea placeholder="Tell us about your project..." rows={4} value={formData.message} onChange={(e) => setFormData({...formData, message: e.target.value})} required />
-                </div>
-                <Button type="submit" className="w-full bg-[#2C5F7F] hover:bg-[#234d66]" disabled={submitContact.isPending}>
-                  {submitContact.isPending ? "Submitting..." : "Request a Quote"}
-                </Button>
-              </form>
+              <HubSpotForm />
             </Card>
           </div>
         </div>
@@ -426,6 +386,9 @@ export default function Home() {
           </div>
         </div>
       </footer>
+
+      {/* Quote Popup Modal */}
+      <QuotePopup open={quotePopupOpen} onOpenChange={setQuotePopupOpen} />
     </div>
   );
 }

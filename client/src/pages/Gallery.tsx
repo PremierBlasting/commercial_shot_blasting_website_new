@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { OptimizedImage, getWebPUrl, getThumbnailUrl } from "@/components/OptimizedImage";
+import { QuotePopup } from "@/components/QuotePopup";
 import { Phone, ArrowLeft, ArrowRight, Star, Quote, X, Menu } from "lucide-react";
 import { useState, useMemo } from "react";
 import { Link } from "wouter";
@@ -202,8 +203,10 @@ export default function Gallery() {
   const [lightboxImages, setLightboxImages] = useState<string[]>([]);
   const [lightboxIndex, setLightboxIndex] = useState(0);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [quotePopupOpen, setQuotePopupOpen] = useState(false);
 
   const closeMobileMenu = () => setMobileMenuOpen(false);
+  const openQuotePopup = () => setQuotePopupOpen(true);
 
   // Fetch data from database
   const { data: dbGalleryItems } = trpc.gallery.list.useQuery();
@@ -294,9 +297,7 @@ export default function Gallery() {
               <Phone className="w-4 h-4" />
               07970 566409
             </a>
-            <Link href="/#contact">
-              <Button className="hidden sm:flex bg-white text-[#2C5F7F] hover:bg-white/90">Get a Quote</Button>
-            </Link>
+            <Button className="hidden sm:flex bg-white text-[#2C5F7F] hover:bg-white/90" onClick={openQuotePopup}>Get a Quote</Button>
             {/* Mobile Menu Button */}
             <button 
               className="md:hidden p-2 hover:bg-white/10 rounded-lg transition"
@@ -326,9 +327,7 @@ export default function Gallery() {
                   <Phone className="w-4 h-4" />
                   07970 566409
                 </a>
-                <Link href="/#contact" onClick={closeMobileMenu}>
-                  <Button className="bg-white text-[#2C5F7F] hover:bg-white/90 w-full">Get a Quote</Button>
-                </Link>
+                <Button className="bg-white text-[#2C5F7F] hover:bg-white/90 w-full" onClick={() => { closeMobileMenu(); openQuotePopup(); }}>Get a Quote</Button>
               </div>
             </div>
           </nav>
@@ -618,9 +617,7 @@ export default function Gallery() {
             Get in touch today and let us show you what professional shot blasting can do for your project.
           </p>
           <div className="flex justify-center gap-4">
-            <Link href="/#contact">
-              <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-white/90">Get a Free Quote</Button>
-            </Link>
+            <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-white/90" onClick={openQuotePopup}>Get a Free Quote</Button>
             <a href="tel:07970566409">
               <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
                 <Phone className="w-4 h-4 mr-2" /> Call Us
@@ -674,6 +671,9 @@ export default function Gallery() {
           </div>
         </div>
       </footer>
+
+      {/* Quote Popup Modal */}
+      <QuotePopup open={quotePopupOpen} onOpenChange={setQuotePopupOpen} />
     </div>
   );
 }

@@ -109,3 +109,12 @@
 - [x] Update upload API to return WebP URLs
 - [x] Update gallery to use WebP with fallback
 - [x] Add lazy loading for gallery images
+
+## HubSpot Form Integration
+- [x] Add HubSpot script to index.html
+- [x] Create HubSpotForm component
+- [x] Replace contact section form with HubSpot form
+- [x] Create quote popup modal component
+- [x] Add popup trigger to all "Get a Free Quote" buttons on Home page
+- [x] Add popup trigger to quote buttons on Gallery page
+- [x] Style HubSpot form to match site theme
