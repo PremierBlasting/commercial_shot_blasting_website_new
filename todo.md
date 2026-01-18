@@ -224,3 +224,9 @@
 - [x] Style button with phone icon
 - [x] Link to tel: for mobile click-to-call
 - [x] Test on all service pages
+
+## Homepage Hero Call Now Button
+- [x] Add Call Now button to hero section
+- [x] Style to match existing hero buttons
+- [x] Include phone icon
+- [x] Test on desktop and mobile
