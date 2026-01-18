@@ -3,6 +3,7 @@ import { Header } from "@/components/Header";
 import { QuotePopup } from "@/components/QuotePopup";
 import { Link } from "wouter";
 import { ArrowLeft, Shield, Cookie, Database, Mail, Phone, MapPin, Lock, Users, Clock } from "lucide-react";
+import { Breadcrumb } from "@/components/Breadcrumb";
 
 export default function PrivacyPolicy() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
@@ -10,6 +11,16 @@ export default function PrivacyPolicy() {
   return (
     <div className="min-h-screen bg-[#F5F1E8]">
       <Header onOpenQuotePopup={() => setQuotePopupOpen(true)} />
+      
+      {/* Breadcrumb Navigation */}
+      <section className="py-4 bg-gray-50 border-b border-gray-200">
+        <div className="container">
+          <Breadcrumb items={[
+            { label: "Home", href: "/" },
+            { label: "Privacy Policy", href: "/privacy-policy", isCurrentPage: true }
+          ]} />
+        </div>
+      </section>
       
       {/* Hero Section */}
       <section className="bg-[#2C5F7F] text-white py-16">

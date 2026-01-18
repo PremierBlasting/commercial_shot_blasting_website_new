@@ -7,6 +7,7 @@ import { getServiceById, services } from "@/data/services";
 import { QuotePopup } from "@/components/QuotePopup";
 import { Header } from "@/components/Header";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
+import { Breadcrumb } from "@/components/Breadcrumb";
 
 export default function ServiceDetail() {
   const params = useParams<{ id: string }>();
@@ -36,6 +37,17 @@ export default function ServiceDetail() {
     <div className="min-h-screen flex flex-col" style={{ fontFamily: "'Open Sans', sans-serif" }}>
       {/* Header */}
       <Header onOpenQuotePopup={openQuotePopup} />
+
+      {/* Breadcrumb Navigation */}
+      <section className="py-4 bg-gray-50 border-b border-gray-200">
+        <div className="container">
+          <Breadcrumb items={[
+            { label: "Home", href: "/" },
+            { label: "Services", href: "/#services" },
+            { label: service.title, href: `/services/${service.id}`, isCurrentPage: true }
+          ]} />
+        </div>
+      </section>
 
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-[#2C5F7F] to-[#1a3d52] text-white py-16 lg:py-24">

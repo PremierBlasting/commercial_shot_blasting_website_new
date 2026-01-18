@@ -333,3 +333,11 @@
 - [x] Add breadcrumb schema markup (JSON-LD) for SEO
 - [x] Test breadcrumb navigation and styling
 - [x] Verify breadcrumb links work correctly
+
+
+## Apply Breadcrumbs to All Location Pages
+- [x] Birmingham landing page - breadcrumb added
+- [x] Service Detail pages - breadcrumb added
+- [x] Gallery page - breadcrumb added
+- [x] Privacy Policy page - breadcrumb added
+- [x] Test all location page breadcrumbs

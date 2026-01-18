@@ -8,6 +8,7 @@ import { Phone, Mail, MapPin, ArrowLeft, ArrowRight, Star, Quote, X } from "luci
 import { useState, useMemo } from "react";
 import { Link } from "wouter";
 import { trpc } from "@/lib/trpc";
+import { Breadcrumb } from "@/components/Breadcrumb";
 
 const galleryItems = [
   // Industrial Projects
@@ -292,6 +293,16 @@ export default function Gallery() {
     <div className="min-h-screen flex flex-col" style={{ fontFamily: "'Open Sans', sans-serif" }}>
       {/* Header */}
       <Header onOpenQuotePopup={openQuotePopup} />
+
+      {/* Breadcrumb Navigation */}
+      <section className="py-4 bg-gray-50 border-b border-gray-200">
+        <div className="container">
+          <Breadcrumb items={[
+            { label: "Home", href: "/" },
+            { label: "Gallery", href: "/gallery", isCurrentPage: true }
+          ]} />
+        </div>
+      </section>
 
       {/* Hero */}
       <section className="bg-gradient-to-br from-[#2C5F7F] to-[#1a3d52] text-white py-16">
