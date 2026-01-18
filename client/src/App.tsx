@@ -14,6 +14,8 @@ import BirminghamServiceArea from "./pages/BirminghamServiceArea";
 import SheffieldServiceArea from "./pages/SheffieldServiceArea";
 import ManchesterServiceArea from "./pages/ManchesterServiceArea";
 import BristolServiceArea from "./pages/BristolServiceArea";
+import LeedsServiceArea from "./pages/LeedsServiceArea";
+import LiverpoolServiceArea from "./pages/LiverpoolServiceArea";
 import { CookieConsent } from "./components/CookieConsent";
 import { FloatingCallButton } from "./components/FloatingCallButton";
 
@@ -31,6 +33,8 @@ function Router() {
       <Route path="/service-areas/sheffield" component={SheffieldServiceArea} />
       <Route path="/service-areas/manchester" component={ManchesterServiceArea} />
       <Route path="/service-areas/bristol" component={BristolServiceArea} />
+      <Route path="/service-areas/leeds" component={LeedsServiceArea} />
+      <Route path="/service-areas/liverpool" component={LiverpoolServiceArea} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />

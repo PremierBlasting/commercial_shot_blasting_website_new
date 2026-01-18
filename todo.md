@@ -359,3 +359,12 @@
 - [x] Add Home link to desktop navigation menu
 - [x] Add Home link to mobile hamburger menu
 - [x] Test Home links on both desktop and mobile
+
+
+## Additional Location Landing Pages - Leeds & Liverpool
+- [x] Create Leeds landing page
+- [x] Create Liverpool landing page
+- [x] Add routes for Leeds and Liverpool in App.tsx
+- [x] Add navigation links to Service Areas page
+- [x] Update Areas submenu with Leeds and Liverpool links
+- [x] Test Leeds and Liverpool pages

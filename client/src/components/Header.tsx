@@ -38,7 +38,7 @@ const areasLinks = [
     region: "Yorkshire",
     locations: [
       { title: "Sheffield", href: "/service-areas/sheffield" },
-      { title: "Leeds", href: "/service-areas#leeds" },
+      { title: "Leeds", href: "/service-areas/leeds" },
       { title: "Bradford", href: "/service-areas#bradford" },
     ]
   },
@@ -46,7 +46,7 @@ const areasLinks = [
     region: "North West",
     locations: [
       { title: "Manchester", href: "/service-areas/manchester" },
-      { title: "Liverpool", href: "/service-areas#liverpool" },
+      { title: "Liverpool", href: "/service-areas/liverpool" },
       { title: "Chester", href: "/service-areas#chester" },
     ]
   },

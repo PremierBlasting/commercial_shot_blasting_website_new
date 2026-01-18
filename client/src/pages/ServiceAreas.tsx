@@ -286,8 +286,12 @@ export default function ServiceAreas() {
                           href = "/service-areas/birmingham";
                         } else if (location === "Sheffield" && region.id === "yorkshire") {
                           href = "/service-areas/sheffield";
+                        } else if (location === "Leeds" && region.id === "yorkshire") {
+                          href = "/service-areas/leeds";
                         } else if (location === "Manchester" && region.id === "north-west") {
                           href = "/service-areas/manchester";
+                        } else if (location === "Liverpool" && region.id === "north-west") {
+                          href = "/service-areas/liverpool";
                         } else if (location === "Bristol" && region.id === "south-west") {
                           href = "/service-areas/bristol";
                         }
