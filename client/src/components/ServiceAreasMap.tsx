@@ -206,13 +206,13 @@ export function ServiceAreasMap({ onAreaClick, onQuoteClick }: ServiceAreasMapPr
         // Navigate to location page if it exists, otherwise zoom to location
         const locationPages = [
           'birmingham', 'wolverhampton', 'coventry', 'worcester', 'stratford-upon-avon',
-          'nottingham', 'leicester', 'derby', 'lincoln',
+          'nottingham', 'leicester', 'derby', 'lincoln', 'northampton', 'chesterfield',
           'sheffield', 'leeds',
           'manchester', 'liverpool', 'chester', 'stoke',
-          'norwich', 'cambridge', 'ipswich', 'st-albans',
+          'norwich', 'cambridge', 'ipswich', 'st-albans', 'peterborough',
           'bristol', 'gloucester', 'swindon',
-          'milton-keynes',
-          'shrewsbury', 'hereford', 'cardiff'
+          'milton-keynes', 'oxford',
+          'shrewsbury', 'hereford', 'cardiff', 'wrexham'
         ];
         
         if (locationPages.includes(slug)) {

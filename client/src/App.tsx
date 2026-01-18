@@ -40,6 +40,7 @@ import NorthamptonServiceArea from "./pages/NorthamptonServiceArea";
 import OxfordServiceArea from "./pages/OxfordServiceArea";
 import PeterboroughServiceArea from "./pages/PeterboroughServiceArea";
 import ChesterfieldServiceArea from "./pages/ChesterfieldServiceArea";
+import WrexhamServiceArea from "./pages/WrexhamServiceArea";
 import { CookieConsent } from "./components/CookieConsent";
 import { FloatingCallButton } from "./components/FloatingCallButton";
 
@@ -83,6 +84,7 @@ function Router() {
       <Route path="/service-areas/oxford" component={OxfordServiceArea} />
       <Route path="/service-areas/peterborough" component={PeterboroughServiceArea} />
       <Route path="/service-areas/chesterfield" component={ChesterfieldServiceArea} />
+      <Route path="/service-areas/wrexham" component={WrexhamServiceArea} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />

@@ -9,7 +9,7 @@ import { Breadcrumb } from "@/components/Breadcrumb";
 import { LocalBusinessSchema } from "@/components/LocalBusinessSchema";
 import { CaseStudy } from "@/components/CaseStudy";
 
-export default function OxfordServiceArea() {
+export default function WrexhamServiceArea() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
 
   return (
@@ -17,11 +17,11 @@ export default function OxfordServiceArea() {
       <Header onOpenQuotePopup={() => setQuotePopupOpen(true)} />
       <QuotePopup open={quotePopupOpen} onOpenChange={setQuotePopupOpen} />
       <LocalBusinessSchema
-        name="Oxford"
-        city="Oxford"
-        region="South East"
-        description="Professional shot blasting services in Oxford and the South East"
-        url="https://shotblast-lwspuaik.manus.space/service-areas/oxford"
+        name="Wrexham"
+        city="Wrexham"
+        region="Wales"
+        description="Professional shot blasting services in Wrexham and the Wales"
+        url="https://shotblast-lwspuaik.manus.space/service-areas/wrexham"
       />
 
       {/* Breadcrumb Navigation */}
@@ -30,8 +30,8 @@ export default function OxfordServiceArea() {
           <Breadcrumb items={[
             { label: "Home", href: "/" },
             { label: "Service Areas", href: "/service-areas" },
-            { label: "South East", href: "/service-areas" },
-            { label: "Oxford", href: "/service-areas/oxford", isCurrentPage: true }
+            { label: "Wales", href: "/service-areas" },
+            { label: "Wrexham", href: "/service-areas/wrexham", isCurrentPage: true }
           ]} />
         </div>
       </section>
@@ -42,10 +42,10 @@ export default function OxfordServiceArea() {
           <div className="max-w-3xl">
             <p className="text-[#F5F1E8] font-medium mb-2">Professional Shot Blasting Services</p>
             <h1 className="text-4xl md:text-5xl font-bold mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
-              Shot Blasting Services in Oxford
+              Shot Blasting Services in Wrexham
             </h1>
             <p className="text-lg text-white/90 mb-8">
-              Commercial Shot Blasting provides professional surface preparation and rust removal services throughout Oxford and the South East. Serving local manufacturers, automotive shops, and industrial facilities with precision blasting solutions.
+              Commercial Shot Blasting provides professional surface preparation and rust removal services throughout Wrexham and the Wales. Serving local manufacturers, automotive shops, and industrial facilities with precision blasting solutions.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-[#F5F1E8]">
@@ -65,7 +65,7 @@ export default function OxfordServiceArea() {
         <div className="container">
           <div className="mb-6">
             <h2 className="text-2xl md:text-3xl font-bold text-[#2C2C2C] mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
-              Oxford Project Transformation
+              Wrexham Project Transformation
             </h2>
             <p className="text-gray-600">See the results of our professional shot blasting work</p>
           </div>
@@ -87,24 +87,24 @@ export default function OxfordServiceArea() {
         </div>
       </section>
 
-      {/* About Oxford Service Area */}
+      {/* About Wrexham Service Area */}
       <section className="py-16 bg-[#F5F1E8]">
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-[#2C2C2C] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
-                Your Local Shot Blasting Experts in Oxford
+                Your Local Shot Blasting Experts in Wrexham
               </h2>
               <p className="text-gray-700 mb-4">
-                Commercial Shot Blasting has been serving Oxford businesses for years, providing professional surface preparation services to the region's leading manufacturers, automotive restoration specialists, and industrial facilities.
+                Commercial Shot Blasting has been serving Wrexham businesses for years, providing professional surface preparation services to the region's leading manufacturers, automotive restoration specialists, and industrial facilities.
               </p>
               <p className="text-gray-700 mb-6">
-                Oxford's thriving manufacturing and automotive sectors rely on our expertise for precision surface preparation. Whether you need rust removal, paint stripping, or concrete surface profiling, we have the equipment and experience to deliver exceptional results.
+                Wrexham's thriving manufacturing and automotive sectors rely on our expertise for precision surface preparation. Whether you need rust removal, paint stripping, or concrete surface profiling, we have the equipment and experience to deliver exceptional results.
               </p>
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-[#2C5F7F] flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Same-day quotes for Oxford area projects</span>
+                  <span className="text-gray-700">Same-day quotes for Wrexham area projects</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-[#2C5F7F] flex-shrink-0 mt-0.5" />
@@ -116,18 +116,18 @@ export default function OxfordServiceArea() {
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-[#2C5F7F] flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Competitive pricing for Oxford businesses</span>
+                  <span className="text-gray-700">Competitive pricing for Wrexham businesses</span>
                 </li>
               </ul>
             </div>
             <div className="relative">
               <img
                 src="/images/premier/steel-container-after.jpeg"
-                alt="Professional shot blasting results in Oxford"
+                alt="Professional shot blasting results in Wrexham"
                 className="rounded-lg shadow-lg"
               />
               <div className="absolute bottom-0 right-0 bg-[#2C5F7F] text-white p-6 rounded-lg shadow-lg max-w-xs">
-                <p className="font-semibold mb-2">Serving Oxford Since</p>
+                <p className="font-semibold mb-2">Serving Wrexham Since</p>
                 <p className="text-3xl font-bold">2015+</p>
               </div>
             </div>
@@ -135,15 +135,15 @@ export default function OxfordServiceArea() {
         </div>
       </section>
 
-      {/* Services for Oxford */}
+      {/* Services for Wrexham */}
       <section className="py-16 bg-white">
         <div className="container">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-[#2C2C2C] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
-              Services Available in Oxford
+              Services Available in Wrexham
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              We provide a complete range of shot blasting and surface preparation services tailored to Oxford's diverse industries.
+              We provide a complete range of shot blasting and surface preparation services tailored to Wrexham's diverse industries.
             </p>
           </div>
 
@@ -156,7 +156,7 @@ export default function OxfordServiceArea() {
               },
               {
                 title: "Rust Removal & Prevention",
-                description: "Complete rust removal solutions for automotive, manufacturing, and infrastructure projects across Oxford.",
+                description: "Complete rust removal solutions for automotive, manufacturing, and infrastructure projects across Wrexham.",
                 icon: Award
               },
               {
@@ -193,11 +193,11 @@ export default function OxfordServiceArea() {
         </div>
       </section>
 
-      {/* Industries Served in Oxford */}
+      {/* Industries Served in Wrexham */}
       <section className="py-16 bg-[#F5F1E8]">
         <div className="container">
           <h2 className="text-3xl md:text-4xl font-bold text-[#2C2C2C] mb-12 text-center" style={{ fontFamily: "'Playfair Display', serif" }}>
-            Industries We Serve in Oxford
+            Industries We Serve in Wrexham
           </h2>
 
           <div className="grid md:grid-cols-2 gap-8">
@@ -239,7 +239,7 @@ export default function OxfordServiceArea() {
       <section className="py-16 bg-white">
         <div className="container">
           <h2 className="text-3xl md:text-4xl font-bold text-[#2C2C2C] mb-12 text-center" style={{ fontFamily: "'Playfair Display', serif" }}>
-            Why Oxford Businesses Choose Us
+            Why Wrexham Businesses Choose Us
           </h2>
 
           <div className="grid md:grid-cols-2 gap-12">
@@ -247,7 +247,7 @@ export default function OxfordServiceArea() {
               {[
                 {
                   title: "Local Expertise",
-                  description: "We understand Oxford's industrial landscape and the specific needs of local businesses."
+                  description: "We understand Wrexham's industrial landscape and the specific needs of local businesses."
                 },
                 {
                   title: "Fast Turnaround",
@@ -255,7 +255,7 @@ export default function OxfordServiceArea() {
                 },
                 {
                   title: "Competitive Pricing",
-                  description: "Professional quality at competitive rates tailored to Oxford market conditions."
+                  description: "Professional quality at competitive rates tailored to Wrexham market conditions."
                 },
                 {
                   title: "Environmental Compliance",
@@ -274,7 +274,7 @@ export default function OxfordServiceArea() {
             <div className="bg-[#2C5F7F] text-white p-8 rounded-lg">
               <h3 className="text-2xl font-bold mb-6">Ready to Get Started?</h3>
               <p className="mb-6">
-                Contact us today for a free, no-obligation quote on your Oxford shot blasting project.
+                Contact us today for a free, no-obligation quote on your Wrexham shot blasting project.
               </p>
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
@@ -299,7 +299,7 @@ export default function OxfordServiceArea() {
                   <MapPin className="w-5 h-5" />
                   <div>
                     <p className="text-sm text-white/70">Service Area</p>
-                    <p className="font-semibold">Oxford & South East</p>
+                    <p className="font-semibold">Wrexham & Wales</p>
                   </div>
                 </div>
               </div>
@@ -313,9 +313,9 @@ export default function OxfordServiceArea() {
 
       {/* Case Study Section */}
       <CaseStudy
-        title="Oxford Automotive Manufacturing Facility"
+        title="Wrexham Automotive Manufacturing Facility"
         client="Midlands Automotive Components Ltd"
-        location="Oxford, South East"
+        location="Wrexham, Wales"
         duration="3 weeks"
         area="15,000 sq ft manufacturing floor"
         completionDate="November 2025"
@@ -349,12 +349,12 @@ export default function OxfordServiceArea() {
           <div className="max-w-3xl mx-auto space-y-6">
             {[
               {
-                q: "How quickly can you provide a quote for Oxford projects?",
-                a: "We typically provide same-day quotes for Oxford area projects. Contact us with your project details and we'll respond within hours."
+                q: "How quickly can you provide a quote for Wrexham projects?",
+                a: "We typically provide same-day quotes for Wrexham area projects. Contact us with your project details and we'll respond within hours."
               },
               {
-                q: "Do you service all areas of Oxford?",
-                a: "Yes, we provide comprehensive coverage throughout Oxford and the surrounding South East region. We handle projects of all sizes from small components to large industrial equipment."
+                q: "Do you service all areas of Wrexham?",
+                a: "Yes, we provide comprehensive coverage throughout Wrexham and the surrounding Wales region. We handle projects of all sizes from small components to large industrial equipment."
               },
               {
                 q: "What types of surfaces can you blast?",
@@ -385,7 +385,7 @@ export default function OxfordServiceArea() {
             Transform Your Surfaces Today
           </h2>
           <p className="text-lg text-white/90 mb-8 max-w-2xl mx-auto">
-            Get professional shot blasting services in Oxford. Contact us for a free quote and discover why local businesses trust Commercial Shot Blasting.
+            Get professional shot blasting services in Wrexham. Contact us for a free quote and discover why local businesses trust Commercial Shot Blasting.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-[#F5F1E8]" onClick={() => setQuotePopupOpen(true)}>
@@ -452,7 +452,7 @@ export default function OxfordServiceArea() {
           </div>
           <div className="border-t border-white/10 pt-8">
             <p className="text-center text-white/70 text-sm">
-              © 2024 Commercial Shot Blasting. All rights reserved. | Serving Oxford and the South East
+              © 2024 Commercial Shot Blasting. All rights reserved. | Serving Wrexham and the Wales
             </p>
           </div>
         </div>

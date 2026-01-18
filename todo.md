@@ -535,5 +535,21 @@
 - [ ] Update Home.tsx carousel to use all 11 images
 - [ ] Adjust animation timing for 11-image rotation
 - [ ] Test carousel display and transitions
+- [x] Save checkpoint
+- [x] Push changes to GitHub
+
+
+## Create 5 New Location Pages and Update Links
+- [ ] Create Peterborough location page
+- [ ] Create Chesterfield location page
+- [ ] Create Northampton location page
+- [ ] Create Oxford location page
+- [ ] Create Wrexham location page
+- [ ] Update App.tsx with new location routes
+- [ ] Update ServiceAreas.tsx location links
+- [ ] Update ServiceAreasMap.tsx location links
+- [ ] Update map pins to link to new pages
+- [ ] Test all new location pages
+- [ ] Test all location links across site
 - [ ] Save checkpoint
 - [ ] Push changes to GitHub

@@ -380,7 +380,8 @@ export default function ServiceAreas() {
                 "Oxford": "oxford",
                 "Peterborough": "peterborough",
                 "Chesterfield": "chesterfield",
-                "St Albans": "st-albans"
+                "St Albans": "st-albans",
+                "Wrexham": "wrexham"
               };
               
               const slug = locationSlugMap[location];
