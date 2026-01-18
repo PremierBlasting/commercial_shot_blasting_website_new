@@ -192,6 +192,77 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Client Logo Carousel */}
+      <section className="py-16 bg-[#F5F1E8] overflow-hidden">
+        <div className="container mb-8">
+          <div className="text-center">
+            <p className="text-[#2C5F7F] font-medium mb-2">Trusted By Industry Leaders</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#2C2C2C]" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Companies We've Worked With
+            </h2>
+          </div>
+        </div>
+        <div className="relative">
+          {/* Gradient overlays for smooth fade effect */}
+          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#F5F1E8] to-transparent z-10"></div>
+          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#F5F1E8] to-transparent z-10"></div>
+          
+          {/* Scrolling container */}
+          <div className="flex animate-scroll">
+            {/* First set of logos */}
+            <div className="flex gap-12 items-center px-6">
+              {[
+                { name: "Network Rail", abbr: "NR" },
+                { name: "BAE Systems", abbr: "BAE" },
+                { name: "Rolls-Royce", abbr: "RR" },
+                { name: "JCB", abbr: "JCB" },
+                { name: "Caterpillar", abbr: "CAT" },
+                { name: "Jaguar Land Rover", abbr: "JLR" },
+                { name: "Siemens", abbr: "SIE" },
+                { name: "Balfour Beatty", abbr: "BB" },
+                { name: "Kier Group", abbr: "KIER" },
+                { name: "Morgan Sindall", abbr: "MS" },
+              ].map((client, i) => (
+                <div 
+                  key={i} 
+                  className="flex-shrink-0 w-40 h-20 bg-white rounded-lg shadow-sm flex items-center justify-center border border-gray-100 hover:shadow-md transition-shadow"
+                >
+                  <div className="text-center">
+                    <span className="text-2xl font-bold text-[#2C5F7F]">{client.abbr}</span>
+                    <p className="text-xs text-gray-500 mt-1">{client.name}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            {/* Duplicate set for seamless loop */}
+            <div className="flex gap-12 items-center px-6">
+              {[
+                { name: "Network Rail", abbr: "NR" },
+                { name: "BAE Systems", abbr: "BAE" },
+                { name: "Rolls-Royce", abbr: "RR" },
+                { name: "JCB", abbr: "JCB" },
+                { name: "Caterpillar", abbr: "CAT" },
+                { name: "Jaguar Land Rover", abbr: "JLR" },
+                { name: "Siemens", abbr: "SIE" },
+                { name: "Balfour Beatty", abbr: "BB" },
+                { name: "Kier Group", abbr: "KIER" },
+                { name: "Morgan Sindall", abbr: "MS" },
+              ].map((client, i) => (
+                <div 
+                  key={`dup-${i}`} 
+                  className="flex-shrink-0 w-40 h-20 bg-white rounded-lg shadow-sm flex items-center justify-center border border-gray-100 hover:shadow-md transition-shadow"
+                >
+                  <div className="text-center">
+                    <span className="text-2xl font-bold text-[#2C5F7F]">{client.abbr}</span>
+                    <p className="text-xs text-gray-500 mt-1">{client.name}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-16 bg-[#2C5F7F] text-white">
         <div className="container">

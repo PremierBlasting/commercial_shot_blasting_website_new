@@ -52,3 +52,9 @@
 - [x] Add smooth open/close animations
 - [x] Implement on Home page
 - [x] Implement on Gallery page
+
+## Client Logo Carousel
+- [x] Create client logo carousel section on Home page
+- [x] Add auto-scrolling animation
+- [x] Include placeholder company logos
+- [x] Style with teal/cream color scheme
