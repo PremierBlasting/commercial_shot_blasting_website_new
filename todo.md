@@ -474,4 +474,13 @@
 - [x] Link to dedicated landing pages where they exist
 - [x] Test all location links
 - [x] Save checkpoint
+- [x] Push changes to GitHub
+
+
+## Birmingham Case Study Before/After Images
+- [x] Generate before image showing deteriorated industrial floor
+- [x] Generate after image showing clean blasted surface
+- [x] Integrate images into Birmingham case study component
+- [x] Test updated case study display
+- [ ] Save checkpoint
 - [ ] Push changes to GitHub
