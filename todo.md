@@ -482,5 +482,14 @@
 - [x] Generate after image showing clean blasted surface
 - [x] Integrate images into Birmingham case study component
 - [x] Test updated case study display
+- [x] Save checkpoint
+- [x] Push changes to GitHub
+
+
+## Move Review Section from Gallery to Home Page
+- [x] Identify review section component in Gallery page
+- [x] Determine optimal placement on Home page
+- [ ] Move review section to Home page
+- [ ] Test display and layout
 - [ ] Save checkpoint
 - [ ] Push changes to GitHub

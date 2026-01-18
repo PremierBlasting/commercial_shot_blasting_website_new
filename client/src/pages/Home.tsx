@@ -1,17 +1,123 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
-import { Phone, Mail, MapPin, CheckCircle, ArrowRight, Shield, Clock, Award, Users } from "lucide-react";
-import { useState } from "react";
+import { Phone, Mail, MapPin, CheckCircle, ArrowRight, Shield, Clock, Award, Users, Star, Quote, X } from "lucide-react";
+import { useState, useMemo } from "react";
 import { QuotePopup } from "@/components/QuotePopup";
 import { HubSpotForm } from "@/components/HubSpotForm";
 import { Header } from "@/components/Header";
 import { ServiceAreasMap } from "@/components/ServiceAreasMap";
+import { trpc } from "@/lib/trpc";
+
+const testimonials = [
+  {
+    id: 1,
+    name: "Kate Crisp",
+    company: "Property Renovation",
+    rating: 5,
+    text: "We have been renovating our 500plus year old property which is steeped in character but most of the beams were painted black. The transformation could not be more worth it.",
+    project: "Beam Restoration",
+    images: [
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600",
+      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600",
+      "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=600",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600",
+      "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=600",
+    ],
+    isNew: true,
+  },
+  {
+    id: 2,
+    name: "Alex Philip",
+    company: "Cottage Owner",
+    rating: 5,
+    text: "Excellent service from start to finish. Completed blasting the gloss black paint off all the beams in our cottage in superb time. Alfie and Ben were a great team and kept us updated throughout from the tester patches to the finished beams. Would highly recommend.",
+    project: "Beam Cleaning",
+    images: [
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600",
+      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600",
+      "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=600",
+    ],
+  },
+  {
+    id: 3,
+    name: "Zoë Meredith",
+    company: "Homeowner",
+    rating: 5,
+    text: "Alfie & Ben have done a fantastic job on the beams in our house. We are really happy with their work and would 100% recommend them. They did as much as possible to contain the dust/sand, they cleaned up well before leaving.",
+    project: "Beam Restoration",
+    images: [
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600",
+      "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=600",
+      "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600",
+    ],
+  },
+  {
+    id: 4,
+    name: "Colin Howe",
+    company: "Property Owner",
+    rating: 5,
+    text: "Fantastic! The guys at Commercial Shot Blasting were very helpful from the initial enquiry stage right through to the finished project. Sam and Tom did a great job with our beams and we are incredibly happy with the result. Great job!",
+    project: "Beam Blasting",
+    images: [
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600",
+      "https://images.unsplash.com/photo-1600585154363-67eb9e2e2099?w=600",
+      "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=600",
+    ],
+  },
+];
 
 export default function Home() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
+  const [lightboxImage, setLightboxImage] = useState<string | null>(null);
+  const [lightboxImages, setLightboxImages] = useState<string[]>([]);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
 
   const openQuotePopup = () => setQuotePopupOpen(true);
+
+  // Fetch testimonials from database
+  const { data: dbTestimonials } = trpc.testimonials.list.useQuery();
+
+  // Use database data if available, otherwise use static fallback
+  const displayTestimonials = useMemo(() => {
+    if (dbTestimonials && dbTestimonials.length > 0) {
+      return dbTestimonials.map(item => ({
+        id: item.id,
+        name: item.name,
+        company: item.company || '',
+        rating: item.rating,
+        text: item.text,
+        project: item.project || '',
+        images: item.images as string[] | undefined,
+        isNew: item.isNew,
+      }));
+    }
+    return testimonials;
+  }, [dbTestimonials]);
+
+  const openLightbox = (images: string[], index: number) => {
+    setLightboxImages(images);
+    setLightboxIndex(index);
+    setLightboxImage(images[index]);
+  };
+
+  const closeLightbox = () => {
+    setLightboxImage(null);
+    setLightboxImages([]);
+    setLightboxIndex(0);
+  };
+
+  const nextImage = () => {
+    const newIndex = (lightboxIndex + 1) % lightboxImages.length;
+    setLightboxIndex(newIndex);
+    setLightboxImage(lightboxImages[newIndex]);
+  };
+
+  const prevImage = () => {
+    const newIndex = (lightboxIndex - 1 + lightboxImages.length) % lightboxImages.length;
+    setLightboxIndex(newIndex);
+    setLightboxImage(lightboxImages[newIndex]);
+  };
 
   return (
     <div className="min-h-screen flex flex-col" style={{ fontFamily: "'Open Sans', sans-serif" }}>
@@ -122,6 +228,100 @@ export default function Home() {
                 <p className="text-sm">Years Experience</p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-20 bg-white">
+        <div className="container">
+          <div className="text-center mb-12">
+            <p className="text-[#2C5F7F] font-medium mb-2">Customer Reviews</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#2C2C2C]" style={{ fontFamily: "'Playfair Display', serif" }}>
+              What Our Clients Say
+            </h2>
+            <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
+              Don't just take our word for it. Here's what our satisfied customers have to say about our shot blasting services.
+            </p>
+          </div>
+          
+          {/* Featured Review with Images */}
+          {displayTestimonials.length > 0 && (
+            <Card className="p-6 mb-8 hover:shadow-lg transition-shadow relative bg-gradient-to-br from-[#F5F1E8] to-white border-2 border-[#2C5F7F]/20">
+              <div className="flex items-center gap-2 mb-4">
+                {displayTestimonials[0].isNew && (
+                  <span className="bg-[#2C5F7F] text-white text-xs px-2 py-1 rounded font-medium">NEW</span>
+                )}
+                <div className="flex gap-1">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className={`w-5 h-5 ${i < displayTestimonials[0].rating ? 'fill-yellow-400 text-yellow-400' : 'text-gray-300'}`} />
+                  ))}
+                </div>
+              </div>
+              <Quote className="absolute top-4 right-4 w-12 h-12 text-[#2C5F7F]/10" />
+              <p className="text-gray-700 mb-6 leading-relaxed italic text-lg">"{displayTestimonials[0].text}"</p>
+              {displayTestimonials[0].images && displayTestimonials[0].images.length > 0 && (
+                <div className={`grid gap-2 mb-6 ${displayTestimonials[0].images.length >= 5 ? 'grid-cols-5' : `grid-cols-${displayTestimonials[0].images.length}`}`}>
+                  {displayTestimonials[0].images.map((img, idx) => (
+                    <img 
+                      key={idx} 
+                      src={img} 
+                      alt={`Review photo ${idx + 1}`} 
+                      className="w-full h-24 md:h-32 object-cover rounded-lg hover:scale-105 transition-transform cursor-pointer shadow-md"
+                      onClick={() => openLightbox(displayTestimonials[0].images!, idx)}
+                    />
+                  ))}
+                </div>
+              )}
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="font-semibold text-[#2C2C2C] text-lg">{displayTestimonials[0].name}</p>
+                  <p className="text-sm text-gray-500">{displayTestimonials[0].company}</p>
+                </div>
+                <span className="text-xs bg-[#2C5F7F]/10 text-[#2C5F7F] px-3 py-1 rounded-full font-medium">
+                  {displayTestimonials[0].project}
+                </span>
+              </div>
+            </Card>
+          )}
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {displayTestimonials.slice(1).map((testimonial) => (
+              <Card key={testimonial.id} className="p-6 hover:shadow-lg transition-shadow relative">
+                <Quote className="absolute top-4 right-4 w-10 h-10 text-[#2C5F7F]/10" />
+                <div className="flex gap-1 mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star
+                      key={i}
+                      className={`w-5 h-5 ${i < testimonial.rating ? 'fill-yellow-400 text-yellow-400' : 'text-gray-300'}`}
+                    />
+                  ))}
+                </div>
+                <p className="text-gray-700 mb-4 leading-relaxed italic text-sm">"{testimonial.text}"</p>
+                {testimonial.images && testimonial.images.length > 0 && (
+                  <div className="grid grid-cols-3 gap-1 mb-4">
+                    {testimonial.images.map((img, idx) => (
+                      <img 
+                        key={idx} 
+                        src={img} 
+                        alt={`Review photo ${idx + 1}`} 
+                        className="w-full h-16 object-cover rounded hover:scale-105 transition-transform cursor-pointer"
+                        onClick={() => openLightbox(testimonial.images!, idx)}
+                      />
+                    ))}
+                  </div>
+                )}
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="font-semibold text-[#2C2C2C]">{testimonial.name}</p>
+                    <p className="text-sm text-gray-500">{testimonial.company}</p>
+                  </div>
+                  <span className="text-xs bg-[#2C5F7F]/10 text-[#2C5F7F] px-3 py-1 rounded-full font-medium">
+                    {testimonial.project}
+                  </span>
+                </div>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
@@ -379,6 +579,42 @@ export default function Home() {
 
       {/* Quote Popup Modal */}
       <QuotePopup open={quotePopupOpen} onOpenChange={setQuotePopupOpen} />
+
+      {/* Lightbox Modal */}
+      {lightboxImage && (
+        <div 
+          className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+          onClick={closeLightbox}
+        >
+          <button 
+            onClick={closeLightbox}
+            className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors"
+          >
+            <X className="w-8 h-8" />
+          </button>
+          <button 
+            onClick={(e) => { e.stopPropagation(); prevImage(); }}
+            className="absolute left-4 text-white hover:text-gray-300 transition-colors"
+          >
+            <ArrowRight className="w-8 h-8 rotate-180" />
+          </button>
+          <button 
+            onClick={(e) => { e.stopPropagation(); nextImage(); }}
+            className="absolute right-4 text-white hover:text-gray-300 transition-colors"
+          >
+            <ArrowRight className="w-8 h-8" />
+          </button>
+          <img 
+            src={lightboxImage} 
+            alt="Review photo" 
+            className="max-w-full max-h-full object-contain"
+            onClick={(e) => e.stopPropagation()}
+          />
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-sm">
+            {lightboxIndex + 1} / {lightboxImages.length}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
