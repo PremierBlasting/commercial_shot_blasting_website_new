@@ -17,23 +17,97 @@ const serviceLinks = [
   { title: "Gate Restoration", href: "/services/gate-restoration", description: "Expert metal gate blasting and restoration" },
 ];
 
+const areasLinks = [
+  {
+    region: "West Midlands",
+    locations: [
+      { title: "Birmingham", href: "/service-areas/birmingham" },
+      { title: "Wolverhampton", href: "/service-areas" },
+      { title: "Coventry", href: "/service-areas" },
+    ]
+  },
+  {
+    region: "East Midlands",
+    locations: [
+      { title: "Nottingham", href: "/service-areas" },
+      { title: "Leicester", href: "/service-areas" },
+      { title: "Derby", href: "/service-areas" },
+    ]
+  },
+  {
+    region: "Yorkshire",
+    locations: [
+      { title: "Sheffield", href: "/service-areas" },
+      { title: "Leeds", href: "/service-areas" },
+      { title: "Bradford", href: "/service-areas" },
+    ]
+  },
+  {
+    region: "North West",
+    locations: [
+      { title: "Manchester", href: "/service-areas" },
+      { title: "Liverpool", href: "/service-areas" },
+      { title: "Chester", href: "/service-areas" },
+    ]
+  },
+  {
+    region: "East of England",
+    locations: [
+      { title: "Norwich", href: "/service-areas" },
+      { title: "Cambridge", href: "/service-areas" },
+      { title: "Peterborough", href: "/service-areas" },
+    ]
+  },
+  {
+    region: "South West",
+    locations: [
+      { title: "Bristol", href: "/service-areas" },
+      { title: "Gloucester", href: "/service-areas" },
+      { title: "Swindon", href: "/service-areas" },
+    ]
+  },
+  {
+    region: "South East",
+    locations: [
+      { title: "Oxford", href: "/service-areas" },
+      { title: "Milton Keynes", href: "/service-areas" },
+    ]
+  },
+  {
+    region: "Welsh Borders & Wales",
+    locations: [
+      { title: "Shrewsbury", href: "/service-areas" },
+      { title: "Hereford", href: "/service-areas" },
+      { title: "Cardiff", href: "/service-areas" },
+    ]
+  },
+];
+
 export function Header({ onOpenQuotePopup }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [mobileAreasOpen, setMobileAreasOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [areasOpen, setAreasOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const areasDropdownRef = useRef<HTMLDivElement>(null);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const areasTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const closeMobileMenu = () => {
     setMobileMenuOpen(false);
     setMobileServicesOpen(false);
+    setMobileAreasOpen(false);
   };
 
-  // Handle click outside to close dropdown
+  // Handle click outside to close dropdowns
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setServicesOpen(false);
+      }
+      if (areasDropdownRef.current && !areasDropdownRef.current.contains(event.target as Node)) {
+        setAreasOpen(false);
       }
     };
 
@@ -52,6 +126,20 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
   const handleMouseLeave = () => {
     timeoutRef.current = setTimeout(() => {
       setServicesOpen(false);
+    }, 150);
+  };
+
+  const handleAreasMouseEnter = () => {
+    if (areasTimeoutRef.current) {
+      clearTimeout(areasTimeoutRef.current);
+      areasTimeoutRef.current = null;
+    }
+    setAreasOpen(true);
+  };
+
+  const handleAreasMouseLeave = () => {
+    areasTimeoutRef.current = setTimeout(() => {
+      setAreasOpen(false);
     }, 150);
   };
 
@@ -127,7 +215,60 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
           <a href="/#about" className="hover:text-white/80 transition">About</a>
           <a href="/#industries" className="hover:text-white/80 transition">Industries</a>
           <Link href="/gallery" className="hover:text-white/80 transition">Gallery</Link>
-          <Link href="/service-areas" className="hover:text-white/80 transition">Areas</Link>
+          
+          {/* Areas Dropdown */}
+          <div 
+            ref={areasDropdownRef}
+            className="relative"
+            onMouseEnter={handleAreasMouseEnter}
+            onMouseLeave={handleAreasMouseLeave}
+          >
+            <button 
+              className="flex items-center gap-1 hover:text-white/80 transition py-2"
+              onClick={() => setAreasOpen(!areasOpen)}
+              type="button"
+              aria-expanded={areasOpen}
+              aria-haspopup="true"
+            >
+              Areas
+              <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${areasOpen ? 'rotate-180' : ''}`} />
+            </button>
+            
+            {/* Areas Dropdown Menu */}
+            <div 
+              className={`absolute top-full left-0 pt-2 transition-all duration-200 ${
+                areasOpen 
+                  ? 'opacity-100 visible translate-y-0' 
+                  : 'opacity-0 invisible -translate-y-2 pointer-events-none'
+              }`}
+              style={{ zIndex: 99999 }}
+            >
+              <div className="w-96 bg-white rounded-lg shadow-2xl border border-gray-100 overflow-hidden">
+                <div className="py-2">
+                  {areasLinks.map((area) => (
+                    <div key={area.region} className="border-b border-gray-100 last:border-b-0">
+                      <div className="px-4 py-2 font-semibold text-[#2C5F7F] text-sm bg-gray-50">
+                        {area.region}
+                      </div>
+                      <div className="pl-4">
+                        {area.locations.map((location) => (
+                          <Link
+                            key={location.href}
+                            href={location.href}
+                            className="block px-4 py-2 text-gray-700 hover:bg-[#2C5F7F] hover:text-white transition-colors text-sm"
+                            onClick={() => setAreasOpen(false)}
+                          >
+                            {location.title}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+          
           <a href="/#contact" className="hover:text-white/80 transition">Contact</a>
         </nav>
 
@@ -201,7 +342,44 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
             <a href="/#about" onClick={closeMobileMenu} className="py-3 hover:text-white/80 transition border-b border-white/10">About</a>
             <a href="/#industries" onClick={closeMobileMenu} className="py-3 hover:text-white/80 transition border-b border-white/10">Industries</a>
             <Link href="/gallery" onClick={closeMobileMenu} className="py-3 hover:text-white/80 transition border-b border-white/10">Gallery</Link>
-            <Link href="/service-areas" onClick={closeMobileMenu} className="py-3 hover:text-white/80 transition border-b border-white/10">Service Areas</Link>
+            
+            {/* Mobile Areas with Sub-menu */}
+            <div className="border-b border-white/10">
+              <button
+                className="w-full py-3 flex items-center justify-between hover:text-white/80 transition"
+                onClick={() => setMobileAreasOpen(!mobileAreasOpen)}
+                type="button"
+              >
+                <span>Service Areas</span>
+                {mobileAreasOpen ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
+              </button>
+              
+              {/* Mobile Areas Sub-menu */}
+              <div 
+                className={`overflow-hidden transition-all duration-300 ${
+                  mobileAreasOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                }`}
+              >
+                <div className="pl-4 pb-3 space-y-1">
+                  {areasLinks.map((area) => (
+                    <div key={area.region}>
+                      <div className="text-white/60 text-xs font-semibold uppercase py-2 px-3">{area.region}</div>
+                      {area.locations.map((location) => (
+                        <Link
+                          key={location.href}
+                          href={location.href}
+                          className="block py-2 px-3 text-white/80 hover:text-white hover:bg-white/10 rounded transition text-sm"
+                          onClick={closeMobileMenu}
+                        >
+                          {location.title}
+                        </Link>
+                      ))}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+            
             <a href="/#contact" onClick={closeMobileMenu} className="py-3 hover:text-white/80 transition border-b border-white/10">Contact</a>
             
             <div className="flex flex-col gap-3 pt-4">

@@ -317,3 +317,11 @@
 
 ## Bug Fixes
 - [x] Fix Google Maps API being loaded multiple times on Service Areas page
+
+
+## Navigation Menu Enhancement
+- [x] Create hierarchical Areas submenu in Header component
+- [x] Add regions (West Midlands, East Midlands, Yorkshire, etc.) as submenu items
+- [x] Add Birmingham as sub-sub-menu item under West Midlands
+- [x] Add Birmingham as clickable link in Areas page
+- [x] Test submenu navigation and links

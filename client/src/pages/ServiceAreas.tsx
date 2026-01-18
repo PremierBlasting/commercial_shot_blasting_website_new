@@ -334,15 +334,29 @@ export default function ServiceAreas() {
             </p>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-            {allLocations.map((location) => (
-              <div 
-                key={location}
-                className="flex items-center gap-2 p-3 bg-white/10 rounded-lg hover:bg-white/20 transition cursor-pointer"
-              >
-                <MapPin className="w-4 h-4 text-[#d4a853]" />
-                <span className="text-white/90">{location}</span>
-              </div>
-            ))}
+            {allLocations.map((location) => {
+              if (location === "Birmingham") {
+                return (
+                  <Link
+                    key={location}
+                    href="/service-areas/birmingham"
+                    className="flex items-center gap-2 p-3 bg-white/10 rounded-lg hover:bg-[#d4a853] hover:text-[#1a3d52] transition cursor-pointer group"
+                  >
+                    <MapPin className="w-4 h-4 text-[#d4a853] group-hover:text-[#1a3d52]" />
+                    <span className="text-white/90 group-hover:text-[#1a3d52] font-medium">{location}</span>
+                  </Link>
+                );
+              }
+              return (
+                <div 
+                  key={location}
+                  className="flex items-center gap-2 p-3 bg-white/10 rounded-lg hover:bg-white/20 transition cursor-pointer"
+                >
+                  <MapPin className="w-4 h-4 text-[#d4a853]" />
+                  <span className="text-white/90">{location}</span>
+                </div>
+              );
+            })}
           </div>
           <div className="text-center mt-8">
             <p className="text-white/60 mb-4">Don't see your location? We travel across England for larger projects.</p>
