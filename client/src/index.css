@@ -127,6 +127,13 @@
   }
 }
 
+/* Hero Background Carousel Animation */
+@keyframes fadeInOut {
+  0%, 100% { opacity: 0; }
+  33.33% { opacity: 0.3; }
+  66.66% { opacity: 0; }
+}
+
 /* Client Logo Carousel Animation */
 @keyframes scroll {
   0% {

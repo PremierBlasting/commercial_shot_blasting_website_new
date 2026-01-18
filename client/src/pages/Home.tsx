@@ -122,8 +122,13 @@ export default function Home() {
       <Header onOpenQuotePopup={openQuotePopup} />
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-[#2C5F7F] to-[#1a3d52] text-white py-20 lg:py-32">
-        <div className="absolute inset-0 bg-[url('/hero-warehouse-door.webp')] bg-cover bg-center opacity-30"></div>
+      <section className="relative bg-gradient-to-br from-[#2C5F7F] to-[#1a3d52] text-white py-20 lg:py-32 overflow-hidden">
+        {/* Animated Background Carousel */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 animate-[fadeInOut_15s_ease-in-out_infinite] bg-[url('/hero-warehouse-door.webp')] bg-cover bg-center opacity-30"></div>
+          <div className="absolute inset-0 animate-[fadeInOut_15s_ease-in-out_infinite_5s] bg-[url('/jordan-king-review-1.webp')] bg-cover bg-center opacity-0"></div>
+          <div className="absolute inset-0 animate-[fadeInOut_15s_ease-in-out_infinite_10s] bg-[url('/jordan-king-review-2.webp')] bg-cover bg-center opacity-0"></div>
+        </div>
         <div className="absolute inset-0 bg-gradient-to-r from-[#1a3d52]/80 via-[#2C5F7F]/60 to-transparent"></div>
         <div className="container relative z-10">
           <div className="max-w-3xl">

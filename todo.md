@@ -517,5 +517,14 @@
 - [x] Update Home.tsx hero section with new background
 - [x] Optimize image positioning and overlay for text readability
 - [x] Test hero section appearance
+- [x] Save checkpoint
+- [x] Push changes to GitHub
+
+
+## Create Animated Hero Image Carousel
+- [x] Implement carousel component with smooth fade transitions
+- [x] Use warehouse door and metal cladding photos
+- [x] Add autoplay with 5-second intervals
+- [x] Test animation performance and visual appeal
 - [ ] Save checkpoint
 - [ ] Push changes to GitHub
