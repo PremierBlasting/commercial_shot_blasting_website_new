@@ -349,11 +349,47 @@ export default function ServiceAreas() {
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
             {allLocations.map((location) => {
-              if (location === "Birmingham") {
+              // Map location names to their URL slugs
+              const locationSlugMap: Record<string, string> = {
+                "Birmingham": "birmingham",
+                "Sheffield": "sheffield",
+                "Manchester": "manchester",
+                "Bristol": "bristol",
+                "Leeds": "leeds",
+                "Liverpool": "liverpool",
+                "Wolverhampton": "wolverhampton",
+                "Coventry": "coventry",
+                "Worcester": "worcester",
+                "Stratford Upon Avon": "stratford-upon-avon",
+                "Leicester": "leicester",
+                "Derby": "derby",
+                "Nottingham": "nottingham",
+                "Chester": "chester",
+                "Stoke-on-Trent": "stoke",
+                "Norwich": "norwich",
+                "Cambridge": "cambridge",
+                "Ipswich": "ipswich",
+                "Lincoln": "lincoln",
+                "Milton Keynes": "milton-keynes",
+                "Gloucester": "gloucester",
+                "Swindon": "swindon",
+                "Shrewsbury": "shrewsbury",
+                "Hereford": "hereford",
+                "Cardiff": "cardiff",
+                "Northampton": "northampton",
+                "Oxford": "oxford",
+                "Peterborough": "peterborough",
+                "Chesterfield": "chesterfield",
+                "St Albans": "st-albans"
+              };
+              
+              const slug = locationSlugMap[location];
+              
+              if (slug) {
                 return (
                   <Link
                     key={location}
-                    href="/service-areas/birmingham"
+                    href={`/service-areas/${slug}`}
                     className="flex items-center gap-2 p-3 bg-white/10 rounded-lg hover:bg-[#d4a853] hover:text-[#1a3d52] transition cursor-pointer group"
                   >
                     <MapPin className="w-4 h-4 text-[#d4a853] group-hover:text-[#1a3d52]" />
@@ -361,10 +397,12 @@ export default function ServiceAreas() {
                   </Link>
                 );
               }
+              
+              // For locations without dedicated pages (Bradford, Wrexham, etc.)
               return (
                 <div 
                   key={location}
-                  className="flex items-center gap-2 p-3 bg-white/10 rounded-lg hover:bg-white/20 transition cursor-pointer"
+                  className="flex items-center gap-2 p-3 bg-white/10 rounded-lg hover:bg-white/20 transition"
                 >
                   <MapPin className="w-4 h-4 text-[#d4a853]" />
                   <span className="text-white/90">{location}</span>

@@ -466,4 +466,12 @@
 - [x] Create CaseStudy component
 - [x] Add case study section to Birmingham page
 - [x] Test case study display
+- [x] Push changes to GitHub
+
+
+## Make Location Names Clickable in Service Areas Page
+- [x] Update ServiceAreas.tsx to make all location names clickable links
+- [x] Link to dedicated landing pages where they exist
+- [x] Test all location links
+- [ ] Save checkpoint
 - [ ] Push changes to GitHub
