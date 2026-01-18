@@ -236,36 +236,47 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
               <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${areasOpen ? 'rotate-180' : ''}`} />
             </button>
             
-            {/* Areas Dropdown Menu */}
+            {/* Areas Mega Menu */}
             <div 
-              className={`absolute top-full left-0 pt-2 transition-all duration-200 ${
+              className={`absolute top-full left-1/2 -translate-x-1/2 pt-2 transition-all duration-200 ${
                 areasOpen 
                   ? 'opacity-100 visible translate-y-0' 
                   : 'opacity-0 invisible -translate-y-2 pointer-events-none'
               }`}
               style={{ zIndex: 99999 }}
             >
-              <div className="w-96 bg-white rounded-lg shadow-2xl border border-gray-100 overflow-hidden">
-                <div className="py-2">
-                  {areasLinks.map((area) => (
-                    <div key={area.region} className="border-b border-gray-100 last:border-b-0">
-                      <div className="px-4 py-2 font-semibold text-[#2C5F7F] text-sm bg-gray-50">
-                        {area.region}
+              <div className="w-[800px] bg-white rounded-lg shadow-2xl border border-gray-100 overflow-hidden">
+                <div className="p-6">
+                  <div className="grid grid-cols-3 gap-6">
+                    {areasLinks.map((area) => (
+                      <div key={area.region}>
+                        <div className="font-semibold text-[#2C5F7F] text-sm mb-3 pb-2 border-b border-gray-200">
+                          {area.region}
+                        </div>
+                        <div className="space-y-1">
+                          {area.locations.map((location) => (
+                            <Link
+                              key={location.href}
+                              href={location.href}
+                              className="block px-3 py-1.5 text-gray-700 hover:bg-[#2C5F7F] hover:text-white rounded transition-colors text-sm"
+                              onClick={() => setAreasOpen(false)}
+                            >
+                              {location.title}
+                            </Link>
+                          ))}
+                        </div>
                       </div>
-                      <div className="pl-4">
-                        {area.locations.map((location) => (
-                          <Link
-                            key={location.href}
-                            href={location.href}
-                            className="block px-4 py-2 text-gray-700 hover:bg-[#2C5F7F] hover:text-white transition-colors text-sm"
-                            onClick={() => setAreasOpen(false)}
-                          >
-                            {location.title}
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
+                  <div className="mt-6 pt-4 border-t border-gray-200">
+                    <Link
+                      href="/service-areas"
+                      className="inline-flex items-center text-[#2C5F7F] font-medium hover:text-[#1a3d52] transition-colors text-sm"
+                      onClick={() => setAreasOpen(false)}
+                    >
+                      View All Service Areas →
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
@@ -358,16 +369,16 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
                 {mobileAreasOpen ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
               </button>
               
-              {/* Mobile Areas Sub-menu */}
+              {/* Mobile Areas Sub-menu with Scroll */}
               <div 
-                className={`overflow-hidden transition-all duration-300 ${
-                  mobileAreasOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                className={`transition-all duration-300 ${
+                  mobileAreasOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
                 }`}
               >
-                <div className="pl-4 pb-3 space-y-1">
+                <div className="overflow-y-auto max-h-[450px] pl-4 pb-3 space-y-1 scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent">
                   {areasLinks.map((area) => (
                     <div key={area.region}>
-                      <div className="text-white/60 text-xs font-semibold uppercase py-2 px-3">{area.region}</div>
+                      <div className="text-white/60 text-xs font-semibold uppercase py-2 px-3 sticky top-0 bg-[#2C5F7F] z-10">{area.region}</div>
                       {area.locations.map((location) => (
                         <Link
                           key={location.href}
@@ -380,6 +391,13 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
                       ))}
                     </div>
                   ))}
+                  <Link
+                    href="/service-areas"
+                    className="block py-2 px-3 text-white font-medium hover:bg-white/10 rounded transition text-sm mt-2"
+                    onClick={closeMobileMenu}
+                  >
+                    View All Service Areas →
+                  </Link>
                 </div>
               </div>
             </div>
