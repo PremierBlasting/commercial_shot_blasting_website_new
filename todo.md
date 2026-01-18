@@ -218,3 +218,9 @@
 - [x] Style button to match site theme
 - [x] Connect button to quote popup
 - [x] Test on all service pages
+
+## Call Now Button on Service Pages
+- [x] Add Call Now button next to Request a Quote button
+- [x] Style button with phone icon
+- [x] Link to tel: for mobile click-to-call
+- [x] Test on all service pages

@@ -89,9 +89,17 @@ export default function ServiceDetail() {
                   />
                   <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-6">
                     <p className="text-gray-600 text-sm">Drag the slider to see the dramatic transformation</p>
-                    <Button onClick={openQuotePopup} className="bg-[#2C5F7F] hover:bg-[#234a63] text-white">
-                      Request a Quote
-                    </Button>
+                    <div className="flex gap-3">
+                      <Button onClick={openQuotePopup} className="bg-[#2C5F7F] hover:bg-[#234a63] text-white">
+                        Request a Quote
+                      </Button>
+                      <Button asChild variant="outline" className="border-[#2C5F7F] text-[#2C5F7F] hover:bg-[#2C5F7F] hover:text-white">
+                        <a href="tel:07970566409" className="flex items-center gap-2">
+                          <Phone className="w-4 h-4" />
+                          Call Now
+                        </a>
+                      </Button>
+                    </div>
                   </div>
                 </div>
               )}
@@ -111,9 +119,17 @@ export default function ServiceDetail() {
                   />
                   <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-6">
                     <p className="text-gray-600 text-sm">Drag the slider to see the dramatic transformation</p>
-                    <Button onClick={openQuotePopup} className="bg-[#2C5F7F] hover:bg-[#234a63] text-white">
-                      Request a Quote
-                    </Button>
+                    <div className="flex gap-3">
+                      <Button onClick={openQuotePopup} className="bg-[#2C5F7F] hover:bg-[#234a63] text-white">
+                        Request a Quote
+                      </Button>
+                      <Button asChild variant="outline" className="border-[#2C5F7F] text-[#2C5F7F] hover:bg-[#2C5F7F] hover:text-white">
+                        <a href="tel:07970566409" className="flex items-center gap-2">
+                          <Phone className="w-4 h-4" />
+                          Call Now
+                        </a>
+                      </Button>
+                    </div>
                   </div>
                 </div>
               )}
@@ -133,9 +149,17 @@ export default function ServiceDetail() {
                   />
                   <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-6">
                     <p className="text-gray-600 text-sm">Drag the slider to see the dramatic transformation</p>
-                    <Button onClick={openQuotePopup} className="bg-[#2C5F7F] hover:bg-[#234a63] text-white">
-                      Request a Quote
-                    </Button>
+                    <div className="flex gap-3">
+                      <Button onClick={openQuotePopup} className="bg-[#2C5F7F] hover:bg-[#234a63] text-white">
+                        Request a Quote
+                      </Button>
+                      <Button asChild variant="outline" className="border-[#2C5F7F] text-[#2C5F7F] hover:bg-[#2C5F7F] hover:text-white">
+                        <a href="tel:07970566409" className="flex items-center gap-2">
+                          <Phone className="w-4 h-4" />
+                          Call Now
+                        </a>
+                      </Button>
+                    </div>
                   </div>
                 </div>
               )}
@@ -155,9 +179,17 @@ export default function ServiceDetail() {
                   />
                   <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-6">
                     <p className="text-gray-600 text-sm">Drag the slider to see the dramatic transformation</p>
-                    <Button onClick={openQuotePopup} className="bg-[#2C5F7F] hover:bg-[#234a63] text-white">
-                      Request a Quote
-                    </Button>
+                    <div className="flex gap-3">
+                      <Button onClick={openQuotePopup} className="bg-[#2C5F7F] hover:bg-[#234a63] text-white">
+                        Request a Quote
+                      </Button>
+                      <Button asChild variant="outline" className="border-[#2C5F7F] text-[#2C5F7F] hover:bg-[#2C5F7F] hover:text-white">
+                        <a href="tel:07970566409" className="flex items-center gap-2">
+                          <Phone className="w-4 h-4" />
+                          Call Now
+                        </a>
+                      </Button>
+                    </div>
                   </div>
                 </div>
               )}
@@ -177,9 +209,17 @@ export default function ServiceDetail() {
                   />
                   <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-6">
                     <p className="text-gray-600 text-sm">Drag the slider to see the dramatic transformation</p>
-                    <Button onClick={openQuotePopup} className="bg-[#2C5F7F] hover:bg-[#234a63] text-white">
-                      Request a Quote
-                    </Button>
+                    <div className="flex gap-3">
+                      <Button onClick={openQuotePopup} className="bg-[#2C5F7F] hover:bg-[#234a63] text-white">
+                        Request a Quote
+                      </Button>
+                      <Button asChild variant="outline" className="border-[#2C5F7F] text-[#2C5F7F] hover:bg-[#2C5F7F] hover:text-white">
+                        <a href="tel:07970566409" className="flex items-center gap-2">
+                          <Phone className="w-4 h-4" />
+                          Call Now
+                        </a>
+                      </Button>
+                    </div>
                   </div>
                 </div>
               )}
@@ -199,9 +239,17 @@ export default function ServiceDetail() {
                   />
                   <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-6">
                     <p className="text-gray-600 text-sm">Drag the slider to see the dramatic transformation</p>
-                    <Button onClick={openQuotePopup} className="bg-[#2C5F7F] hover:bg-[#234a63] text-white">
-                      Request a Quote
-                    </Button>
+                    <div className="flex gap-3">
+                      <Button onClick={openQuotePopup} className="bg-[#2C5F7F] hover:bg-[#234a63] text-white">
+                        Request a Quote
+                      </Button>
+                      <Button asChild variant="outline" className="border-[#2C5F7F] text-[#2C5F7F] hover:bg-[#2C5F7F] hover:text-white">
+                        <a href="tel:07970566409" className="flex items-center gap-2">
+                          <Phone className="w-4 h-4" />
+                          Call Now
+                        </a>
+                      </Button>
+                    </div>
                   </div>
                 </div>
               )}
@@ -221,9 +269,17 @@ export default function ServiceDetail() {
                   />
                   <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-6">
                     <p className="text-gray-600 text-sm">Drag the slider to see the dramatic transformation</p>
-                    <Button onClick={openQuotePopup} className="bg-[#2C5F7F] hover:bg-[#234a63] text-white">
-                      Request a Quote
-                    </Button>
+                    <div className="flex gap-3">
+                      <Button onClick={openQuotePopup} className="bg-[#2C5F7F] hover:bg-[#234a63] text-white">
+                        Request a Quote
+                      </Button>
+                      <Button asChild variant="outline" className="border-[#2C5F7F] text-[#2C5F7F] hover:bg-[#2C5F7F] hover:text-white">
+                        <a href="tel:07970566409" className="flex items-center gap-2">
+                          <Phone className="w-4 h-4" />
+                          Call Now
+                        </a>
+                      </Button>
+                    </div>
                   </div>
                 </div>
               )}
