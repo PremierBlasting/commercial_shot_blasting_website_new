@@ -1,69 +1,57 @@
 import { useEffect, useRef } from "react";
 
 interface HubSpotFormProps {
-  portalId?: string;
-  formId?: string;
-  region?: string;
   className?: string;
 }
 
 /**
  * HubSpot Form Component
- * Embeds a HubSpot form using their JavaScript API
+ * Embeds the HubSpot form using the exact embed code provided
  */
-export function HubSpotForm({
-  portalId = "147618128",
-  formId = "b6f4f2e0-afe6-4351-9a63-5a9663bf6f37",
-  region = "eu1",
-  className = "",
-}: HubSpotFormProps) {
+export function HubSpotForm({ className = "" }: HubSpotFormProps) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const formCreated = useRef(false);
 
   useEffect(() => {
-    // Prevent double creation in React strict mode
-    if (formCreated.current) return;
+    // Create the HubSpot form frame div
+    if (containerRef.current) {
+      // Clear any existing content
+      containerRef.current.innerHTML = '';
+      
+      // Create the form frame div with exact attributes from embed code
+      const formFrame = document.createElement('div');
+      formFrame.className = 'hs-form-frame';
+      formFrame.setAttribute('data-region', 'eu1');
+      formFrame.setAttribute('data-form-id', 'b6f4f2e0-afe6-4351-9a63-5a9663bf6f37');
+      formFrame.setAttribute('data-portal-id', '147618128');
+      
+      containerRef.current.appendChild(formFrame);
 
-    const createForm = () => {
-      if (containerRef.current && (window as any).hbspt) {
-        // Clear any existing content
-        containerRef.current.innerHTML = "";
-        
-        (window as any).hbspt.forms.create({
-          region: region,
-          portalId: portalId,
-          formId: formId,
-          target: containerRef.current,
-          css: "",
-          cssClass: "hubspot-form-custom",
-        });
-        formCreated.current = true;
-      }
-    };
-
-    // Check if HubSpot script is already loaded
-    if ((window as any).hbspt) {
-      createForm();
-    } else {
-      // Wait for script to load
-      const checkInterval = setInterval(() => {
-        if ((window as any).hbspt) {
-          clearInterval(checkInterval);
-          createForm();
+      // Check if the HubSpot script is already loaded
+      const existingScript = document.querySelector('script[src*="hsforms.net/forms/embed/147618128"]');
+      
+      if (!existingScript) {
+        // Load the HubSpot script
+        const script = document.createElement('script');
+        script.src = 'https://js-eu1.hsforms.net/forms/embed/147618128.js';
+        script.defer = true;
+        document.head.appendChild(script);
+      } else {
+        // If script already exists, trigger a re-render of forms
+        // HubSpot's embed script should auto-detect new form frames
+        if ((window as any).hbspt && (window as any).hbspt.forms) {
+          // Force re-initialization by dispatching a custom event
+          window.dispatchEvent(new Event('load'));
         }
-      }, 100);
-
-      // Cleanup interval after 10 seconds
-      setTimeout(() => clearInterval(checkInterval), 10000);
-
-      return () => clearInterval(checkInterval);
+      }
     }
-  }, [portalId, formId, region]);
+  }, []);
 
   return (
-    <div 
-      ref={containerRef} 
-      className={`hubspot-form-container ${className}`}
-    />
+    <div ref={containerRef} className={className}>
+      {/* HubSpot form will be injected here */}
+      <div className="text-center py-8 text-gray-500">
+        Loading form...
+      </div>
+    </div>
   );
 }

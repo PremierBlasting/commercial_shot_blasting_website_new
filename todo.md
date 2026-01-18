@@ -118,3 +118,8 @@
 - [x] Add popup trigger to all "Get a Free Quote" buttons on Home page
 - [x] Add popup trigger to quote buttons on Gallery page
 - [x] Style HubSpot form to match site theme
+
+## HubSpot Form Fix
+- [x] Update HubSpotForm component to use exact embed code
+- [x] Remove custom styling that may interfere with form loading
+- [x] Verify form loads and submits correctly
