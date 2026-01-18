@@ -405,21 +405,45 @@ export function ServiceAreasMap({ onAreaClick, onQuoteClick }: ServiceAreasMapPr
       <div className="bg-white rounded-xl p-6 shadow-lg">
         <h3 className="text-lg font-semibold text-[#1a3d52] mb-4">All Service Locations</h3>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2">
-          {serviceLocations.map((location) => (
-            <div 
-              key={location.name}
-              className="flex items-center gap-2 p-2 rounded-lg hover:bg-gray-50 cursor-pointer transition"
-              onClick={() => {
-                if (mapRef.current) {
-                  mapRef.current.panTo(location.position);
-                  mapRef.current.setZoom(11);
-                }
-              }}
-            >
-              <div className="w-2 h-2 rounded-full bg-[#2C5F7F]" />
-              <span className="text-sm text-gray-700">{location.name}</span>
-            </div>
-          ))}
+          {serviceLocations.map((location) => {
+            const slug = location.name.toLowerCase().replace(/\s+/g, '-');
+            const locationPages = [
+              'birmingham', 'wolverhampton', 'coventry', 'worcester', 'stratford-upon-avon',
+              'nottingham', 'leicester', 'derby', 'lincoln',
+              'sheffield', 'leeds',
+              'manchester', 'liverpool', 'chester', 'stoke',
+              'norwich', 'cambridge', 'ipswich', 'st-albans',
+              'bristol', 'gloucester', 'swindon',
+              'milton-keynes',
+              'shrewsbury', 'hereford', 'cardiff'
+            ];
+            const hasPage = locationPages.includes(slug);
+
+            return hasPage ? (
+              <a
+                key={location.name}
+                href={`/service-areas/${slug}`}
+                className="flex items-center gap-2 p-2 rounded-lg hover:bg-gray-50 cursor-pointer transition"
+              >
+                <div className="w-2 h-2 rounded-full bg-[#2C5F7F]" />
+                <span className="text-sm text-gray-700 hover:text-[#2C5F7F] hover:underline">{location.name}</span>
+              </a>
+            ) : (
+              <div
+                key={location.name}
+                className="flex items-center gap-2 p-2 rounded-lg hover:bg-gray-50 cursor-pointer transition"
+                onClick={() => {
+                  if (mapRef.current) {
+                    mapRef.current.panTo(location.position);
+                    mapRef.current.setZoom(11);
+                  }
+                }}
+              >
+                <div className="w-2 h-2 rounded-full bg-[#2C5F7F]" />
+                <span className="text-sm text-gray-700">{location.name}</span>
+              </div>
+            );
+          })}
         </div>
       </div>
 

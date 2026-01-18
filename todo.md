@@ -502,3 +502,11 @@
 - [x] Test updated testimonial section
 - [x] Save checkpoint
 - [x] Push changes to GitHub
+
+
+## Make Home Page Location Names Clickable Links
+- [x] Update Home.tsx All Service Locations section with clickable links
+- [x] Link to dedicated landing pages where they exist
+- [x] Test all location links
+- [ ] Save checkpoint
+- [ ] Push changes to GitHub
