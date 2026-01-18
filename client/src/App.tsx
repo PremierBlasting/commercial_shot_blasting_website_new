@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 import Gallery from "./pages/Gallery";
 import Admin from "./pages/Admin";
 import ServiceDetail from "./pages/ServiceDetail";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 import { CookieConsent } from "./components/CookieConsent";
 
 function Router() {
@@ -18,6 +19,7 @@ function Router() {
       <Route path={"/gallery"} component={Gallery} />
       <Route path={"/admin"} component={Admin} />
       <Route path="/services/:id" component={ServiceDetail} />
+      <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />

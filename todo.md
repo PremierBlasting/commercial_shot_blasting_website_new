@@ -161,3 +161,12 @@
 - [x] Style to match teal/cream color scheme
 - [x] Integrate into main App layout
 - [x] Add link to privacy policy
+
+## Privacy Policy Page
+- [x] Create PrivacyPolicy page component
+- [x] Add standard GDPR-compliant content sections
+- [x] Include cookie policy information
+- [x] Add data collection and usage details
+- [x] Style to match site theme
+- [x] Add route in App.tsx
+- [x] Link from cookie consent banner and footer

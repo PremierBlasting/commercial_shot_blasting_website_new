@@ -344,6 +344,7 @@ export default function ServiceDetail() {
                 <li><Link href="/#about" className="hover:text-white transition">About Us</Link></li>
                 <li><Link href="/gallery" className="hover:text-white transition">Gallery</Link></li>
                 <li><Link href="/#contact" className="hover:text-white transition">Contact</Link></li>
+                <li><Link href="/privacy-policy" className="hover:text-white transition">Privacy Policy</Link></li>
               </ul>
             </div>
             <div>
