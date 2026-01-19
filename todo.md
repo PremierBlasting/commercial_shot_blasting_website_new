@@ -585,3 +585,9 @@
 - [ ] Create contact submissions viewer
 - [ ] Create site settings management interface
 - [ ] Implement admin role-based access control
+
+- [x] Create 5 blog articles on shot blasting topics
+- [x] Seed blog articles into database
+- [x] Build blog preview carousel component for homepage
+- [x] Create blog listing page at /blog
+- [x] Create individual blog post pages at /blog/:slug

@@ -10,6 +10,8 @@ import Admin from "./pages/Admin";
 import ServiceDetail from "./pages/ServiceDetail";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Terms from "./pages/Terms";
+import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
 import ServiceAreas from "./pages/ServiceAreas";
 import BirminghamServiceArea from "./pages/BirminghamServiceArea";
 import SheffieldServiceArea from "./pages/SheffieldServiceArea";
@@ -54,7 +56,9 @@ function Router() {
       <Route path={"/admin"} component={Admin} />
       <Route path="/services/:id" component={ServiceDetail} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
-      <Route path="/terms" component={Terms} />
+        <Route path="/terms" component={Terms} />
+        <Route path="/blog" component={Blog} />
+        <Route path="/blog/:slug" component={BlogPost} />
       <Route path="/service-areas" component={ServiceAreas} />
       <Route path="/service-areas/birmingham" component={BirminghamServiceArea} />
       <Route path="/service-areas/sheffield" component={SheffieldServiceArea} />

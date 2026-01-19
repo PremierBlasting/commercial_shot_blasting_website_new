@@ -7,6 +7,7 @@ import { QuotePopup } from "@/components/QuotePopup";
 import { HubSpotForm } from "@/components/HubSpotForm";
 import { Header } from "@/components/Header";
 import { ServiceAreasMap } from "@/components/ServiceAreasMap";
+import { BlogPreview } from "@/components/BlogPreview";
 import { trpc } from "@/lib/trpc";
 
 const testimonials = [
@@ -629,6 +630,9 @@ export default function Home() {
           </div>
         </div>
       )}
+
+      {/* Blog Preview Section */}
+      <BlogPreview />
     </div>
   );
 }
