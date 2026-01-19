@@ -1,4 +1,4 @@
-import { eq, desc, asc } from "drizzle-orm";
+import { eq, desc, asc, sql } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
 import { 
   InsertUser, 
@@ -17,7 +17,10 @@ import {
   BlogPost,
   seoMetadata,
   InsertSeoMetadata,
-  SeoMetadata
+  SeoMetadata,
+  performanceMetrics,
+  InsertPerformanceMetric,
+  PerformanceMetric
 } from "../drizzle/schema";
 import { ENV } from './_core/env';
 
@@ -364,4 +367,59 @@ export async function deleteSeoMetadata(pageUrl: string): Promise<void> {
     console.error("[Database] Failed to delete SEO metadata:", error);
     throw error;
   }
+}
+
+// ========================================
+// Performance Metrics
+// ========================================
+
+export async function insertPerformanceMetric(data: InsertPerformanceMetric) {
+  const db = await getDb();
+  if (!db) return null;
+  return db.insert(performanceMetrics).values(data);
+}
+
+export async function getPerformanceMetricsSummary(days: number = 7) {
+  const db = await getDb();
+  if (!db) return [];
+  
+  const since = new Date();
+  since.setDate(since.getDate() - days);
+  
+  return db
+    .select()
+    .from(performanceMetrics)
+    .where(sql`${performanceMetrics.createdAt} >= ${since}`)
+    .orderBy(desc(performanceMetrics.createdAt));
+}
+
+export async function getPerformanceMetricsByUrl(url: string, limit: number = 100) {
+  const db = await getDb();
+  if (!db) return [];
+  
+  return db
+    .select()
+    .from(performanceMetrics)
+    .where(eq(performanceMetrics.url, url))
+    .orderBy(desc(performanceMetrics.createdAt))
+    .limit(limit);
+}
+
+export async function getAverageMetricsByName(metricName: string, days: number = 7) {
+  const db = await getDb();
+  if (!db) return [];
+  
+  const since = new Date();
+  since.setDate(since.getDate() - days);
+  
+  return db
+    .select({
+      avgValue: sql<number>`AVG(${performanceMetrics.value})`,
+      count: sql<number>`COUNT(*)`,
+      goodCount: sql<number>`SUM(CASE WHEN ${performanceMetrics.rating} = 'good' THEN 1 ELSE 0 END)`,
+      needsImprovementCount: sql<number>`SUM(CASE WHEN ${performanceMetrics.rating} = 'needs-improvement' THEN 1 ELSE 0 END)`,
+      poorCount: sql<number>`SUM(CASE WHEN ${performanceMetrics.rating} = 'poor' THEN 1 ELSE 0 END)`,
+    })
+    .from(performanceMetrics)
+    .where(sql`${performanceMetrics.name} = ${metricName} AND ${performanceMetrics.createdAt} >= ${since}`);
 }

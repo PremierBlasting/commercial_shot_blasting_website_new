@@ -29,6 +29,10 @@ import {
   getSeoMetadataByUrl,
   upsertSeoMetadata,
   deleteSeoMetadata,
+  insertPerformanceMetric,
+  getPerformanceMetricsSummary,
+  getPerformanceMetricsByUrl,
+  getAverageMetricsByName,
 } from "./db";
 import { storagePut } from "./storage";
 import { nanoid } from "nanoid";
@@ -484,6 +488,56 @@ export const appRouter = router({
       .mutation(async ({ input }) => {
         await deleteSeoMetadata(input.pageUrl);
         return { success: true };
+      }),
+  }),
+
+  // Performance monitoring
+  performance: router({
+    // Public: Report performance metric
+    report: publicProcedure
+      .input(z.object({
+        name: z.string(),
+        value: z.number(),
+        rating: z.string(),
+        delta: z.number(),
+        id: z.string(),
+        navigationType: z.string().optional(),
+        url: z.string(),
+        userAgent: z.string().optional(),
+      }))
+      .mutation(async ({ input }) => {
+        await insertPerformanceMetric({
+          name: input.name,
+          value: input.value,
+          rating: input.rating,
+          delta: input.delta,
+          metricId: input.id,
+          navigationType: input.navigationType || null,
+          url: input.url,
+          userAgent: input.userAgent || null,
+        });
+        return { success: true };
+      }),
+
+    // Admin: Get performance summary
+    getSummary: adminProcedure
+      .input(z.object({ days: z.number().optional() }))
+      .query(async ({ input }) => {
+        return await getPerformanceMetricsSummary(input.days || 7);
+      }),
+
+    // Admin: Get metrics by URL
+    getByUrl: adminProcedure
+      .input(z.object({ url: z.string(), limit: z.number().optional() }))
+      .query(async ({ input }) => {
+        return await getPerformanceMetricsByUrl(input.url, input.limit || 100);
+      }),
+
+    // Admin: Get average metrics by name
+    getAverageByName: adminProcedure
+      .input(z.object({ metricName: z.string(), days: z.number().optional() }))
+      .query(async ({ input }) => {
+        return await getAverageMetricsByName(input.metricName, input.days || 7);
       }),
   }),
 });

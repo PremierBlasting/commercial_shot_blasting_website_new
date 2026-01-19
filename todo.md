@@ -817,3 +817,12 @@
 - [x] Update code references to use WebP images with JPEG fallback (69 references updated)
 - [x] Verify WebP images load correctly across browsers (15 WebP files created and referenced)
 - [x] Measure file size reduction and page speed improvements (0.56 MB saved, 17.7% reduction)
+
+## Performance Monitoring Integration
+- [x] Install web-vitals library for Core Web Vitals tracking
+- [x] Implement client-side performance monitoring hooks (usePerformanceMonitoring)
+- [x] Create database schema for storing performance metrics (performance_metrics table)
+- [x] Build tRPC endpoints for performance data collection (report, getSummary, getByUrl, getAverageByName)
+- [ ] Create admin dashboard to view Core Web Vitals (LCP, FID, CLS, TTFB, INP)
+- [ ] Add performance alerts for degraded metrics
+- [ ] Test performance tracking across different pages (requires server restart)

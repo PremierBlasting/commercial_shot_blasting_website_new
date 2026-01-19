@@ -1,4 +1,4 @@
-import { int, mysqlEnum, mysqlTable, text, timestamp, varchar, boolean } from "drizzle-orm/mysql-core";
+import { int, mysqlEnum, mysqlTable, text, timestamp, varchar, boolean, double } from "drizzle-orm/mysql-core";
 
 /**
  * Core user table backing auth flow.
@@ -34,6 +34,25 @@ export const seoMetadata = mysqlTable("seo_metadata", {
 
 export type SeoMetadata = typeof seoMetadata.$inferSelect;
 export type InsertSeoMetadata = typeof seoMetadata.$inferInsert;
+
+/**
+ * Performance metrics table for tracking Core Web Vitals
+ */
+export const performanceMetrics = mysqlTable("performance_metrics", {
+  id: int("id").autoincrement().primaryKey(),
+  name: varchar("name", { length: 50 }).notNull(), // LCP, FID, CLS, TTFB, INP
+  value: double("value").notNull(),
+  rating: varchar("rating", { length: 20 }).notNull(), // good, needs-improvement, poor
+  delta: double("delta").notNull(),
+  metricId: varchar("metricId", { length: 100 }).notNull(),
+  navigationType: varchar("navigationType", { length: 50 }),
+  url: varchar("url", { length: 500 }).notNull(),
+  userAgent: text("userAgent"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+
+export type PerformanceMetric = typeof performanceMetrics.$inferSelect;
+export type InsertPerformanceMetric = typeof performanceMetrics.$inferInsert;
 
 /**
  * Gallery items table for before/after shot blasting work

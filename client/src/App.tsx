@@ -4,6 +4,7 @@ import NotFound from "@/pages/NotFound";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
+import { usePerformanceMonitoring } from "./hooks/usePerformanceMonitoring";
 import Home from "./pages/Home";
 import Gallery from "./pages/Gallery";
 import Admin from "./pages/Admin";
@@ -110,6 +111,9 @@ function Router() {
 // - If you want to make theme switchable, pass `switchable` ThemeProvider and use `useTheme` hook
 
 function App() {
+  // Track Core Web Vitals
+  usePerformanceMonitoring();
+  
   return (
     <ErrorBoundary>
       <ThemeProvider
