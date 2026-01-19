@@ -684,3 +684,21 @@
 - [x] Add tracking onClick handlers to all phone buttons on location pages
 - [x] Create analytics dashboard page to view regional call performance
 - [x] Add charts showing call volume by location and time period
+
+## Create Interactive Service Selector Tool
+- [x] Design service selector UI component with question flow
+- [x] Implement logic for personalized service recommendations
+- [x] Add service selector to homepage
+- [x] Test recommendation accuracy
+
+## Fix Missing Location Links
+- [x] Add Chesterfield link to homepage and service areas page (already present)
+- [x] Add Northampton link to homepage and service areas page (already present)
+- [x] Add Bradford link to homepage and service areas page (added to both)
+- [x] Add Peterborough link to homepage and service areas page (already present)
+- [x] Add Oxford link to homepage and service areas page (already present)
+- [x] Add Wrexham link to homepage and service areas page (already present)
+- [x] Ensure all 6 locations are clickable on interactive maps (Bradford added to ServiceAreasMap)
+
+## GitHub Backup
+- [ ] Push all changes to commercial_shot_blasting repository on GitHub

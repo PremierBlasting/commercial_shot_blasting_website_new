@@ -356,6 +356,7 @@ export default function ServiceAreas() {
                 "Manchester": "manchester",
                 "Bristol": "bristol",
                 "Leeds": "leeds",
+                "Bradford": "bradford",
                 "Liverpool": "liverpool",
                 "Wolverhampton": "wolverhampton",
                 "Coventry": "coventry",

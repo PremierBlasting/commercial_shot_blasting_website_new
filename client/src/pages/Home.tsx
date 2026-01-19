@@ -9,6 +9,7 @@ import { Header } from "@/components/Header";
 import { ServiceAreasMap } from "@/components/ServiceAreasMap";
 import { BlogPreview } from "@/components/BlogPreview";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
+import ServiceSelector from "@/components/ServiceSelector";
 import { trpc } from "@/lib/trpc";
 
 const testimonials = [
@@ -168,6 +169,22 @@ export default function Home() {
               </Button>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Service Selector Tool */}
+      <section className="py-20 bg-gradient-to-b from-white to-[#F5F1E8]">
+        <div className="container">
+          <div className="text-center mb-12">
+            <p className="text-[#2C5F7F] font-medium mb-2">Find Your Perfect Service</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#2C2C2C] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Not Sure Which Service You Need?
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Answer a few quick questions and we'll recommend the best shot blasting services for your specific project requirements.
+            </p>
+          </div>
+          <ServiceSelector />
         </div>
       </section>
 

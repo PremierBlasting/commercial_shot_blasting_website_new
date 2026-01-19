@@ -207,7 +207,7 @@ export function ServiceAreasMap({ onAreaClick, onQuoteClick }: ServiceAreasMapPr
         const locationPages = [
           'birmingham', 'wolverhampton', 'coventry', 'worcester', 'stratford-upon-avon',
           'nottingham', 'leicester', 'derby', 'lincoln', 'northampton', 'chesterfield',
-          'sheffield', 'leeds',
+          'sheffield', 'leeds', 'bradford',
           'manchester', 'liverpool', 'chester', 'stoke',
           'norwich', 'cambridge', 'ipswich', 'st-albans', 'peterborough',
           'bristol', 'gloucester', 'swindon',
