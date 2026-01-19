@@ -591,3 +591,5 @@
 - [x] Build blog preview carousel component for homepage
 - [x] Create blog listing page at /blog
 - [x] Create individual blog post pages at /blog/:slug
+
+- [x] Fix blog post featured images to use existing site images
