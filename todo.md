@@ -593,3 +593,5 @@
 - [x] Create individual blog post pages at /blog/:slug
 
 - [x] Fix blog post featured images to use existing site images
+
+- [x] Add Blog link to main navigation menu

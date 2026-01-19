@@ -236,6 +236,7 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
           <a href="/#about" className="hover:text-white/80 transition">About</a>
           <a href="/#industries" className="hover:text-white/80 transition">Industries</a>
           <Link href="/gallery" className="hover:text-white/80 transition">Gallery</Link>
+          <Link href="/blog" className="hover:text-white/80 transition">Blog</Link>
           
           {/* Areas Dropdown */}
           <div 
@@ -391,6 +392,7 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
             <a href="/#about" onClick={closeMobileMenu} className="py-3 hover:text-white/80 transition border-b border-white/10">About</a>
             <a href="/#industries" onClick={closeMobileMenu} className="py-3 hover:text-white/80 transition border-b border-white/10">Industries</a>
             <Link href="/gallery" onClick={closeMobileMenu} className="py-3 hover:text-white/80 transition border-b border-white/10">Gallery</Link>
+            <Link href="/blog" onClick={closeMobileMenu} className="py-3 hover:text-white/80 transition border-b border-white/10">Blog</Link>
             
             {/* Mobile Areas with Sub-menu */}
             <div className="border-b border-white/10">
