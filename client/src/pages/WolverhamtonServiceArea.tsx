@@ -9,6 +9,7 @@ import { toast } from "sonner";
 import { trpc } from "@/lib/trpc";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator, BreadcrumbPage } from "@/components/ui/breadcrumb";
 import { LocationMap } from "@/components/LocationMap"; // Assuming this component exists
+import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 
 const WOLVERHAMPTON_INDUSTRIES = [
   { name: "Advanced Manufacturing", icon: Factory, desc: "Precision cleaning for machinery, components, and tooling in Wolverhampton's high-tech sector." },
@@ -89,6 +90,33 @@ export default function WolverhamptonServiceArea() {
                 View Our Local Projects
               </Button>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Before/After Slider */}
+      <section className="py-12 bg-white">
+        <div className="container">
+          <div className="mb-6">
+            <h2 className="text-2xl md:text-3xl font-bold text-[#2C2C2C] mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Wolverhampton Project Transformation
+            </h2>
+            <p className="text-gray-600">See the results of our professional shot blasting work</p>
+          </div>
+          <BeforeAfterSlider
+            beforeImage="/warehouse-before.jpg"
+            afterImage="/warehouse-after.jpg"
+            beforeLabel="Before"
+            afterLabel="After"
+          />
+          <div className="flex flex-col sm:flex-row gap-4 mt-6">
+            <Button size="lg" className="bg-[#2C5F7F] hover:bg-[#1a3d52]">
+              Request a Quote
+            </Button>
+            <Button size="lg" variant="outline" className="border-[#2C5F7F] text-[#2C5F7F]">
+              <Phone className="w-4 h-4 mr-2" />
+              Call Now
+            </Button>
           </div>
         </div>
       </section>

@@ -17,6 +17,7 @@ import {
   BreadcrumbPage,
 } from "@/components/ui/breadcrumb";
 import { LocationMap } from "@/components/LocationMap";
+import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 
 // Placeholder data for Coventry-specific content
 const COVENTRY_INDUSTRIES = [
@@ -148,6 +149,35 @@ export default function CoventryServiceArea() {
           </div>
         </div>
       </section>
+
+      {/* Before/After Slider */}
+      <section className="py-12 bg-white">
+        <div className="container">
+          <div className="mb-6">
+            <h2 className="text-2xl md:text-3xl font-bold text-[#2C2C2C] mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Coventry Project Transformation
+            </h2>
+            <p className="text-gray-600">See the results of our professional shot blasting work</p>
+          </div>
+          <BeforeAfterSlider
+            beforeImage="/warehouse-before.jpg"
+            afterImage="/warehouse-after.jpg"
+            beforeLabel="Before"
+            afterLabel="After"
+          />
+          <div className="flex flex-col sm:flex-row gap-4 mt-6">
+            <Button size="lg" className="bg-[#2C5F7F] hover:bg-[#1a3d52]">
+              Request a Quote
+            </Button>
+            <Button size="lg" variant="outline" className="border-[#2C5F7F] text-[#2C5F7F]">
+              <Phone className="w-4 h-4 mr-2" />
+              Call Now
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      
 
       {/* Services Grid (Copied from Home.tsx) */}
       <section id="services" className="py-20 bg-[#F5F1E8]">

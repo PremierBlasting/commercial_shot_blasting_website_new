@@ -671,3 +671,8 @@
 - [x] Add before/after gallery to Warehouse Racking service page
 - [x] Add before/after gallery to Process Pipework service page
 - [x] Add before/after gallery to Telecom Masts service page
+
+## Add Before/After Galleries to Location Pages
+- [x] Identify all location service area pages (31 pages found)
+- [x] Add before/after gallery section to all 31 location pages
+- [x] Use region-appropriate images for each location

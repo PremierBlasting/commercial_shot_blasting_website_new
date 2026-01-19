@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Phone, ArrowRight, Shield, Clock, Award, Users, CheckCircle, MapPin, Factory, Microscope, BookOpen, Hammer } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 
 // --- Cambridge-Specific Data ---
 

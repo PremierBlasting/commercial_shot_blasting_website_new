@@ -4,6 +4,7 @@ import { Link } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { Phone, ArrowRight, Shield, Clock, Award, Users, CheckCircle, Quote } from "lucide-react";
 
 // Placeholder component for a standard layout wrapper
@@ -107,6 +108,35 @@ export default function MiltonKeynesServiceArea() {
           </div>
         </div>
       </section>
+
+      {/* Before/After Slider */}
+      <section className="py-12 bg-white">
+        <div className="container">
+          <div className="mb-6">
+            <h2 className="text-2xl md:text-3xl font-bold text-[#2C2C2C] mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Milton Keynes Project Transformation
+            </h2>
+            <p className="text-gray-600">See the results of our professional shot blasting work</p>
+          </div>
+          <BeforeAfterSlider
+            beforeImage="/warehouse-before.jpg"
+            afterImage="/warehouse-after.jpg"
+            beforeLabel="Before"
+            afterLabel="After"
+          />
+          <div className="flex flex-col sm:flex-row gap-4 mt-6">
+            <Button size="lg" className="bg-[#2C5F7F] hover:bg-[#1a3d52]">
+              Request a Quote
+            </Button>
+            <Button size="lg" variant="outline" className="border-[#2C5F7F] text-[#2C5F7F]">
+              <Phone className="w-4 h-4 mr-2" />
+              Call Now
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      
 
       {/* Why Choose Us Section - Localized */}
       <section className="py-20 bg-white">

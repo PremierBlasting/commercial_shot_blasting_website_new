@@ -9,6 +9,7 @@ import { useState } from "react";
 import { toast } from "sonner";
 import { trpc } from "@/lib/trpc";
 import { LocationMap } from "@/components/LocationMap";
+import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 
 // --- Hereford Specific Data ---
 const LOCATION_NAME = "Hereford";
