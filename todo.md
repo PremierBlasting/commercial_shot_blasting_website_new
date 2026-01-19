@@ -795,3 +795,11 @@
 - [x] Apply breadcrumb schema to all location pages (31 pages)
 - [x] Ensure breadcrumbs match actual navigation structure (Home → Service Areas → City)
 - [x] Test breadcrumb rich snippets in Google Rich Results Test (schema implemented and ready for validation)
+
+## AI-Generated Alt Text for Images
+- [x] Identify all images missing alt text across website (all images have alt text, but many are generic)
+- [x] Use AI to generate SEO-optimized alt text with target keywords
+- [x] Apply alt text to images on homepage
+- [x] Apply alt text to images on service pages
+- [x] Apply alt text to images on location pages (27 images optimized)
+- [x] Verify alt text includes keywords: shot blasting, commercial shot blasting, location names

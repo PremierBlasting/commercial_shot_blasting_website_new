@@ -330,7 +330,7 @@ export default function ManufacturingIndustry() {
               <div className="md:w-2/5">
                 <img
                   src="/blog-warehouse-racking.jpg"
-                  alt="Warehouse Racking Refurbishment"
+                  alt="Commercial shot blasting services - Warehouse Racking Refurbishment"
                   className="w-full h-full object-cover"
                 />
               </div>

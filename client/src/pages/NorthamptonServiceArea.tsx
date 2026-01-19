@@ -143,7 +143,7 @@ export default function NorthamptonServiceArea() {
             <div className="relative">
               <img
                 src="/images/premier/steel-container-after.jpeg"
-                alt="Professional shot blasting results in Northampton"
+                alt="After shot blasting treatment - Northampton commercial project"
                 className="rounded-lg shadow-lg"
                loading="lazy" />
               <div className="absolute bottom-0 right-0 bg-[#2C5F7F] text-white p-6 rounded-lg shadow-lg max-w-xs">

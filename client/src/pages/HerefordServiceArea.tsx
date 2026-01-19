@@ -137,7 +137,7 @@ const WhyChooseUsSection = () => (
           </div>
         </div>
         <div className="relative">
-          <img src="/images/industrial-precision.jpg" alt="Professional shot blasting in an industrial setting" className="rounded-lg shadow-xl"  loading="lazy" />
+          <img src="/images/industrial-precision.jpg" alt="Industrial shot blasting equipment for Hereford projects" className="rounded-lg shadow-xl"  loading="lazy" />
           <div className="absolute -bottom-6 -left-6 bg-[#2C5F7F] text-white p-6 rounded-lg shadow-lg">
             <p className="text-3xl font-bold" style={{ fontFamily: "'Playfair Display', serif" }}>20+</p>
             <p className="text-sm">Years Experience</p>

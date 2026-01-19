@@ -142,7 +142,7 @@ export default function SheffieldServiceArea() {
             <div className="relative">
               <img
                 src="/images/premier/warehouse-bars-after.jpeg"
-                alt="Professional shot blasting results in Sheffield"
+                alt="After shot blasting treatment - Sheffield commercial project"
                 className="rounded-lg shadow-lg"
                loading="lazy" />
               <div className="absolute bottom-0 right-0 bg-[#2C5F7F] text-white p-6 rounded-lg shadow-lg max-w-xs">

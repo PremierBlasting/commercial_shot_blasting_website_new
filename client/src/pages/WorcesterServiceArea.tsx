@@ -230,7 +230,7 @@ export default function WorcesterServiceArea() {
               </div>
             </div>
             <div className="relative">
-              <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600" alt="Professional shot blasting" className="rounded-lg shadow-xl"  loading="lazy" />
+              <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600" alt="Commercial shot blasting services in Worcester - professional surface preparation" className="rounded-lg shadow-xl"  loading="lazy" />
               <div className="absolute -bottom-6 -left-6 bg-[#2C5F7F] text-white p-6 rounded-lg shadow-lg">
                 <p className="text-3xl font-bold" style={{ fontFamily: "'Playfair Display', serif" }}>20+</p>
                 <p className="text-sm">Years Experience</p>

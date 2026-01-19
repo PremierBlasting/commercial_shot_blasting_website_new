@@ -143,7 +143,7 @@ export default function ManchesterServiceArea() {
             <div className="relative">
               <img
                 src="/images/premier/gate-metal-after.jpeg"
-                alt="Professional shot blasting results in Manchester"
+                alt="After shot blasting treatment - Manchester commercial project"
                 className="rounded-lg shadow-lg"
                loading="lazy" />
               <div className="absolute bottom-0 right-0 bg-[#2C5F7F] text-white p-6 rounded-lg shadow-lg max-w-xs">

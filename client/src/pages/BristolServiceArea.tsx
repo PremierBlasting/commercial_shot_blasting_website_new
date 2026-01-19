@@ -142,7 +142,7 @@ export default function BristolServiceArea() {
             <div className="relative">
               <img
                 src="/images/premier/warehouse-outside-after.jpeg"
-                alt="Professional shot blasting results in Bristol"
+                alt="After shot blasting treatment - Bristol commercial project"
                 className="rounded-lg shadow-lg"
                loading="lazy" />
               <div className="absolute bottom-0 right-0 bg-[#2C5F7F] text-white p-6 rounded-lg shadow-lg max-w-xs">
