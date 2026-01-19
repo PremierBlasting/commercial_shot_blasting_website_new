@@ -8,6 +8,8 @@ import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { LocalBusinessSchema } from "@/components/LocalBusinessSchema";
 import { CaseStudy } from "@/components/CaseStudy";
+import { LocationMap } from "@/components/LocationMap";
+import { locationCoordinates } from "@/data/locationCoordinates";
 
 export default function OxfordServiceArea() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);

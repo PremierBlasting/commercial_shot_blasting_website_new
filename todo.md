@@ -553,3 +553,6 @@
 - [ ] Test all location links across site
 - [ ] Save checkpoint
 - [ ] Push changes to GitHub
+
+- [x] Create LocationMap component for individual location pages
+- [x] Add unique Google Map to all 32 location landing pages
