@@ -12,6 +12,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { LocationMap } from "@/components/LocationMap";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { TrackedPhoneButton } from "@/components/TrackedPhoneButton";
+import { SEO } from "@/components/SEO";
 
 // Mock Testimonials for St Albans
 const localTestimonials = [
@@ -49,6 +50,10 @@ export default function StAlbansServiceArea() {
   // The main structure is adapted from Home.tsx
   return (
     <div className="min-h-screen flex flex-col" style={{ fontFamily: "'Open Sans', sans-serif" }}>
+      <SEO 
+        title="Shot Blasting Services in StAlbans - Commercial Shot Blasting"
+        description="Professional shot blasting services in StAlbans. Expert surface preparation for industrial and commercial projects. Contact us for a free quote."
+      />
       {/* Header (Placeholder - typically a shared component) */}
       <header className="bg-[#2C5F7F] text-white sticky top-0 z-50">
         <div className="container flex items-center justify-between py-4">

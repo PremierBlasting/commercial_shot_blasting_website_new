@@ -7,6 +7,7 @@ import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbP
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { TrackedPhoneButton } from "@/components/TrackedPhoneButton";
 import { Phone, ArrowRight, Shield, Clock, Award, Users, CheckCircle, Quote } from "lucide-react";
+import { SEO } from "@/components/SEO";
 
 // Placeholder component for a standard layout wrapper
 const PageLayout = ({ children }: { children: React.ReactNode }) => (
@@ -68,6 +69,10 @@ export default function MiltonKeynesServiceArea() {
 
   return (
     <PageLayout>
+      <SEO 
+        title="Shot Blasting Services in Milton Keynes - Commercial Shot Blasting"
+        description="Professional shot blasting services in Milton Keynes. Expert surface preparation for industrial and commercial projects. Contact us for a free quote."
+      />
       {/* Breadcrumb Navigation */}
       <div className="container py-4 bg-gray-50">
         <Breadcrumb>

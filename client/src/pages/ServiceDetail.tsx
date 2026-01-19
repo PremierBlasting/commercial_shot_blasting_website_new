@@ -10,6 +10,7 @@ import { Header } from "@/components/Header";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { BackToTop } from "@/components/BackToTop";
+import { SEO } from "@/components/SEO";
 
 export default function ServiceDetail() {
   const params = useParams<{ id: string }>();
@@ -23,6 +24,10 @@ export default function ServiceDetail() {
   if (!service) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center bg-[#F5F1E8]">
+        <SEO 
+          title="Service Not Found - Commercial Shot Blasting"
+          description="The service you're looking for doesn't exist."
+        />
         <h1 className="text-3xl font-bold text-[#2C5F7F] mb-4">Service Not Found</h1>
         <p className="text-gray-600 mb-8">The service you're looking for doesn't exist.</p>
         <Link href="/">
@@ -37,6 +42,10 @@ export default function ServiceDetail() {
 
   return (
     <div className="min-h-screen flex flex-col" style={{ fontFamily: "'Open Sans', sans-serif" }}>
+      <SEO 
+        title={`${service.title} - Commercial Shot Blasting`}
+        description={`Professional ${service.title.toLowerCase()} services. ${service.description}`}
+      />
       {/* Header */}
       <Header onOpenQuotePopup={openQuotePopup} />
 

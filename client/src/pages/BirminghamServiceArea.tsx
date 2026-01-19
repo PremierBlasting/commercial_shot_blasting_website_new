@@ -10,6 +10,7 @@ import { Breadcrumb } from "@/components/Breadcrumb";
 import { LocalBusinessSchema } from "@/components/LocalBusinessSchema";
 import { CaseStudy } from "@/components/CaseStudy";
 import { LocationMap } from "@/components/LocationMap";
+import { SEO } from "@/components/SEO";
 
 
 export default function BirminghamServiceArea() {
@@ -17,6 +18,10 @@ export default function BirminghamServiceArea() {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO 
+        title="Shot Blasting Services in Birmingham - Commercial Shot Blasting"
+        description="Professional shot blasting services in Birmingham. Expert surface preparation for industrial and commercial projects. Contact us for a free quote."
+      />
       <Header onOpenQuotePopup={() => setQuotePopupOpen(true)} />
       <QuotePopup open={quotePopupOpen} onOpenChange={setQuotePopupOpen} />
       <LocalBusinessSchema

@@ -10,12 +10,17 @@ import { Breadcrumb } from "@/components/Breadcrumb";
 import { LocalBusinessSchema } from "@/components/LocalBusinessSchema";
 import { LocationMap } from "@/components/LocationMap";
 import { locationCoordinates } from "@/data/locationCoordinates";
+import { SEO } from "@/components/SEO";
 
 export default function PeterboroughServiceArea() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO 
+        title="Shot Blasting Services in Peterborough - Commercial Shot Blasting"
+        description="Professional shot blasting services in Peterborough. Expert surface preparation for industrial and commercial projects. Contact us for a free quote."
+      />
       <Header onOpenQuotePopup={() => setQuotePopupOpen(true)} />
       <QuotePopup open={quotePopupOpen} onOpenChange={setQuotePopupOpen} />
       <LocalBusinessSchema

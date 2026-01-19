@@ -9,12 +9,17 @@ import { TrackedPhoneButton } from "@/components/TrackedPhoneButton";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { LocalBusinessSchema } from "@/components/LocalBusinessSchema";
 import { LocationMap } from "@/components/LocationMap";
+import { SEO } from "@/components/SEO";
 
 export default function LeedsServiceArea() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO 
+        title="Shot Blasting Services in Leeds - Commercial Shot Blasting"
+        description="Professional shot blasting services in Leeds. Expert surface preparation for industrial and commercial projects. Contact us for a free quote."
+      />
       <Header onOpenQuotePopup={() => setQuotePopupOpen(true)} />
       <QuotePopup open={quotePopupOpen} onOpenChange={setQuotePopupOpen} />
       <LocalBusinessSchema

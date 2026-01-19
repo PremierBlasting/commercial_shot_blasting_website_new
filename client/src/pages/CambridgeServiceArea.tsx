@@ -7,6 +7,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { TrackedPhoneButton } from "@/components/TrackedPhoneButton";
+import { SEO } from "@/components/SEO";
 
 // --- Cambridge-Specific Data ---
 
@@ -249,6 +250,10 @@ const CTASection = () => (
 export default function CambridgeServiceArea() {
   return (
     <div className="min-h-screen flex flex-col" style={{ fontFamily: "'Open Sans', sans-serif" }}>
+      <SEO 
+        title="Shot Blasting Services in Cambridge - Commercial Shot Blasting"
+        description="Professional shot blasting services in Cambridge. Expert surface preparation for industrial and commercial projects. Contact us for a free quote."
+      />
       {/* Note: Header and Footer components are assumed to be handled by a parent Layout component */}
       
       <BreadcrumbSection />

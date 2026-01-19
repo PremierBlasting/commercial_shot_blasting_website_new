@@ -6,6 +6,7 @@ import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { TrackedPhoneButton } from "@/components/TrackedPhoneButton";
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../components/ui/accordion';
+import { SEO } from "@/components/SEO";
 
 // Mock components for the sake of structure, assuming they exist in the project
 const HeroSection = ({ title, subtitle, ctaText }) => (
@@ -213,6 +214,10 @@ const faqs = [
 const CardiffServiceArea: React.FC = () => {
   return (
     <div className="CardiffServiceArea">
+      <SEO 
+        title="Shot Blasting Services in Cardiff - Commercial Shot Blasting"
+        description="Professional shot blasting services in Cardiff. Expert surface preparation for industrial and commercial projects. Contact us for a free quote."
+      />
       <div className="container mx-auto px-4 py-4">
         <Breadcrumb>
           <BreadcrumbList>

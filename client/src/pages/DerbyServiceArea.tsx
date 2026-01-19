@@ -12,7 +12,8 @@ import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbS
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { LocationMap } from "@/components/LocationMap";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
-import { TrackedPhoneButton } from "@/components/TrackedPhoneButton"; // Assuming Accordion is available
+import { TrackedPhoneButton } from "@/components/TrackedPhoneButton";
+import { SEO } from "@/components/SEO"; // Assuming Accordion is available
 
 export default function DerbyServiceArea() {
   // The userAuth hooks provides authentication state
@@ -64,6 +65,10 @@ export default function DerbyServiceArea() {
 
   return (
     <div className="min-h-screen flex flex-col" style={{ fontFamily: "'Open Sans', sans-serif" }}>
+      <SEO 
+        title="Shot Blasting Services in Derby - Commercial Shot Blasting"
+        description="Professional shot blasting services in Derby. Expert surface preparation for industrial and commercial projects. Contact us for a free quote."
+      />
       {/* Header (Keep as is for site navigation) */}
       <header className="bg-[#2C5F7F] text-white sticky top-0 z-50">
         <div className="container flex items-center justify-between py-4">

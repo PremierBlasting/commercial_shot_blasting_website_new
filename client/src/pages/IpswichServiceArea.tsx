@@ -6,6 +6,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { LocationMap } from "@/components/LocationMap";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { TrackedPhoneButton } from "@/components/TrackedPhoneButton";
+import { SEO } from "@/components/SEO";
 
 // Mock data for the Ipswich Service Area page
 const ipswichData = {
@@ -49,6 +50,10 @@ export default function IpswichServiceArea() {
 
   return (
     <div className="min-h-screen flex flex-col" style={{ fontFamily: "'Open Sans', sans-serif" }}>
+      <SEO 
+        title="Shot Blasting Services in Ipswich - Commercial Shot Blasting"
+        description="Professional shot blasting services in Ipswich. Expert surface preparation for industrial and commercial projects. Contact us for a free quote."
+      />
       {/* Breadcrumb Navigation */}
       <div className="bg-gray-50 py-3 border-b">
         <div className="container flex items-center text-sm text-gray-500">

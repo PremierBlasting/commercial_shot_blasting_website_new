@@ -11,6 +11,7 @@ import { trpc } from "@/lib/trpc";
 import { LocationMap } from "@/components/LocationMap";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { TrackedPhoneButton } from "@/components/TrackedPhoneButton";
+import { SEO } from "@/components/SEO";
 
 // --- Hereford Specific Data ---
 const LOCATION_NAME = "Hereford";
@@ -402,6 +403,10 @@ export default function HerefordServiceArea() {
 
   return (
     <div className="min-h-screen flex flex-col" style={{ fontFamily: "'Open Sans', sans-serif" }}>
+      <SEO 
+        title="Shot Blasting Services in Hereford - Commercial Shot Blasting"
+        description="Professional shot blasting services in Hereford. Expert surface preparation for industrial and commercial projects. Contact us for a free quote."
+      />
       {/* Header (Reused from Home.tsx) */}
       <header className="bg-[#2C5F7F] text-white sticky top-0 z-50">
         <div className="container flex items-center justify-between py-4">

@@ -8,12 +8,17 @@ import { LocalBusinessSchema } from "@/components/LocalBusinessSchema";
 import { LocationMap } from "@/components/LocationMap";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { TrackedPhoneButton } from "@/components/TrackedPhoneButton";
+import { SEO } from "@/components/SEO";
 
 export default function StratfordUponAvonServiceArea() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO 
+        title="Shot Blasting Services in StratfordUponAvon - Commercial Shot Blasting"
+        description="Professional shot blasting services in StratfordUponAvon. Expert surface preparation for industrial and commercial projects. Contact us for a free quote."
+      />
       <Header onOpenQuotePopup={() => setQuotePopupOpen(true)} />
       <QuotePopup open={quotePopupOpen} onOpenChange={setQuotePopupOpen} />
       <LocalBusinessSchema

@@ -24,6 +24,7 @@ import {
 import { LocationMap } from "@/components/LocationMap";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { TrackedPhoneButton } from "@/components/TrackedPhoneButton";
+import { SEO } from "@/components/SEO";
 
 // --- Stoke-on-Trent Specific Content ---
 const LOCATION_NAME = "Stoke-on-Trent";
@@ -94,6 +95,10 @@ export default function StokeServiceArea() {
 
   return (
     <div className="min-h-screen flex flex-col" style={{ fontFamily: "'Open Sans', sans-serif" }}>
+      <SEO 
+        title="Shot Blasting Services in Stoke - Commercial Shot Blasting"
+        description="Professional shot blasting services in Stoke. Expert surface preparation for industrial and commercial projects. Contact us for a free quote."
+      />
       {/* Header - Reusing Home.tsx Header structure */}
       <header className="bg-[#2C5F7F] text-white sticky top-0 z-50">
         <div className="container flex items-center justify-between py-4">

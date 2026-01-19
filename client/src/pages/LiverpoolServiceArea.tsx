@@ -8,12 +8,17 @@ import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { LocalBusinessSchema } from "@/components/LocalBusinessSchema";
 import { LocationMap } from "@/components/LocationMap";
+import { SEO } from "@/components/SEO";
 
 export default function LiverpoolServiceArea() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO 
+        title="Shot Blasting Services in Liverpool - Commercial Shot Blasting"
+        description="Professional shot blasting services in Liverpool. Expert surface preparation for industrial and commercial projects. Contact us for a free quote."
+      />
       <Header onOpenQuotePopup={() => setQuotePopupOpen(true)} />
       <QuotePopup open={quotePopupOpen} onOpenChange={setQuotePopupOpen} />
       <LocalBusinessSchema

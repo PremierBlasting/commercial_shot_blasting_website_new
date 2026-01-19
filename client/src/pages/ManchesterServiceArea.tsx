@@ -9,6 +9,7 @@ import { TrackedPhoneButton } from "@/components/TrackedPhoneButton";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { LocalBusinessSchema } from "@/components/LocalBusinessSchema";
 import { LocationMap } from "@/components/LocationMap";
+import { SEO } from "@/components/SEO";
 
 
 export default function ManchesterServiceArea() {
@@ -16,6 +17,10 @@ export default function ManchesterServiceArea() {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO 
+        title="Shot Blasting Services in Manchester - Commercial Shot Blasting"
+        description="Professional shot blasting services in Manchester. Expert surface preparation for industrial and commercial projects. Contact us for a free quote."
+      />
       <Header onOpenQuotePopup={() => setQuotePopupOpen(true)} />
       <QuotePopup open={quotePopupOpen} onOpenChange={setQuotePopupOpen} />
       <LocalBusinessSchema

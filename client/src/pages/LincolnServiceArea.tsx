@@ -12,6 +12,7 @@ import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbS
 import { LocationMap } from "@/components/LocationMap";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { TrackedPhoneButton } from "@/components/TrackedPhoneButton";
+import { SEO } from "@/components/SEO";
 
 // --- Location-Specific Data ---
 const LOCATION_NAME = "Lincoln";
@@ -94,6 +95,10 @@ export default function LincolnServiceArea() {
 
   return (
     <div className="min-h-screen flex flex-col" style={{ fontFamily: "'Open Sans', sans-serif" }}>
+      <SEO 
+        title="Shot Blasting Services in Lincoln - Commercial Shot Blasting"
+        description="Professional shot blasting services in Lincoln. Expert surface preparation for industrial and commercial projects. Contact us for a free quote."
+      />
       {/* Breadcrumb Navigation */}
       <div className="container py-4 bg-gray-50">
         <Breadcrumb>

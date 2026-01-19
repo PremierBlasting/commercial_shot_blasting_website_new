@@ -13,7 +13,8 @@ import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbS
 // import { useAuth } from "@/_core/hooks/useAuth";
 import { LocationMap } from "@/components/LocationMap";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
-import { TrackedPhoneButton } from "@/components/TrackedPhoneButton"; 
+import { TrackedPhoneButton } from "@/components/TrackedPhoneButton";
+import { SEO } from "@/components/SEO"; 
 
 const CHESTER_CONTACT_NUMBER = "07970 566409"; // Assuming same contact number
 const CHESTER_EMAIL = "info@shotblasting.co.uk"; // Assuming same email
@@ -58,6 +59,10 @@ export default function ChesterServiceArea() {
 
   return (
     <div className="min-h-screen flex flex-col" style={{ fontFamily: "'Open Sans', sans-serif" }}>
+      <SEO 
+        title="Shot Blasting Services in Chester - Commercial Shot Blasting"
+        description="Professional shot blasting services in Chester. Expert surface preparation for industrial and commercial projects. Contact us for a free quote."
+      />
       {/* Header (Copied from Home.tsx) */}
       <header className="bg-[#2C5F7F] text-white sticky top-0 z-50">
         <div className="container flex items-center justify-between py-4">

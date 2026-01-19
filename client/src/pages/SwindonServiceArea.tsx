@@ -13,6 +13,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { LocationMap } from "@/components/LocationMap";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { TrackedPhoneButton } from "@/components/TrackedPhoneButton";
+import { SEO } from "@/components/SEO";
 
 // Placeholder for Testimonial Card - assuming a simple structure
 const TestimonialCard = ({ quote, name, company }: { quote: string, name: string, company: string }) => (
@@ -62,6 +63,10 @@ export default function SwindonServiceArea() {
 
   return (
     <div className="min-h-screen flex flex-col" style={{ fontFamily: "'Open Sans', sans-serif" }}>
+      <SEO 
+        title="Shot Blasting Services in Swindon - Commercial Shot Blasting"
+        description="Professional shot blasting services in Swindon. Expert surface preparation for industrial and commercial projects. Contact us for a free quote."
+      />
       {/* Header (Simplified for a service page, assuming main header is elsewhere) */}
       <header className="bg-[#2C5F7F] text-white sticky top-0 z-50">
         <div className="container flex items-center justify-between py-4">

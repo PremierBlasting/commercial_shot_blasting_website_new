@@ -19,6 +19,7 @@ import {
 import { LocationMap } from "@/components/LocationMap";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { TrackedPhoneButton } from "@/components/TrackedPhoneButton";
+import { SEO } from "@/components/SEO";
 
 // Placeholder data for Coventry-specific content
 const COVENTRY_INDUSTRIES = [
@@ -77,6 +78,10 @@ export default function CoventryServiceArea() {
 
   return (
     <div className="min-h-screen flex flex-col" style={{ fontFamily: "'Open Sans', sans-serif" }}>
+      <SEO 
+        title="Shot Blasting Services in Coventry - Commercial Shot Blasting"
+        description="Professional shot blasting services in Coventry. Expert surface preparation for industrial and commercial projects. Contact us for a free quote."
+      />
       {/* Header (Copied from Home.tsx) */}
       <header className="bg-[#2C5F7F] text-white sticky top-0 z-50">
         <div className="container flex items-center justify-between py-4">
