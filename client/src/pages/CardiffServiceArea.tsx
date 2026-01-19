@@ -7,6 +7,7 @@ import { TrackedPhoneButton } from "@/components/TrackedPhoneButton";
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../components/ui/accordion';
 import { SEO } from "@/components/SEO";
+import { BreadcrumbSchema } from "@/components/BreadcrumbSchema";
 import { LocalBusinessSchema } from "@/components/LocalBusinessSchema";
 
 // Mock components for the sake of structure, assuming they exist in the project
@@ -218,6 +219,13 @@ const CardiffServiceArea: React.FC = () => {
       <SEO 
         title="Shot Blasting Services in Cardiff - Commercial Shot Blasting"
         description="Professional shot blasting services in Cardiff. Expert surface preparation for industrial and commercial projects. Contact us for a free quote."
+      />
+      <BreadcrumbSchema 
+        items={[
+          { name: "Home", url: "https://commercialshotblasting.co.uk/" },
+          { name: "Service Areas", url: "https://commercialshotblasting.co.uk/service-areas" },
+          { name: "Cardiff", url: "https://commercialshotblasting.co.uk/service-areas/cardiff" }
+        ]}
       />
       <LocalBusinessSchema 
         name="Cardiff"

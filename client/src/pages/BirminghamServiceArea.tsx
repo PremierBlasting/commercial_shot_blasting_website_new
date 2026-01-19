@@ -11,6 +11,7 @@ import { LocalBusinessSchema } from "@/components/LocalBusinessSchema";
 import { CaseStudy } from "@/components/CaseStudy";
 import { LocationMap } from "@/components/LocationMap";
 import { SEO } from "@/components/SEO";
+import { BreadcrumbSchema } from "@/components/BreadcrumbSchema";
 
 
 export default function BirminghamServiceArea() {
@@ -21,6 +22,13 @@ export default function BirminghamServiceArea() {
       <SEO 
         title="Shot Blasting Services in Birmingham - Commercial Shot Blasting"
         description="Professional shot blasting services in Birmingham. Expert surface preparation for industrial and commercial projects. Contact us for a free quote."
+      />
+      <BreadcrumbSchema 
+        items={[
+          { name: "Home", url: "https://commercialshotblasting.co.uk/" },
+          { name: "Service Areas", url: "https://commercialshotblasting.co.uk/service-areas" },
+          { name: "Birmingham", url: "https://commercialshotblasting.co.uk/service-areas/birmingham" }
+        ]}
       />
       <Header onOpenQuotePopup={() => setQuotePopupOpen(true)} />
       <QuotePopup open={quotePopupOpen} onOpenChange={setQuotePopupOpen} />

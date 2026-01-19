@@ -10,6 +10,7 @@ import { Breadcrumb } from "@/components/Breadcrumb";
 import { LocalBusinessSchema } from "@/components/LocalBusinessSchema";
 import { LocationMap } from "@/components/LocationMap";
 import { SEO } from "@/components/SEO";
+import { BreadcrumbSchema } from "@/components/BreadcrumbSchema";
 
 export default function SheffieldServiceArea() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
@@ -19,6 +20,13 @@ export default function SheffieldServiceArea() {
       <SEO 
         title="Shot Blasting Services in Sheffield - Commercial Shot Blasting"
         description="Professional shot blasting services in Sheffield. Expert surface preparation for industrial and commercial projects. Contact us for a free quote."
+      />
+      <BreadcrumbSchema 
+        items={[
+          { name: "Home", url: "https://commercialshotblasting.co.uk/" },
+          { name: "Service Areas", url: "https://commercialshotblasting.co.uk/service-areas" },
+          { name: "Sheffield", url: "https://commercialshotblasting.co.uk/service-areas/sheffield" }
+        ]}
       />
       <Header onOpenQuotePopup={() => setQuotePopupOpen(true)} />
       <QuotePopup open={quotePopupOpen} onOpenChange={setQuotePopupOpen} />

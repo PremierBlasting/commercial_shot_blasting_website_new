@@ -10,6 +10,7 @@ import { LocalBusinessSchema } from "@/components/LocalBusinessSchema";
 import { LocationMap } from "@/components/LocationMap";
 import { locationCoordinates } from "@/data/locationCoordinates";
 import { SEO } from "@/components/SEO";
+import { BreadcrumbSchema } from "@/components/BreadcrumbSchema";
 
 export default function ChesterfieldServiceArea() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
@@ -19,6 +20,13 @@ export default function ChesterfieldServiceArea() {
       <SEO 
         title="Shot Blasting Services in Chesterfield - Commercial Shot Blasting"
         description="Professional shot blasting services in Chesterfield. Expert surface preparation for industrial and commercial projects. Contact us for a free quote."
+      />
+      <BreadcrumbSchema 
+        items={[
+          { name: "Home", url: "https://commercialshotblasting.co.uk/" },
+          { name: "Service Areas", url: "https://commercialshotblasting.co.uk/service-areas" },
+          { name: "Chesterfield", url: "https://commercialshotblasting.co.uk/service-areas/chesterfield" }
+        ]}
       />
       <Header onOpenQuotePopup={() => setQuotePopupOpen(true)} />
       <QuotePopup open={quotePopupOpen} onOpenChange={setQuotePopupOpen} />

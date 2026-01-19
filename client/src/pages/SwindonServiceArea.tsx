@@ -14,6 +14,7 @@ import { LocationMap } from "@/components/LocationMap";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { TrackedPhoneButton } from "@/components/TrackedPhoneButton";
 import { SEO } from "@/components/SEO";
+import { BreadcrumbSchema } from "@/components/BreadcrumbSchema";
 import { LocalBusinessSchema } from "@/components/LocalBusinessSchema";
 
 // Placeholder for Testimonial Card - assuming a simple structure
@@ -67,6 +68,13 @@ export default function SwindonServiceArea() {
       <SEO 
         title="Shot Blasting Services in Swindon - Commercial Shot Blasting"
         description="Professional shot blasting services in Swindon. Expert surface preparation for industrial and commercial projects. Contact us for a free quote."
+      />
+      <BreadcrumbSchema 
+        items={[
+          { name: "Home", url: "https://commercialshotblasting.co.uk/" },
+          { name: "Service Areas", url: "https://commercialshotblasting.co.uk/service-areas" },
+          { name: "Swindon", url: "https://commercialshotblasting.co.uk/service-areas/swindon" }
+        ]}
       />
       <LocalBusinessSchema 
         name="Swindon"

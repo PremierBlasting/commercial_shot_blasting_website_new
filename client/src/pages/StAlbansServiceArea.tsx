@@ -13,6 +13,7 @@ import { LocationMap } from "@/components/LocationMap";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { TrackedPhoneButton } from "@/components/TrackedPhoneButton";
 import { SEO } from "@/components/SEO";
+import { BreadcrumbSchema } from "@/components/BreadcrumbSchema";
 import { LocalBusinessSchema } from "@/components/LocalBusinessSchema";
 
 // Mock Testimonials for St Albans
@@ -54,6 +55,13 @@ export default function StAlbansServiceArea() {
       <SEO 
         title="Shot Blasting Services in StAlbans - Commercial Shot Blasting"
         description="Professional shot blasting services in StAlbans. Expert surface preparation for industrial and commercial projects. Contact us for a free quote."
+      />
+      <BreadcrumbSchema 
+        items={[
+          { name: "Home", url: "https://commercialshotblasting.co.uk/" },
+          { name: "Service Areas", url: "https://commercialshotblasting.co.uk/service-areas" },
+          { name: "StAlbans", url: "https://commercialshotblasting.co.uk/service-areas/stalbans" }
+        ]}
       />
       <LocalBusinessSchema 
         name="St Albans"

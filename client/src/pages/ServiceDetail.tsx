@@ -12,6 +12,7 @@ import { Breadcrumb } from "@/components/Breadcrumb";
 import { BackToTop } from "@/components/BackToTop";
 import { SEO } from "@/components/SEO";
 import { FAQSchema } from "@/components/FAQSchema";
+import { BreadcrumbSchema } from "@/components/BreadcrumbSchema";
 
 export default function ServiceDetail() {
   const params = useParams<{ id: string }>();
@@ -50,6 +51,13 @@ export default function ServiceDetail() {
       <FAQSchema 
         serviceName={service.title}
         serviceUrl={`https://commercialshotblasting.co.uk/services/${service.id}`}
+      />
+      <BreadcrumbSchema 
+        items={[
+          { name: "Home", url: "https://commercialshotblasting.co.uk/" },
+          { name: "Services", url: "https://commercialshotblasting.co.uk/services" },
+          { name: service.title, url: `https://commercialshotblasting.co.uk/services/${service.id}` }
+        ]}
       />
       {/* Header */}
       <Header onOpenQuotePopup={openQuotePopup} />

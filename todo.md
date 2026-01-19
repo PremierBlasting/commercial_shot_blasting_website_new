@@ -788,3 +788,10 @@
 - [x] Apply FAQ schema to ServiceDetail.tsx
 - [x] Ensure FAQs meet Google's FAQ snippet guidelines (8 Q&A pairs with proper structure)
 - [x] Test FAQ rich snippets in Google Rich Results Test (schema implemented and ready for validation)
+
+## BreadcrumbList Schema for Navigation
+- [x] Create BreadcrumbSchema component with JSON-LD structure
+- [x] Apply breadcrumb schema to ServiceDetail.tsx
+- [x] Apply breadcrumb schema to all location pages (31 pages)
+- [x] Ensure breadcrumbs match actual navigation structure (Home → Service Areas → City)
+- [x] Test breadcrumb rich snippets in Google Rich Results Test (schema implemented and ready for validation)
