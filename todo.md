@@ -599,3 +599,10 @@
 - [x] Fix nested anchor tag error on homepage
 
 - [x] Fix Worcester page TypeScript error by replacing isLoading with isPending
+
+## Update Services to New Categories
+- [x] Copy 3 new service images to public directory (warehouse racking, pipework, telecom tower)
+- [x] Update homepage services section with new 3 services
+- [x] Update Services page with new 3 services and images
+- [x] Update navigation menu Services dropdown with new 3 services
+- [x] Remove old service references throughout site

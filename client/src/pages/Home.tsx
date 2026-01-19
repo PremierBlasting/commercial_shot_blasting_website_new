@@ -179,14 +179,11 @@ export default function Home() {
               Comprehensive Shot Blasting Solutions
             </h2>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-3 gap-6">
             {[
-              { title: "Steel Shot Blasting", desc: "High-performance cleaning for steel structures, removing rust, mill scale, and old coatings.", img: "/images/premier/warehouse-bars-after.jpeg", link: "/services/steel-shot-blasting" },
-              { title: "Concrete Preparation", desc: "Surface profiling for optimal coating adhesion on floors, walls, and structural elements.", img: "/images/premier/warehouse-outside-after.jpeg", link: "/services/concrete-preparation" },
-              { title: "Automotive Restoration", desc: "Precision cleaning for vehicle restoration, removing rust, paint, and underseal.", img: "/images/premier/gate-metal-after.jpeg", link: "/services/automotive-restoration" },
-              { title: "Marine Services", desc: "Hull and deck surface preparation for boats, ships, and offshore structures.", img: "/images/premier/steel-container-after.jpeg", link: "/services/marine-services" },
-              { title: "Agricultural Equipment", desc: "Restoring farm machinery and implements to peak condition.", img: "/images/premier/steel-container-commercial-after.jpeg", link: "/services/agricultural-equipment" },
-              { title: "Infrastructure Projects", desc: "Large-scale surface preparation for bridges, tunnels, and industrial facilities.", img: "/images/premier/steel-balustrade.jpeg", link: "/services/infrastructure-projects" },
+              { title: "Warehouse Racking & Pallet Rack Frames", desc: "Professional shot blasting for warehouse racking systems, pallet rack frames, and storage infrastructure. Remove rust, old coatings, and prepare surfaces for powder coating or painting.", img: "/service-warehouse-racking.png", link: "/services/warehouse-racking" },
+              { title: "Process Pipework, Spools & Manifolds", desc: "Precision cleaning of industrial pipework, spools, and manifold systems. Ideal for food processing, pharmaceutical, and chemical industries requiring high cleanliness standards.", img: "/service-pipework.png", link: "/services/pipework" },
+              { title: "Telecom Masts & Lattice Towers", desc: "Specialist shot blasting for telecommunications infrastructure including masts, lattice towers, and antenna supports. Prepare surfaces for galvanizing or protective coatings.", img: "/service-telecom-tower.png", link: "/services/telecom-towers" },
             ].map((service, i) => (
               <Link key={i} href={service.link}>
                 <Card className="group overflow-hidden hover:shadow-lg transition-shadow h-full cursor-pointer">
@@ -548,10 +545,9 @@ export default function Home() {
             <div>
               <h4 className="font-semibold mb-4">Services</h4>
               <ul className="space-y-2 text-white/70 text-sm">
-                <li><a href="#services" className="hover:text-white">Steel Shot Blasting</a></li>
-                <li><a href="#services" className="hover:text-white">Concrete Preparation</a></li>
-                <li><a href="#services" className="hover:text-white">Rust Removal</a></li>
-                <li><a href="#services" className="hover:text-white">Paint Stripping</a></li>
+                <li><a href="#services" className="hover:text-white">Warehouse Racking</a></li>
+                <li><a href="#services" className="hover:text-white">Process Pipework</a></li>
+                <li><a href="#services" className="hover:text-white">Telecom Masts</a></li>
               </ul>
             </div>
             <div>

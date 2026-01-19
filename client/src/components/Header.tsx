@@ -8,13 +8,9 @@ interface HeaderProps {
 }
 
 const serviceLinks = [
-  { title: "Steel Shot Blasting", href: "/services/steel-shot-blasting", description: "High-performance cleaning for steel structures" },
-  { title: "Concrete Preparation", href: "/services/concrete-preparation", description: "Surface profiling for optimal coating adhesion" },
-  { title: "Automotive Restoration", href: "/services/automotive-restoration", description: "Precision cleaning for vehicle restoration" },
-  { title: "Marine Services", href: "/services/marine-services", description: "Hull and deck surface preparation" },
-  { title: "Agricultural Equipment", href: "/services/agricultural-equipment", description: "Restoring farm machinery and implements" },
-  { title: "Infrastructure Projects", href: "/services/infrastructure-projects", description: "Large-scale surface preparation" },
-  { title: "Gate Restoration", href: "/services/gate-restoration", description: "Expert metal gate blasting and restoration" },
+  { title: "Warehouse Racking & Pallet Rack Frames", href: "/services/warehouse-racking", description: "Professional shot blasting for warehouse racking systems" },
+  { title: "Process Pipework, Spools & Manifolds", href: "/services/pipework", description: "Precision cleaning of industrial pipework systems" },
+  { title: "Telecom Masts & Lattice Towers", href: "/services/telecom-towers", description: "Specialist shot blasting for telecommunications infrastructure" },
 ];
 
 const areasLinks = [
