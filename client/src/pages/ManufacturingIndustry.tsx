@@ -322,6 +322,54 @@ export default function ManufacturingIndustry() {
         </div>
       </section>
 
+      {/* Featured Blog Post Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container">
+          <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
+            <div className="md:flex">
+              <div className="md:w-2/5">
+                <img
+                  src="/blog-warehouse-racking.jpg"
+                  alt="Warehouse Racking Refurbishment"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="p-8 md:w-3/5">
+                <div className="text-sm text-[#2C5F7F] font-semibold mb-2">FEATURED ARTICLE</div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  Warehouse Racking Refurbishment vs. Replacement: A Cost-Benefit Analysis
+                </h3>
+                <p className="text-gray-700 mb-4 leading-relaxed">
+                  Discover how professional shot blasting refurbishment delivers 60-75% cost savings compared to replacement while extending asset life by 15-20 years. This comprehensive analysis reveals the hidden costs of premature replacement and provides a framework for making data-driven decisions.
+                </p>
+                <ul className="text-gray-600 mb-6 space-y-2 text-sm">
+                  <li className="flex items-center gap-2">
+                    <CheckCircle className="w-4 h-4 text-[#2C5F7F]" />
+                    <span>Detailed cost comparison: £813,000 savings on 5,000 pallet positions</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle className="w-4 h-4 text-[#2C5F7F]" />
+                    <span>Real-world case study: Food distribution warehouse refurbishment</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle className="w-4 h-4 text-[#2C5F7F]" />
+                    <span>Decision framework for facility managers</span>
+                  </li>
+                </ul>
+                <Link href="/blog/warehouse-racking-refurbishment-vs-replacement">
+                  <a className="inline-flex items-center gap-2 text-[#2C5F7F] font-semibold hover:text-[#1e4159] transition-colors">
+                    Read Full Article
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </a>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-br from-[#2C5F7F] to-[#1e4159] text-white">
         <div className="container text-center">

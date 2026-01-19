@@ -648,3 +648,9 @@
 - [x] Add BackToTop button to ServiceDetail page
 - [x] Add BackToTop button to ConstructionIndustry page
 - [x] Add BackToTop button to ManufacturingIndustry page
+
+## Create Downloadable Resources and Blog Content
+- [x] Write Steel Preparation Standards PDF guide content for Construction industry
+- [x] Generate PDF guide and add download link to Construction page
+- [x] Write blog post: Warehouse Racking Refurbishment vs. Replacement Cost-Benefit Analysis
+- [x] Add blog post to Blog page and link from Manufacturing industry page

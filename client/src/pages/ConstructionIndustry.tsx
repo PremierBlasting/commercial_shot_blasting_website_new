@@ -268,6 +268,53 @@ export default function ConstructionIndustry() {
         </div>
       </section>
 
+      {/* Free Resource Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container">
+          <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-8 md:p-12 border-l-4 border-[#2C5F7F]">
+            <div className="flex items-start gap-6">
+              <div className="hidden md:block w-16 h-16 bg-[#2C5F7F] rounded-lg flex-shrink-0 flex items-center justify-center">
+                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+              </div>
+              <div className="flex-1">
+                <h3 className="text-2xl font-bold text-gray-900 mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  Free Download: Steel Preparation Standards Guide
+                </h3>
+                <p className="text-gray-700 mb-4 leading-relaxed">
+                  Get our comprehensive 12-page PDF guide covering international standards (ISO 8501, SSPC), quality control procedures, and best practices for shot blasting structural steel, bridges, and architectural metalwork. Essential reading for construction project managers, engineers, and contractors.
+                </p>
+                <ul className="text-gray-600 mb-6 space-y-2">
+                  <li className="flex items-center gap-2">
+                    <CheckCircle className="w-5 h-5 text-[#2C5F7F]" />
+                    <span>ISO 8501 & SSPC surface preparation standards explained</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle className="w-5 h-5 text-[#2C5F7F]" />
+                    <span>Quality control and inspection procedures</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle className="w-5 h-5 text-[#2C5F7F]" />
+                    <span>Application guidelines for bridges and structural steel</span>
+                  </li>
+                </ul>
+                <a
+                  href="/steel-preparation-standards-guide.pdf"
+                  download
+                  className="inline-flex items-center gap-2 bg-[#2C5F7F] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#1e4159] transition-colors"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                  Download Free PDF Guide
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-br from-[#2C5F7F] to-[#1e4159] text-white">
         <div className="container text-center">
