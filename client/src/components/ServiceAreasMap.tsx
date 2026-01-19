@@ -409,13 +409,13 @@ export function ServiceAreasMap({ onAreaClick, onQuoteClick }: ServiceAreasMapPr
             const slug = location.name.toLowerCase().replace(/\s+/g, '-');
             const locationPages = [
               'birmingham', 'wolverhampton', 'coventry', 'worcester', 'stratford-upon-avon',
-              'nottingham', 'leicester', 'derby', 'lincoln',
-              'sheffield', 'leeds',
+              'nottingham', 'leicester', 'derby', 'lincoln', 'chesterfield', 'northampton',
+              'sheffield', 'leeds', 'bradford',
               'manchester', 'liverpool', 'chester', 'stoke',
-              'norwich', 'cambridge', 'ipswich', 'st-albans',
+              'norwich', 'cambridge', 'ipswich', 'st-albans', 'peterborough',
               'bristol', 'gloucester', 'swindon',
-              'milton-keynes',
-              'shrewsbury', 'hereford', 'cardiff'
+              'milton-keynes', 'oxford',
+              'shrewsbury', 'hereford', 'cardiff', 'wrexham'
             ];
             const hasPage = locationPages.includes(slug);
 

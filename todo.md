@@ -702,3 +702,12 @@
 
 ## GitHub Backup
 - [ ] Push all changes to commercial_shot_blasting repository on GitHub
+
+## Fix Location List Links on Homepage and Service Areas Page
+- [x] Find where "All Service Locations" list is rendered (ServiceAreasMap component)
+- [x] Make Chesterfield clickable link to /service-areas/chesterfield
+- [x] Make Northampton clickable link to /service-areas/northampton
+- [x] Make Bradford clickable link to /service-areas/bradford
+- [x] Make Peterborough clickable link to /service-areas/peterborough
+- [x] Make Oxford clickable link to /service-areas/oxford
+- [x] Make Wrexham clickable link to /service-areas/wrexham
