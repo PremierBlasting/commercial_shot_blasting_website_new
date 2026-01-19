@@ -212,7 +212,7 @@ export default function Home() {
               <Link key={i} href={service.link}>
                 <Card className="group overflow-hidden hover:shadow-lg transition-shadow h-full cursor-pointer">
                   <div className="h-48 overflow-hidden">
-                    <img src={service.img} alt={service.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                    <img src={service.img} alt={service.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
                   </div>
                   <CardContent className="p-6">
                     <h3 className="text-xl font-semibold mb-2 text-[#2C5F7F]" style={{ fontFamily: "'Playfair Display', serif" }}>{service.title}</h3>
@@ -311,6 +311,7 @@ export default function Home() {
                       alt={`Review photo ${idx + 1}`} 
                       className="w-full h-24 md:h-32 object-cover rounded-lg hover:scale-105 transition-transform cursor-pointer shadow-md"
                       onClick={() => openLightbox(displayTestimonials[0].images!, idx)}
+                      loading="lazy"
                     />
                   ))}
                 </div>
@@ -349,6 +350,7 @@ export default function Home() {
                         alt={`Review photo ${idx + 1}`} 
                         className="w-full h-16 object-cover rounded hover:scale-105 transition-transform cursor-pointer"
                         onClick={() => openLightbox(testimonial.images!, idx)}
+                        loading="lazy"
                       />
                     ))}
                   </div>
@@ -650,6 +652,7 @@ export default function Home() {
             alt="Review photo" 
             className="max-w-full max-h-full object-contain"
             onClick={(e) => e.stopPropagation()}
+            loading="lazy"
           />
           <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-sm">
             {lightboxIndex + 1} / {lightboxImages.length}

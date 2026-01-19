@@ -723,3 +723,8 @@
 - [x] Add loading="lazy" attribute to all images on location pages
 - [x] Verify lazy loading works on all 31 location pages
 - [x] Test page load performance improvements
+
+## Lazy Loading for Service Pages and Homepage
+- [x] Apply lazy loading to all images on service detail pages (1 image)
+- [x] Apply lazy loading to all images on homepage (4 images)
+- [x] Test performance improvements across all pages

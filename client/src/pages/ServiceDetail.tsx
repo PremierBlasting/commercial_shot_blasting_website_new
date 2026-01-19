@@ -389,6 +389,7 @@ export default function ServiceDetail() {
                             src={study.image} 
                             alt={study.title}
                             className="w-full h-48 md:h-full object-cover"
+                            loading="lazy"
                           />
                         </div>
                         <CardContent className="md:w-2/3 p-6">
