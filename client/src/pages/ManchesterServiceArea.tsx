@@ -85,8 +85,8 @@ export default function ManchesterServiceArea() {
             <p className="text-gray-600">See the results of our professional shot blasting work</p>
           </div>
           <BeforeAfterSlider
-            beforeImage="/images/premier/gate-metal-before.jpeg"
-            afterImage="/images/premier/gate-metal-after.jpeg"
+            beforeImage="/images/premier/commercial-shot-blasting-gate-before-treatment.jpeg"
+            afterImage="/images/premier/commercial-shot-blasting-gate-after-treatment.jpeg"
             beforeLabel="Before"
             afterLabel="After"
           />
@@ -142,7 +142,7 @@ export default function ManchesterServiceArea() {
             </div>
             <div className="relative">
               <img
-                src="/images/premier/gate-metal-after.jpeg"
+                src="/images/premier/commercial-shot-blasting-gate-after-treatment.jpeg"
                 alt="After shot blasting treatment - Manchester commercial project"
                 className="rounded-lg shadow-lg"
                loading="lazy" />

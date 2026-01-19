@@ -84,8 +84,8 @@ export default function SheffieldServiceArea() {
             <p className="text-gray-600">See the results of our professional shot blasting work</p>
           </div>
           <BeforeAfterSlider
-            beforeImage="/images/premier/warehouse-bars-before.jpeg"
-            afterImage="/images/premier/warehouse-bars-after.jpeg"
+            beforeImage="/images/premier/commercial-shot-blasting-warehouse-bars-before-treatment.jpeg"
+            afterImage="/images/premier/commercial-shot-blasting-warehouse-bars-after-treatment.jpeg"
             beforeLabel="Before"
             afterLabel="After"
           />
@@ -141,7 +141,7 @@ export default function SheffieldServiceArea() {
             </div>
             <div className="relative">
               <img
-                src="/images/premier/warehouse-bars-after.jpeg"
+                src="/images/premier/commercial-shot-blasting-warehouse-bars-after-treatment.jpeg"
                 alt="After shot blasting treatment - Sheffield commercial project"
                 className="rounded-lg shadow-lg"
                loading="lazy" />

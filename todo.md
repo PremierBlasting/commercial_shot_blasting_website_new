@@ -803,3 +803,10 @@
 - [x] Apply alt text to images on service pages
 - [x] Apply alt text to images on location pages (27 images optimized)
 - [x] Verify alt text includes keywords: shot blasting, commercial shot blasting, location names
+
+## SEO-Optimized Image File Names
+- [x] Identify all image files in public/images directory (17 images found)
+- [x] Generate SEO-friendly filenames with keywords (shot-blasting, commercial, surface-preparation)
+- [x] Rename image files with descriptive, keyword-rich names (17 images renamed)
+- [x] Update all code references to renamed images (11 files updated)
+- [x] Verify images load correctly after renaming (tested on Gallery page, all images loading)

@@ -84,8 +84,8 @@ export default function ChesterfieldServiceArea() {
             <p className="text-gray-600">See the results of our professional shot blasting work</p>
           </div>
           <BeforeAfterSlider
-            beforeImage="/images/premier/steel-container-before.jpeg"
-            afterImage="/images/premier/steel-container-after.jpeg"
+            beforeImage="/images/premier/commercial-shot-blasting-steel-container-before.jpeg"
+            afterImage="/images/premier/commercial-shot-blasting-steel-container-after.jpeg"
             beforeLabel="Before"
             afterLabel="After"
           />
@@ -136,7 +136,7 @@ export default function ChesterfieldServiceArea() {
             </div>
             <div className="relative">
               <img
-                src="/images/premier/steel-container-after.jpeg"
+                src="/images/premier/commercial-shot-blasting-steel-container-after.jpeg"
                 alt="After shot blasting treatment - Chesterfield commercial project"
                 className="rounded-lg shadow-lg"
                loading="lazy" />

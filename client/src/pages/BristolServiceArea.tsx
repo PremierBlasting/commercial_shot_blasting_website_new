@@ -84,8 +84,8 @@ export default function BristolServiceArea() {
             <p className="text-gray-600">See the results of our professional shot blasting work</p>
           </div>
           <BeforeAfterSlider
-            beforeImage="/images/premier/warehouse-outside-before.jpeg"
-            afterImage="/images/premier/warehouse-outside-after.jpeg"
+            beforeImage="/images/premier/commercial-shot-blasting-warehouse-exterior-before-uk.jpeg"
+            afterImage="/images/premier/commercial-shot-blasting-warehouse-exterior-after-uk.jpeg"
             beforeLabel="Before"
             afterLabel="After"
           />
@@ -141,7 +141,7 @@ export default function BristolServiceArea() {
             </div>
             <div className="relative">
               <img
-                src="/images/premier/warehouse-outside-after.jpeg"
+                src="/images/premier/commercial-shot-blasting-warehouse-exterior-after-uk.jpeg"
                 alt="After shot blasting treatment - Bristol commercial project"
                 className="rounded-lg shadow-lg"
                loading="lazy" />
