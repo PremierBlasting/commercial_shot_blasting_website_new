@@ -11,6 +11,7 @@ import { BlogPreview } from "@/components/BlogPreview";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import ServiceSelector from "@/components/ServiceSelector";
 import { trpc } from "@/lib/trpc";
+import { SEO } from "@/components/SEO";
 
 const testimonials = [
   {
@@ -121,6 +122,10 @@ export default function Home() {
 
   return (
     <div className="min-h-screen flex flex-col" style={{ fontFamily: "'Open Sans', sans-serif" }}>
+      <SEO 
+        title="Commercial Shot Blasting - Professional Surface Preparation"
+        description="Specialist precision shot blasting company in the UK, removing rust, scale, and coatings from all types of surfaces. Transform your surfaces with our expert team."
+      />
       {/* Header */}
       <Header onOpenQuotePopup={openQuotePopup} />
 
