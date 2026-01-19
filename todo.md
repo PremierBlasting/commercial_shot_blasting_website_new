@@ -628,3 +628,8 @@
 ## Fix Industries Dropdown Menu
 - [x] Replace CSS group-hover with controlled state for Industries dropdown
 - [x] Add mouse enter/leave handlers matching Services dropdown pattern
+
+## Add Industries to Mobile Menu
+- [x] Add mobileIndustriesOpen state to Header component
+- [x] Add Industries expand/collapse section to mobile hamburger menu
+- [x] Add Construction and Manufacturing links to mobile Industries section

@@ -97,6 +97,7 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [mobileAreasOpen, setMobileAreasOpen] = useState(false);
+  const [mobileIndustriesOpen, setMobileIndustriesOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [areasOpen, setAreasOpen] = useState(false);
   const [industriesOpen, setIndustriesOpen] = useState(false);
@@ -122,6 +123,7 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
     setMobileMenuOpen(false);
     setMobileServicesOpen(false);
     setMobileAreasOpen(false);
+    setMobileIndustriesOpen(false);
   };
 
   // Handle click outside to close dropdowns
@@ -462,7 +464,43 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
             </div>
 
             <a href="/#about" onClick={closeMobileMenu} className="py-3 hover:text-white/80 transition border-b border-white/10">About</a>
-            <a href="/#industries" onClick={closeMobileMenu} className="py-3 hover:text-white/80 transition border-b border-white/10">Industries</a>
+            
+            {/* Industries with Sub-menu */}
+            <div className="border-b border-white/10">
+              <button
+                className="w-full py-3 flex items-center justify-between hover:text-white/80 transition"
+                onClick={() => setMobileIndustriesOpen(!mobileIndustriesOpen)}
+                type="button"
+              >
+                <span>Industries</span>
+                {mobileIndustriesOpen ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
+              </button>
+              
+              {/* Mobile Industries Sub-menu */}
+              <div 
+                className={`overflow-hidden transition-all duration-300 ${
+                  mobileIndustriesOpen ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'
+                }`}
+              >
+                <div className="pl-4 pb-3 space-y-1">
+                  <Link
+                    href="/industries/construction"
+                    className="block py-2 px-3 text-white/80 hover:text-white hover:bg-white/10 rounded transition text-sm"
+                    onClick={closeMobileMenu}
+                  >
+                    Construction
+                  </Link>
+                  <Link
+                    href="/industries/manufacturing"
+                    className="block py-2 px-3 text-white/80 hover:text-white hover:bg-white/10 rounded transition text-sm"
+                    onClick={closeMobileMenu}
+                  >
+                    Manufacturing
+                  </Link>
+                </div>
+              </div>
+            </div>
+            
             <Link href="/gallery" onClick={closeMobileMenu} className="py-3 hover:text-white/80 transition border-b border-white/10">Gallery</Link>
             <Link href="/blog" onClick={closeMobileMenu} className="py-3 hover:text-white/80 transition border-b border-white/10">Blog</Link>
             
