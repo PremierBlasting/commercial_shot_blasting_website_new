@@ -13,6 +13,7 @@ import { LocationMap } from "@/components/LocationMap";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { TrackedPhoneButton } from "@/components/TrackedPhoneButton";
 import { SEO } from "@/components/SEO";
+import { LocalBusinessSchema } from "@/components/LocalBusinessSchema";
 
 // Mock Testimonials for St Albans
 const localTestimonials = [
@@ -53,6 +54,13 @@ export default function StAlbansServiceArea() {
       <SEO 
         title="Shot Blasting Services in StAlbans - Commercial Shot Blasting"
         description="Professional shot blasting services in StAlbans. Expert surface preparation for industrial and commercial projects. Contact us for a free quote."
+      />
+      <LocalBusinessSchema 
+        name="St Albans"
+        city="St Albans"
+        region="England"
+        description="Professional shot blasting services in St Albans. Expert surface preparation for industrial and commercial projects."
+        url="https://commercialshotblasting.co.uk/service-areas/st-albans"
       />
       {/* Header (Placeholder - typically a shared component) */}
       <header className="bg-[#2C5F7F] text-white sticky top-0 z-50">

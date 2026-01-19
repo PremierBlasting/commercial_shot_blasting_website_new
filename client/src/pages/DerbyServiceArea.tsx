@@ -13,7 +13,8 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { LocationMap } from "@/components/LocationMap";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { TrackedPhoneButton } from "@/components/TrackedPhoneButton";
-import { SEO } from "@/components/SEO"; // Assuming Accordion is available
+import { SEO } from "@/components/SEO";
+import { LocalBusinessSchema } from "@/components/LocalBusinessSchema"; // Assuming Accordion is available
 
 export default function DerbyServiceArea() {
   // The userAuth hooks provides authentication state
@@ -68,6 +69,13 @@ export default function DerbyServiceArea() {
       <SEO 
         title="Shot Blasting Services in Derby - Commercial Shot Blasting"
         description="Professional shot blasting services in Derby. Expert surface preparation for industrial and commercial projects. Contact us for a free quote."
+      />
+      <LocalBusinessSchema 
+        name="Derby"
+        city="Derby"
+        region="England"
+        description="Professional shot blasting services in Derby. Expert surface preparation for industrial and commercial projects."
+        url="https://commercialshotblasting.co.uk/service-areas/derby"
       />
       {/* Header (Keep as is for site navigation) */}
       <header className="bg-[#2C5F7F] text-white sticky top-0 z-50">

@@ -14,6 +14,7 @@ import { LocationMap } from "@/components/LocationMap";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { TrackedPhoneButton } from "@/components/TrackedPhoneButton";
 import { SEO } from "@/components/SEO";
+import { LocalBusinessSchema } from "@/components/LocalBusinessSchema";
 
 export default function WorcesterServiceArea() {
   // The userAuth hooks provides authentication state
@@ -41,6 +42,13 @@ export default function WorcesterServiceArea() {
       <SEO 
         title="Shot Blasting Services in Worcester - Commercial Shot Blasting"
         description="Professional shot blasting services in Worcester. Expert surface preparation for industrial and commercial projects. Contact us for a free quote."
+      />
+      <LocalBusinessSchema 
+        name="Worcester"
+        city="Worcester"
+        region="England"
+        description="Professional shot blasting services in Worcester. Expert surface preparation for industrial and commercial projects."
+        url="https://commercialshotblasting.co.uk/service-areas/worcester"
       />
       {/* Header (Kept from template) */}
       <header className="bg-[#2C5F7F] text-white sticky top-0 z-50">

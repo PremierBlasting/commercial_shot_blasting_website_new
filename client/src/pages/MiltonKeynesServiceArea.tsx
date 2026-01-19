@@ -8,6 +8,7 @@ import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { TrackedPhoneButton } from "@/components/TrackedPhoneButton";
 import { Phone, ArrowRight, Shield, Clock, Award, Users, CheckCircle, Quote } from "lucide-react";
 import { SEO } from "@/components/SEO";
+import { LocalBusinessSchema } from "@/components/LocalBusinessSchema";
 
 // Placeholder component for a standard layout wrapper
 const PageLayout = ({ children }: { children: React.ReactNode }) => (
@@ -72,6 +73,13 @@ export default function MiltonKeynesServiceArea() {
       <SEO 
         title="Shot Blasting Services in Milton Keynes - Commercial Shot Blasting"
         description="Professional shot blasting services in Milton Keynes. Expert surface preparation for industrial and commercial projects. Contact us for a free quote."
+      />
+      <LocalBusinessSchema 
+        name="Milton Keynes"
+        city="Milton Keynes"
+        region="England"
+        description="Professional shot blasting services in Milton Keynes. Expert surface preparation for industrial and commercial projects."
+        url="https://commercialshotblasting.co.uk/service-areas/milton-keynes"
       />
       {/* Breadcrumb Navigation */}
       <div className="container py-4 bg-gray-50">

@@ -14,6 +14,7 @@ import { LocationMap } from "@/components/LocationMap";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { TrackedPhoneButton } from "@/components/TrackedPhoneButton";
 import { SEO } from "@/components/SEO";
+import { LocalBusinessSchema } from "@/components/LocalBusinessSchema";
 
 // Placeholder for a simple Testimonial Card component
 const TestimonialCard = ({ quote, name, company }: { quote: string, name: string, company: string }) => (
@@ -88,6 +89,13 @@ export default function NorwichServiceArea() {
       <SEO 
         title="Shot Blasting Services in Norwich - Commercial Shot Blasting"
         description="Professional shot blasting services in Norwich. Expert surface preparation for industrial and commercial projects. Contact us for a free quote."
+      />
+      <LocalBusinessSchema 
+        name="Norwich"
+        city="Norwich"
+        region="England"
+        description="Professional shot blasting services in Norwich. Expert surface preparation for industrial and commercial projects."
+        url="https://commercialshotblasting.co.uk/service-areas/norwich"
       />
       {/* Header (Kept from Home.tsx) */}
       <header className="bg-[#2C5F7F] text-white sticky top-0 z-50">

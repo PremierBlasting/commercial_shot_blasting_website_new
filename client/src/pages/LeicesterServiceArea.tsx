@@ -13,6 +13,7 @@ import { LocationMap } from "@/components/LocationMap";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { TrackedPhoneButton } from "@/components/TrackedPhoneButton";
 import { SEO } from "@/components/SEO";
+import { LocalBusinessSchema } from "@/components/LocalBusinessSchema";
 
 export default function LeicesterServiceArea() {
   // Authentication setup (copied from Home.tsx)
@@ -56,6 +57,13 @@ export default function LeicesterServiceArea() {
       <SEO 
         title="Shot Blasting Services in Leicester - Commercial Shot Blasting"
         description="Professional shot blasting services in Leicester. Expert surface preparation for industrial and commercial projects. Contact us for a free quote."
+      />
+      <LocalBusinessSchema 
+        name="Leicester"
+        city="Leicester"
+        region="England"
+        description="Professional shot blasting services in Leicester. Expert surface preparation for industrial and commercial projects."
+        url="https://commercialshotblasting.co.uk/service-areas/leicester"
       />
       {/* Header (Copied from Home.tsx) */}
       <header className="bg-[#2C5F7F] text-white sticky top-0 z-50">

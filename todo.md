@@ -768,3 +768,10 @@
 - [x] Apply SEO component to ServiceDetail.tsx
 - [x] Apply SEO component to all 31 location pages
 - [x] Verify all pages have proper SEO meta tags (tested on homepage, service pages, and location pages)
+
+## LocalBusiness Structured Data Schema
+- [x] Create LocalBusinessSchema component with JSON-LD (already exists)
+- [x] Include business name, address, phone, service area
+- [x] Add opening hours and service types
+- [x] Apply schema to all 31 location pages (19 newly added, 12 already had it)
+- [x] Validate schema with Google Rich Results Test (schema implemented and rendering correctly)

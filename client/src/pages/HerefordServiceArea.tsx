@@ -12,6 +12,7 @@ import { LocationMap } from "@/components/LocationMap";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { TrackedPhoneButton } from "@/components/TrackedPhoneButton";
 import { SEO } from "@/components/SEO";
+import { LocalBusinessSchema } from "@/components/LocalBusinessSchema";
 
 // --- Hereford Specific Data ---
 const LOCATION_NAME = "Hereford";
@@ -406,6 +407,13 @@ export default function HerefordServiceArea() {
       <SEO 
         title="Shot Blasting Services in Hereford - Commercial Shot Blasting"
         description="Professional shot blasting services in Hereford. Expert surface preparation for industrial and commercial projects. Contact us for a free quote."
+      />
+      <LocalBusinessSchema 
+        name="Hereford"
+        city="Hereford"
+        region="England"
+        description="Professional shot blasting services in Hereford. Expert surface preparation for industrial and commercial projects."
+        url="https://commercialshotblasting.co.uk/service-areas/hereford"
       />
       {/* Header (Reused from Home.tsx) */}
       <header className="bg-[#2C5F7F] text-white sticky top-0 z-50">

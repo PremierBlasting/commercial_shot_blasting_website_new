@@ -13,6 +13,7 @@ import { LocationMap } from "@/components/LocationMap";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { TrackedPhoneButton } from "@/components/TrackedPhoneButton";
 import { SEO } from "@/components/SEO";
+import { LocalBusinessSchema } from "@/components/LocalBusinessSchema";
 
 // --- Location-Specific Data ---
 const LOCATION_NAME = "Lincoln";
@@ -98,6 +99,13 @@ export default function LincolnServiceArea() {
       <SEO 
         title="Shot Blasting Services in Lincoln - Commercial Shot Blasting"
         description="Professional shot blasting services in Lincoln. Expert surface preparation for industrial and commercial projects. Contact us for a free quote."
+      />
+      <LocalBusinessSchema 
+        name="Lincoln"
+        city="Lincoln"
+        region="England"
+        description="Professional shot blasting services in Lincoln. Expert surface preparation for industrial and commercial projects."
+        url="https://commercialshotblasting.co.uk/service-areas/lincoln"
       />
       {/* Breadcrumb Navigation */}
       <div className="container py-4 bg-gray-50">

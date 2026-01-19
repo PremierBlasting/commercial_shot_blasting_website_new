@@ -7,6 +7,7 @@ import { LocationMap } from "@/components/LocationMap";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { TrackedPhoneButton } from "@/components/TrackedPhoneButton";
 import { SEO } from "@/components/SEO";
+import { LocalBusinessSchema } from "@/components/LocalBusinessSchema";
 
 // Mock data for the Ipswich Service Area page
 const ipswichData = {
@@ -53,6 +54,13 @@ export default function IpswichServiceArea() {
       <SEO 
         title="Shot Blasting Services in Ipswich - Commercial Shot Blasting"
         description="Professional shot blasting services in Ipswich. Expert surface preparation for industrial and commercial projects. Contact us for a free quote."
+      />
+      <LocalBusinessSchema 
+        name="Ipswich"
+        city="Ipswich"
+        region="England"
+        description="Professional shot blasting services in Ipswich. Expert surface preparation for industrial and commercial projects."
+        url="https://commercialshotblasting.co.uk/service-areas/ipswich"
       />
       {/* Breadcrumb Navigation */}
       <div className="bg-gray-50 py-3 border-b">

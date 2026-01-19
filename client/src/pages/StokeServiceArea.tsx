@@ -25,6 +25,7 @@ import { LocationMap } from "@/components/LocationMap";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { TrackedPhoneButton } from "@/components/TrackedPhoneButton";
 import { SEO } from "@/components/SEO";
+import { LocalBusinessSchema } from "@/components/LocalBusinessSchema";
 
 // --- Stoke-on-Trent Specific Content ---
 const LOCATION_NAME = "Stoke-on-Trent";
@@ -98,6 +99,13 @@ export default function StokeServiceArea() {
       <SEO 
         title="Shot Blasting Services in Stoke - Commercial Shot Blasting"
         description="Professional shot blasting services in Stoke. Expert surface preparation for industrial and commercial projects. Contact us for a free quote."
+      />
+      <LocalBusinessSchema 
+        name="Stoke"
+        city="Stoke"
+        region="England"
+        description="Professional shot blasting services in Stoke. Expert surface preparation for industrial and commercial projects."
+        url="https://commercialshotblasting.co.uk/service-areas/stoke"
       />
       {/* Header - Reusing Home.tsx Header structure */}
       <header className="bg-[#2C5F7F] text-white sticky top-0 z-50">

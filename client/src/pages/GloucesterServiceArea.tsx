@@ -13,6 +13,7 @@ import { LocationMap } from "@/components/LocationMap";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { TrackedPhoneButton } from "@/components/TrackedPhoneButton";
 import { SEO } from "@/components/SEO";
+import { LocalBusinessSchema } from "@/components/LocalBusinessSchema";
 
 // --- Gloucester Specific Content ---
 const LOCATION_NAME = "Gloucester";
@@ -85,6 +86,13 @@ export default function GloucesterServiceArea() {
       <SEO 
         title="Shot Blasting Services in Gloucester - Commercial Shot Blasting"
         description="Professional shot blasting services in Gloucester. Expert surface preparation for industrial and commercial projects. Contact us for a free quote."
+      />
+      <LocalBusinessSchema 
+        name="Gloucester"
+        city="Gloucester"
+        region="England"
+        description="Professional shot blasting services in Gloucester. Expert surface preparation for industrial and commercial projects."
+        url="https://commercialshotblasting.co.uk/service-areas/gloucester"
       />
       {/* Header (Copied from Home.tsx) */}
       <header className="bg-[#2C5F7F] text-white sticky top-0 z-50">

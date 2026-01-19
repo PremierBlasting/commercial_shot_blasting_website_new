@@ -14,7 +14,8 @@ import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbS
 import { LocationMap } from "@/components/LocationMap";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { TrackedPhoneButton } from "@/components/TrackedPhoneButton";
-import { SEO } from "@/components/SEO"; 
+import { SEO } from "@/components/SEO";
+import { LocalBusinessSchema } from "@/components/LocalBusinessSchema"; 
 
 const CHESTER_CONTACT_NUMBER = "07970 566409"; // Assuming same contact number
 const CHESTER_EMAIL = "info@shotblasting.co.uk"; // Assuming same email
@@ -62,6 +63,13 @@ export default function ChesterServiceArea() {
       <SEO 
         title="Shot Blasting Services in Chester - Commercial Shot Blasting"
         description="Professional shot blasting services in Chester. Expert surface preparation for industrial and commercial projects. Contact us for a free quote."
+      />
+      <LocalBusinessSchema 
+        name="Chester"
+        city="Chester"
+        region="England"
+        description="Professional shot blasting services in Chester. Expert surface preparation for industrial and commercial projects."
+        url="https://commercialshotblasting.co.uk/service-areas/chester"
       />
       {/* Header (Copied from Home.tsx) */}
       <header className="bg-[#2C5F7F] text-white sticky top-0 z-50">

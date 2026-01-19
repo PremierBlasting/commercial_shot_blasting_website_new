@@ -12,6 +12,7 @@ import { LocationMap } from "@/components/LocationMap";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { TrackedPhoneButton } from "@/components/TrackedPhoneButton";
 import { SEO } from "@/components/SEO";
+import { LocalBusinessSchema } from "@/components/LocalBusinessSchema";
 
 // Dummy data for Testimonials and FAQ
 const localTestimonials = [
@@ -49,6 +50,13 @@ export default function ShrewsburyServiceArea() {
       <SEO 
         title="Shot Blasting Services in Shrewsbury - Commercial Shot Blasting"
         description="Professional shot blasting services in Shrewsbury. Expert surface preparation for industrial and commercial projects. Contact us for a free quote."
+      />
+      <LocalBusinessSchema 
+        name="Shrewsbury"
+        city="Shrewsbury"
+        region="England"
+        description="Professional shot blasting services in Shrewsbury. Expert surface preparation for industrial and commercial projects."
+        url="https://commercialshotblasting.co.uk/service-areas/shrewsbury"
       />
       {/* Breadcrumb Navigation */}
       <div className="bg-gray-100 py-4">

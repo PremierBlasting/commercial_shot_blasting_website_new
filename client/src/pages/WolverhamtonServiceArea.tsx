@@ -12,6 +12,7 @@ import { LocationMap } from "@/components/LocationMap"; // Assuming this compone
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { TrackedPhoneButton } from "@/components/TrackedPhoneButton";
 import { SEO } from "@/components/SEO";
+import { LocalBusinessSchema } from "@/components/LocalBusinessSchema";
 
 const WOLVERHAMPTON_INDUSTRIES = [
   { name: "Advanced Manufacturing", icon: Factory, desc: "Precision cleaning for machinery, components, and tooling in Wolverhampton's high-tech sector." },
@@ -57,6 +58,13 @@ export default function WolverhamptonServiceArea() {
       <SEO 
         title="Shot Blasting Services in Wolverhamton - Commercial Shot Blasting"
         description="Professional shot blasting services in Wolverhamton. Expert surface preparation for industrial and commercial projects. Contact us for a free quote."
+      />
+      <LocalBusinessSchema 
+        name="Wolverhamton"
+        city="Wolverhamton"
+        region="England"
+        description="Professional shot blasting services in Wolverhamton. Expert surface preparation for industrial and commercial projects."
+        url="https://commercialshotblasting.co.uk/service-areas/wolverhamton"
       />
       {/* Breadcrumb Navigation */}
       <div className="bg-gray-100 py-3">

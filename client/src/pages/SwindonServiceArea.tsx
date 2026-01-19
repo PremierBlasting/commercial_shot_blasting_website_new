@@ -14,6 +14,7 @@ import { LocationMap } from "@/components/LocationMap";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { TrackedPhoneButton } from "@/components/TrackedPhoneButton";
 import { SEO } from "@/components/SEO";
+import { LocalBusinessSchema } from "@/components/LocalBusinessSchema";
 
 // Placeholder for Testimonial Card - assuming a simple structure
 const TestimonialCard = ({ quote, name, company }: { quote: string, name: string, company: string }) => (
@@ -66,6 +67,13 @@ export default function SwindonServiceArea() {
       <SEO 
         title="Shot Blasting Services in Swindon - Commercial Shot Blasting"
         description="Professional shot blasting services in Swindon. Expert surface preparation for industrial and commercial projects. Contact us for a free quote."
+      />
+      <LocalBusinessSchema 
+        name="Swindon"
+        city="Swindon"
+        region="England"
+        description="Professional shot blasting services in Swindon. Expert surface preparation for industrial and commercial projects."
+        url="https://commercialshotblasting.co.uk/service-areas/swindon"
       />
       {/* Header (Simplified for a service page, assuming main header is elsewhere) */}
       <header className="bg-[#2C5F7F] text-white sticky top-0 z-50">

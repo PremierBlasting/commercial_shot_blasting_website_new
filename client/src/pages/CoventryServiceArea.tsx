@@ -20,6 +20,7 @@ import { LocationMap } from "@/components/LocationMap";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { TrackedPhoneButton } from "@/components/TrackedPhoneButton";
 import { SEO } from "@/components/SEO";
+import { LocalBusinessSchema } from "@/components/LocalBusinessSchema";
 
 // Placeholder data for Coventry-specific content
 const COVENTRY_INDUSTRIES = [
@@ -81,6 +82,13 @@ export default function CoventryServiceArea() {
       <SEO 
         title="Shot Blasting Services in Coventry - Commercial Shot Blasting"
         description="Professional shot blasting services in Coventry. Expert surface preparation for industrial and commercial projects. Contact us for a free quote."
+      />
+      <LocalBusinessSchema 
+        name="Coventry"
+        city="Coventry"
+        region="England"
+        description="Professional shot blasting services in Coventry. Expert surface preparation for industrial and commercial projects."
+        url="https://commercialshotblasting.co.uk/service-areas/coventry"
       />
       {/* Header (Copied from Home.tsx) */}
       <header className="bg-[#2C5F7F] text-white sticky top-0 z-50">

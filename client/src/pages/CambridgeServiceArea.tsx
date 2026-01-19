@@ -8,6 +8,7 @@ import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator } from 
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { TrackedPhoneButton } from "@/components/TrackedPhoneButton";
 import { SEO } from "@/components/SEO";
+import { LocalBusinessSchema } from "@/components/LocalBusinessSchema";
 
 // --- Cambridge-Specific Data ---
 
@@ -253,6 +254,13 @@ export default function CambridgeServiceArea() {
       <SEO 
         title="Shot Blasting Services in Cambridge - Commercial Shot Blasting"
         description="Professional shot blasting services in Cambridge. Expert surface preparation for industrial and commercial projects. Contact us for a free quote."
+      />
+      <LocalBusinessSchema 
+        name="Cambridge"
+        city="Cambridge"
+        region="England"
+        description="Professional shot blasting services in Cambridge. Expert surface preparation for industrial and commercial projects."
+        url="https://commercialshotblasting.co.uk/service-areas/cambridge"
       />
       {/* Note: Header and Footer components are assumed to be handled by a parent Layout component */}
       

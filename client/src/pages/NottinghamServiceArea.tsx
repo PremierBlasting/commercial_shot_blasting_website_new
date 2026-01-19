@@ -11,6 +11,7 @@ import { LocationMap } from "@/components/LocationMap";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { TrackedPhoneButton } from "@/components/TrackedPhoneButton";
 import { SEO } from "@/components/SEO";
+import { LocalBusinessSchema } from "@/components/LocalBusinessSchema";
 
 // Placeholder for a simple Breadcrumb component, as one was not found in the UI components
 const Breadcrumb = ({ items }: { items: { label: string; href?: string }[] }) => (
@@ -40,6 +41,13 @@ const FAQItem = ({ question, answer }: { question: string; answer: string }) => 
       <SEO 
         title="Shot Blasting Services in Nottingham - Commercial Shot Blasting"
         description="Professional shot blasting services in Nottingham. Expert surface preparation for industrial and commercial projects. Contact us for a free quote."
+      />
+      <LocalBusinessSchema 
+        name="Nottingham"
+        city="Nottingham"
+        region="England"
+        description="Professional shot blasting services in Nottingham. Expert surface preparation for industrial and commercial projects."
+        url="https://commercialshotblasting.co.uk/service-areas/nottingham"
       />
       <button
         className="flex justify-between items-center w-full text-left font-semibold text-lg text-[#2C5F7F] hover:text-[#1a3d52]"
