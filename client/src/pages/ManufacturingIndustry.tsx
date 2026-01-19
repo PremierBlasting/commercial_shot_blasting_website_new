@@ -4,6 +4,7 @@ import { Phone, Mail, CheckCircle, ArrowRight, Factory, Cog, TrendingUp, Zap } f
 import { useState } from "react";
 import { QuotePopup } from "@/components/QuotePopup";
 import { Header } from "@/components/Header";
+import { Breadcrumb } from "@/components/Breadcrumb";
 
 export default function ManufacturingIndustry() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
@@ -79,6 +80,15 @@ export default function ManufacturingIndustry() {
   return (
     <div className="min-h-screen bg-white">
       <Header onOpenQuotePopup={() => setQuotePopupOpen(true)} />
+      
+      <Breadcrumb 
+        items={[
+          { label: "Home", href: "/" },
+          { label: "Industries", href: "/#industries" },
+          { label: "Manufacturing", href: "/industries/manufacturing", isCurrentPage: true }
+        ]}
+        className="container mt-4"
+      />
 
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-[#2C5F7F] to-[#1e4159] text-white py-20">

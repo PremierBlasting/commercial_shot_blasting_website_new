@@ -633,3 +633,9 @@
 - [x] Add mobileIndustriesOpen state to Header component
 - [x] Add Industries expand/collapse section to mobile hamburger menu
 - [x] Add Construction and Manufacturing links to mobile Industries section
+
+## Add Breadcrumb Navigation
+- [x] Create reusable Breadcrumb component
+- [x] Add breadcrumbs to Construction Industry page
+- [x] Add breadcrumbs to Manufacturing Industry page
+- [x] Add breadcrumbs to ServiceDetail page for all services
