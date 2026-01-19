@@ -129,11 +129,9 @@ export function BlogPreview() {
 
           {/* View All Link */}
           <div className="text-center mt-8">
-            <Link href="/blog">
-              <a className="inline-flex items-center gap-2 text-[#2C5F7F] font-semibold hover:underline">
-                View All Articles
-                <ChevronRight className="w-4 h-4" />
-              </a>
+            <Link href="/blog" className="inline-flex items-center gap-2 text-[#2C5F7F] font-semibold hover:underline">
+              View All Articles
+              <ChevronRight className="w-4 h-4" />
             </Link>
           </div>
         </div>

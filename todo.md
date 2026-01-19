@@ -595,3 +595,5 @@
 - [x] Fix blog post featured images to use existing site images
 
 - [x] Add Blog link to main navigation menu
+
+- [x] Fix nested anchor tag error on homepage
