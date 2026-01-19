@@ -11,7 +11,10 @@ import {
   Testimonial,
   contactSubmissions, 
   InsertContactSubmission, 
-  ContactSubmission 
+  ContactSubmission,
+  blogPosts,
+  InsertBlogPost,
+  BlogPost
 } from "../drizzle/schema";
 import { ENV } from './_core/env';
 
@@ -233,4 +236,65 @@ export async function deleteContactSubmission(id: number): Promise<void> {
   if (!db) throw new Error("Database not available");
   
   await db.delete(contactSubmissions).where(eq(contactSubmissions.id, id));
+}
+
+// ==================== Blog Posts ====================
+
+export async function getPublishedBlogPosts(): Promise<BlogPost[]> {
+  const db = await getDb();
+  if (!db) return [];
+  
+  const result = await db
+    .select()
+    .from(blogPosts)
+    .where(eq(blogPosts.isPublished, true))
+    .orderBy(desc(blogPosts.publishedAt));
+  
+  return result;
+}
+
+export async function getAllBlogPosts(): Promise<BlogPost[]> {
+  const db = await getDb();
+  if (!db) return [];
+  
+  const result = await db
+    .select()
+    .from(blogPosts)
+    .orderBy(desc(blogPosts.createdAt));
+  
+  return result;
+}
+
+export async function getBlogPostBySlug(slug: string): Promise<BlogPost | undefined> {
+  const db = await getDb();
+  if (!db) return undefined;
+  
+  const result = await db
+    .select()
+    .from(blogPosts)
+    .where(eq(blogPosts.slug, slug))
+    .limit(1);
+  
+  return result[0];
+}
+
+export async function createBlogPost(post: InsertBlogPost): Promise<void> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  
+  await db.insert(blogPosts).values(post);
+}
+
+export async function updateBlogPost(id: number, post: Partial<InsertBlogPost>): Promise<void> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  
+  await db.update(blogPosts).set(post).where(eq(blogPosts.id, id));
+}
+
+export async function deleteBlogPost(id: number): Promise<void> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  
+  await db.delete(blogPosts).where(eq(blogPosts.id, id));
 }

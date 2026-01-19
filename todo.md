@@ -576,3 +576,12 @@
 - [ ] Add blog preview carousel to home page
 - [ ] Create backend tRPC procedures for CMS CRUD operations
 - [ ] Build admin dashboard at /admin with content management UI
+
+- [x] Create backend tRPC procedures for CMS CRUD operations (blog, testimonials, gallery, settings)
+- [x] Build admin dashboard layout with navigation
+- [x] Create blog posts management interface (list, create, edit, delete)
+- [ ] Create testimonials management interface
+- [ ] Create gallery items management interface
+- [ ] Create contact submissions viewer
+- [ ] Create site settings management interface
+- [ ] Implement admin role-based access control

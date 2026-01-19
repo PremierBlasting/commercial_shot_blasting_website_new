@@ -25,7 +25,8 @@ import {
   EyeOff,
   Mail,
   MailOpen,
-  ChevronLeft
+  ChevronLeft,
+  FileText
 } from "lucide-react";
 import { useState } from "react";
 import { Link } from "wouter";
@@ -145,6 +146,9 @@ export default function Admin() {
             <TabsTrigger value="gallery" className="gap-2">
               <Image className="w-4 h-4" /> Gallery
             </TabsTrigger>
+            <TabsTrigger value="blog" className="gap-2">
+              <FileText className="w-4 h-4" /> Blog
+            </TabsTrigger>
             <TabsTrigger value="testimonials" className="gap-2">
               <Star className="w-4 h-4" /> Testimonials
             </TabsTrigger>
@@ -159,6 +163,10 @@ export default function Admin() {
 
           <TabsContent value="gallery">
             <GalleryTab />
+          </TabsContent>
+
+          <TabsContent value="blog">
+            <BlogTab />
           </TabsContent>
 
           <TabsContent value="testimonials">
@@ -835,6 +843,237 @@ function TestimonialsTab() {
             <Star className="w-12 h-12 mx-auto text-gray-300 mb-4" />
             <h3 className="font-semibold text-gray-600">No Testimonials Yet</h3>
             <p className="text-sm text-gray-500 mt-1">Click "Add Testimonial" to add your first review</p>
+          </CardContent>
+        </Card>
+      )}
+    </div>
+  );
+}
+
+function BlogTab() {
+  const { data: posts, isLoading, refetch } = trpc.blog.listAll.useQuery();
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [editingPost, setEditingPost] = useState<any>(null);
+  const [deleteId, setDeleteId] = useState<number | null>(null);
+
+  const [formData, setFormData] = useState({
+    slug: "",
+    title: "",
+    excerpt: "",
+    content: "",
+    featuredImage: "",
+    category: "",
+    isPublished: true,
+  });
+
+  const createMutation = trpc.blog.create.useMutation({
+    onSuccess: () => {
+      toast.success("Blog post created successfully");
+      refetch();
+      setIsDialogOpen(false);
+      resetForm();
+    },
+    onError: (error) => {
+      toast.error(error.message || "Failed to create blog post");
+    },
+  });
+
+  const updateMutation = trpc.blog.update.useMutation({
+    onSuccess: () => {
+      toast.success("Blog post updated successfully");
+      refetch();
+      setIsDialogOpen(false);
+      setEditingPost(null);
+      resetForm();
+    },
+    onError: (error) => {
+      toast.error(error.message || "Failed to update blog post");
+    },
+  });
+
+  const deleteMutation = trpc.blog.delete.useMutation({
+    onSuccess: () => {
+      toast.success("Blog post deleted");
+      refetch();
+      setDeleteId(null);
+    },
+    onError: (error) => {
+      toast.error(error.message || "Failed to delete blog post");
+    },
+  });
+
+  const resetForm = () => {
+    setFormData({
+      slug: "",
+      title: "",
+      excerpt: "",
+      content: "",
+      featuredImage: "",
+      category: "",
+      isPublished: true,
+    });
+  };
+
+  const handleEdit = (post: any) => {
+    setEditingPost(post);
+    setFormData({
+      slug: post.slug,
+      title: post.title,
+      excerpt: post.excerpt,
+      content: post.content,
+      featuredImage: post.featuredImage,
+      category: post.category || "",
+      isPublished: post.isPublished,
+    });
+    setIsDialogOpen(true);
+  };
+
+  const handleSubmit = () => {
+    if (!formData.title || !formData.slug || !formData.excerpt || !formData.content || !formData.featuredImage) {
+      toast.error("Please fill in all required fields");
+      return;
+    }
+
+    if (editingPost) {
+      updateMutation.mutate({ id: editingPost.id, ...formData });
+    } else {
+      createMutation.mutate(formData);
+    }
+  };
+
+  return (
+    <div className="space-y-6">
+      <div className="flex items-center justify-between">
+        <div>
+          <h2 className="text-2xl font-bold text-[#2C2C2C]" style={{ fontFamily: "'Playfair Display', serif" }}>
+            Blog Posts
+          </h2>
+          <p className="text-gray-600">Manage your blog content</p>
+        </div>
+        <Button onClick={() => { setIsDialogOpen(true); setEditingPost(null); resetForm(); }} className="bg-[#2C5F7F] hover:bg-[#1a3d52]">
+          <Plus className="w-4 h-4 mr-2" /> New Post
+        </Button>
+      </div>
+
+      {/* Create/Edit Dialog */}
+      <Dialog open={isDialogOpen} onOpenChange={(open) => { setIsDialogOpen(open); if (!open) { setEditingPost(null); resetForm(); } }}>
+        <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle>{editingPost ? "Edit Blog Post" : "Create New Blog Post"}</DialogTitle>
+            <DialogDescription>Fill in the details for your blog post</DialogDescription>
+          </DialogHeader>
+          <div className="space-y-4">
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <Label>Title *</Label>
+                <Input value={formData.title} onChange={(e) => setFormData({ ...formData, title: e.target.value })} placeholder="Post title" />
+              </div>
+              <div>
+                <Label>Slug *</Label>
+                <Input value={formData.slug} onChange={(e) => setFormData({ ...formData, slug: e.target.value.toLowerCase().replace(/\s+/g, "-") })} placeholder="post-slug" />
+              </div>
+            </div>
+            <div>
+              <Label>Excerpt *</Label>
+              <Textarea value={formData.excerpt} onChange={(e) => setFormData({ ...formData, excerpt: e.target.value })} placeholder="Brief description..." rows={2} />
+            </div>
+            <div>
+              <Label>Content *</Label>
+              <Textarea value={formData.content} onChange={(e) => setFormData({ ...formData, content: e.target.value })} placeholder="Full blog post content (supports Markdown)..." rows={8} />
+            </div>
+            <div>
+              <Label>Featured Image URL *</Label>
+              <Input value={formData.featuredImage} onChange={(e) => setFormData({ ...formData, featuredImage: e.target.value })} placeholder="https://..." />
+            </div>
+            <div>
+              <Label>Category</Label>
+              <Input value={formData.category} onChange={(e) => setFormData({ ...formData, category: e.target.value })} placeholder="Shot Blasting" />
+            </div>
+            <div className="flex items-center gap-2">
+              <input type="checkbox" id="published" checked={formData.isPublished} onChange={(e) => setFormData({ ...formData, isPublished: e.target.checked })} className="rounded" />
+              <Label htmlFor="published" className="cursor-pointer">Published</Label>
+            </div>
+          </div>
+          <DialogFooter>
+            <Button variant="outline" onClick={() => { setIsDialogOpen(false); setEditingPost(null); resetForm(); }}>Cancel</Button>
+            <Button onClick={handleSubmit} disabled={createMutation.isPending || updateMutation.isPending} className="bg-[#2C5F7F] hover:bg-[#1a3d52]">
+              {(createMutation.isPending || updateMutation.isPending) ? "Saving..." : (editingPost ? "Update" : "Create")}
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+
+      {/* Delete Dialog */}
+      <Dialog open={!!deleteId} onOpenChange={(open) => !open && setDeleteId(null)}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Delete Blog Post</DialogTitle>
+            <DialogDescription>Are you sure? This cannot be undone.</DialogDescription>
+          </DialogHeader>
+          <DialogFooter>
+            <Button variant="outline" onClick={() => setDeleteId(null)}>Cancel</Button>
+            <Button variant="destructive" onClick={() => deleteId && deleteMutation.mutate({ id: deleteId })} disabled={deleteMutation.isPending}>
+              {deleteMutation.isPending ? "Deleting..." : "Delete"}
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+
+      {/* Posts List */}
+      {isLoading ? (
+        <div className="grid gap-4">
+          {[1, 2, 3].map((i) => (
+            <Card key={i} className="animate-pulse">
+              <CardContent className="p-6">
+                <div className="h-4 bg-gray-200 rounded w-1/3 mb-2"></div>
+                <div className="h-3 bg-gray-200 rounded w-full"></div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      ) : posts && posts.length > 0 ? (
+        <div className="grid gap-4">
+          {posts.map((post) => (
+            <Card key={post.id}>
+              <CardContent className="p-6">
+                <div className="flex items-start gap-4">
+                  {post.featuredImage && (
+                    <img src={post.featuredImage} alt={post.title} className="w-32 h-24 object-cover rounded" />
+                  )}
+                  <div className="flex-1">
+                    <div className="flex items-start justify-between">
+                      <div>
+                        <h3 className="font-bold text-lg">{post.title}</h3>
+                        <p className="text-sm text-gray-600 mt-1">{post.excerpt}</p>
+                        <div className="flex items-center gap-4 mt-2 text-xs text-gray-500">
+                          <span>/{post.slug}</span>
+                          {post.category && <span className="px-2 py-1 bg-gray-100 rounded">{post.category}</span>}
+                          <span className={post.isPublished ? "text-green-600" : "text-gray-400"}>
+                            {post.isPublished ? "Published" : "Draft"}
+                          </span>
+                        </div>
+                      </div>
+                      <div className="flex gap-2">
+                        <Button size="sm" variant="outline" onClick={() => handleEdit(post)}>
+                          <Edit className="w-3 h-3" />
+                        </Button>
+                        <Button size="sm" variant="outline" className="text-red-600" onClick={() => setDeleteId(post.id)}>
+                          <Trash2 className="w-3 h-3" />
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      ) : (
+        <Card>
+          <CardContent className="py-12 text-center">
+            <FileText className="w-12 h-12 mx-auto text-gray-300 mb-4" />
+            <h3 className="font-semibold text-gray-600">No Blog Posts Yet</h3>
+            <p className="text-sm text-gray-500 mt-1">Create your first blog post to get started</p>
           </CardContent>
         </Card>
       )}

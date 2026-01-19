@@ -19,6 +19,12 @@ import {
   createContactSubmission,
   updateContactSubmissionStatus,
   deleteContactSubmission,
+  getPublishedBlogPosts,
+  getAllBlogPosts,
+  getBlogPostBySlug,
+  createBlogPost,
+  updateBlogPost,
+  deleteBlogPost,
 } from "./db";
 import { storagePut } from "./storage";
 import { nanoid } from "nanoid";
@@ -290,6 +296,74 @@ export const appRouter = router({
       .input(z.object({ id: z.number() }))
       .mutation(async ({ input }) => {
         await deleteContactSubmission(input.id);
+        return { success: true };
+      }),
+  }),
+
+  // Blog Posts
+  blog: router({
+    // Public: Get published blog posts
+    list: publicProcedure.query(async () => {
+      return await getPublishedBlogPosts();
+    }),
+    
+    // Public: Get blog post by slug
+    getBySlug: publicProcedure
+      .input(z.object({ slug: z.string() }))
+      .query(async ({ input }) => {
+        return await getBlogPostBySlug(input.slug);
+      }),
+    
+    // Admin: Get all blog posts
+    listAll: adminProcedure.query(async () => {
+      return await getAllBlogPosts();
+    }),
+    
+    // Admin: Create blog post
+    create: adminProcedure
+      .input(z.object({
+        slug: z.string().min(1),
+        title: z.string().min(1),
+        excerpt: z.string().min(1),
+        content: z.string().min(1),
+        featuredImage: z.string().url(),
+        author: z.string().optional(),
+        category: z.string().optional(),
+        tags: z.string().optional(), // JSON string
+        metaDescription: z.string().optional(),
+        isPublished: z.boolean().optional(),
+      }))
+      .mutation(async ({ input }) => {
+        await createBlogPost(input);
+        return { success: true };
+      }),
+    
+    // Admin: Update blog post
+    update: adminProcedure
+      .input(z.object({
+        id: z.number(),
+        slug: z.string().min(1).optional(),
+        title: z.string().min(1).optional(),
+        excerpt: z.string().optional(),
+        content: z.string().optional(),
+        featuredImage: z.string().url().optional(),
+        author: z.string().optional(),
+        category: z.string().optional(),
+        tags: z.string().optional(),
+        metaDescription: z.string().optional(),
+        isPublished: z.boolean().optional(),
+      }))
+      .mutation(async ({ input }) => {
+        const { id, ...data } = input;
+        await updateBlogPost(id, data);
+        return { success: true };
+      }),
+    
+    // Admin: Delete blog post
+    delete: adminProcedure
+      .input(z.object({ id: z.number() }))
+      .mutation(async ({ input }) => {
+        await deleteBlogPost(input.id);
         return { success: true };
       }),
   }),
