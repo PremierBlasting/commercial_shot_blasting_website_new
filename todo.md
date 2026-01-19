@@ -701,7 +701,7 @@
 - [x] Ensure all 6 locations are clickable on interactive maps (Bradford added to ServiceAreasMap)
 
 ## GitHub Backup
-- [ ] Push all changes to commercial_shot_blasting repository on GitHub
+- [ ] Push all changes to Commercial-Shot-Blasting-Website repository on GitHub
 
 ## Fix Location List Links on Homepage and Service Areas Page
 - [x] Find where "All Service Locations" list is rendered (ServiceAreasMap component)
