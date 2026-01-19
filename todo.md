@@ -617,3 +617,10 @@
 - [x] Add Fixed Ladders & Step-Over Platforms service
 - [x] Update homepage services section to show all 9 services
 - [x] Update navigation menu Services dropdown
+
+## Create Industry Landing Pages
+- [x] Create Construction Industry landing page with relevant services
+- [x] Create Manufacturing Industry landing page with relevant services
+- [x] Add industry pages to navigation menu
+- [x] Update App.tsx routing for industry pages
+- [x] Add industry-specific case studies and testimonials

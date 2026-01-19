@@ -236,7 +236,29 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
           </div>
 
           <a href="/#about" className="hover:text-white/80 transition">About</a>
-          <a href="/#industries" className="hover:text-white/80 transition">Industries</a>
+          
+          {/* Industries Dropdown */}
+          <div className="relative group">
+            <button className="flex items-center gap-1 hover:text-white/80 transition py-2">
+              Industries
+              <ChevronDown className="w-4 h-4" />
+            </button>
+            <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200" style={{ zIndex: 99999 }}>
+              <div className="w-64 bg-white rounded-lg shadow-2xl border border-gray-100 overflow-hidden">
+                <div className="py-2">
+                  <Link href="/industries/construction" className="block px-4 py-3 hover:bg-[#2C5F7F] hover:text-white transition-colors group">
+                    <div className="font-medium text-gray-900 group-hover:text-white">Construction</div>
+                    <div className="text-xs text-gray-500 group-hover:text-white/80 mt-0.5">Structural steel, bridges, fire escapes</div>
+                  </Link>
+                  <Link href="/industries/manufacturing" className="block px-4 py-3 hover:bg-[#2C5F7F] hover:text-white transition-colors group">
+                    <div className="font-medium text-gray-900 group-hover:text-white">Manufacturing</div>
+                    <div className="text-xs text-gray-500 group-hover:text-white/80 mt-0.5">Warehouse racking, crane systems, pipework</div>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+          
           <Link href="/gallery" className="hover:text-white/80 transition">Gallery</Link>
           <Link href="/blog" className="hover:text-white/80 transition">Blog</Link>
           

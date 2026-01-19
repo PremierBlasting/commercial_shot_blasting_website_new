@@ -44,6 +44,8 @@ import OxfordServiceArea from "./pages/OxfordServiceArea";
 import PeterboroughServiceArea from "./pages/PeterboroughServiceArea";
 import ChesterfieldServiceArea from "./pages/ChesterfieldServiceArea";
 import WrexhamServiceArea from "./pages/WrexhamServiceArea";
+import ConstructionIndustry from "./pages/ConstructionIndustry";
+import ManufacturingIndustry from "./pages/ManufacturingIndustry";
 import { CookieConsent } from "./components/CookieConsent";
 import { FloatingCallButton } from "./components/FloatingCallButton";
 
@@ -55,6 +57,8 @@ function Router() {
       <Route path={"/gallery"} component={Gallery} />
       <Route path={"/admin"} component={Admin} />
       <Route path="/services/:id" component={ServiceDetail} />
+      <Route path="/industries/construction" component={ConstructionIndustry} />
+      <Route path="/industries/manufacturing" component={ManufacturingIndustry} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
         <Route path="/terms" component={Terms} />
         <Route path="/blog" component={Blog} />
