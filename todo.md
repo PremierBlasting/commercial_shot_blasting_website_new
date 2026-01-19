@@ -597,3 +597,5 @@
 - [x] Add Blog link to main navigation menu
 
 - [x] Fix nested anchor tag error on homepage
+
+- [x] Fix Worcester page TypeScript error by replacing isLoading with isPending

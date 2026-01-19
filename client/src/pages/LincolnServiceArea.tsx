@@ -66,8 +66,8 @@ const ContactForm = ({ formData, setFormData, handleSubmit, submitContact }) => 
       rows={5}
       required
     />
-    <Button type="submit" size="lg" className="w-full bg-[#2C5F7F] hover:bg-[#1a3d52]" disabled={submitContact.isLoading}>
-      {submitContact.isLoading ? "Submitting..." : "Request Free Quote"}
+    <Button type="submit" size="lg" className="w-full bg-[#2C5F7F] hover:bg-[#1a3d52]" disabled={submitContact.isPending}>
+      {submitContact.isPending ? "Submitting..." : "Request Free Quote"}
     </Button>
   </form>
 );

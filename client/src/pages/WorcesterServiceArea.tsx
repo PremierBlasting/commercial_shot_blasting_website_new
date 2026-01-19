@@ -323,8 +323,8 @@ export default function WorcesterServiceArea() {
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   required
                 />
-                <Button type="submit" className="w-full bg-[#2C5F7F] hover:bg-[#1a3d52]" disabled={submitContact.isLoading}>
-                  {submitContact.isLoading ? "Sending..." : "Submit Request"}
+                <Button type="submit" className="w-full bg-[#2C5F7F] hover:bg-[#1a3d52]" disabled={submitContact.isPending}>
+                  {submitContact.isPending ? "Sending..." : "Submit Request"}
                 </Button>
               </form>
             </div>

@@ -308,8 +308,8 @@ export default function WolverhamptonServiceArea() {
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   required
                 />
-                <Button type="submit" className="w-full" disabled={submitContact.isLoading}>
-                  {submitContact.isLoading ? "Sending..." : "Request Quote"}
+                <Button type="submit" className="w-full" disabled={submitContact.isPending}>
+                  {submitContact.isPending ? "Sending..." : "Request Quote"}
                 </Button>
               </form>
             </Card>

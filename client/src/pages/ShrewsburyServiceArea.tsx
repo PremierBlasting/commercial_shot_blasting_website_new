@@ -320,8 +320,8 @@ export default function ShrewsburyServiceArea() {
                   rows={5}
                   required
                 />
-                <Button type="submit" className="w-full" disabled={submitContact.isLoading}>
-                  {submitContact.isLoading ? "Sending..." : "Request Quote"}
+                <Button type="submit" className="w-full" disabled={submitContact.isPending}>
+                  {submitContact.isPending ? "Sending..." : "Request Quote"}
                 </Button>
               </form>
             </Card>

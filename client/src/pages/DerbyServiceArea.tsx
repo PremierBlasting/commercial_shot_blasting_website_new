@@ -358,8 +358,8 @@ export default function DerbyServiceArea() {
                   rows={5}
                   required
                 />
-                <Button type="submit" className="w-full bg-[#2C5F7F] hover:bg-[#1a3d52]" disabled={submitContact.isLoading}>
-                  {submitContact.isLoading ? "Sending..." : "Request Quote"}
+                <Button type="submit" className="w-full bg-[#2C5F7F] hover:bg-[#1a3d52]" disabled={submitContact.isPending}>
+                  {submitContact.isPending ? "Sending..." : "Request Quote"}
                 </Button>
               </form>
             </Card>
