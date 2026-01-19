@@ -982,8 +982,17 @@ function BlogTab() {
               <Textarea value={formData.content} onChange={(e) => setFormData({ ...formData, content: e.target.value })} placeholder="Full blog post content (supports Markdown)..." rows={8} />
             </div>
             <div>
-              <Label>Featured Image URL *</Label>
-              <Input value={formData.featuredImage} onChange={(e) => setFormData({ ...formData, featuredImage: e.target.value })} placeholder="https://..." />
+              <Label>Featured Image *</Label>
+              <ImageUpload
+                value={formData.featuredImage}
+                onChange={(url) => setFormData({ ...formData, featuredImage: url })}
+                label="Upload Blog Featured Image"
+              />
+              {formData.featuredImage && (
+                <div className="mt-2">
+                  <img src={formData.featuredImage} alt="Preview" className="w-full max-w-md h-48 object-cover rounded" />
+                </div>
+              )}
             </div>
             <div>
               <Label>Category</Label>

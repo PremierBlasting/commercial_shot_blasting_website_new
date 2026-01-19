@@ -185,7 +185,7 @@ export default function LeicesterServiceArea() {
               </div>
             </div>
             <div className="relative">
-              <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600" alt="Professional shot blasting" className="rounded-lg shadow-xl" />
+              <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600" alt="Professional shot blasting" className="rounded-lg shadow-xl"  loading="lazy" />
               <div className="absolute -bottom-6 -left-6 bg-[#2C5F7F] text-white p-6 rounded-lg shadow-lg">
                 <p className="text-3xl font-bold" style={{ fontFamily: "'Playfair Display', serif" }}>20+</p>
                 <p className="text-sm">Years Experience</p>
@@ -215,7 +215,7 @@ export default function LeicesterServiceArea() {
             ].map((service, i) => (
               <Card key={i} className="group overflow-hidden hover:shadow-lg transition-shadow">
                 <div className="h-48 overflow-hidden">
-                  <img src={service.img} alt={service.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                  <img src={service.img} alt={service.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"  loading="lazy" />
                 </div>
                 <CardContent className="p-6">
                   <h3 className="text-xl font-semibold mb-2 text-[#2C5F7F]" style={{ fontFamily: "'Playfair Display', serif" }}>{service.title}</h3>

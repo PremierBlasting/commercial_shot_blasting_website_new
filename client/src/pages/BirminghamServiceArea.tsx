@@ -133,7 +133,7 @@ export default function BirminghamServiceArea() {
                 src="/images/premier/steel-container-after.jpeg"
                 alt="Professional shot blasting results in Birmingham"
                 className="rounded-lg shadow-lg"
-              />
+               loading="lazy" />
               <div className="absolute bottom-0 right-0 bg-[#2C5F7F] text-white p-6 rounded-lg shadow-lg max-w-xs">
                 <p className="font-semibold mb-2">Serving Birmingham Since</p>
                 <p className="text-3xl font-bold">2015+</p>

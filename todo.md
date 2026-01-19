@@ -701,7 +701,7 @@
 - [x] Ensure all 6 locations are clickable on interactive maps (Bradford added to ServiceAreasMap)
 
 ## GitHub Backup
-- [ ] Push all changes to Commercial-Shot-Blasting-Website repository on GitHub
+- [x] Push all changes to commercial_shot_blasting repository on GitHub (PremierBlasting/commercial_shot_blasting)
 
 ## Fix Location List Links on Homepage and Service Areas Page
 - [x] Find where "All Service Locations" list is rendered (ServiceAreasMap component)
@@ -711,3 +711,15 @@
 - [x] Make Peterborough clickable link to /service-areas/peterborough
 - [x] Make Oxford clickable link to /service-areas/oxford
 - [x] Make Wrexham clickable link to /service-areas/wrexham
+
+## Blog Image Upload Feature
+- [x] Review current blog management in admin backend
+- [x] Replace image URL input with ImageUpload component
+- [x] Blog schema already supports S3 image storage (text field for featuredImage)
+- [x] Blog tRPC procedures already handle image URLs (no changes needed)
+- [x] Test blog image upload functionality in admin
+
+## Lazy Loading for Location Pages
+- [x] Add loading="lazy" attribute to all images on location pages
+- [x] Verify lazy loading works on all 31 location pages
+- [x] Test page load performance improvements
