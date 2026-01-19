@@ -8,6 +8,12 @@ interface HeaderProps {
 }
 
 const serviceLinks = [
+  { title: "Structural Steel Frames", href: "/services/structural-steel-frames", description: "Comprehensive shot blasting for building frames and trusses" },
+  { title: "Fire Escapes & External Stair Towers", href: "/services/fire-escapes", description: "Specialist surface preparation for fire safety infrastructure" },
+  { title: "Internal Steel Staircases, Balustrades & Handrails", href: "/services/staircases", description: "Precision shot blasting for architectural metalwork" },
+  { title: "Bridge Steelwork (Girders, Crossmembers, Parapet Rails)", href: "/services/bridge-steelwork", description: "Comprehensive surface preparation for bridge infrastructure" },
+  { title: "Crane Beams, Gantries & Runway Rails", href: "/services/crane-beams", description: "Specialist surface preparation for material handling infrastructure" },
+  { title: "Fixed Ladders & Step-Over Platforms", href: "/services/ladders", description: "Comprehensive surface preparation for industrial access systems" },
   { title: "Warehouse Racking & Pallet Rack Frames", href: "/services/warehouse-racking", description: "Professional shot blasting for warehouse racking systems" },
   { title: "Process Pipework, Spools & Manifolds", href: "/services/pipework", description: "Precision cleaning of industrial pipework systems" },
   { title: "Telecom Masts & Lattice Towers", href: "/services/telecom-towers", description: "Specialist shot blasting for telecommunications infrastructure" },

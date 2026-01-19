@@ -23,6 +23,348 @@ export interface ServiceData {
 
 export const services: ServiceData[] = [
   {
+    id: "structural-steel-frames",
+    title: "Structural Steel Frames",
+    shortTitle: "Steel Frames",
+    tagline: "Comprehensive Shot Blasting for Structural Steelwork",
+    description: "Our structural steel frame shot blasting service delivers exceptional surface preparation for all types of building frames, roof trusses, and load-bearing steel structures. We remove mill scale, rust, welding residue, and old coatings to create the perfect surface for protective treatments. Whether you're preparing new fabrications for galvanizing or refurbishing existing structural steelwork, our precision techniques ensure optimal coating adhesion and long-term corrosion protection.",
+    heroImage: "/service-structural-steel.png",
+    benefits: [
+      "Complete removal of mill scale and rust",
+      "Prepares surfaces for galvanizing or protective coatings",
+      "Extends structural steel lifespan",
+      "Meets SA 2.5 and SA 3 cleanliness standards",
+      "Suitable for new fabrications and refurbishment projects",
+      "Environmentally responsible process"
+    ],
+    process: [
+      { step: 1, title: "Structural Assessment", description: "We inspect the steel frame components to determine appropriate blast media, pressure settings, and surface preparation requirements." },
+      { step: 2, title: "Component Preparation", description: "Frame sections are positioned for optimal blast coverage. Critical areas such as bolt holes and connection points are protected as required." },
+      { step: 3, title: "Shot Blasting", description: "Using appropriate blast media, we systematically clean all frame surfaces to achieve the specified cleanliness standard for your coating system." },
+      { step: 4, title: "Quality Inspection", description: "We conduct thorough inspections to ensure all surfaces meet the required cleanliness and profile specifications." },
+      { step: 5, title: "Coating Coordination", description: "Cleaned components are prepared for galvanizing, powder coating, or painting, with timing coordinated to minimize surface oxidation." }
+    ],
+    applications: [
+      "Building frame structures",
+      "Roof trusses and purlins",
+      "Portal frame components",
+      "Mezzanine floor structures",
+      "Industrial building frames",
+      "Warehouse structural steelwork",
+      "Agricultural building frames",
+      "Commercial building steel frames"
+    ],
+    caseStudies: [
+      {
+        title: "Industrial Warehouse Frame Refurbishment",
+        client: "Manufacturing Facility",
+        challenge: "A 10,000 sq ft warehouse required complete refurbishment of corroded structural steel frames. Rust and deteriorated coatings compromised structural integrity.",
+        solution: "We systematically shot blasted all frame components, removing rust and old coatings. Components were then hot-dip galvanized for maximum corrosion protection.",
+        result: "The warehouse structure was restored to full load-bearing capacity with a protective galvanized finish, extending its service life by an estimated 30+ years.",
+        image: "/service-structural-steel.png"
+      }
+    ],
+    faqs: [
+      {
+        question: "Can you blast structural steel frames on-site?",
+        answer: "For optimal results and to meet galvanizing specifications, we typically recommend processing frame components at our facility. This ensures complete coverage and the cleanliness standards required for protective treatments. On-site blasting can be arranged for coating repairs."
+      },
+      {
+        question: "What surface preparation standard do you achieve?",
+        answer: "We routinely achieve SA 2.5 and SA 3 surface preparation to ISO 8501 standards, which are required for hot-dip galvanizing and high-performance coating systems. We can provide certification as required."
+      },
+      {
+        question: "How long does the process take?",
+        answer: "Timeline depends on the size and complexity of the frame structure. A typical portal frame bay can be processed in 2-3 days. We can provide a detailed timeline after assessing your specific requirements."
+      }
+    ]
+  },
+  {
+    id: "fire-escapes",
+    title: "Fire Escapes & External Stair Towers",
+    shortTitle: "Fire Escapes",
+    tagline: "Specialist Shot Blasting for Fire Safety Infrastructure",
+    description: "Our fire escape and external stair tower shot blasting service provides comprehensive surface preparation for emergency egress systems. We remove rust, old paint, and corrosion from fire escape structures, preparing them for protective coatings or galvanizing. Whether you're maintaining existing fire safety infrastructure or preparing new installations, our precision techniques ensure optimal corrosion protection and compliance with safety standards.",
+    heroImage: "/service-fire-escapes.png",
+    benefits: [
+      "Removes rust and corrosion from safety-critical structures",
+      "Prepares surfaces for protective coatings or galvanizing",
+      "Extends the service life of fire escape systems",
+      "Ensures compliance with fire safety regulations",
+      "Improves structural integrity and appearance",
+      "Cost-effective alternative to replacement"
+    ],
+    process: [
+      { step: 1, title: "Safety Assessment", description: "We inspect the fire escape structure to assess condition, identify structural concerns, and determine appropriate blast media and preparation requirements." },
+      { step: 2, title: "Access Planning", description: "We coordinate access arrangements and safety measures for working at height, ensuring compliance with health and safety regulations." },
+      { step: 3, title: "Shot Blasting", description: "Using appropriate blast media and pressure settings, we systematically clean all fire escape surfaces including stairs, landings, handrails, and support structures." },
+      { step: 4, title: "Quality Verification", description: "We conduct thorough inspections to ensure all surfaces meet the required cleanliness and profile specifications for coating application." },
+      { step: 5, title: "Coating Application", description: "We can coordinate protective coating application or galvanizing to ensure maximum corrosion protection and compliance with fire safety standards." }
+    ],
+    applications: [
+      "External fire escape stairs",
+      "Fire escape towers",
+      "Emergency egress systems",
+      "External stair structures",
+      "Fire escape landings and platforms",
+      "Fire escape handrails and balustrades",
+      "Building evacuation systems",
+      "Multi-storey fire escapes"
+    ],
+    caseStudies: [
+      {
+        title: "Commercial Building Fire Escape Restoration",
+        client: "Office Building Management",
+        challenge: "A 5-storey office building's external fire escape had severe corrosion, failing safety inspections. Complete refurbishment was required to meet fire safety regulations.",
+        solution: "We systematically shot blasted all fire escape components, removing rust and old paint. The structure was then coated with a high-performance fire-resistant coating system.",
+        result: "The fire escape passed all safety inspections and was certified for continued use, saving over 70% compared to replacement costs while ensuring full compliance with regulations.",
+        image: "/service-fire-escapes.png"
+      }
+    ],
+    faqs: [
+      {
+        question: "Can you work on fire escapes while the building is occupied?",
+        answer: "Yes, we can coordinate work schedules to minimize disruption and maintain emergency egress routes. We work with building management to ensure alternative fire escape routes are available during refurbishment work."
+      },
+      {
+        question: "Do you provide structural certification after blasting?",
+        answer: "We can coordinate with structural engineers to provide certification as required. Our shot blasting process reveals the true condition of the steel, allowing for accurate structural assessment."
+      },
+      {
+        question: "What coatings do you recommend for fire escapes?",
+        answer: "We typically recommend intumescent fire-resistant coatings or hot-dip galvanizing for maximum corrosion protection and fire safety compliance. We can advise on the most appropriate system for your specific requirements."
+      }
+    ]
+  },
+  {
+    id: "staircases",
+    title: "Internal Steel Staircases, Balustrades & Handrails",
+    shortTitle: "Staircases & Balustrades",
+    tagline: "Precision Shot Blasting for Architectural Metalwork",
+    description: "Our internal steel staircase and balustrade shot blasting service provides meticulous surface preparation for architectural metalwork. We remove rust, old paint, powder coating, and welding residue from staircases, balustrades, handrails, and decorative metalwork. Whether you're restoring heritage features or preparing new fabrications for finishing, our precision techniques ensure flawless surface preparation for powder coating, painting, or galvanizing.",
+    heroImage: "/service-staircases.png",
+    benefits: [
+      "Removes rust, old coatings, and welding discoloration",
+      "Prepares surfaces for powder coating or painting",
+      "Restores architectural metalwork to original condition",
+      "Suitable for heritage restoration projects",
+      "Achieves consistent surface finish",
+      "Preserves dimensional tolerances and fine details"
+    ],
+    process: [
+      { step: 1, title: "Component Assessment", description: "We inspect the metalwork to assess condition, identify any delicate features, and determine appropriate blast media and pressure settings." },
+      { step: 2, title: "Preparation & Masking", description: "Components are prepared for blasting. Threaded connections, bearing surfaces, and delicate features are masked or protected as required." },
+      { step: 3, title: "Precision Blasting", description: "Using fine-grade blast media and controlled pressure, we carefully clean all surfaces while preserving fine details and dimensional tolerances." },
+      { step: 4, title: "Quality Inspection", description: "We conduct detailed inspections to ensure all surfaces meet the required cleanliness and profile specifications for your chosen finish." },
+      { step: 5, title: "Finishing Coordination", description: "Cleaned components are prepared for powder coating, painting, or other finishing processes, with timing coordinated to maintain surface cleanliness." }
+    ],
+    applications: [
+      "Internal steel staircases",
+      "Balustrades and handrails",
+      "Decorative metalwork",
+      "Architectural steel features",
+      "Heritage staircase restoration",
+      "Commercial building staircases",
+      "Industrial access stairs",
+      "Mezzanine staircase systems"
+    ],
+    caseStudies: [
+      {
+        title: "Heritage Building Staircase Restoration",
+        client: "Listed Building Conservation",
+        challenge: "A Grade II listed building required restoration of its ornate Victorian steel staircase and balustrades. Multiple layers of paint needed removal while preserving fine decorative details.",
+        solution: "We used fine-grade aluminum oxide media with carefully controlled pressure to remove all paint layers while preserving the intricate metalwork details. Components were then powder coated to match the original finish.",
+        result: "The staircase was restored to its original Victorian splendor, meeting conservation requirements and receiving approval from heritage authorities.",
+        image: "/service-staircases.png"
+      }
+    ],
+    faqs: [
+      {
+        question: "Can you blast staircases without damaging decorative details?",
+        answer: "Yes, we use fine-grade blast media and carefully controlled pressure settings to clean surfaces while preserving fine details, threads, and dimensional tolerances. Our technicians are experienced in handling delicate architectural metalwork."
+      },
+      {
+        question: "Do you remove staircases for blasting or work on-site?",
+        answer: "For optimal results, we typically recommend removing components and processing them at our facility. This allows for complete coverage and better containment. However, on-site blasting can be arranged for certain applications."
+      },
+      {
+        question: "What finishes can be applied after blasting?",
+        answer: "After shot blasting, staircases and balustrades can be powder coated, wet painted, galvanized, or left with a clear protective coating. We can coordinate finishing services or provide components ready for your chosen finish."
+      }
+    ]
+  },
+  {
+    id: "bridge-steelwork",
+    title: "Bridge Steelwork (Girders, Crossmembers, Parapet Rails)",
+    shortTitle: "Bridge Steelwork",
+    tagline: "Specialist Shot Blasting for Bridge Infrastructure",
+    description: "Our bridge steelwork shot blasting service provides comprehensive surface preparation for all types of bridge components including girders, crossmembers, parapet rails, and support structures. We remove rust, old coatings, and corrosion from bridge steelwork, preparing surfaces for protective coating systems that ensure long-term durability and structural integrity. Whether you're maintaining existing bridge infrastructure or preparing new fabrications, our precision techniques meet the stringent standards required for highway and railway bridge applications.",
+    heroImage: "/service-bridge-steelwork.png",
+    benefits: [
+      "Meets highway and railway bridge coating specifications",
+      "Removes rust, old coatings, and corrosion",
+      "Extends bridge infrastructure lifespan",
+      "Achieves SA 2.5 and SA 3 cleanliness standards",
+      "Suitable for heritage bridge restoration",
+      "Cost-effective alternative to bridge replacement"
+    ],
+    process: [
+      { step: 1, title: "Structural Survey", description: "We conduct a detailed survey of the bridge steelwork to assess condition, identify structural concerns, and determine appropriate blast media and preparation requirements." },
+      { step: 2, title: "Access & Safety Planning", description: "We coordinate access arrangements, traffic management, and safety measures for working on bridge structures, ensuring compliance with highway authority requirements." },
+      { step: 3, title: "Shot Blasting", description: "Using appropriate blast media and pressure settings, we systematically clean all bridge steelwork surfaces to achieve the specified cleanliness standard." },
+      { step: 4, title: "Quality Verification", description: "We conduct thorough inspections and, where required, perform surface cleanliness testing to verify compliance with bridge coating specifications." },
+      { step: 5, title: "Coating Application", description: "We can coordinate protective coating application to ensure maximum corrosion protection and compliance with highway authority specifications." }
+    ],
+    applications: [
+      "Bridge girders and beams",
+      "Bridge crossmembers and bracing",
+      "Parapet rails and barriers",
+      "Bridge support structures",
+      "Footbridge steelwork",
+      "Railway bridge components",
+      "Highway bridge infrastructure",
+      "Heritage bridge restoration"
+    ],
+    caseStudies: [
+      {
+        title: "Highway Bridge Girder Refurbishment",
+        client: "Local Highway Authority",
+        challenge: "A 50-year-old highway bridge required complete refurbishment of corroded steel girders and parapet rails. The bridge needed to remain open to traffic during works.",
+        solution: "We coordinated night-time closures to systematically shot blast all bridge steelwork. Components were coated with a high-performance protective system meeting highway authority specifications.",
+        result: "The bridge was successfully refurbished and certified for continued use, extending its service life by an estimated 25+ years while maintaining traffic flow during the project.",
+        image: "/service-bridge-steelwork.png"
+      }
+    ],
+    faqs: [
+      {
+        question: "Can you work on bridges while they remain open to traffic?",
+        answer: "Yes, we can coordinate work schedules with highway authorities to minimize disruption. We typically work during night-time closures or use lane closures with traffic management systems."
+      },
+      {
+        question: "What surface preparation standards do you achieve for bridge work?",
+        answer: "We routinely achieve SA 2.5 and SA 3 surface preparation to ISO 8501 standards, which are required for highway and railway bridge coating systems. We can provide certification as required by highway authorities."
+      },
+      {
+        question: "Do you handle environmental containment for bridge blasting?",
+        answer: "Yes, we implement comprehensive containment systems to capture spent blast media and debris, preventing environmental contamination of waterways or surrounding areas. We comply with all environmental regulations."
+      }
+    ]
+  },
+  {
+    id: "crane-beams",
+    title: "Crane Beams, Gantries & Runway Rails",
+    shortTitle: "Crane Beams",
+    tagline: "Precision Shot Blasting for Material Handling Infrastructure",
+    description: "Our crane beam and gantry shot blasting service provides specialist surface preparation for overhead crane systems, runway rails, and material handling infrastructure. We remove rust, mill scale, and old coatings from crane beams, gantry structures, and runway rails, preparing them for protective coatings or galvanizing. Whether you're maintaining existing crane systems or preparing new installations, our precision techniques ensure optimal surface preparation while preserving critical dimensional tolerances.",
+    heroImage: "/service-crane-beams.png",
+    benefits: [
+      "Preserves dimensional tolerances on runway rails",
+      "Removes rust and old coatings from crane beams",
+      "Prepares surfaces for protective coatings or galvanizing",
+      "Extends crane system lifespan",
+      "Improves safety of material handling systems",
+      "Suitable for both new installations and refurbishment"
+    ],
+    process: [
+      { step: 1, title: "System Assessment", description: "We inspect the crane beam and gantry system to assess condition, identify critical surfaces, and determine appropriate blast media and preparation requirements." },
+      { step: 2, title: "Component Preparation", description: "Crane beams and runway rails are prepared for blasting. Critical bearing surfaces and dimensional tolerances are protected or carefully controlled during blasting." },
+      { step: 3, title: "Precision Blasting", description: "Using appropriate blast media and controlled pressure, we systematically clean all surfaces while preserving critical dimensional tolerances on runway rails." },
+      { step: 4, title: "Dimensional Verification", description: "We conduct thorough inspections to ensure all surfaces meet the required cleanliness specifications and that dimensional tolerances have been maintained." },
+      { step: 5, title: "Coating & Installation", description: "Cleaned components are prepared for coating application or galvanizing, with timing coordinated for installation and commissioning of the crane system." }
+    ],
+    applications: [
+      "Overhead crane beams",
+      "Crane runway rails",
+      "Gantry crane structures",
+      "Jib crane supports",
+      "Monorail systems",
+      "Material handling infrastructure",
+      "Industrial crane systems",
+      "Workshop overhead cranes"
+    ],
+    caseStudies: [
+      {
+        title: "Manufacturing Facility Crane System Refurbishment",
+        client: "Automotive Manufacturing Plant",
+        challenge: "A 30-meter span overhead crane system required complete refurbishment. Corroded crane beams and worn runway rails needed replacement while maintaining production schedules.",
+        solution: "We coordinated weekend shutdowns to remove, shot blast, and reinstall crane beams and new runway rails. All components were processed to SA 2.5 standard and protective coated.",
+        result: "The crane system was successfully refurbished and recommissioned, meeting all safety and dimensional tolerance requirements. Production downtime was minimized to planned shutdown periods.",
+        image: "/service-crane-beams.png"
+      }
+    ],
+    faqs: [
+      {
+        question: "Can you blast crane runway rails without affecting dimensional tolerances?",
+        answer: "Yes, we use carefully controlled blast media and pressure settings to clean runway rails while preserving critical dimensional tolerances. We can verify tolerances after blasting to ensure compliance with crane manufacturer specifications."
+      },
+      {
+        question: "Do you coordinate crane system downtime?",
+        answer: "Yes, we work closely with facility management to coordinate work schedules around production requirements. We can work during planned shutdowns, weekends, or night shifts to minimize disruption."
+      },
+      {
+        question: "Can you provide load testing certification after refurbishment?",
+        answer: "We can coordinate with specialist crane engineers to provide load testing and certification as required by health and safety regulations. Our shot blasting process prepares components for full structural assessment."
+      }
+    ]
+  },
+  {
+    id: "ladders",
+    title: "Fixed Ladders & Step-Over Platforms",
+    shortTitle: "Ladders & Platforms",
+    tagline: "Specialist Shot Blasting for Access Infrastructure",
+    description: "Our fixed ladder and step-over platform shot blasting service provides comprehensive surface preparation for industrial access systems. We remove rust, old paint, and corrosion from fixed ladders, caged ladder systems, step-over platforms, and access infrastructure, preparing them for protective coatings or galvanizing. Whether you're maintaining existing access systems or preparing new installations, our precision techniques ensure optimal corrosion protection and compliance with working at height regulations.",
+    heroImage: "/service-ladders.png",
+    benefits: [
+      "Removes rust and corrosion from safety-critical access systems",
+      "Prepares surfaces for protective coatings or galvanizing",
+      "Extends the service life of access infrastructure",
+      "Ensures compliance with working at height regulations",
+      "Improves safety of industrial access systems",
+      "Cost-effective alternative to replacement"
+    ],
+    process: [
+      { step: 1, title: "Safety Assessment", description: "We inspect the access system to assess condition, identify structural concerns, and determine appropriate blast media and preparation requirements." },
+      { step: 2, title: "Component Preparation", description: "Ladder sections, platforms, and safety cages are prepared for blasting. Critical connection points and safety features are protected as required." },
+      { step: 3, title: "Shot Blasting", description: "Using appropriate blast media and pressure settings, we systematically clean all access system surfaces including rungs, side rails, platforms, and safety cages." },
+      { step: 4, title: "Quality Verification", description: "We conduct thorough inspections to ensure all surfaces meet the required cleanliness and profile specifications for coating application." },
+      { step: 5, title: "Coating & Installation", description: "Cleaned components are prepared for protective coating or galvanizing, with timing coordinated for installation and compliance with safety regulations." }
+    ],
+    applications: [
+      "Fixed vertical ladders",
+      "Caged ladder systems",
+      "Step-over platforms",
+      "Industrial access ladders",
+      "Roof access systems",
+      "Tank access ladders",
+      "Building access infrastructure",
+      "Offshore platform ladders"
+    ],
+    caseStudies: [
+      {
+        title: "Industrial Facility Access System Refurbishment",
+        client: "Chemical Processing Plant",
+        challenge: "A chemical plant required refurbishment of 15 fixed ladder systems and step-over platforms. Corrosion had compromised safety, failing health and safety inspections.",
+        solution: "We systematically removed, shot blasted, and hot-dip galvanized all access system components. New safety cages were fabricated and installed to meet current regulations.",
+        result: "All access systems passed health and safety inspections and were certified for continued use, ensuring full compliance with working at height regulations and extending service life by 25+ years.",
+        image: "/service-ladders.png"
+      }
+    ],
+    faqs: [
+      {
+        question: "Can you blast fixed ladders in situ?",
+        answer: "For optimal results and to meet galvanizing specifications, we typically recommend removing ladder sections and processing them at our facility. This ensures complete coverage and the cleanliness standards required for protective treatments. On-site blasting can be arranged for coating repairs."
+      },
+      {
+        question: "Do you provide safety certification after refurbishment?",
+        answer: "We can coordinate with health and safety specialists to provide certification as required by working at height regulations. Our shot blasting process reveals the true condition of the steel, allowing for accurate safety assessment."
+      },
+      {
+        question: "What protective coatings do you recommend for access systems?",
+        answer: "We typically recommend hot-dip galvanizing for maximum corrosion protection and durability, especially for outdoor or harsh environment applications. For indoor systems, powder coating or high-performance paint systems may be appropriate. We can advise on the most suitable system for your specific requirements."
+      }
+    ]
+  },
+  {
     id: "warehouse-racking",
     title: "Warehouse Racking & Pallet Rack Frames",
     shortTitle: "Warehouse Racking",

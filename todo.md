@@ -606,3 +606,14 @@
 - [x] Update Services page with new 3 services and images
 - [x] Update navigation menu Services dropdown with new 3 services
 - [x] Remove old service references throughout site
+
+## Add 6 Additional Services
+- [x] Copy 6 new service images to public directory
+- [x] Add Structural Steel Frames service
+- [x] Add Fire Escapes & External Stair Towers service
+- [x] Add Internal Steel Staircases, Balustrades & Handrails service
+- [x] Add Bridge Steelwork service
+- [x] Add Crane Beams, Gantries & Runway Rails service
+- [x] Add Fixed Ladders & Step-Over Platforms service
+- [x] Update homepage services section to show all 9 services
+- [x] Update navigation menu Services dropdown

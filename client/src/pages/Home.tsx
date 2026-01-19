@@ -181,9 +181,15 @@ export default function Home() {
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { title: "Warehouse Racking & Pallet Rack Frames", desc: "Professional shot blasting for warehouse racking systems, pallet rack frames, and storage infrastructure. Remove rust, old coatings, and prepare surfaces for powder coating or painting.", img: "/service-warehouse-racking.png", link: "/services/warehouse-racking" },
-              { title: "Process Pipework, Spools & Manifolds", desc: "Precision cleaning of industrial pipework, spools, and manifold systems. Ideal for food processing, pharmaceutical, and chemical industries requiring high cleanliness standards.", img: "/service-pipework.png", link: "/services/pipework" },
-              { title: "Telecom Masts & Lattice Towers", desc: "Specialist shot blasting for telecommunications infrastructure including masts, lattice towers, and antenna supports. Prepare surfaces for galvanizing or protective coatings.", img: "/service-telecom-tower.png", link: "/services/telecom-towers" },
+              { title: "Structural Steel Frames", desc: "Comprehensive shot blasting for building frames, roof trusses, and load-bearing steel structures. Prepare surfaces for galvanizing or protective coatings.", img: "/service-structural-steel.png", link: "/services/structural-steel-frames" },
+              { title: "Fire Escapes & External Stair Towers", desc: "Specialist surface preparation for fire safety infrastructure. Remove rust and corrosion, ensuring compliance with safety regulations.", img: "/service-fire-escapes.png", link: "/services/fire-escapes" },
+              { title: "Internal Steel Staircases, Balustrades & Handrails", desc: "Precision shot blasting for architectural metalwork. Restore heritage features or prepare new fabrications for finishing.", img: "/service-staircases.png", link: "/services/staircases" },
+              { title: "Bridge Steelwork (Girders, Crossmembers, Parapet Rails)", desc: "Comprehensive surface preparation for bridge infrastructure. Meet highway and railway bridge coating specifications.", img: "/service-bridge-steelwork.png", link: "/services/bridge-steelwork" },
+              { title: "Crane Beams, Gantries & Runway Rails", desc: "Specialist surface preparation for material handling infrastructure. Preserve dimensional tolerances while removing rust and coatings.", img: "/service-crane-beams.png", link: "/services/crane-beams" },
+              { title: "Fixed Ladders & Step-Over Platforms", desc: "Comprehensive surface preparation for industrial access systems. Ensure compliance with working at height regulations.", img: "/service-ladders.png", link: "/services/ladders" },
+              { title: "Warehouse Racking & Pallet Rack Frames", desc: "Professional shot blasting for warehouse racking systems, pallet rack frames, and storage infrastructure.", img: "/service-warehouse-racking.png", link: "/services/warehouse-racking" },
+              { title: "Process Pipework, Spools & Manifolds", desc: "Precision cleaning of industrial pipework systems. Ideal for food processing, pharmaceutical, and chemical industries.", img: "/service-pipework.png", link: "/services/pipework" },
+              { title: "Telecom Masts & Lattice Towers", desc: "Specialist shot blasting for telecommunications infrastructure including masts, lattice towers, and antenna supports.", img: "/service-telecom-tower.png", link: "/services/telecom-towers" },
             ].map((service, i) => (
               <Link key={i} href={service.link}>
                 <Card className="group overflow-hidden hover:shadow-lg transition-shadow h-full cursor-pointer">
@@ -545,9 +551,9 @@ export default function Home() {
             <div>
               <h4 className="font-semibold mb-4">Services</h4>
               <ul className="space-y-2 text-white/70 text-sm">
-                <li><a href="#services" className="hover:text-white">Warehouse Racking</a></li>
-                <li><a href="#services" className="hover:text-white">Process Pipework</a></li>
-                <li><a href="#services" className="hover:text-white">Telecom Masts</a></li>
+                <li><a href="#services" className="hover:text-white">Structural Steel Frames</a></li>
+                <li><a href="#services" className="hover:text-white">Fire Escapes & Stair Towers</a></li>
+                <li><a href="#services" className="hover:text-white">Staircases & Balustrades</a></li>
               </ul>
             </div>
             <div>
