@@ -117,8 +117,8 @@ export default function ServiceDetail() {
                     See the Transformation
                   </h2>
                   <BeforeAfterSlider
-                    beforeImage="/images/premier/commercial-shot-blasting-gate-before-treatment.jpeg"
-                    afterImage="/images/premier/commercial-shot-blasting-gate-after-treatment.jpeg"
+                    beforeImage="/images/premier/commercial-shot-blasting-gate-before-treatment.webp"
+                    afterImage="/images/premier/commercial-shot-blasting-gate-after-treatment.webp"
                     beforeLabel="Before"
                     afterLabel="After"
                     className="shadow-xl"
@@ -147,8 +147,8 @@ export default function ServiceDetail() {
                     See the Transformation
                   </h2>
                   <BeforeAfterSlider
-                    beforeImage="/images/premier/commercial-shot-blasting-steel-container-before.jpeg"
-                    afterImage="/images/premier/commercial-shot-blasting-steel-container-after.jpeg"
+                    beforeImage="/images/premier/commercial-shot-blasting-steel-container-before.webp"
+                    afterImage="/images/premier/commercial-shot-blasting-steel-container-after.webp"
                     beforeLabel="Before"
                     afterLabel="After"
                     className="shadow-xl"
@@ -177,8 +177,8 @@ export default function ServiceDetail() {
                     See the Transformation
                   </h2>
                   <BeforeAfterSlider
-                    beforeImage="/images/premier/commercial-shot-blasting-storage-container-before-uk.jpeg"
-                    afterImage="/images/premier/commercial-shot-blasting-storage-container-after-uk.jpeg"
+                    beforeImage="/images/premier/commercial-shot-blasting-storage-container-before-uk.webp"
+                    afterImage="/images/premier/commercial-shot-blasting-storage-container-after-uk.webp"
                     beforeLabel="Before"
                     afterLabel="After"
                     className="shadow-xl"
@@ -207,8 +207,8 @@ export default function ServiceDetail() {
                     See the Transformation
                   </h2>
                   <BeforeAfterSlider
-                    beforeImage="/images/premier/commercial-shot-blasting-warehouse-exterior-before-uk.jpeg"
-                    afterImage="/images/premier/commercial-shot-blasting-warehouse-exterior-after-uk.jpeg"
+                    beforeImage="/images/premier/commercial-shot-blasting-warehouse-exterior-before-uk.webp"
+                    afterImage="/images/premier/commercial-shot-blasting-warehouse-exterior-after-uk.webp"
                     beforeLabel="Before"
                     afterLabel="After"
                     className="shadow-xl"
@@ -238,7 +238,7 @@ export default function ServiceDetail() {
                   </h2>
                   <BeforeAfterSlider
                     beforeImage="/images/premier/commercial-shot-blasting-storage-unit-before-uk.jpeg"
-                    afterImage="/images/premier/commercial-shot-blasting-storage-unit-after-uk.jpeg"
+                    afterImage="/images/premier/commercial-shot-blasting-storage-unit-after-uk.webp"
                     beforeLabel="Before"
                     afterLabel="After"
                     className="shadow-xl"
@@ -267,8 +267,8 @@ export default function ServiceDetail() {
                     See the Transformation
                   </h2>
                   <BeforeAfterSlider
-                    beforeImage="/images/premier/commercial-shot-blasting-warehouse-bars-before-treatment.jpeg"
-                    afterImage="/images/premier/commercial-shot-blasting-warehouse-bars-after-treatment.jpeg"
+                    beforeImage="/images/premier/commercial-shot-blasting-warehouse-bars-before-treatment.webp"
+                    afterImage="/images/premier/commercial-shot-blasting-warehouse-bars-after-treatment.webp"
                     beforeLabel="Before"
                     afterLabel="After"
                     className="shadow-xl"
@@ -297,8 +297,8 @@ export default function ServiceDetail() {
                     See the Transformation
                   </h2>
                   <BeforeAfterSlider
-                    beforeImage="/images/premier/commercial-shot-blasting-steel-container-before.jpeg"
-                    afterImage="/images/premier/commercial-shot-blasting-steel-container-after.jpeg"
+                    beforeImage="/images/premier/commercial-shot-blasting-steel-container-before.webp"
+                    afterImage="/images/premier/commercial-shot-blasting-steel-container-after.webp"
                     beforeLabel="Before"
                     afterLabel="After"
                     className="shadow-xl"

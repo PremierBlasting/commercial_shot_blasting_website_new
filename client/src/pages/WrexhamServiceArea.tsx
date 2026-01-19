@@ -84,8 +84,8 @@ export default function WrexhamServiceArea() {
             <p className="text-gray-600">See the results of our professional shot blasting work</p>
           </div>
           <BeforeAfterSlider
-            beforeImage="/images/premier/commercial-shot-blasting-steel-container-before.jpeg"
-            afterImage="/images/premier/commercial-shot-blasting-steel-container-after.jpeg"
+            beforeImage="/images/premier/commercial-shot-blasting-steel-container-before.webp"
+            afterImage="/images/premier/commercial-shot-blasting-steel-container-after.webp"
             beforeLabel="Before"
             afterLabel="After"
           />
@@ -136,7 +136,7 @@ export default function WrexhamServiceArea() {
             </div>
             <div className="relative">
               <img
-                src="/images/premier/commercial-shot-blasting-steel-container-after.jpeg"
+                src="/images/premier/commercial-shot-blasting-steel-container-after.webp"
                 alt="After shot blasting treatment - Wrexham commercial project"
                 className="rounded-lg shadow-lg"
                loading="lazy" />
