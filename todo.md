@@ -676,3 +676,11 @@
 - [x] Identify all location service area pages (31 pages found)
 - [x] Add before/after gallery section to all 31 location pages
 - [x] Use region-appropriate images for each location
+
+## Implement Click-to-Call Tracking
+- [x] Create database table for call tracking events (location, timestamp, user info)
+- [x] Add tRPC procedure to log call button clicks
+- [x] Add tRPC procedure to retrieve call analytics by location
+- [x] Add tracking onClick handlers to all phone buttons on location pages
+- [x] Create analytics dashboard page to view regional call performance
+- [x] Add charts showing call volume by location and time period

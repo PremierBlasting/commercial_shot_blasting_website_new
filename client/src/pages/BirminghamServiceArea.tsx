@@ -5,6 +5,7 @@ import { useState } from "react";
 import { QuotePopup } from "@/components/QuotePopup";
 import { Header } from "@/components/Header";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
+import { TrackedPhoneButton } from "@/components/TrackedPhoneButton";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { LocalBusinessSchema } from "@/components/LocalBusinessSchema";
 import { CaseStudy } from "@/components/CaseStudy";
@@ -81,10 +82,15 @@ export default function BirminghamServiceArea() {
             <Button size="lg" className="bg-[#2C5F7F] hover:bg-[#1a3d52]" onClick={() => setQuotePopupOpen(true)}>
               Request a Quote
             </Button>
-            <Button size="lg" variant="outline" className="border-[#2C5F7F] text-[#2C5F7F]">
-              <Phone className="w-4 h-4 mr-2" />
+            <TrackedPhoneButton
+              location="Birmingham"
+              phoneNumber="07970566409"
+              variant="outline"
+              size="lg"
+              className="border-[#2C5F7F] text-[#2C5F7F]"
+            >
               Call Now
-            </Button>
+            </TrackedPhoneButton>
           </div>
         </div>
       </section>

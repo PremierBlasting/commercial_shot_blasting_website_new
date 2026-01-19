@@ -166,3 +166,20 @@ export const blogPosts = mysqlTable("blog_posts", {
 
 export type BlogPost = typeof blogPosts.$inferSelect;
 export type InsertBlogPost = typeof blogPosts.$inferInsert;
+
+/**
+ * Call Tracking Events table for measuring phone inquiry performance by location
+ */
+export const callTrackingEvents = mysqlTable("call_tracking_events", {
+  id: int("id").autoincrement().primaryKey(),
+  location: varchar("location", { length: 255 }).notNull(), // e.g., "Birmingham", "Leicester"
+  phoneNumber: varchar("phoneNumber", { length: 50 }).notNull(),
+  userAgent: text("userAgent"),
+  ipAddress: varchar("ipAddress", { length: 45 }),
+  referrer: text("referrer"),
+  userId: int("userId"), // Optional: link to user if authenticated
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+
+export type CallTrackingEvent = typeof callTrackingEvents.$inferSelect;
+export type InsertCallTrackingEvent = typeof callTrackingEvents.$inferInsert;

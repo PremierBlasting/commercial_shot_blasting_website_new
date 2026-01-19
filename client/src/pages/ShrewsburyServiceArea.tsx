@@ -10,6 +10,7 @@ import { trpc } from "@/lib/trpc";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { LocationMap } from "@/components/LocationMap";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
+import { TrackedPhoneButton } from "@/components/TrackedPhoneButton";
 
 // Dummy data for Testimonials and FAQ
 const localTestimonials = [
@@ -115,10 +116,15 @@ export default function ShrewsburyServiceArea() {
             <Button size="lg" className="bg-[#2C5F7F] hover:bg-[#1a3d52]">
               Request a Quote
             </Button>
-            <Button size="lg" variant="outline" className="border-[#2C5F7F] text-[#2C5F7F]">
-              <Phone className="w-4 h-4 mr-2" />
+            <TrackedPhoneButton
+              location="Shrewsbury"
+              phoneNumber="07970566409"
+              variant="outline"
+              size="lg"
+              className="border-[#2C5F7F] text-[#2C5F7F]"
+            >
               Call Now
-            </Button>
+            </TrackedPhoneButton>
           </div>
         </div>
       </section>

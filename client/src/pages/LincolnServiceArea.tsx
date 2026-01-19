@@ -11,6 +11,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { LocationMap } from "@/components/LocationMap";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
+import { TrackedPhoneButton } from "@/components/TrackedPhoneButton";
 
 // --- Location-Specific Data ---
 const LOCATION_NAME = "Lincoln";
@@ -164,10 +165,15 @@ export default function LincolnServiceArea() {
             <Button size="lg" className="bg-[#2C5F7F] hover:bg-[#1a3d52]">
               Request a Quote
             </Button>
-            <Button size="lg" variant="outline" className="border-[#2C5F7F] text-[#2C5F7F]">
-              <Phone className="w-4 h-4 mr-2" />
+            <TrackedPhoneButton
+              location="Lincoln"
+              phoneNumber="07970566409"
+              variant="outline"
+              size="lg"
+              className="border-[#2C5F7F] text-[#2C5F7F]"
+            >
               Call Now
-            </Button>
+            </TrackedPhoneButton>
           </div>
         </div>
       </section>

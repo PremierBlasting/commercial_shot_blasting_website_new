@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
+import { TrackedPhoneButton } from "@/components/TrackedPhoneButton";
 import { Phone, ArrowRight, Shield, Clock, Award, Users, CheckCircle, Quote } from "lucide-react";
 
 // Placeholder component for a standard layout wrapper
@@ -128,10 +129,15 @@ export default function MiltonKeynesServiceArea() {
             <Button size="lg" className="bg-[#2C5F7F] hover:bg-[#1a3d52]">
               Request a Quote
             </Button>
-            <Button size="lg" variant="outline" className="border-[#2C5F7F] text-[#2C5F7F]">
-              <Phone className="w-4 h-4 mr-2" />
+            <TrackedPhoneButton
+              location="Milton Keynes"
+              phoneNumber="07970566409"
+              variant="outline"
+              size="lg"
+              className="border-[#2C5F7F] text-[#2C5F7F]"
+            >
               Call Now
-            </Button>
+            </TrackedPhoneButton>
           </div>
         </div>
       </section>

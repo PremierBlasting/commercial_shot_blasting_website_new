@@ -46,6 +46,7 @@ import ChesterfieldServiceArea from "./pages/ChesterfieldServiceArea";
 import WrexhamServiceArea from "./pages/WrexhamServiceArea";
 import ConstructionIndustry from "./pages/ConstructionIndustry";
 import ManufacturingIndustry from "./pages/ManufacturingIndustry";
+import CallAnalytics from "./pages/CallAnalytics";
 import { CookieConsent } from "./components/CookieConsent";
 import { FloatingCallButton } from "./components/FloatingCallButton";
 
@@ -56,6 +57,7 @@ function Router() {
       <Route path={"/"} component={Home} />
       <Route path={"/gallery"} component={Gallery} />
       <Route path={"/admin"} component={Admin} />
+      <Route path={"/call-analytics"} component={CallAnalytics} />
       <Route path="/services/:id" component={ServiceDetail} />
       <Route path="/industries/construction" component={ConstructionIndustry} />
       <Route path="/industries/manufacturing" component={ManufacturingIndustry} />

@@ -367,6 +367,84 @@ export const appRouter = router({
         return { success: true };
       }),
   }),
+
+  // Call Tracking Analytics
+  callTracking: router({
+    // Log a call button click
+    logCall: publicProcedure
+      .input(z.object({
+        location: z.string(),
+        phoneNumber: z.string(),
+        userAgent: z.string().optional(),
+        referrer: z.string().optional(),
+      }))
+      .mutation(async ({ input, ctx }) => {
+        const { getDb } = await import("./db");
+        const { callTrackingEvents } = await import("../drizzle/schema");
+        const db = await getDb();
+        if (!db) throw new TRPCError({ code: 'INTERNAL_SERVER_ERROR', message: 'Database not available' });
+        
+        await db.insert(callTrackingEvents).values({
+          location: input.location,
+          phoneNumber: input.phoneNumber,
+          userAgent: input.userAgent,
+          ipAddress: ctx.req.ip || ctx.req.socket.remoteAddress,
+          referrer: input.referrer,
+          userId: ctx.user?.id,
+        });
+        
+        return { success: true };
+      }),
+    
+    // Get call analytics (admin only)
+    getAnalytics: adminProcedure
+      .input(z.object({
+        startDate: z.string().optional(),
+        endDate: z.string().optional(),
+      }))
+      .query(async ({ input }) => {
+        const { getDb } = await import("./db");
+        const { callTrackingEvents } = await import("../drizzle/schema");
+        const { sql, gte, lte, and } = await import("drizzle-orm");
+        const db = await getDb();
+        if (!db) throw new TRPCError({ code: 'INTERNAL_SERVER_ERROR', message: 'Database not available' });
+        
+        let conditions = [];
+        if (input.startDate) {
+          conditions.push(gte(callTrackingEvents.createdAt, new Date(input.startDate)));
+        }
+        if (input.endDate) {
+          conditions.push(lte(callTrackingEvents.createdAt, new Date(input.endDate)));
+        }
+        
+        const events = await db.select()
+          .from(callTrackingEvents)
+          .where(conditions.length > 0 ? and(...conditions) : undefined)
+          .orderBy(callTrackingEvents.createdAt);
+        
+        return events;
+      }),
+    
+    // Get call statistics by location (admin only)
+    getLocationStats: adminProcedure
+      .query(async () => {
+        const { getDb } = await import("./db");
+        const { callTrackingEvents } = await import("../drizzle/schema");
+        const { sql } = await import("drizzle-orm");
+        const db = await getDb();
+        if (!db) throw new TRPCError({ code: 'INTERNAL_SERVER_ERROR', message: 'Database not available' });
+        
+        const stats = await db.select({
+          location: callTrackingEvents.location,
+          count: sql<number>`count(*)`
+        })
+        .from(callTrackingEvents)
+        .groupBy(callTrackingEvents.location)
+        .orderBy(sql`count(*) DESC`);
+        
+        return stats;
+      }),
+  }),
 });
 
 export type AppRouter = typeof appRouter;

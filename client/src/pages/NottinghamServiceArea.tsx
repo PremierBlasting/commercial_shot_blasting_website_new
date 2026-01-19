@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { LocationMap } from "@/components/LocationMap";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
+import { TrackedPhoneButton } from "@/components/TrackedPhoneButton";
 
 // Placeholder for a simple Breadcrumb component, as one was not found in the UI components
 const Breadcrumb = ({ items }: { items: { label: string; href?: string }[] }) => (
@@ -171,10 +172,15 @@ export default function NottinghamServiceArea() {
             <Button size="lg" className="bg-[#2C5F7F] hover:bg-[#1a3d52]">
               Request a Quote
             </Button>
-            <Button size="lg" variant="outline" className="border-[#2C5F7F] text-[#2C5F7F]">
-              <Phone className="w-4 h-4 mr-2" />
+            <TrackedPhoneButton
+              location="Nottingham"
+              phoneNumber="07970566409"
+              variant="outline"
+              size="lg"
+              className="border-[#2C5F7F] text-[#2C5F7F]"
+            >
               Call Now
-            </Button>
+            </TrackedPhoneButton>
           </div>
         </div>
       </section>

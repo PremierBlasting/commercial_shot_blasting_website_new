@@ -12,7 +12,8 @@ import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbS
 // The useAuth hook is imported twice in the original Home.tsx, keeping the structure for consistency.
 // import { useAuth } from "@/_core/hooks/useAuth";
 import { LocationMap } from "@/components/LocationMap";
-import { BeforeAfterSlider } from "@/components/BeforeAfterSlider"; 
+import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
+import { TrackedPhoneButton } from "@/components/TrackedPhoneButton"; 
 
 const CHESTER_CONTACT_NUMBER = "07970 566409"; // Assuming same contact number
 const CHESTER_EMAIL = "info@shotblasting.co.uk"; // Assuming same email
@@ -151,10 +152,15 @@ export default function ChesterServiceArea() {
             <Button size="lg" className="bg-[#2C5F7F] hover:bg-[#1a3d52]">
               Request a Quote
             </Button>
-            <Button size="lg" variant="outline" className="border-[#2C5F7F] text-[#2C5F7F]">
-              <Phone className="w-4 h-4 mr-2" />
+            <TrackedPhoneButton
+              location="Chester"
+              phoneNumber="07970566409"
+              variant="outline"
+              size="lg"
+              className="border-[#2C5F7F] text-[#2C5F7F]"
+            >
               Call Now
-            </Button>
+            </TrackedPhoneButton>
           </div>
         </div>
       </section>
