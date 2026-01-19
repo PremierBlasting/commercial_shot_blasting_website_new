@@ -654,3 +654,8 @@
 - [x] Generate PDF guide and add download link to Construction page
 - [x] Write blog post: Warehouse Racking Refurbishment vs. Replacement Cost-Benefit Analysis
 - [x] Add blog post to Blog page and link from Manufacturing industry page
+
+## Replace Why Choose Us Image with Before/After Gallery
+- [x] Copy warehouse before and after images to public directory
+- [x] Create interactive Before/After gallery component with slider
+- [x] Replace single image in Home page Why Choose Us section with gallery

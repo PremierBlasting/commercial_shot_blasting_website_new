@@ -8,6 +8,7 @@ import { HubSpotForm } from "@/components/HubSpotForm";
 import { Header } from "@/components/Header";
 import { ServiceAreasMap } from "@/components/ServiceAreasMap";
 import { BlogPreview } from "@/components/BlogPreview";
+import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { trpc } from "@/lib/trpc";
 
 const testimonials = [
@@ -240,8 +241,14 @@ export default function Home() {
               </div>
             </div>
             <div className="relative">
-              <img src="/images/premier/storage-unit-after.jpeg" alt="Professional shot blasting" className="rounded-lg shadow-xl" />
-              <div className="absolute -bottom-6 -left-6 bg-[#2C5F7F] text-white p-6 rounded-lg shadow-lg">
+              <BeforeAfterSlider
+                beforeImage="/warehouse-before.jpg"
+                afterImage="/warehouse-after.jpg"
+                beforeLabel="Before: Rusted & Corroded"
+                afterLabel="After: Shot Blasted"
+                className="shadow-xl"
+              />
+              <div className="absolute -bottom-6 -left-6 bg-[#2C5F7F] text-white p-6 rounded-lg shadow-lg z-20">
                 <p className="text-3xl font-bold" style={{ fontFamily: "'Playfair Display', serif" }}>20+</p>
                 <p className="text-sm">Years Experience</p>
               </div>
