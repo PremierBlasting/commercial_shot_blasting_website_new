@@ -377,7 +377,7 @@ export default function SwindonServiceArea() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-[#2C5F7F] mb-4">
-              Our Swindon Service Area
+              Our Shot Blasting Services in Swindon
             </h2>
             <p className="text-lg text-gray-600">
               We provide professional shot blasting services throughout Swindon and the surrounding region. The map shows our primary service area with a 25-mile radius.

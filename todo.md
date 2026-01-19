@@ -560,3 +560,19 @@
 - [x] Fix LocationMap to display correct UK city coordinates instead of San Francisco
 - [x] Manually add LocationMap to Cambridge, Cardiff, MiltonKeynes pages
 - [x] Add 2 new operator images to hero carousel (positions 2 and 3)
+
+- [ ] Update location page map titles to "Our Shot Blasting Services in [Location Name]"
+
+- [ ] Fix missing maps on Norwich, Nottingham, and other location pages
+
+- [x] Remove case study sections from all location pages except Birmingham
+- [x] Create Terms and Conditions page and add link to footer
+- [x] Add Terms page route to App.tsx
+- [x] Add Terms link to Footer component
+- [x] Design CMS database schema for site content management
+- [x] Add blog table to database schema
+- [ ] Create 5 blog articles on shot blasting topics
+- [ ] Build blog listing and individual post pages
+- [ ] Add blog preview carousel to home page
+- [ ] Create backend tRPC procedures for CMS CRUD operations
+- [ ] Build admin dashboard at /admin with content management UI

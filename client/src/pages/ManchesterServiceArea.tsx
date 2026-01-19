@@ -320,7 +320,7 @@ export default function ManchesterServiceArea() {
         <div className="container">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-[#2C2C2C] mb-4 text-center" style={{ fontFamily: "'Playfair Display', serif" }}>
-              Our Manchester Service Area
+              Our Shot Blasting Services in Manchester
             </h2>
             <p className="text-gray-600 text-center mb-8">
               We provide professional shot blasting services throughout Manchester and the surrounding region. The map shows our primary service area with a 25-mile radius.

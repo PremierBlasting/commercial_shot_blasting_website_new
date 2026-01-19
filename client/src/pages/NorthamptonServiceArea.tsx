@@ -7,7 +7,6 @@ import { Header } from "@/components/Header";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { LocalBusinessSchema } from "@/components/LocalBusinessSchema";
-import { CaseStudy } from "@/components/CaseStudy";
 import { LocationMap } from "@/components/LocationMap";
 import { locationCoordinates } from "@/data/locationCoordinates";
 
@@ -314,32 +313,6 @@ export default function NorthamptonServiceArea() {
       </section>
 
       {/* Case Study Section */}
-      <CaseStudy
-        title="Northampton Automotive Manufacturing Facility"
-        client="Midlands Automotive Components Ltd"
-        location="Northampton, East Midlands"
-        duration="3 weeks"
-        area="15,000 sq ft manufacturing floor"
-        completionDate="November 2025"
-        beforeImage="/case-study-before.jpg"
-        afterImage="/case-study-after.jpg"
-        challenge="Midlands Automotive Components Ltd faced significant operational challenges due to deteriorating floor conditions in their main production facility. Years of heavy machinery use, chemical exposure, and metal debris had left the concrete floor surface severely compromised with rust staining, coating failure, and uneven texture. The facility required complete surface restoration that would minimize production downtime while delivering a durable, long-lasting finish capable of withstanding the demanding automotive manufacturing environment."
-        solution="Our team deployed a comprehensive shot blasting solution specifically designed for large-scale industrial applications. We utilized steel shot blasting technology with S330 grade steel shot media, which provided the aggressive surface profile required for this demanding application. The process involved multiple passes across the entire 15,000 square foot area, systematically removing all existing coatings, rust deposits, and surface contaminants. We implemented a phased approach to maximize efficiency while maintaining strict quality control."
-        outcomes={[
-          "Completed 3 days ahead of schedule, saving £45,000 in lost production costs",
-          "Achieved 3.2 MPa pull-off adhesion strength, exceeding 1.5 MPa minimum requirement",
-          "40% improvement in floor durability compared to previous preparation method",
-          "Zero coating failures or delamination issues after 6 months",
-          "30% reduction in facility cleaning time due to improved surface",
-          "Enhanced workplace safety by eliminating uneven texture and trip hazards"
-        ]}
-        testimonial={{
-          quote: "Commercial Shot Blasting transformed our manufacturing floor beyond our expectations. Their team's professionalism, efficiency, and attention to detail were outstanding throughout the project. Completing the work ahead of schedule saved us significant production costs, and the quality of the surface preparation has given us complete confidence in the longevity of our new floor coating.",
-          author: "David Richardson",
-          position: "Facilities Manager",
-          company: "Midlands Automotive Components Ltd"
-        }}
-      />
 
       {/* FAQ Section */}
       <section className="py-16 bg-[#F5F1E8]">

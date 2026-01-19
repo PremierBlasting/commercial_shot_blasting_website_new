@@ -74,3 +74,95 @@ export const contactSubmissions = mysqlTable("contact_submissions", {
 
 export type ContactSubmission = typeof contactSubmissions.$inferSelect;
 export type InsertContactSubmission = typeof contactSubmissions.$inferInsert;
+
+/**
+ * CMS Pages table for managing site pages
+ */
+export const cmsPages = mysqlTable("cms_pages", {
+  id: int("id").autoincrement().primaryKey(),
+  slug: varchar("slug", { length: 255 }).notNull().unique(),
+  title: varchar("title", { length: 255 }).notNull(),
+  metaDescription: text("metaDescription"),
+  content: text("content").notNull(), // JSON content blocks
+  isPublished: boolean("isPublished").default(false).notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type CmsPage = typeof cmsPages.$inferSelect;
+export type InsertCmsPage = typeof cmsPages.$inferInsert;
+
+/**
+ * CMS Services table for managing service offerings
+ */
+export const cmsServices = mysqlTable("cms_services", {
+  id: int("id").autoincrement().primaryKey(),
+  slug: varchar("slug", { length: 255 }).notNull().unique(),
+  title: varchar("title", { length: 255 }).notNull(),
+  shortDescription: text("shortDescription"),
+  fullDescription: text("fullDescription"),
+  icon: varchar("icon", { length: 100 }), // Icon name from lucide-react
+  image: text("image"),
+  features: text("features"), // JSON array of features
+  isActive: boolean("isActive").default(true).notNull(),
+  sortOrder: int("sortOrder").default(0).notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type CmsService = typeof cmsServices.$inferSelect;
+export type InsertCmsService = typeof cmsServices.$inferInsert;
+
+/**
+ * CMS Settings table for site-wide configuration
+ */
+export const cmsSettings = mysqlTable("cms_settings", {
+  id: int("id").autoincrement().primaryKey(),
+  key: varchar("key", { length: 255 }).notNull().unique(),
+  value: text("value").notNull(),
+  type: mysqlEnum("type", ["text", "number", "boolean", "json"]).default("text").notNull(),
+  description: text("description"),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type CmsSetting = typeof cmsSettings.$inferSelect;
+export type InsertCmsSetting = typeof cmsSettings.$inferInsert;
+
+/**
+ * CMS Hero Carousel Images table
+ */
+export const cmsHeroImages = mysqlTable("cms_hero_images", {
+  id: int("id").autoincrement().primaryKey(),
+  imageUrl: text("imageUrl").notNull(),
+  alt: varchar("alt", { length: 255 }),
+  isActive: boolean("isActive").default(true).notNull(),
+  sortOrder: int("sortOrder").default(0).notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type CmsHeroImage = typeof cmsHeroImages.$inferSelect;
+export type InsertCmsHeroImage = typeof cmsHeroImages.$inferInsert;
+
+/**
+ * Blog Posts table for managing blog articles
+ */
+export const blogPosts = mysqlTable("blog_posts", {
+  id: int("id").autoincrement().primaryKey(),
+  slug: varchar("slug", { length: 255 }).notNull().unique(),
+  title: varchar("title", { length: 255 }).notNull(),
+  excerpt: text("excerpt").notNull(),
+  content: text("content").notNull(),
+  featuredImage: text("featuredImage").notNull(),
+  author: varchar("author", { length: 255 }).default("Commercial Shot Blasting").notNull(),
+  category: varchar("category", { length: 100 }),
+  tags: text("tags"), // JSON array of tags
+  metaDescription: text("metaDescription"),
+  isPublished: boolean("isPublished").default(true).notNull(),
+  publishedAt: timestamp("publishedAt").defaultNow().notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type BlogPost = typeof blogPosts.$inferSelect;
+export type InsertBlogPost = typeof blogPosts.$inferInsert;

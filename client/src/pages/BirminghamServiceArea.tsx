@@ -385,7 +385,7 @@ export default function BirminghamServiceArea() {
         <div className="container">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-[#2C2C2C] mb-4 text-center" style={{ fontFamily: "'Playfair Display', serif" }}>
-              Our Birmingham Service Area
+              Our Shot Blasting Services in Birmingham
             </h2>
             <p className="text-gray-600 text-center mb-8">
               We provide professional shot blasting services throughout Birmingham and the surrounding West Midlands region. The map shows our primary service area with a 25-mile radius.
@@ -400,7 +400,7 @@ export default function BirminghamServiceArea() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-[#2C5F7F] mb-4">
-              Our Birmingham Service Area
+              Our Shot Blasting Services in Birmingham
             </h2>
             <p className="text-lg text-gray-600">
               We provide professional shot blasting services throughout Birmingham and the surrounding West Midlands region. The map shows our primary service area with a 25-mile radius.

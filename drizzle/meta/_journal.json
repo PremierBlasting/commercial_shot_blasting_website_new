@@ -15,6 +15,20 @@
       "when": 1768738135353,
       "tag": "0001_normal_gabe_jones",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1768785284447,
+      "tag": "0002_noisy_virginia_dare",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1768785346428,
+      "tag": "0003_noisy_radioactive_man",
+      "breakpoints": true
     }
   ]
 }
