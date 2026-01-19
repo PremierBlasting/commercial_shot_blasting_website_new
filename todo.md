@@ -624,3 +624,7 @@
 - [x] Add industry pages to navigation menu
 - [x] Update App.tsx routing for industry pages
 - [x] Add industry-specific case studies and testimonials
+
+## Fix Industries Dropdown Menu
+- [x] Replace CSS group-hover with controlled state for Industries dropdown
+- [x] Add mouse enter/leave handlers matching Services dropdown pattern

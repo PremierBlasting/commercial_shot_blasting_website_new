@@ -99,11 +99,14 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
   const [mobileAreasOpen, setMobileAreasOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [areasOpen, setAreasOpen] = useState(false);
+  const [industriesOpen, setIndustriesOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const dropdownRef = useRef<HTMLDivElement>(null);
   const areasDropdownRef = useRef<HTMLDivElement>(null);
+  const industriesDropdownRef = useRef<HTMLDivElement>(null);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const areasTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const industriesTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   // Filter locations based on search query
   const filteredAreasLinks = searchQuery.trim() === "" 
@@ -129,6 +132,9 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
       }
       if (areasDropdownRef.current && !areasDropdownRef.current.contains(event.target as Node)) {
         setAreasOpen(false);
+      }
+      if (industriesDropdownRef.current && !industriesDropdownRef.current.contains(event.target as Node)) {
+        setIndustriesOpen(false);
       }
     };
 
@@ -161,6 +167,20 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
   const handleAreasMouseLeave = () => {
     areasTimeoutRef.current = setTimeout(() => {
       setAreasOpen(false);
+    }, 150);
+  };
+
+  const handleIndustriesMouseEnter = () => {
+    if (industriesTimeoutRef.current) {
+      clearTimeout(industriesTimeoutRef.current);
+      industriesTimeoutRef.current = null;
+    }
+    setIndustriesOpen(true);
+  };
+
+  const handleIndustriesMouseLeave = () => {
+    industriesTimeoutRef.current = setTimeout(() => {
+      setIndustriesOpen(false);
     }, 150);
   };
 
@@ -238,19 +258,47 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
           <a href="/#about" className="hover:text-white/80 transition">About</a>
           
           {/* Industries Dropdown */}
-          <div className="relative group">
-            <button className="flex items-center gap-1 hover:text-white/80 transition py-2">
+          <div 
+            ref={industriesDropdownRef}
+            className="relative"
+            onMouseEnter={handleIndustriesMouseEnter}
+            onMouseLeave={handleIndustriesMouseLeave}
+          >
+            <button 
+              className="flex items-center gap-1 hover:text-white/80 transition py-2"
+              onClick={() => setIndustriesOpen(!industriesOpen)}
+              type="button"
+              aria-expanded={industriesOpen}
+              aria-haspopup="true"
+            >
               Industries
-              <ChevronDown className="w-4 h-4" />
+              <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${industriesOpen ? 'rotate-180' : ''}`} />
             </button>
-            <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200" style={{ zIndex: 99999 }}>
+            
+            {/* Dropdown Menu */}
+            <div 
+              className={`absolute top-full left-0 pt-2 transition-all duration-200 ${
+                industriesOpen 
+                  ? 'opacity-100 visible translate-y-0' 
+                  : 'opacity-0 invisible -translate-y-2 pointer-events-none'
+              }`}
+              style={{ zIndex: 99999 }}
+            >
               <div className="w-64 bg-white rounded-lg shadow-2xl border border-gray-100 overflow-hidden">
                 <div className="py-2">
-                  <Link href="/industries/construction" className="block px-4 py-3 hover:bg-[#2C5F7F] hover:text-white transition-colors group">
+                  <Link
+                    href="/industries/construction"
+                    className="block px-4 py-3 hover:bg-[#2C5F7F] hover:text-white transition-colors group"
+                    onClick={() => setIndustriesOpen(false)}
+                  >
                     <div className="font-medium text-gray-900 group-hover:text-white">Construction</div>
                     <div className="text-xs text-gray-500 group-hover:text-white/80 mt-0.5">Structural steel, bridges, fire escapes</div>
                   </Link>
-                  <Link href="/industries/manufacturing" className="block px-4 py-3 hover:bg-[#2C5F7F] hover:text-white transition-colors group">
+                  <Link
+                    href="/industries/manufacturing"
+                    className="block px-4 py-3 hover:bg-[#2C5F7F] hover:text-white transition-colors group"
+                    onClick={() => setIndustriesOpen(false)}
+                  >
                     <div className="font-medium text-gray-900 group-hover:text-white">Manufacturing</div>
                     <div className="text-xs text-gray-500 group-hover:text-white/80 mt-0.5">Warehouse racking, crane systems, pipework</div>
                   </Link>
