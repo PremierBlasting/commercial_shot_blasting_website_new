@@ -4,6 +4,7 @@ import { Link, useParams } from "wouter";
 import { Phone, Mail, MapPin, CheckCircle, ArrowRight, ArrowLeft, Clock, Shield, Award, ChevronDown, ChevronUp } from "lucide-react";
 import { useState } from "react";
 import { getServiceById, services } from "@/data/services";
+import { getServiceGallery } from "@/data/serviceGalleries";
 import { QuotePopup } from "@/components/QuotePopup";
 import { Header } from "@/components/Header";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
@@ -304,6 +305,25 @@ export default function ServiceDetail() {
                 </h2>
                 <p className="text-gray-700 text-lg leading-relaxed">{service.description}</p>
               </div>
+
+              {/* Before & After Gallery */}
+              {getServiceGallery(service.id) && (
+                <div>
+                  <h2 className="text-3xl font-bold text-[#2C5F7F] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
+                    Transformation Gallery
+                  </h2>
+                  <p className="text-gray-600 mb-6">
+                    See the dramatic difference our professional shot blasting service makes. Drag the slider to compare before and after results.
+                  </p>
+                  <BeforeAfterSlider
+                    beforeImage={getServiceGallery(service.id)!.beforeImage}
+                    afterImage={getServiceGallery(service.id)!.afterImage}
+                    beforeLabel={getServiceGallery(service.id)!.beforeLabel}
+                    afterLabel={getServiceGallery(service.id)!.afterLabel}
+                    className="shadow-xl"
+                  />
+                </div>
+              )}
 
               {/* Benefits */}
               <div>

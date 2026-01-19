@@ -659,3 +659,15 @@
 - [x] Copy warehouse before and after images to public directory
 - [x] Create interactive Before/After gallery component with slider
 - [x] Replace single image in Home page Why Choose Us section with gallery
+
+## Add Before/After Galleries to All Service Pages
+- [x] Search for and collect before/after images for each service category
+- [x] Add before/after gallery to Structural Steel Frames service page
+- [x] Add before/after gallery to Fire Escapes service page
+- [x] Add before/after gallery to Internal Staircases service page
+- [x] Add before/after gallery to Bridge Steelwork service page
+- [x] Add before/after gallery to Crane Beams service page
+- [x] Add before/after gallery to Fixed Ladders service page
+- [x] Add before/after gallery to Warehouse Racking service page
+- [x] Add before/after gallery to Process Pipework service page
+- [x] Add before/after gallery to Telecom Masts service page
