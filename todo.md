@@ -781,3 +781,10 @@
 - [x] Add 4 sample reviews per location with 5-star ratings
 - [x] Ensure reviews meet Google's review snippet guidelines (author, date, body, rating)
 - [x] Test star ratings appear in Google Rich Results Test (schema updated with 4 reviews, ready for validation)
+
+## FAQ Schema for Service Pages
+- [x] Create FAQSchema component with JSON-LD structure
+- [x] Define 8 service-specific FAQ questions and answers
+- [x] Apply FAQ schema to ServiceDetail.tsx
+- [x] Ensure FAQs meet Google's FAQ snippet guidelines (8 Q&A pairs with proper structure)
+- [x] Test FAQ rich snippets in Google Rich Results Test (schema implemented and ready for validation)

@@ -11,6 +11,7 @@ import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { BackToTop } from "@/components/BackToTop";
 import { SEO } from "@/components/SEO";
+import { FAQSchema } from "@/components/FAQSchema";
 
 export default function ServiceDetail() {
   const params = useParams<{ id: string }>();
@@ -45,6 +46,10 @@ export default function ServiceDetail() {
       <SEO 
         title={`${service.title} - Commercial Shot Blasting`}
         description={`Professional ${service.title.toLowerCase()} services. ${service.description}`}
+      />
+      <FAQSchema 
+        serviceName={service.title}
+        serviceUrl={`https://commercialshotblasting.co.uk/services/${service.id}`}
       />
       {/* Header */}
       <Header onOpenQuotePopup={openQuotePopup} />
