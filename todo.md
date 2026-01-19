@@ -745,3 +745,12 @@
 - [x] Add proper priority and changefreq values
 - [x] Create robots.txt with sitemap reference
 - [x] Test sitemap accessibility and format (58 URLs total: 6 static + 9 services + 37 locations + 6 blog posts)
+
+## SEO Management Tool in Admin Backend
+- [x] Create database schema for SEO metadata (pageUrl, metaTitle, metaDescription, h1)
+- [x] Add tRPC procedures for SEO CRUD operations (list, get, update)
+- [x] Build admin SEO tab with unified view of all pages
+- [x] Group pages by type (static, services, locations, blog)
+- [x] Add inline editing for meta title, meta description, and H1
+- [x] Implement save functionality for individual pages
+- [x] Test SEO metadata editing and persistence

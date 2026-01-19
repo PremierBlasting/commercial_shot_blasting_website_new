@@ -14,7 +14,10 @@ import {
   ContactSubmission,
   blogPosts,
   InsertBlogPost,
-  BlogPost
+  BlogPost,
+  seoMetadata,
+  InsertSeoMetadata,
+  SeoMetadata
 } from "../drizzle/schema";
 import { ENV } from './_core/env';
 
@@ -297,4 +300,68 @@ export async function deleteBlogPost(id: number): Promise<void> {
   if (!db) throw new Error("Database not available");
   
   await db.delete(blogPosts).where(eq(blogPosts.id, id));
+}
+
+// ========== SEO Metadata ==========
+
+export async function getAllSeoMetadata(): Promise<SeoMetadata[]> {
+  const db = await getDb();
+  if (!db) return [];
+  
+  try {
+    return await db.select().from(seoMetadata).orderBy(asc(seoMetadata.pageType), asc(seoMetadata.pageUrl));
+  } catch (error) {
+    console.error("[Database] Failed to get SEO metadata:", error);
+    return [];
+  }
+}
+
+export async function getSeoMetadataByUrl(pageUrl: string): Promise<SeoMetadata | undefined> {
+  const db = await getDb();
+  if (!db) return undefined;
+  
+  try {
+    const results = await db.select().from(seoMetadata).where(eq(seoMetadata.pageUrl, pageUrl)).limit(1);
+    return results[0];
+  } catch (error) {
+    console.error("[Database] Failed to get SEO metadata by URL:", error);
+    return undefined;
+  }
+}
+
+export async function upsertSeoMetadata(data: InsertSeoMetadata): Promise<void> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  
+  try {
+    const existing = await getSeoMetadataByUrl(data.pageUrl);
+    
+    if (existing) {
+      await db.update(seoMetadata)
+        .set({
+          metaTitle: data.metaTitle,
+          metaDescription: data.metaDescription,
+          h1: data.h1,
+          pageType: data.pageType,
+        })
+        .where(eq(seoMetadata.pageUrl, data.pageUrl));
+    } else {
+      await db.insert(seoMetadata).values(data);
+    }
+  } catch (error) {
+    console.error("[Database] Failed to upsert SEO metadata:", error);
+    throw error;
+  }
+}
+
+export async function deleteSeoMetadata(pageUrl: string): Promise<void> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  
+  try {
+    await db.delete(seoMetadata).where(eq(seoMetadata.pageUrl, pageUrl));
+  } catch (error) {
+    console.error("[Database] Failed to delete SEO metadata:", error);
+    throw error;
+  }
 }

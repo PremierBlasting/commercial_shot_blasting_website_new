@@ -25,6 +25,10 @@ import {
   createBlogPost,
   updateBlogPost,
   deleteBlogPost,
+  getAllSeoMetadata,
+  getSeoMetadataByUrl,
+  upsertSeoMetadata,
+  deleteSeoMetadata,
 } from "./db";
 import { storagePut } from "./storage";
 import { nanoid } from "nanoid";
@@ -443,6 +447,43 @@ export const appRouter = router({
         .orderBy(sql`count(*) DESC`);
         
         return stats;
+      }),
+  }),
+
+  // SEO Metadata Management
+  seo: router({
+    // Admin: Get all SEO metadata
+    listAll: adminProcedure.query(async () => {
+      return await getAllSeoMetadata();
+    }),
+    
+    // Public: Get SEO metadata by URL
+    getByUrl: publicProcedure
+      .input(z.object({ pageUrl: z.string() }))
+      .query(async ({ input }) => {
+        return await getSeoMetadataByUrl(input.pageUrl);
+      }),
+    
+    // Admin: Upsert SEO metadata
+    upsert: adminProcedure
+      .input(z.object({
+        pageUrl: z.string(),
+        pageType: z.enum(['static', 'service', 'location', 'blog']),
+        metaTitle: z.string().optional(),
+        metaDescription: z.string().optional(),
+        h1: z.string().optional(),
+      }))
+      .mutation(async ({ input }) => {
+        await upsertSeoMetadata(input);
+        return { success: true };
+      }),
+    
+    // Admin: Delete SEO metadata
+    delete: adminProcedure
+      .input(z.object({ pageUrl: z.string() }))
+      .mutation(async ({ input }) => {
+        await deleteSeoMetadata(input.pageUrl);
+        return { success: true };
       }),
   }),
 });

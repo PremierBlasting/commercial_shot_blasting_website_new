@@ -19,6 +19,23 @@ export type User = typeof users.$inferSelect;
 export type InsertUser = typeof users.$inferInsert;
 
 /**
+ * SEO metadata table for managing page-level SEO settings
+ */
+export const seoMetadata = mysqlTable("seo_metadata", {
+  id: int("id").autoincrement().primaryKey(),
+  pageUrl: varchar("pageUrl", { length: 500 }).notNull().unique(),
+  pageType: varchar("pageType", { length: 50 }).notNull(), // 'static', 'service', 'location', 'blog'
+  metaTitle: varchar("metaTitle", { length: 255 }),
+  metaDescription: text("metaDescription"),
+  h1: varchar("h1", { length: 255 }),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type SeoMetadata = typeof seoMetadata.$inferSelect;
+export type InsertSeoMetadata = typeof seoMetadata.$inferInsert;
+
+/**
  * Gallery items table for before/after shot blasting work
  */
 export const galleryItems = mysqlTable("gallery_items", {

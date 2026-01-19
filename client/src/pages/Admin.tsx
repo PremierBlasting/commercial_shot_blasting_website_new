@@ -26,7 +26,8 @@ import {
   Mail,
   MailOpen,
   ChevronLeft,
-  FileText
+  FileText,
+  Search
 } from "lucide-react";
 import { useState } from "react";
 import { Link } from "wouter";
@@ -155,6 +156,9 @@ export default function Admin() {
             <TabsTrigger value="contacts" className="gap-2">
               <MessageSquare className="w-4 h-4" /> Contacts
             </TabsTrigger>
+            <TabsTrigger value="seo" className="gap-2">
+              <Search className="w-4 h-4" /> SEO
+            </TabsTrigger>
           </TabsList>
 
           <TabsContent value="overview">
@@ -175,6 +179,10 @@ export default function Admin() {
 
           <TabsContent value="contacts">
             <ContactsTab />
+          </TabsContent>
+
+          <TabsContent value="seo">
+            <SeoTab />
           </TabsContent>
         </Tabs>
       </main>
@@ -1242,6 +1250,319 @@ function ContactsTab() {
           </CardContent>
         </Card>
       )}
+    </div>
+  );
+}
+
+function SeoTab() {
+  const { data: seoData, refetch } = trpc.seo.listAll.useQuery();
+  const upsertMutation = trpc.seo.upsert.useMutation({
+    onSuccess: () => {
+      toast.success("SEO metadata saved successfully");
+      refetch();
+    },
+    onError: (error) => {
+      toast.error(`Failed to save: ${error.message}`);
+    },
+  });
+
+  // Define all pages with their default values
+  const allPages = [
+    // Static pages
+    { url: "/", type: "static", label: "Homepage" },
+    { url: "/about", type: "static", label: "About" },
+    { url: "/contact", type: "static", label: "Contact" },
+    { url: "/gallery", type: "static", label: "Gallery" },
+    { url: "/blog", type: "static", label: "Blog" },
+    { url: "/service-areas", type: "static", label: "Service Areas" },
+    
+    // Service pages
+    { url: "/services/structural-steel-frames", type: "service", label: "Structural Steel Frames" },
+    { url: "/services/fire-escapes", type: "service", label: "Fire Escapes" },
+    { url: "/services/staircases", type: "service", label: "Staircases" },
+    { url: "/services/bridge-steelwork", type: "service", label: "Bridge Steelwork" },
+    { url: "/services/crane-beams", type: "service", label: "Crane Beams" },
+    { url: "/services/ladders", type: "service", label: "Ladders" },
+    { url: "/services/warehouse-racking", type: "service", label: "Warehouse Racking" },
+    { url: "/services/pipework", type: "service", label: "Pipework" },
+    { url: "/services/telecom-towers", type: "service", label: "Telecom Towers" },
+    
+    // Location pages
+    { url: "/service-areas/birmingham", type: "location", label: "Birmingham" },
+    { url: "/service-areas/coventry", type: "location", label: "Coventry" },
+    { url: "/service-areas/leicester", type: "location", label: "Leicester" },
+    { url: "/service-areas/nottingham", type: "location", label: "Nottingham" },
+    { url: "/service-areas/derby", type: "location", label: "Derby" },
+    { url: "/service-areas/wolverhampton", type: "location", label: "Wolverhampton" },
+    { url: "/service-areas/stoke-on-trent", type: "location", label: "Stoke-on-Trent" },
+    { url: "/service-areas/worcester", type: "location", label: "Worcester" },
+    { url: "/service-areas/gloucester", type: "location", label: "Gloucester" },
+    { url: "/service-areas/hereford", type: "location", label: "Hereford" },
+    { url: "/service-areas/shrewsbury", type: "location", label: "Shrewsbury" },
+    { url: "/service-areas/telford", type: "location", label: "Telford" },
+    { url: "/service-areas/stafford", type: "location", label: "Stafford" },
+    { url: "/service-areas/burton-upon-trent", type: "location", label: "Burton-upon-Trent" },
+    { url: "/service-areas/tamworth", type: "location", label: "Tamworth" },
+    { url: "/service-areas/cannock", type: "location", label: "Cannock" },
+    { url: "/service-areas/kidderminster", type: "location", label: "Kidderminster" },
+    { url: "/service-areas/redditch", type: "location", label: "Redditch" },
+    { url: "/service-areas/bromsgrove", type: "location", label: "Bromsgrove" },
+    { url: "/service-areas/solihull", type: "location", label: "Solihull" },
+    { url: "/service-areas/walsall", type: "location", label: "Walsall" },
+    { url: "/service-areas/dudley", type: "location", label: "Dudley" },
+    { url: "/service-areas/west-bromwich", type: "location", label: "West Bromwich" },
+    { url: "/service-areas/sutton-coldfield", type: "location", label: "Sutton Coldfield" },
+    { url: "/service-areas/rugby", type: "location", label: "Rugby" },
+    { url: "/service-areas/nuneaton", type: "location", label: "Nuneaton" },
+    { url: "/service-areas/bedworth", type: "location", label: "Bedworth" },
+    { url: "/service-areas/warwick", type: "location", label: "Warwick" },
+    { url: "/service-areas/leamington-spa", type: "location", label: "Leamington Spa" },
+    { url: "/service-areas/stratford-upon-avon", type: "location", label: "Stratford-upon-Avon" },
+    { url: "/service-areas/kenilworth", type: "location", label: "Kenilworth" },
+    { url: "/service-areas/northampton", type: "location", label: "Northampton" },
+    { url: "/service-areas/chesterfield", type: "location", label: "Chesterfield" },
+    { url: "/service-areas/bradford", type: "location", label: "Bradford" },
+    { url: "/service-areas/peterborough", type: "location", label: "Peterborough" },
+    { url: "/service-areas/oxford", type: "location", label: "Oxford" },
+    { url: "/service-areas/wrexham", type: "location", label: "Wrexham" },
+  ];
+
+  // Create a map of existing SEO data
+  const seoMap = new Map(seoData?.map(item => [item.pageUrl, item]) || []);
+
+  // Group pages by type
+  const pagesByType = {
+    static: allPages.filter(p => p.type === "static"),
+    service: allPages.filter(p => p.type === "service"),
+    location: allPages.filter(p => p.type === "location"),
+  };
+
+  const [editingValues, setEditingValues] = useState<Record<string, { metaTitle?: string; metaDescription?: string; h1?: string }>>({});
+
+  const handleSave = (pageUrl: string, pageType: string) => {
+    const values = editingValues[pageUrl] || {};
+    const existing = seoMap.get(pageUrl);
+    
+    upsertMutation.mutate({
+      pageUrl,
+      pageType: pageType as "static" | "service" | "location" | "blog",
+      metaTitle: values.metaTitle !== undefined ? values.metaTitle : existing?.metaTitle || undefined,
+      metaDescription: values.metaDescription !== undefined ? values.metaDescription : existing?.metaDescription || undefined,
+      h1: values.h1 !== undefined ? values.h1 : existing?.h1 || undefined,
+    });
+  };
+
+  const handleInputChange = (pageUrl: string, field: string, value: string) => {
+    setEditingValues(prev => ({
+      ...prev,
+      [pageUrl]: {
+        ...prev[pageUrl],
+        [field]: value,
+      },
+    }));
+  };
+
+  const getValue = (pageUrl: string, field: "metaTitle" | "metaDescription" | "h1") => {
+    if (editingValues[pageUrl]?.[field] !== undefined) {
+      return editingValues[pageUrl][field];
+    }
+    return seoMap.get(pageUrl)?.[field] || "";
+  };
+
+  return (
+    <div className="space-y-6">
+      <div>
+        <h2 className="text-2xl font-bold text-[#2C2C2C]" style={{ fontFamily: "'Playfair Display', serif" }}>
+          SEO Management
+        </h2>
+        <p className="text-gray-600">Edit meta titles, descriptions, and H1 tags for all pages</p>
+      </div>
+
+      {/* Static Pages */}
+      <Card>
+        <CardHeader>
+          <CardTitle>Static Pages</CardTitle>
+          <CardDescription>{pagesByType.static.length} pages</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="space-y-6">
+            {pagesByType.static.map((page) => (
+              <div key={page.url} className="border-b pb-6 last:border-0">
+                <div className="flex items-center justify-between mb-3">
+                  <div>
+                    <h3 className="font-semibold text-[#2C2C2C]">{page.label}</h3>
+                    <p className="text-sm text-gray-500">{page.url}</p>
+                  </div>
+                  <Button 
+                    size="sm" 
+                    onClick={() => handleSave(page.url, page.type)}
+                    disabled={upsertMutation.isPending}
+                  >
+                    Save
+                  </Button>
+                </div>
+                <div className="space-y-3">
+                  <div>
+                    <Label htmlFor={`${page.url}-title`} className="text-sm">Meta Title</Label>
+                    <Input
+                      id={`${page.url}-title`}
+                      value={getValue(page.url, "metaTitle")}
+                      onChange={(e) => handleInputChange(page.url, "metaTitle", e.target.value)}
+                      placeholder="Enter meta title (50-60 characters)"
+                      maxLength={255}
+                    />
+                  </div>
+                  <div>
+                    <Label htmlFor={`${page.url}-desc`} className="text-sm">Meta Description</Label>
+                    <Textarea
+                      id={`${page.url}-desc`}
+                      value={getValue(page.url, "metaDescription")}
+                      onChange={(e) => handleInputChange(page.url, "metaDescription", e.target.value)}
+                      placeholder="Enter meta description (150-160 characters)"
+                      rows={2}
+                      maxLength={500}
+                    />
+                  </div>
+                  <div>
+                    <Label htmlFor={`${page.url}-h1`} className="text-sm">H1 Tag</Label>
+                    <Input
+                      id={`${page.url}-h1`}
+                      value={getValue(page.url, "h1")}
+                      onChange={(e) => handleInputChange(page.url, "h1", e.target.value)}
+                      placeholder="Enter H1 heading"
+                      maxLength={255}
+                    />
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Service Pages */}
+      <Card>
+        <CardHeader>
+          <CardTitle>Service Pages</CardTitle>
+          <CardDescription>{pagesByType.service.length} pages</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="space-y-6">
+            {pagesByType.service.map((page) => (
+              <div key={page.url} className="border-b pb-6 last:border-0">
+                <div className="flex items-center justify-between mb-3">
+                  <div>
+                    <h3 className="font-semibold text-[#2C2C2C]">{page.label}</h3>
+                    <p className="text-sm text-gray-500">{page.url}</p>
+                  </div>
+                  <Button 
+                    size="sm" 
+                    onClick={() => handleSave(page.url, page.type)}
+                    disabled={upsertMutation.isPending}
+                  >
+                    Save
+                  </Button>
+                </div>
+                <div className="space-y-3">
+                  <div>
+                    <Label htmlFor={`${page.url}-title`} className="text-sm">Meta Title</Label>
+                    <Input
+                      id={`${page.url}-title`}
+                      value={getValue(page.url, "metaTitle")}
+                      onChange={(e) => handleInputChange(page.url, "metaTitle", e.target.value)}
+                      placeholder="Enter meta title (50-60 characters)"
+                      maxLength={255}
+                    />
+                  </div>
+                  <div>
+                    <Label htmlFor={`${page.url}-desc`} className="text-sm">Meta Description</Label>
+                    <Textarea
+                      id={`${page.url}-desc`}
+                      value={getValue(page.url, "metaDescription")}
+                      onChange={(e) => handleInputChange(page.url, "metaDescription", e.target.value)}
+                      placeholder="Enter meta description (150-160 characters)"
+                      rows={2}
+                      maxLength={500}
+                    />
+                  </div>
+                  <div>
+                    <Label htmlFor={`${page.url}-h1`} className="text-sm">H1 Tag</Label>
+                    <Input
+                      id={`${page.url}-h1`}
+                      value={getValue(page.url, "h1")}
+                      onChange={(e) => handleInputChange(page.url, "h1", e.target.value)}
+                      placeholder="Enter H1 heading"
+                      maxLength={255}
+                    />
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Location Pages */}
+      <Card>
+        <CardHeader>
+          <CardTitle>Location Pages</CardTitle>
+          <CardDescription>{pagesByType.location.length} pages</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="space-y-6">
+            {pagesByType.location.map((page) => (
+              <div key={page.url} className="border-b pb-6 last:border-0">
+                <div className="flex items-center justify-between mb-3">
+                  <div>
+                    <h3 className="font-semibold text-[#2C2C2C]">{page.label}</h3>
+                    <p className="text-sm text-gray-500">{page.url}</p>
+                  </div>
+                  <Button 
+                    size="sm" 
+                    onClick={() => handleSave(page.url, page.type)}
+                    disabled={upsertMutation.isPending}
+                  >
+                    Save
+                  </Button>
+                </div>
+                <div className="space-y-3">
+                  <div>
+                    <Label htmlFor={`${page.url}-title`} className="text-sm">Meta Title</Label>
+                    <Input
+                      id={`${page.url}-title`}
+                      value={getValue(page.url, "metaTitle")}
+                      onChange={(e) => handleInputChange(page.url, "metaTitle", e.target.value)}
+                      placeholder="Enter meta title (50-60 characters)"
+                      maxLength={255}
+                    />
+                  </div>
+                  <div>
+                    <Label htmlFor={`${page.url}-desc`} className="text-sm">Meta Description</Label>
+                    <Textarea
+                      id={`${page.url}-desc`}
+                      value={getValue(page.url, "metaDescription")}
+                      onChange={(e) => handleInputChange(page.url, "metaDescription", e.target.value)}
+                      placeholder="Enter meta description (150-160 characters)"
+                      rows={2}
+                      maxLength={500}
+                    />
+                  </div>
+                  <div>
+                    <Label htmlFor={`${page.url}-h1`} className="text-sm">H1 Tag</Label>
+                    <Input
+                      id={`${page.url}-h1`}
+                      value={getValue(page.url, "h1")}
+                      onChange={(e) => handleInputChange(page.url, "h1", e.target.value)}
+                      placeholder="Enter H1 heading"
+                      maxLength={255}
+                    />
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </CardContent>
+      </Card>
     </div>
   );
 }
