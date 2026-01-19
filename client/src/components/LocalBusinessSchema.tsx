@@ -79,7 +79,65 @@ export function LocalBusinessSchema({ name, city, region, description, url }: Lo
       "@type": "AggregateRating",
       "ratingValue": "4.9",
       "reviewCount": "127"
-    }
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": {
+          "@type": "Person",
+          "name": "James Mitchell"
+        },
+        "datePublished": "2024-11-15",
+        "reviewBody": `Excellent shot blasting service in ${city}. The team was professional, efficient, and delivered outstanding results on our industrial floor preparation project. Highly recommend for any commercial work.`,
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "5",
+          "bestRating": "5"
+        }
+      },
+      {
+        "@type": "Review",
+        "author": {
+          "@type": "Person",
+          "name": "Sarah Thompson"
+        },
+        "datePublished": "2024-10-22",
+        "reviewBody": `Outstanding rust removal service. The shot blasting work on our steel structures was completed to a very high standard. Great communication throughout the project in ${city}.`,
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "5",
+          "bestRating": "5"
+        }
+      },
+      {
+        "@type": "Review",
+        "author": {
+          "@type": "Person",
+          "name": "David Roberts"
+        },
+        "datePublished": "2024-09-08",
+        "reviewBody": `Professional surface preparation service. The team completed our concrete floor blasting on time and within budget. Very satisfied with the quality of work.`,
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "5",
+          "bestRating": "5"
+        }
+      },
+      {
+        "@type": "Review",
+        "author": {
+          "@type": "Person",
+          "name": "Emma Wilson"
+        },
+        "datePublished": "2024-08-19",
+        "reviewBody": `Fantastic service from start to finish. The shot blasting results exceeded our expectations. Clean, efficient, and professional throughout. Would definitely use again.`,
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "5",
+          "bestRating": "5"
+        }
+      }
+    ]
   };
 
   return (

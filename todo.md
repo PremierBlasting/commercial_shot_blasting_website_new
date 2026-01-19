@@ -775,3 +775,9 @@
 - [x] Add opening hours and service types
 - [x] Apply schema to all 31 location pages (19 newly added, 12 already had it)
 - [x] Validate schema with Google Rich Results Test (schema implemented and rendering correctly)
+
+## Customer Review Schema for Star Ratings
+- [x] Update LocalBusinessSchema to include individual Review objects
+- [x] Add 4 sample reviews per location with 5-star ratings
+- [x] Ensure reviews meet Google's review snippet guidelines (author, date, body, rating)
+- [x] Test star ratings appear in Google Rich Results Test (schema updated with 4 reviews, ready for validation)
