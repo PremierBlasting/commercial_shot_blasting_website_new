@@ -639,3 +639,6 @@
 - [x] Add breadcrumbs to Construction Industry page
 - [x] Add breadcrumbs to Manufacturing Industry page
 - [x] Add breadcrumbs to ServiceDetail page for all services
+
+## Fix Mobile Logo Link
+- [x] Make logo clickable on mobile to navigate to homepage
