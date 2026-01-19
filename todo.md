@@ -642,3 +642,9 @@
 
 ## Fix Mobile Logo Link
 - [x] Make logo clickable on mobile to navigate to homepage
+
+## Create Back to Top Button
+- [x] Create reusable BackToTop component with scroll detection
+- [x] Add BackToTop button to ServiceDetail page
+- [x] Add BackToTop button to ConstructionIndustry page
+- [x] Add BackToTop button to ManufacturingIndustry page

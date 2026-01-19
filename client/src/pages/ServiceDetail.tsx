@@ -8,6 +8,7 @@ import { QuotePopup } from "@/components/QuotePopup";
 import { Header } from "@/components/Header";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { Breadcrumb } from "@/components/Breadcrumb";
+import { BackToTop } from "@/components/BackToTop";
 
 export default function ServiceDetail() {
   const params = useParams<{ id: string }>();
@@ -600,6 +601,9 @@ export default function ServiceDetail() {
 
       {/* Quote Popup */}
       <QuotePopup open={quotePopupOpen} onOpenChange={setQuotePopupOpen} />
+      
+      {/* Back to Top Button */}
+      <BackToTop />
     </div>
   );
 }

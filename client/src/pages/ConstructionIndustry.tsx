@@ -5,6 +5,7 @@ import { useState } from "react";
 import { QuotePopup } from "@/components/QuotePopup";
 import { Header } from "@/components/Header";
 import { Breadcrumb } from "@/components/Breadcrumb";
+import { BackToTop } from "@/components/BackToTop";
 
 export default function ConstructionIndustry() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
@@ -342,7 +343,11 @@ export default function ConstructionIndustry() {
         </div>
       </footer>
 
+      {/* Quote Popup */}
       <QuotePopup open={quotePopupOpen} onOpenChange={setQuotePopupOpen} />
+      
+      {/* Back to Top Button */}
+      <BackToTop />
     </div>
   );
 }
