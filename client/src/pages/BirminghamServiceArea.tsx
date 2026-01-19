@@ -9,7 +9,7 @@ import { Breadcrumb } from "@/components/Breadcrumb";
 import { LocalBusinessSchema } from "@/components/LocalBusinessSchema";
 import { CaseStudy } from "@/components/CaseStudy";
 import { LocationMap } from "@/components/LocationMap";
-import { locationCoordinates } from "@/data/locationCoordinates";
+
 
 export default function BirminghamServiceArea() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
@@ -390,12 +390,23 @@ export default function BirminghamServiceArea() {
             <p className="text-gray-600 text-center mb-8">
               We provide professional shot blasting services throughout Birmingham and the surrounding West Midlands region. The map shows our primary service area with a 25-mile radius.
             </p>
-            <LocationMap
-              lat={locationCoordinates.birmingham.lat}
-              lng={locationCoordinates.birmingham.lng}
-              locationName="Birmingham"
-            />
+            <LocationMap locationName="Birmingham" />
           </div>
+        </div>
+      </section>
+
+      {/* Service Area Map */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#2C5F7F] mb-4">
+              Our Birmingham Service Area
+            </h2>
+            <p className="text-lg text-gray-600">
+              We provide professional shot blasting services throughout Birmingham and the surrounding West Midlands region. The map shows our primary service area with a 25-mile radius.
+            </p>
+          </div>
+          <LocationMap locationName="Birmingham" />
         </div>
       </section>
 

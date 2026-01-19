@@ -123,20 +123,22 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-[#2C5F7F] to-[#1a3d52] text-white py-20 lg:py-32 overflow-hidden">
-        {/* Animated Background Carousel - 12 Images */}
+        {/* Animated Background Carousel - 14 Images */}
         <div className="absolute inset-0">
-          <div className="absolute inset-0 animate-[fadeInOut_60s_ease-in-out_infinite] bg-[url('/shot-blasting-operator.webp')] bg-cover bg-center opacity-30"></div>
-          <div className="absolute inset-0 animate-[fadeInOut_60s_ease-in-out_infinite_5s] bg-[url('/hero-carousel-1.webp')] bg-cover bg-center opacity-0"></div>
-          <div className="absolute inset-0 animate-[fadeInOut_60s_ease-in-out_infinite_10s] bg-[url('/hero-carousel-2.webp')] bg-cover bg-center opacity-0"></div>
-          <div className="absolute inset-0 animate-[fadeInOut_60s_ease-in-out_infinite_15s] bg-[url('/hero-carousel-3.webp')] bg-cover bg-center opacity-0"></div>
-          <div className="absolute inset-0 animate-[fadeInOut_60s_ease-in-out_infinite_20s] bg-[url('/hero-carousel-4.webp')] bg-cover bg-center opacity-0"></div>
-          <div className="absolute inset-0 animate-[fadeInOut_60s_ease-in-out_infinite_25s] bg-[url('/hero-carousel-5.webp')] bg-cover bg-center opacity-0"></div>
-          <div className="absolute inset-0 animate-[fadeInOut_60s_ease-in-out_infinite_30s] bg-[url('/hero-carousel-6.webp')] bg-cover bg-center opacity-0"></div>
-          <div className="absolute inset-0 animate-[fadeInOut_60s_ease-in-out_infinite_35s] bg-[url('/hero-carousel-7.webp')] bg-cover bg-center opacity-0"></div>
-          <div className="absolute inset-0 animate-[fadeInOut_60s_ease-in-out_infinite_40s] bg-[url('/hero-carousel-8.webp')] bg-cover bg-center opacity-0"></div>
-          <div className="absolute inset-0 animate-[fadeInOut_60s_ease-in-out_infinite_45s] bg-[url('/hero-carousel-9.webp')] bg-cover bg-center opacity-0"></div>
-          <div className="absolute inset-0 animate-[fadeInOut_60s_ease-in-out_infinite_50s] bg-[url('/hero-carousel-10.webp')] bg-cover bg-center opacity-0"></div>
-          <div className="absolute inset-0 animate-[fadeInOut_60s_ease-in-out_infinite_55s] bg-[url('/hero-carousel-11.webp')] bg-cover bg-center opacity-0"></div>
+          <div className="absolute inset-0 animate-[fadeInOut_70s_ease-in-out_infinite] bg-[url('/ShotBlastingSteelBeams.png')] bg-cover bg-center opacity-30"></div>
+          <div className="absolute inset-0 animate-[fadeInOut_70s_ease-in-out_infinite_5s] bg-[url('/operator-blasting-gate.png')] bg-cover bg-center opacity-0"></div>
+          <div className="absolute inset-0 animate-[fadeInOut_70s_ease-in-out_infinite_10s] bg-[url('/operator-warehouse-interior.png')] bg-cover bg-center opacity-0"></div>
+          <div className="absolute inset-0 animate-[fadeInOut_70s_ease-in-out_infinite_15s] bg-[url('/hero-carousel-1.webp')] bg-cover bg-center opacity-0"></div>
+          <div className="absolute inset-0 animate-[fadeInOut_70s_ease-in-out_infinite_20s] bg-[url('/hero-carousel-2.webp')] bg-cover bg-center opacity-0"></div>
+          <div className="absolute inset-0 animate-[fadeInOut_70s_ease-in-out_infinite_25s] bg-[url('/hero-carousel-3.webp')] bg-cover bg-center opacity-0"></div>
+          <div className="absolute inset-0 animate-[fadeInOut_70s_ease-in-out_infinite_30s] bg-[url('/hero-carousel-4.webp')] bg-cover bg-center opacity-0"></div>
+          <div className="absolute inset-0 animate-[fadeInOut_70s_ease-in-out_infinite_35s] bg-[url('/hero-carousel-5.webp')] bg-cover bg-center opacity-0"></div>
+          <div className="absolute inset-0 animate-[fadeInOut_70s_ease-in-out_infinite_40s] bg-[url('/hero-carousel-6.webp')] bg-cover bg-center opacity-0"></div>
+          <div className="absolute inset-0 animate-[fadeInOut_70s_ease-in-out_infinite_45s] bg-[url('/hero-carousel-7.webp')] bg-cover bg-center opacity-0"></div>
+          <div className="absolute inset-0 animate-[fadeInOut_70s_ease-in-out_infinite_50s] bg-[url('/hero-carousel-8.webp')] bg-cover bg-center opacity-0"></div>
+          <div className="absolute inset-0 animate-[fadeInOut_70s_ease-in-out_infinite_55s] bg-[url('/hero-carousel-9.webp')] bg-cover bg-center opacity-0"></div>
+          <div className="absolute inset-0 animate-[fadeInOut_70s_ease-in-out_infinite_60s] bg-[url('/hero-carousel-10.webp')] bg-cover bg-center opacity-0"></div>
+          <div className="absolute inset-0 animate-[fadeInOut_70s_ease-in-out_infinite_65s] bg-[url('/hero-carousel-11.webp')] bg-cover bg-center opacity-0"></div>
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-[#1a3d52]/80 via-[#2C5F7F]/60 to-transparent"></div>
         <div className="container relative z-10">

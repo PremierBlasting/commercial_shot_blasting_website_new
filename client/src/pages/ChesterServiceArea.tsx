@@ -10,7 +10,8 @@ import { toast } from "sonner";
 import { trpc } from "@/lib/trpc";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 // The useAuth hook is imported twice in the original Home.tsx, keeping the structure for consistency.
-// import { useAuth } from "@/_core/hooks/useAuth"; 
+// import { useAuth } from "@/_core/hooks/useAuth";
+import { LocationMap } from "@/components/LocationMap"; 
 
 const CHESTER_CONTACT_NUMBER = "07970 566409"; // Assuming same contact number
 const CHESTER_EMAIL = "info@shotblasting.co.uk"; // Assuming same email
@@ -363,7 +364,23 @@ export default function ChesterServiceArea() {
       </section>
 
       {/* Footer (Customized for Chester) */}
-      <footer className="bg-[#1a3d52] text-white py-12">
+      
+      {/* Service Area Map */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#2C5F7F] mb-4">
+              Our Chester Service Area
+            </h2>
+            <p className="text-lg text-gray-600">
+              We provide professional shot blasting services throughout Chester and the surrounding region. The map shows our primary service area with a 25-mile radius.
+            </p>
+          </div>
+          <LocationMap locationName="Chester" />
+        </div>
+      </section>
+
+<footer className="bg-[#1a3d52] text-white py-12">
         <div className="container">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>

@@ -10,6 +10,7 @@ import { toast } from "sonner";
 import { trpc } from "@/lib/trpc";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { LocationMap } from "@/components/LocationMap";
 
 // Placeholder for Testimonial Card - assuming a simple structure
 const TestimonialCard = ({ quote, name, company }: { quote: string, name: string, company: string }) => (
@@ -370,7 +371,23 @@ export default function SwindonServiceArea() {
       </section>
 
       {/* Footer (Simplified) */}
-      <footer className="bg-[#2C2C2C] text-white py-10">
+      
+      {/* Service Area Map */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#2C5F7F] mb-4">
+              Our Swindon Service Area
+            </h2>
+            <p className="text-lg text-gray-600">
+              We provide professional shot blasting services throughout Swindon and the surrounding region. The map shows our primary service area with a 25-mile radius.
+            </p>
+          </div>
+          <LocationMap locationName="Swindon" />
+        </div>
+      </section>
+
+<footer className="bg-[#2C2C2C] text-white py-10">
         <div className="container text-center text-sm text-white/70">
           <p>&copy; {new Date().getFullYear()} Shot Blasting Services. All rights reserved. Serving Swindon and the UK.</p>
           <div className="mt-2 space-x-4">

@@ -8,7 +8,7 @@ import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { LocalBusinessSchema } from "@/components/LocalBusinessSchema";
 import { LocationMap } from "@/components/LocationMap";
-import { locationCoordinates } from "@/data/locationCoordinates";
+
 
 export default function ManchesterServiceArea() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
@@ -325,11 +325,7 @@ export default function ManchesterServiceArea() {
             <p className="text-gray-600 text-center mb-8">
               We provide professional shot blasting services throughout Manchester and the surrounding region. The map shows our primary service area with a 25-mile radius.
             </p>
-            <LocationMap
-              lat={locationCoordinates["manchester"].lat}
-              lng={locationCoordinates["manchester"].lng}
-              locationName="Manchester"
-            />
+            <LocationMap locationName="Manchester" />
           </div>
         </div>
       </section>

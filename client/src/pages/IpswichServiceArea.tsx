@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Phone, Mail, MapPin, CheckCircle, ArrowRight, Shield, Clock, Award, Users, ChevronRight } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { LocationMap } from "@/components/LocationMap";
 
 // Mock data for the Ipswich Service Area page
 const ipswichData = {
@@ -224,7 +225,23 @@ export default function IpswichServiceArea() {
       </section>
 
       {/* Footer (Simplified for component) */}
-      <footer className="bg-[#2C2C2C] text-white py-8">
+      
+      {/* Service Area Map */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#2C5F7F] mb-4">
+              Our Ipswich Service Area
+            </h2>
+            <p className="text-lg text-gray-600">
+              We provide professional shot blasting services throughout Ipswich and the surrounding region. The map shows our primary service area with a 25-mile radius.
+            </p>
+          </div>
+          <LocationMap locationName="Ipswich" />
+        </div>
+      </section>
+
+<footer className="bg-[#2C2C2C] text-white py-8">
         <div className="container text-center text-sm">
           <p>&copy; {new Date().getFullYear()} Shot Blasting Services. Serving {locationName} and East Anglia.</p>
         </div>

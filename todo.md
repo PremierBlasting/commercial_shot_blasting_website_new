@@ -556,3 +556,7 @@
 
 - [x] Create LocationMap component for individual location pages
 - [x] Add unique Google Map to all 32 location landing pages
+
+- [x] Fix LocationMap to display correct UK city coordinates instead of San Francisco
+- [x] Manually add LocationMap to Cambridge, Cardiff, MiltonKeynes pages
+- [x] Add 2 new operator images to hero carousel (positions 2 and 3)

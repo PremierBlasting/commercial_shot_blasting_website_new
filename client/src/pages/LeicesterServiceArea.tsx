@@ -9,6 +9,7 @@ import { useState } from "react";
 import { toast } from "sonner";
 import { trpc } from "@/lib/trpc";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import { LocationMap } from "@/components/LocationMap";
 
 export default function LeicesterServiceArea() {
   // Authentication setup (copied from Home.tsx)
@@ -358,7 +359,23 @@ export default function LeicesterServiceArea() {
       </section>
 
       {/* Footer (Copied from Home.tsx) */}
-      <footer className="bg-[#1a3d52] text-white py-12">
+      
+      {/* Service Area Map */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#2C5F7F] mb-4">
+              Our Leicester Service Area
+            </h2>
+            <p className="text-lg text-gray-600">
+              We provide professional shot blasting services throughout Leicester and the surrounding region. The map shows our primary service area with a 25-mile radius.
+            </p>
+          </div>
+          <LocationMap locationName="Leicester" />
+        </div>
+      </section>
+
+<footer className="bg-[#1a3d52] text-white py-12">
         <div className="container">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>

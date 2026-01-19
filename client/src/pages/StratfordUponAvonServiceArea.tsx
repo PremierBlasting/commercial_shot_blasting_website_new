@@ -5,6 +5,7 @@ import { QuotePopup } from "@/components/QuotePopup";
 import { Header } from "@/components/Header";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { LocalBusinessSchema } from "@/components/LocalBusinessSchema";
+import { LocationMap } from "@/components/LocationMap";
 
 export default function StratfordUponAvonServiceArea() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
@@ -256,6 +257,22 @@ export default function StratfordUponAvonServiceArea() {
       </section>
 
       {/* CTA */}
+      {/* Service Area Map */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#2C5F7F] mb-4">
+              Our Stratford Upon Avon Service Area
+            </h2>
+            <p className="text-lg text-gray-600">
+              We provide professional shot blasting services throughout Stratford Upon Avon and the surrounding region. The map shows our primary service area with a 25-mile radius.
+            </p>
+          </div>
+          <LocationMap locationName="StratfordUponAvon" />
+        </div>
+      </section>
+
+
       <section className="py-16 md:py-24 bg-gradient-to-r from-[#2C5F7F] to-[#1a3d52] text-white">
         <div className="container text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>

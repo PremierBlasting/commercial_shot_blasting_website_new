@@ -9,6 +9,7 @@ import { toast } from "sonner";
 import { trpc } from "@/lib/trpc";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import { LocationMap } from "@/components/LocationMap";
 
 // --- Location-Specific Data ---
 const LOCATION_NAME = "Lincoln";
@@ -348,7 +349,23 @@ export default function LincolnServiceArea() {
       </section>
 
       {/* Footer (Placeholder for completeness) */}
-      <footer className="bg-[#2C2C2C] text-white py-8">
+      
+      {/* Service Area Map */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#2C5F7F] mb-4">
+              Our Lincoln Service Area
+            </h2>
+            <p className="text-lg text-gray-600">
+              We provide professional shot blasting services throughout Lincoln and the surrounding region. The map shows our primary service area with a 25-mile radius.
+            </p>
+          </div>
+          <LocationMap locationName="Lincoln" />
+        </div>
+      </section>
+
+<footer className="bg-[#2C2C2C] text-white py-8">
         <div className="container text-center text-sm">
           &copy; {new Date().getFullYear()} Shot Blasting. All rights reserved. Serving {LOCATION_NAME}, {REGION_NAME}.
         </div>

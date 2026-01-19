@@ -8,6 +8,7 @@ import { useState } from "react";
 import { toast } from "sonner";
 import { trpc } from "@/lib/trpc";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import { LocationMap } from "@/components/LocationMap";
 
 // Dummy data for Testimonials and FAQ
 const localTestimonials = [
@@ -329,7 +330,23 @@ export default function ShrewsburyServiceArea() {
       </section>
 
       {/* Footer - Retained from Home.tsx structure */}
-      <footer className="bg-[#2C2C2C] text-white py-10">
+      
+      {/* Service Area Map */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#2C5F7F] mb-4">
+              Our Shrewsbury Service Area
+            </h2>
+            <p className="text-lg text-gray-600">
+              We provide professional shot blasting services throughout Shrewsbury and the surrounding region. The map shows our primary service area with a 25-mile radius.
+            </p>
+          </div>
+          <LocationMap locationName="Shrewsbury" />
+        </div>
+      </section>
+
+<footer className="bg-[#2C2C2C] text-white py-10">
         <div className="container text-center text-sm text-white/70">
           <p>&copy; {new Date().getFullYear()} Shot Blasting Specialists. All rights reserved. Serving Shrewsbury and the UK.</p>
           <div className="mt-2 space-x-4">

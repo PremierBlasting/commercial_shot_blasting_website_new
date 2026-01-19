@@ -8,6 +8,7 @@ import { Phone, Mail, MapPin, CheckCircle, ArrowRight, Shield, Clock, Award, Use
 import { useState } from "react";
 import { toast } from "sonner";
 import { trpc } from "@/lib/trpc";
+import { LocationMap } from "@/components/LocationMap";
 
 // --- Hereford Specific Data ---
 const LOCATION_NAME = "Hereford";
@@ -347,7 +348,7 @@ const ContactFormSection = () => {
 };
 
 const Footer = () => (
-  <footer className="bg-[#1a3d52] text-white py-12">
+<footer className="bg-[#1a3d52] text-white py-12">
     <div className="container">
       <div className="grid md:grid-cols-4 gap-8 mb-8">
         <div>
@@ -438,6 +439,22 @@ export default function HerefordServiceArea() {
       <FAQSection />
       <CTASection />
       <ContactFormSection />
+      
+      {/* Service Area Map */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#2C5F7F] mb-4">
+              Our Hereford Service Area
+            </h2>
+            <p className="text-lg text-gray-600">
+              We provide professional shot blasting services throughout Hereford and the surrounding region. The map shows our primary service area with a 25-mile radius.
+            </p>
+          </div>
+          <LocationMap locationName="Hereford" />
+        </div>
+      </section>
+      
       <Footer />
     </div>
   );

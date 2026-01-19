@@ -9,7 +9,8 @@ import { useState } from "react";
 import { toast } from "sonner";
 import { trpc } from "@/lib/trpc";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"; // Assuming Accordion is available
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { LocationMap } from "@/components/LocationMap"; // Assuming Accordion is available
 
 export default function DerbyServiceArea() {
   // The userAuth hooks provides authentication state
@@ -367,7 +368,23 @@ export default function DerbyServiceArea() {
       </section>
 
       {/* Footer (Keep as is) */}
-      <footer className="bg-[#1a3d52] text-white py-10">
+      
+      {/* Service Area Map */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#2C5F7F] mb-4">
+              Our Derby Service Area
+            </h2>
+            <p className="text-lg text-gray-600">
+              We provide professional shot blasting services throughout Derby and the surrounding region. The map shows our primary service area with a 25-mile radius.
+            </p>
+          </div>
+          <LocationMap locationName="Derby" />
+        </div>
+      </section>
+
+<footer className="bg-[#1a3d52] text-white py-10">
         <div className="container text-center">
           <p className="text-sm text-white/70">&copy; {new Date().getFullYear()} Shot Blasting UK. All rights reserved. | Serving Derby and the East Midlands.</p>
         </div>
