@@ -11,6 +11,7 @@ import { BlogPreview } from "@/components/BlogPreview";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import ServiceSelector from "@/components/ServiceSelector";
 import { LazyImage } from "@/components/LazyImage";
+import { ReviewSchema } from "@/components/ReviewSchema";
 import { trpc } from "@/lib/trpc";
 import { SEO } from "@/components/SEO";
 
@@ -283,6 +284,18 @@ export default function Home() {
       {/* Testimonials Section */}
       <section className="py-20 bg-white">
         <div className="container">
+          {/* Review Schema for SEO */}
+          <ReviewSchema 
+            reviews={displayTestimonials.map(t => ({
+              author: t.name,
+              rating: t.rating,
+              text: t.text,
+              datePublished: new Date().toISOString().split('T')[0] // You can add actual dates to testimonials data
+            }))}
+            businessName="Commercial Shot Blasting"
+            businessUrl="https://commercialshotblasting.co.uk"
+          />
+
           <div className="text-center mb-12">
             <p className="text-[#2C5F7F] font-medium mb-2">Customer Reviews</p>
             <h2 className="text-3xl md:text-4xl font-bold text-[#2C2C2C]" style={{ fontFamily: "'Playfair Display', serif" }}>
