@@ -364,6 +364,7 @@ export default function Gallery() {
             images={filteredItems.map(item => ({
               id: item.id,
               url: item.after,
+              beforeUrl: item.before,
               title: item.title,
               category: item.category
             }))}

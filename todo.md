@@ -925,3 +925,12 @@
 - [x] Integrate new gallery into Gallery page
 - [x] Test touch gestures on mobile viewport
 - [x] Ensure smooth animations and transitions
+
+## Before/After Comparison Slider in Lightbox
+- [x] Update TouchGallery component to accept before images
+- [x] Implement draggable comparison slider overlay in lightbox
+- [x] Add touch gesture support for slider dragging
+- [x] Add visual indicator (handle) for draggable divider
+- [x] Ensure smooth slider animation and responsiveness
+- [x] Update Gallery page to pass before images to TouchGallery
+- [x] Test slider on mobile and desktop viewports
