@@ -875,3 +875,12 @@
 - [x] Add one-click restore functionality with confirmation
 - [x] Integrate backup tab into admin dashboard
 - [x] Write comprehensive tests for backup/restore operations
+
+## Mobile Usability Improvements (Critical Fixes)
+- [x] Fix hero text sizing - reduce from 48px to 32px on mobile with better line-height
+- [x] Ensure hamburger menu activates at 768px breakpoint
+- [x] Increase all touch targets to minimum 48x48px (buttons, links, icons)
+- [x] Convert Services dropdown to accordion-style in mobile menu (already implemented)
+- [x] Convert Areas dropdown to accordion-style in mobile menu (already implemented)
+- [x] Set form input font size to minimum 16px to prevent iOS auto-zoom
+- [x] Test all fixes on mobile viewport

@@ -151,10 +151,10 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-r from-[#1a3d52]/80 via-[#2C5F7F]/60 to-transparent"></div>
         <div className="container relative z-10">
           <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight" style={{ fontFamily: "'Playfair Display', serif" }}>
               Professional Commercial Shot Blasting Services
             </h1>
-            <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
               Specialist precision shot blasting company in the UK, removing rust, scale, and coatings from all types of surfaces. Transform your surfaces with our expert team.
             </p>
             <div className="flex flex-wrap gap-4">

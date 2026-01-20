@@ -402,11 +402,12 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
           <Button className="hidden sm:flex bg-white text-[#2C5F7F] hover:bg-white/90" onClick={onOpenQuotePopup}>
             Get a Quote
           </Button>
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button - Increased touch target to 48x48px */}
           <button 
-            className="md:hidden p-2 hover:bg-white/10 rounded-lg transition"
+            className="md:hidden p-3 hover:bg-white/10 rounded-lg transition min-w-[48px] min-h-[48px] flex items-center justify-center"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
+            aria-expanded={mobileMenuOpen}
             type="button"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -421,15 +422,16 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
         }`}
       >
         <nav className="container py-4 border-t border-white/20">
-          <div className="flex flex-col gap-2">
-            <Link href="/" onClick={closeMobileMenu} className="py-3 hover:text-white/80 transition border-b border-white/10">Home</Link>
+          <div className="flex flex-col gap-1">
+            <Link href="/" onClick={closeMobileMenu} className="py-4 hover:text-white/80 transition border-b border-white/10 min-h-[48px] flex items-center">Home</Link>
             
             {/* Services with Sub-menu */}
             <div className="border-b border-white/10">
               <button
-                className="w-full py-3 flex items-center justify-between hover:text-white/80 transition"
+                className="w-full py-4 flex items-center justify-between hover:text-white/80 transition min-h-[48px]"
                 onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
                 type="button"
+                aria-expanded={mobileServicesOpen}
               >
                 <span>Services</span>
                 {mobileServicesOpen ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
@@ -463,14 +465,15 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
               </div>
             </div>
 
-            <a href="/#about" onClick={closeMobileMenu} className="py-3 hover:text-white/80 transition border-b border-white/10">About</a>
+            <a href="/#about" onClick={closeMobileMenu} className="py-4 hover:text-white/80 transition border-b border-white/10 min-h-[48px] flex items-center">About</a>
             
             {/* Industries with Sub-menu */}
             <div className="border-b border-white/10">
               <button
-                className="w-full py-3 flex items-center justify-between hover:text-white/80 transition"
+                className="w-full py-4 flex items-center justify-between hover:text-white/80 transition min-h-[48px]"
                 onClick={() => setMobileIndustriesOpen(!mobileIndustriesOpen)}
                 type="button"
+                aria-expanded={mobileIndustriesOpen}
               >
                 <span>Industries</span>
                 {mobileIndustriesOpen ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
@@ -501,15 +504,16 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
               </div>
             </div>
             
-            <Link href="/gallery" onClick={closeMobileMenu} className="py-3 hover:text-white/80 transition border-b border-white/10">Gallery</Link>
-            <Link href="/blog" onClick={closeMobileMenu} className="py-3 hover:text-white/80 transition border-b border-white/10">Blog</Link>
+            <Link href="/gallery" onClick={closeMobileMenu} className="py-4 hover:text-white/80 transition border-b border-white/10 min-h-[48px] flex items-center">Gallery</Link>
+            <Link href="/blog" onClick={closeMobileMenu} className="py-4 hover:text-white/80 transition border-b border-white/10 min-h-[48px] flex items-center">Blog</Link>
             
             {/* Mobile Areas with Sub-menu */}
             <div className="border-b border-white/10">
               <button
-                className="w-full py-3 flex items-center justify-between hover:text-white/80 transition"
+                className="w-full py-4 flex items-center justify-between hover:text-white/80 transition min-h-[48px]"
                 onClick={() => setMobileAreasOpen(!mobileAreasOpen)}
                 type="button"
+                aria-expanded={mobileAreasOpen}
               >
                 <span>Service Areas</span>
                 {mobileAreasOpen ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
@@ -548,11 +552,11 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
               </div>
             </div>
             
-            <a href="/#contact" onClick={closeMobileMenu} className="py-3 hover:text-white/80 transition border-b border-white/10">Contact</a>
+            <a href="/#contact" onClick={closeMobileMenu} className="py-4 hover:text-white/80 transition border-b border-white/10 min-h-[48px] flex items-center">Contact</a>
             
             <div className="flex flex-col gap-3 pt-4">
-              <a href="tel:07970566409" className="flex items-center gap-2 text-sm">
-                <Phone className="w-4 h-4" />
+              <a href="tel:07970566409" className="flex items-center gap-2 text-base py-3 hover:text-white/80 transition min-h-[48px]">
+                <Phone className="w-5 h-5" />
                 07970 566409
               </a>
               <Button 
