@@ -395,11 +395,11 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
         </nav>
 
         <div className="flex items-center gap-4">
-          <a href="tel:07970566409" className="hidden lg:flex items-center gap-2 text-sm">
+          <a href="tel:07970566409" className="hidden lg:flex items-center gap-2 text-sm min-h-[48px] px-3 py-2 hover:bg-white/10 rounded-lg transition touch-manipulation">
             <Phone className="w-4 h-4" />
             07970 566409
           </a>
-          <Button className="hidden sm:flex bg-white text-[#2C5F7F] hover:bg-white/90" onClick={onOpenQuotePopup}>
+          <Button className="hidden sm:flex bg-white text-[#2C5F7F] hover:bg-white/90 min-h-[48px] px-6 py-3 touch-manipulation" onClick={onOpenQuotePopup}>
             Get a Quote
           </Button>
           {/* Mobile Menu Button - Shows on tablet and mobile */}

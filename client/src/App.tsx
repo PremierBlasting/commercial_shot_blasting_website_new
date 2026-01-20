@@ -1,5 +1,5 @@
-import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { FloatingMobileCTA } from "@/components/FloatingMobileCTA";
 import NotFound from "@/pages/NotFound";
 import { lazy, Suspense } from "react";
 import { Route, Switch } from "wouter";
@@ -130,10 +130,10 @@ function App() {
         // switchable
       >
         <TooltipProvider>
-          <Toaster />
           <Router />
           <CookieConsent />
           <FloatingCallButton />
+          <FloatingMobileCTA />
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>

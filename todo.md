@@ -895,3 +895,17 @@
 - [x] Hide desktop navigation at proper breakpoint to prevent cramping
 - [x] Ensure hamburger menu shows before navigation items overflow
 - [x] Test navigation on various mobile screen sizes
+
+## Floating Mobile CTA Buttons
+- [x] Create FloatingMobileCTA component with WhatsApp and Call Now buttons
+- [x] Position buttons vertically in middle-right of screen
+- [x] Make buttons sticky (fixed position) during scroll
+- [x] Ensure buttons stay visible on all pages
+- [x] Add proper touch targets (minimum 48x48px)
+- [x] Test on mobile viewport
+
+## Touch Target Size Fixes
+- [x] Increase phone number button to minimum 48px height
+- [x] Increase "Get a Quote" button to minimum 48px height
+- [x] Verify all clickable elements meet 48x48px minimum
+- [x] Test touch targets on mobile devices
