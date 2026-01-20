@@ -28,13 +28,15 @@ import {
   ChevronLeft,
   FileText,
   Search,
-  History
+  History,
+  Database
 } from "lucide-react";
 import { useState } from "react";
 import { Link } from "wouter";
 import { toast } from "sonner";
 import { ImageUpload } from "@/components/ImageUpload";
 import VersionHistoryTab from "@/components/VersionHistoryTab";
+import BackupTab from "@/components/BackupTab";
 
 const categories = ["Industrial", "Automotive", "Marine", "Agriculture", "Infrastructure"];
 
@@ -164,6 +166,9 @@ export default function Admin() {
             <TabsTrigger value="versions" className="gap-2">
               <History className="w-4 h-4" /> Versions
             </TabsTrigger>
+            <TabsTrigger value="backup" className="gap-2">
+              <Database className="w-4 h-4" /> Backup
+            </TabsTrigger>
           </TabsList>
 
           <TabsContent value="overview">
@@ -192,6 +197,10 @@ export default function Admin() {
 
           <TabsContent value="versions">
             <VersionHistoryTab />
+          </TabsContent>
+
+          <TabsContent value="backup">
+            <BackupTab />
           </TabsContent>
         </Tabs>
       </main>

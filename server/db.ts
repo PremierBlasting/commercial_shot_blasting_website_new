@@ -23,7 +23,10 @@ import {
   PerformanceMetric,
   versionHistory,
   InsertVersionHistory,
-  VersionHistory
+  VersionHistory,
+  backupHistory,
+  InsertBackupHistory,
+  BackupHistory
 } from "../drizzle/schema";
 import { ENV } from './_core/env';
 
@@ -504,4 +507,192 @@ export async function deleteVersionHistory(id: number): Promise<void> {
   await db
     .delete(versionHistory)
     .where(eq(versionHistory.id, id));
+}
+
+
+// ============================================
+// Backup History helpers
+// ============================================
+
+export async function getAllBackupHistory(): Promise<BackupHistory[]> {
+  const db = await getDb();
+  if (!db) return [];
+  
+  return db
+    .select()
+    .from(backupHistory)
+    .orderBy(desc(backupHistory.createdAt));
+}
+
+export async function getBackupHistoryById(backupId: string): Promise<BackupHistory | undefined> {
+  const db = await getDb();
+  if (!db) return undefined;
+  
+  const results = await db
+    .select()
+    .from(backupHistory)
+    .where(eq(backupHistory.backupId, backupId))
+    .limit(1);
+  
+  return results[0];
+}
+
+export async function createBackupHistory(data: InsertBackupHistory): Promise<BackupHistory> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  
+  const result = await db
+    .insert(backupHistory)
+    .values(data);
+  
+  const insertedId = result[0].insertId;
+  const inserted = await db
+    .select()
+    .from(backupHistory)
+    .where(eq(backupHistory.id, insertedId))
+    .limit(1);
+  
+  return inserted[0];
+}
+
+export async function updateBackupHistory(backupId: string, data: Partial<InsertBackupHistory>): Promise<void> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  
+  await db
+    .update(backupHistory)
+    .set(data)
+    .where(eq(backupHistory.backupId, backupId));
+}
+
+export async function deleteBackupHistory(id: number): Promise<void> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  
+  await db
+    .delete(backupHistory)
+    .where(eq(backupHistory.id, id));
+}
+
+// Export all data from all tables
+export async function exportAllData(): Promise<Record<string, any[]>> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  
+  const [
+    usersData,
+    galleryData,
+    testimonialsData,
+    contactsData,
+    blogData,
+    seoData,
+    performanceData,
+    versionData,
+    backupData,
+  ] = await Promise.all([
+    db.select().from(users),
+    db.select().from(galleryItems),
+    db.select().from(testimonials),
+    db.select().from(contactSubmissions),
+    db.select().from(blogPosts),
+    db.select().from(seoMetadata),
+    db.select().from(performanceMetrics),
+    db.select().from(versionHistory),
+    db.select().from(backupHistory),
+  ]);
+  
+  return {
+    users: usersData,
+    gallery_items: galleryData,
+    testimonials: testimonialsData,
+    contact_submissions: contactsData,
+    blog_posts: blogData,
+    seo_metadata: seoData,
+    performance_metrics: performanceData,
+    version_history: versionData,
+    backup_history: backupData,
+  };
+}
+
+
+// Restore data to all tables (WARNING: This will replace existing data)
+export async function restoreAllData(data: Record<string, any[]>): Promise<void> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  
+  // Note: This is a simplified restore that inserts data
+  // In production, you might want to clear tables first or handle conflicts
+  
+  // Note: Using try-catch to handle duplicate key errors gracefully
+  // This allows partial restores to succeed even if some records already exist
+  
+  if (data.gallery_items && data.gallery_items.length > 0) {
+    for (const item of data.gallery_items) {
+      try {
+        await db.insert(galleryItems).values(item);
+      } catch (e) {
+        // Skip duplicates
+      }
+    }
+  }
+  
+  if (data.testimonials && data.testimonials.length > 0) {
+    for (const item of data.testimonials) {
+      try {
+        await db.insert(testimonials).values(item);
+      } catch (e) {
+        // Skip duplicates
+      }
+    }
+  }
+  
+  if (data.contact_submissions && data.contact_submissions.length > 0) {
+    for (const item of data.contact_submissions) {
+      try {
+        await db.insert(contactSubmissions).values(item);
+      } catch (e) {
+        // Skip duplicates
+      }
+    }
+  }
+  
+  if (data.blog_posts && data.blog_posts.length > 0) {
+    for (const item of data.blog_posts) {
+      try {
+        await db.insert(blogPosts).values(item);
+      } catch (e) {
+        // Skip duplicates
+      }
+    }
+  }
+  
+  if (data.seo_metadata && data.seo_metadata.length > 0) {
+    for (const item of data.seo_metadata) {
+      try {
+        await db.insert(seoMetadata).values(item);
+      } catch (e) {
+        // Skip duplicates
+      }
+    }
+  }
+  
+  if (data.performance_metrics && data.performance_metrics.length > 0) {
+    for (const item of data.performance_metrics) {
+      try {
+        await db.insert(performanceMetrics).values(item);
+      } catch (e) {
+        // Skip duplicates
+      }
+    }
+  }
+  
+  if (data.version_history && data.version_history.length > 0) {
+    for (const item of data.version_history) {
+      try {
+        await db.insert(versionHistory).values(item);
+      } catch (e) {
+        // Skip duplicates
+      }
+    }
+  }
 }

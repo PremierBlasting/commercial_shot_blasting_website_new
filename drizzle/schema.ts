@@ -236,3 +236,22 @@ export const versionHistory = mysqlTable("version_history", {
 
 export type VersionHistory = typeof versionHistory.$inferSelect;
 export type InsertVersionHistory = typeof versionHistory.$inferInsert;
+
+/**
+ * Backup History table for tracking website backups
+ */
+export const backupHistory = mysqlTable("backup_history", {
+  id: int("id").autoincrement().primaryKey(),
+  backupId: varchar("backupId", { length: 100 }).notNull().unique(),
+  description: text("description"),
+  fileSize: int("fileSize"), // Size in bytes
+  fileUrl: text("fileUrl"), // S3 URL to backup archive
+  tablesIncluded: text("tablesIncluded"), // JSON array of table names
+  filesIncluded: int("filesIncluded").default(0), // Count of files
+  createdBy: varchar("createdBy", { length: 255 }),
+  status: mysqlEnum("status", ["creating", "completed", "failed"]).default("creating").notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+
+export type BackupHistory = typeof backupHistory.$inferSelect;
+export type InsertBackupHistory = typeof backupHistory.$inferInsert;

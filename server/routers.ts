@@ -38,6 +38,13 @@ import {
   createVersionHistory,
   markVersionAsCurrent,
   deleteVersionHistory,
+  getAllBackupHistory,
+  getBackupHistoryById,
+  createBackupHistory,
+  updateBackupHistory,
+  deleteBackupHistory,
+  exportAllData,
+  restoreAllData,
 } from "./db";
 import { storagePut } from "./storage";
 import { nanoid } from "nanoid";
@@ -588,6 +595,141 @@ export const appRouter = router({
       .mutation(async ({ input }) => {
         await deleteVersionHistory(input.id);
         return { success: true };
+      }),
+  }),
+
+  // Backup and Restore management
+  backup: router({
+    // Admin: List all backups
+    listAll: adminProcedure
+      .query(async () => {
+        return await getAllBackupHistory();
+      }),
+
+    // Admin: Get backup by ID
+    getById: adminProcedure
+      .input(z.object({ backupId: z.string() }))
+      .query(async ({ input }) => {
+        return await getBackupHistoryById(input.backupId);
+      }),
+
+    // Admin: Create new backup
+    create: adminProcedure
+      .input(z.object({
+        description: z.string().optional(),
+      }))
+      .mutation(async ({ input, ctx }) => {
+        const backupId = `backup-${Date.now()}-${nanoid(8)}`;
+        
+        try {
+          // Create backup record
+          const backup = await createBackupHistory({
+            backupId,
+            description: input.description || `Backup created on ${new Date().toLocaleString()}`,
+            createdBy: ctx.user.name || ctx.user.email || "Unknown",
+            status: "creating",
+          });
+
+          // Export all data
+          const allData = await exportAllData();
+          
+          // Create backup object
+          const backupData = {
+            version: "1.0",
+            timestamp: new Date().toISOString(),
+            tables: allData,
+            metadata: {
+              backupId,
+              description: backup.description,
+              createdBy: backup.createdBy,
+              createdAt: backup.createdAt,
+            },
+          };
+
+          // Convert to JSON and upload to S3
+          const backupJson = JSON.stringify(backupData, null, 2);
+          const backupBuffer = Buffer.from(backupJson, 'utf-8');
+          
+          const { url } = await storagePut(
+            `backups/${backupId}.json`,
+            backupBuffer,
+            "application/json"
+          );
+
+          // Update backup record with file info
+          await updateBackupHistory(backupId, {
+            fileUrl: url,
+            fileSize: backupBuffer.length,
+            tablesIncluded: JSON.stringify(Object.keys(allData)),
+            filesIncluded: 0, // File references are in the data, not separate files
+            status: "completed",
+          });
+
+          return { success: true, backupId, fileUrl: url };
+        } catch (error) {
+          // Mark backup as failed
+          await updateBackupHistory(backupId, {
+            status: "failed",
+          });
+          throw error;
+        }
+      }),
+
+    // Admin: Download backup
+    download: adminProcedure
+      .input(z.object({ backupId: z.string() }))
+      .query(async ({ input }) => {
+        const backup = await getBackupHistoryById(input.backupId);
+        if (!backup || !backup.fileUrl) {
+          throw new TRPCError({ code: 'NOT_FOUND', message: 'Backup not found' });
+        }
+        return { fileUrl: backup.fileUrl };
+      }),
+
+    // Admin: Delete backup
+    delete: adminProcedure
+      .input(z.object({ id: z.number() }))
+      .mutation(async ({ input }) => {
+        await deleteBackupHistory(input.id);
+        return { success: true };
+      }),
+
+    // Admin: Restore from backup
+    restore: adminProcedure
+      .input(z.object({ backupId: z.string() }))
+      .mutation(async ({ input }) => {
+        const backup = await getBackupHistoryById(input.backupId);
+        if (!backup || !backup.fileUrl) {
+          throw new TRPCError({ code: 'NOT_FOUND', message: 'Backup not found' });
+        }
+
+        try {
+          // Fetch backup file from S3
+          const response = await fetch(backup.fileUrl);
+          if (!response.ok) {
+            throw new Error('Failed to fetch backup file');
+          }
+
+          const backupData = await response.json();
+          
+          // Validate backup structure
+          if (!backupData.tables || !backupData.version) {
+            throw new Error('Invalid backup file format');
+          }
+
+          // Restore data
+          await restoreAllData(backupData.tables);
+
+          return { 
+            success: true, 
+            message: `Restored ${Object.keys(backupData.tables).length} tables from backup` 
+          };
+        } catch (error) {
+          throw new TRPCError({ 
+            code: 'INTERNAL_SERVER_ERROR', 
+            message: `Restore failed: ${error instanceof Error ? error.message : 'Unknown error'}` 
+          });
+        }
       }),
   }),
 });

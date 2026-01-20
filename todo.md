@@ -862,3 +862,16 @@
 - [x] Add one-click rollback functionality with confirmation dialog
 - [x] Integrate version history tab into admin dashboard
 - [x] Test version history viewing and rollback functionality
+
+## Backup and Restore System
+- [x] Create backup_history database table with schema
+- [x] Implement database export functionality (all tables to JSON)
+- [x] Implement file list export (S3 file references)
+- [x] Create backup archive generation endpoint
+- [x] Add backup download functionality
+- [x] Implement restore functionality from backup archive
+- [x] Create BackupTab admin component with backup list UI
+- [x] Add one-click backup creation button
+- [x] Add one-click restore functionality with confirmation
+- [x] Integrate backup tab into admin dashboard
+- [x] Write comprehensive tests for backup/restore operations

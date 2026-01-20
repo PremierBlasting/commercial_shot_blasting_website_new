@@ -57,6 +57,13 @@
       "when": 1768910082111,
       "tag": "0007_pink_reaper",
       "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "5",
+      "when": 1768910607329,
+      "tag": "0008_wealthy_diamondback",
+      "breakpoints": true
     }
   ]
 }
