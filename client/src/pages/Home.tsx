@@ -10,6 +10,7 @@ import { ServiceAreasMap } from "@/components/ServiceAreasMap";
 import { BlogPreview } from "@/components/BlogPreview";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import ServiceSelector from "@/components/ServiceSelector";
+import { LazyImage } from "@/components/LazyImage";
 import { trpc } from "@/lib/trpc";
 import { SEO } from "@/components/SEO";
 
@@ -217,7 +218,7 @@ export default function Home() {
               <Link key={i} href={service.link}>
                 <Card className="group overflow-hidden hover:shadow-lg transition-shadow h-full cursor-pointer">
                   <div className="h-48 overflow-hidden">
-                    <img src={service.img} alt={service.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+                    <LazyImage src={service.img} alt={service.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                   </div>
                   <CardContent className="p-6">
                     <h3 className="text-xl font-semibold mb-2 text-[#2C5F7F]" style={{ fontFamily: "'Playfair Display', serif" }}>{service.title}</h3>
@@ -310,14 +311,17 @@ export default function Home() {
               {displayTestimonials[0].images && displayTestimonials[0].images.length > 0 && (
                 <div className={`grid gap-2 mb-6 ${displayTestimonials[0].images.length >= 5 ? 'grid-cols-5' : `grid-cols-${displayTestimonials[0].images.length}`}`}>
                   {displayTestimonials[0].images.map((img, idx) => (
-                    <img 
-                      key={idx} 
-                      src={img} 
-                      alt={`Review photo ${idx + 1}`} 
-                      className="w-full h-24 md:h-32 object-cover rounded-lg hover:scale-105 transition-transform cursor-pointer shadow-md"
+                    <div
+                      key={idx}
                       onClick={() => openLightbox(displayTestimonials[0].images!, idx)}
-                      loading="lazy"
-                    />
+                      className="cursor-pointer hover:scale-105 transition-transform"
+                    >
+                      <LazyImage 
+                        src={img} 
+                        alt={`Review photo ${idx + 1}`} 
+                        className="w-full h-24 md:h-32 rounded-lg shadow-md" 
+                      />
+                    </div>
                   ))}
                 </div>
               )}
@@ -349,14 +353,17 @@ export default function Home() {
                 {testimonial.images && testimonial.images.length > 0 && (
                   <div className="grid grid-cols-3 gap-1 mb-4">
                     {testimonial.images.map((img, idx) => (
-                      <img 
-                        key={idx} 
-                        src={img} 
-                        alt={`Review photo ${idx + 1}`} 
-                        className="w-full h-16 object-cover rounded hover:scale-105 transition-transform cursor-pointer"
+                      <div
+                        key={idx}
                         onClick={() => openLightbox(testimonial.images!, idx)}
-                        loading="lazy"
-                      />
+                        className="cursor-pointer hover:scale-105 transition-transform"
+                      >
+                        <LazyImage 
+                          src={img} 
+                          alt={`Review photo ${idx + 1}`} 
+                          className="w-full h-16 rounded" 
+                        />
+                      </div>
                     ))}
                   </div>
                 )}

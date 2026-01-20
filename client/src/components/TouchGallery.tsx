@@ -5,6 +5,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { X, MoveHorizontal } from "lucide-react";
+import { LazyImage } from "./LazyImage";
 
 interface TouchGalleryProps {
   images: Array<{
@@ -144,11 +145,10 @@ export function TouchGallery({ images }: TouchGalleryProps) {
             onClick={() => openLightbox(index)}
             className="group relative aspect-[4/3] overflow-hidden rounded-lg bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-transform hover:scale-[1.02] active:scale-[0.98]"
           >
-            <img
+            <LazyImage
               src={image.url}
               alt={image.title}
-              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-              loading="lazy"
+              className="w-full h-full group-hover:scale-110 transition-transform duration-300"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
