@@ -199,8 +199,8 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
           </div>
         </Link>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-6">
+        {/* Desktop Navigation - Hidden on tablet and mobile to prevent cramping */}
+        <nav className="hidden lg:flex items-center gap-6">
           <Link href="/" className="hover:text-white/80 transition">Home</Link>
           
           {/* Services Dropdown */}
@@ -402,9 +402,9 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
           <Button className="hidden sm:flex bg-white text-[#2C5F7F] hover:bg-white/90" onClick={onOpenQuotePopup}>
             Get a Quote
           </Button>
-          {/* Mobile Menu Button - Increased touch target to 48x48px */}
+          {/* Mobile Menu Button - Shows on tablet and mobile */}
           <button 
-            className="md:hidden p-3 hover:bg-white/10 rounded-lg transition min-w-[48px] min-h-[48px] flex items-center justify-center"
+            className="lg:hidden p-3 hover:bg-white/10 rounded-lg transition min-w-[48px] min-h-[48px] flex items-center justify-center"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
             aria-expanded={mobileMenuOpen}
@@ -415,9 +415,9 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu - Shows on tablet and mobile */}
       <div 
-        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+        className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${
           mobileMenuOpen ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0'
         }`}
       >

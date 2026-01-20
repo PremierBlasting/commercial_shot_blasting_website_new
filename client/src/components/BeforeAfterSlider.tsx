@@ -77,12 +77,13 @@ export function BeforeAfterSlider({
   return (
     <div
       ref={containerRef}
-      className={`relative overflow-hidden rounded-xl cursor-ew-resize select-none ${className}`}
+      className={`relative overflow-hidden rounded-xl cursor-ew-resize select-none touch-none ${className}`}
       onMouseDown={handleMouseDown}
       onTouchStart={handleTouchStart}
+      style={{ touchAction: 'none' }}
     >
       {/* After Image (Background) */}
-      <div className="relative w-full aspect-[4/3]">
+      <div className="relative w-full aspect-[4/3] md:aspect-[16/10]">
         <img
           src={afterImage}
           alt={afterLabel}
@@ -112,8 +113,8 @@ export function BeforeAfterSlider({
           className="absolute top-0 bottom-0 w-1 bg-white shadow-lg z-10"
           style={{ left: `${sliderPosition}%`, transform: "translateX(-50%)" }}
         >
-          {/* Slider Handle */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-xl flex items-center justify-center border-4 border-[#2C5F7F]">
+          {/* Slider Handle - Larger on mobile for better touch */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 md:w-12 md:h-12 bg-white rounded-full shadow-xl flex items-center justify-center border-4 border-[#2C5F7F]">
             <div className="flex items-center gap-1">
               <svg
                 className="w-4 h-4 text-[#2C5F7F] rotate-180"
@@ -145,16 +146,16 @@ export function BeforeAfterSlider({
           </div>
         </div>
 
-        {/* Labels */}
-        <div className="absolute top-4 left-4 bg-black/70 text-white px-3 py-1.5 rounded-full text-sm font-semibold">
+        {/* Labels - Smaller on mobile */}
+        <div className="absolute top-2 left-2 md:top-4 md:left-4 bg-black/70 text-white px-2 py-1 md:px-3 md:py-1.5 rounded-full text-xs md:text-sm font-semibold">
           {beforeLabel}
         </div>
-        <div className="absolute top-4 right-4 bg-[#2C5F7F] text-white px-3 py-1.5 rounded-full text-sm font-semibold">
+        <div className="absolute top-2 right-2 md:top-4 md:right-4 bg-[#2C5F7F] text-white px-2 py-1 md:px-3 md:py-1.5 rounded-full text-xs md:text-sm font-semibold">
           {afterLabel}
         </div>
 
-        {/* Instruction Text */}
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/60 text-white px-4 py-2 rounded-full text-sm flex items-center gap-2">
+        {/* Instruction Text - Smaller on mobile */}
+        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 bg-black/60 text-white px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs md:text-sm flex items-center gap-2">
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
           </svg>

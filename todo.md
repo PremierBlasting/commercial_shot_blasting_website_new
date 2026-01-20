@@ -884,3 +884,14 @@
 - [x] Convert Areas dropdown to accordion-style in mobile menu (already implemented)
 - [x] Set form input font size to minimum 16px to prevent iOS auto-zoom
 - [x] Test all fixes on mobile viewport
+
+## Before/After Image Comparison Mobile Fix
+- [x] Investigate before/after image component visibility on mobile
+- [x] Fix mobile layout and interaction issues
+- [x] Ensure images are visible and slider works on mobile devices
+- [x] Test on mobile viewport
+
+## Navigation Horizontal Scroll Fix
+- [x] Hide desktop navigation at proper breakpoint to prevent cramping
+- [x] Ensure hamburger menu shows before navigation items overflow
+- [x] Test navigation on various mobile screen sizes
