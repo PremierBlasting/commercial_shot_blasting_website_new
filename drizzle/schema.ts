@@ -219,3 +219,20 @@ export const callTrackingEvents = mysqlTable("call_tracking_events", {
 
 export type CallTrackingEvent = typeof callTrackingEvents.$inferSelect;
 export type InsertCallTrackingEvent = typeof callTrackingEvents.$inferInsert;
+
+/**
+ * Version History table for tracking website checkpoints and enabling rollback
+ */
+export const versionHistory = mysqlTable("version_history", {
+  id: int("id").autoincrement().primaryKey(),
+  versionId: varchar("versionId", { length: 100 }).notNull().unique(),
+  description: text("description"),
+  changesSummary: text("changesSummary"), // JSON array of changes
+  createdBy: varchar("createdBy", { length: 255 }),
+  isCurrent: boolean("isCurrent").default(false).notNull(),
+  screenshotUrl: text("screenshotUrl"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+
+export type VersionHistory = typeof versionHistory.$inferSelect;
+export type InsertVersionHistory = typeof versionHistory.$inferInsert;

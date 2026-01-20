@@ -1,68 +1,60 @@
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
-import { lazy, Suspense } from "react";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { usePerformanceMonitoring } from "./hooks/usePerformanceMonitoring";
-const Home = lazy(() => import("./pages/Home"));
-const Gallery = lazy(() => import("./pages/Gallery"));
-const Admin = lazy(() => import("./pages/Admin"));
-const ServiceDetail = lazy(() => import("./pages/ServiceDetail"));
-const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
-const Terms = lazy(() => import("./pages/Terms"));
-const Blog = lazy(() => import("./pages/Blog"));
-const BlogPost = lazy(() => import("./pages/BlogPost"));
-const ServiceAreas = lazy(() => import("./pages/ServiceAreas"));
-const BirminghamServiceArea = lazy(() => import("./pages/BirminghamServiceArea"));
-const SheffieldServiceArea = lazy(() => import("./pages/SheffieldServiceArea"));
-const ManchesterServiceArea = lazy(() => import("./pages/ManchesterServiceArea"));
-const BristolServiceArea = lazy(() => import("./pages/BristolServiceArea"));
-const LeedsServiceArea = lazy(() => import("./pages/LeedsServiceArea"));
-const LiverpoolServiceArea = lazy(() => import("./pages/LiverpoolServiceArea"));
-const CambridgeServiceArea = lazy(() => import("./pages/CambridgeServiceArea"));
-const CardiffServiceArea = lazy(() => import("./pages/CardiffServiceArea"));
-const ChesterServiceArea = lazy(() => import("./pages/ChesterServiceArea"));
-const CoventryServiceArea = lazy(() => import("./pages/CoventryServiceArea"));
-const DerbyServiceArea = lazy(() => import("./pages/DerbyServiceArea"));
-const GloucesterServiceArea = lazy(() => import("./pages/GloucesterServiceArea"));
-const HerefordServiceArea = lazy(() => import("./pages/HerefordServiceArea"));
-const IpswichServiceArea = lazy(() => import("./pages/IpswichServiceArea"));
-const LeicesterServiceArea = lazy(() => import("./pages/LeicesterServiceArea"));
-const LincolnServiceArea = lazy(() => import("./pages/LincolnServiceArea"));
-const MiltonKeynesServiceArea = lazy(() => import("./pages/MiltonKeynesServiceArea"));
-const NorwichServiceArea = lazy(() => import("./pages/NorwichServiceArea"));
-const NottinghamServiceArea = lazy(() => import("./pages/NottinghamServiceArea"));
-const ShrewsburyServiceArea = lazy(() => import("./pages/ShrewsburyServiceArea"));
-const StAlbansServiceArea = lazy(() => import("./pages/StAlbansServiceArea"));
-const StokeServiceArea = lazy(() => import("./pages/StokeServiceArea"));
-const SwindonServiceArea = lazy(() => import("./pages/SwindonServiceArea"));
-const StratfordUponAvonServiceArea = lazy(() => import("./pages/StratfordUponAvonServiceArea"));
-const WolverhamtonServiceArea = lazy(() => import("./pages/WolverhamtonServiceArea"));
-const WorcesterServiceArea = lazy(() => import("./pages/WorcesterServiceArea"));
-const NorthamptonServiceArea = lazy(() => import("./pages/NorthamptonServiceArea"));
-const OxfordServiceArea = lazy(() => import("./pages/OxfordServiceArea"));
-const PeterboroughServiceArea = lazy(() => import("./pages/PeterboroughServiceArea"));
-const ChesterfieldServiceArea = lazy(() => import("./pages/ChesterfieldServiceArea"));
-const WrexhamServiceArea = lazy(() => import("./pages/WrexhamServiceArea"));
-const ConstructionIndustry = lazy(() => import("./pages/ConstructionIndustry"));
-const ManufacturingIndustry = lazy(() => import("./pages/ManufacturingIndustry"));
-const CallAnalytics = lazy(() => import("./pages/CallAnalytics"));
+import Home from "./pages/Home";
+import Gallery from "./pages/Gallery";
+import Admin from "./pages/Admin";
+import ServiceDetail from "./pages/ServiceDetail";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import Terms from "./pages/Terms";
+import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
+import ServiceAreas from "./pages/ServiceAreas";
+import BirminghamServiceArea from "./pages/BirminghamServiceArea";
+import SheffieldServiceArea from "./pages/SheffieldServiceArea";
+import ManchesterServiceArea from "./pages/ManchesterServiceArea";
+import BristolServiceArea from "./pages/BristolServiceArea";
+import LeedsServiceArea from "./pages/LeedsServiceArea";
+import LiverpoolServiceArea from "./pages/LiverpoolServiceArea";
+import CambridgeServiceArea from "./pages/CambridgeServiceArea";
+import CardiffServiceArea from "./pages/CardiffServiceArea";
+import ChesterServiceArea from "./pages/ChesterServiceArea";
+import CoventryServiceArea from "./pages/CoventryServiceArea";
+import DerbyServiceArea from "./pages/DerbyServiceArea";
+import GloucesterServiceArea from "./pages/GloucesterServiceArea";
+import HerefordServiceArea from "./pages/HerefordServiceArea";
+import IpswichServiceArea from "./pages/IpswichServiceArea";
+import LeicesterServiceArea from "./pages/LeicesterServiceArea";
+import LincolnServiceArea from "./pages/LincolnServiceArea";
+import MiltonKeynesServiceArea from "./pages/MiltonKeynesServiceArea";
+import NorwichServiceArea from "./pages/NorwichServiceArea";
+import NottinghamServiceArea from "./pages/NottinghamServiceArea";
+import ShrewsburyServiceArea from "./pages/ShrewsburyServiceArea";
+import StAlbansServiceArea from "./pages/StAlbansServiceArea";
+import StokeServiceArea from "./pages/StokeServiceArea";
+import SwindonServiceArea from "./pages/SwindonServiceArea";
+import StratfordUponAvonServiceArea from "./pages/StratfordUponAvonServiceArea";
+import WolverhamtonServiceArea from "./pages/WolverhamtonServiceArea";
+import WorcesterServiceArea from "./pages/WorcesterServiceArea";
+import NorthamptonServiceArea from "./pages/NorthamptonServiceArea";
+import OxfordServiceArea from "./pages/OxfordServiceArea";
+import PeterboroughServiceArea from "./pages/PeterboroughServiceArea";
+import ChesterfieldServiceArea from "./pages/ChesterfieldServiceArea";
+import WrexhamServiceArea from "./pages/WrexhamServiceArea";
+import ConstructionIndustry from "./pages/ConstructionIndustry";
+import ManufacturingIndustry from "./pages/ManufacturingIndustry";
+import CallAnalytics from "./pages/CallAnalytics";
 import { CookieConsent } from "./components/CookieConsent";
 import { FloatingCallButton } from "./components/FloatingCallButton";
 
 function Router() {
-  const LoadingFallback = () => (
-    <div className="min-h-screen flex items-center justify-center bg-[#F5F1E8]">
-      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#2C5F7F]"></div>
-    </div>
-  );
-
   // make sure to consider if you need authentication for certain routes
   return (
-    <Suspense fallback={<LoadingFallback />}>
-      <Switch>
+    <Switch>
       <Route path={"/"} component={Home} />
       <Route path={"/gallery"} component={Gallery} />
       <Route path={"/admin"} component={Admin} />
@@ -109,8 +101,7 @@ function Router() {
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />
-      </Switch>
-    </Suspense>
+    </Switch>
   );
 }
 

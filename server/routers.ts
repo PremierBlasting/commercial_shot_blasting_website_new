@@ -33,6 +33,11 @@ import {
   getPerformanceMetricsSummary,
   getPerformanceMetricsByUrl,
   getAverageMetricsByName,
+  getAllVersionHistory,
+  getVersionHistoryById,
+  createVersionHistory,
+  markVersionAsCurrent,
+  deleteVersionHistory,
 } from "./db";
 import { storagePut } from "./storage";
 import { nanoid } from "nanoid";
@@ -538,6 +543,51 @@ export const appRouter = router({
       .input(z.object({ metricName: z.string(), days: z.number().optional() }))
       .query(async ({ input }) => {
         return await getAverageMetricsByName(input.metricName, input.days || 7);
+      }),
+  }),
+
+  // Version History management
+  versionHistory: router({
+    // Admin: List all versions
+    listAll: adminProcedure
+      .query(async () => {
+        return await getAllVersionHistory();
+      }),
+
+    // Admin: Get version by ID
+    getById: adminProcedure
+      .input(z.object({ versionId: z.string() }))
+      .query(async ({ input }) => {
+        return await getVersionHistoryById(input.versionId);
+      }),
+
+    // Admin: Create new version record
+    create: adminProcedure
+      .input(z.object({
+        versionId: z.string(),
+        description: z.string().optional(),
+        changesSummary: z.string().optional(),
+        createdBy: z.string().optional(),
+        screenshotUrl: z.string().optional(),
+      }))
+      .mutation(async ({ input }) => {
+        return await createVersionHistory(input);
+      }),
+
+    // Admin: Mark version as current (after rollback)
+    markAsCurrent: adminProcedure
+      .input(z.object({ versionId: z.string() }))
+      .mutation(async ({ input }) => {
+        await markVersionAsCurrent(input.versionId);
+        return { success: true };
+      }),
+
+    // Admin: Delete version
+    delete: adminProcedure
+      .input(z.object({ id: z.number() }))
+      .mutation(async ({ input }) => {
+        await deleteVersionHistory(input.id);
+        return { success: true };
       }),
   }),
 });

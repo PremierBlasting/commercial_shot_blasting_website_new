@@ -826,3 +826,39 @@
 - [ ] Create admin dashboard to view Core Web Vitals (LCP, FID, CLS, TTFB, INP)
 - [ ] Add performance alerts for degraded metrics
 - [ ] Test performance tracking across different pages (requires server restart)
+
+## Code Splitting & Bundle Optimization
+- [x] Implement React.lazy() for all route components (43 components converted)
+- [x] Add Suspense boundaries with loading fallbacks
+- [ ] Configure Vite vendor chunk splitting (React, tRPC, UI)
+- [ ] Analyze bundle sizes before optimization
+- [ ] Test lazy loading works correctly
+- [ ] Measure bundle size reduction after optimization
+
+## Admin Version History & Rollback
+- [ ] Create version_history database table
+- [ ] Track changes to blog posts, SEO metadata, testimonials
+- [ ] Build version history UI in admin dashboard
+- [ ] Implement one-click rollback functionality
+- [ ] Add diff viewer to compare versions
+
+## Site Backup & Restore
+- [ ] Create backup endpoint to export entire database
+- [ ] Generate downloadable backup files (JSON format)
+- [ ] Implement restore functionality from backup files
+- [ ] Add backup scheduling options
+- [ ] Store backup metadata (date, size, tables included)
+
+## Cache Management
+- [ ] Add cache clearing endpoint for browser cache
+- [ ] Implement database query cache clearing
+- [ ] Add button to clear all caches in admin
+- [ ] Show cache statistics (size, last cleared)
+
+## Version History System
+- [x] Create version_history database table with schema
+- [x] Add tRPC procedures for version history operations (list, rollback)
+- [x] Create VersionHistory admin component with version list UI
+- [x] Add one-click rollback functionality with confirmation dialog
+- [x] Integrate version history tab into admin dashboard
+- [x] Test version history viewing and rollback functionality

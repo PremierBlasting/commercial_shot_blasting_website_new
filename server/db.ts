@@ -20,7 +20,10 @@ import {
   SeoMetadata,
   performanceMetrics,
   InsertPerformanceMetric,
-  PerformanceMetric
+  PerformanceMetric,
+  versionHistory,
+  InsertVersionHistory,
+  VersionHistory
 } from "../drizzle/schema";
 import { ENV } from './_core/env';
 
@@ -422,4 +425,83 @@ export async function getAverageMetricsByName(metricName: string, days: number =
     })
     .from(performanceMetrics)
     .where(sql`${performanceMetrics.name} = ${metricName} AND ${performanceMetrics.createdAt} >= ${since}`);
+}
+
+
+// ============================================
+// Version History helpers
+// ============================================
+
+export async function getAllVersionHistory(): Promise<VersionHistory[]> {
+  const db = await getDb();
+  if (!db) return [];
+  
+  return db
+    .select()
+    .from(versionHistory)
+    .orderBy(desc(versionHistory.createdAt));
+}
+
+export async function getVersionHistoryById(versionId: string): Promise<VersionHistory | undefined> {
+  const db = await getDb();
+  if (!db) return undefined;
+  
+  const results = await db
+    .select()
+    .from(versionHistory)
+    .where(eq(versionHistory.versionId, versionId))
+    .limit(1);
+  
+  return results[0];
+}
+
+export async function createVersionHistory(data: InsertVersionHistory): Promise<VersionHistory> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  
+  // Mark all existing versions as not current
+  await db
+    .update(versionHistory)
+    .set({ isCurrent: false });
+  
+  const result = await db
+    .insert(versionHistory)
+    .values({
+      ...data,
+      isCurrent: true
+    });
+  
+  const insertedId = result[0].insertId;
+  const inserted = await db
+    .select()
+    .from(versionHistory)
+    .where(eq(versionHistory.id, insertedId))
+    .limit(1);
+  
+  return inserted[0];
+}
+
+export async function markVersionAsCurrent(versionId: string): Promise<void> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  
+  // Mark all versions as not current
+  await db
+    .update(versionHistory)
+    .set({ isCurrent: false });
+  
+  // Mark the specified version as current
+  await db
+    .update(versionHistory)
+    .set({ isCurrent: true })
+    .where(eq(versionHistory.versionId, versionId));
+}
+
+export async function deleteVersionHistory(id: number): Promise<void> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  
+  await db
+    .delete(versionHistory)
+    .where(eq(versionHistory.id, id));
 }

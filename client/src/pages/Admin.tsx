@@ -27,12 +27,14 @@ import {
   MailOpen,
   ChevronLeft,
   FileText,
-  Search
+  Search,
+  History
 } from "lucide-react";
 import { useState } from "react";
 import { Link } from "wouter";
 import { toast } from "sonner";
 import { ImageUpload } from "@/components/ImageUpload";
+import VersionHistoryTab from "@/components/VersionHistoryTab";
 
 const categories = ["Industrial", "Automotive", "Marine", "Agriculture", "Infrastructure"];
 
@@ -159,6 +161,9 @@ export default function Admin() {
             <TabsTrigger value="seo" className="gap-2">
               <Search className="w-4 h-4" /> SEO
             </TabsTrigger>
+            <TabsTrigger value="versions" className="gap-2">
+              <History className="w-4 h-4" /> Versions
+            </TabsTrigger>
           </TabsList>
 
           <TabsContent value="overview">
@@ -183,6 +188,10 @@ export default function Admin() {
 
           <TabsContent value="seo">
             <SeoTab />
+          </TabsContent>
+
+          <TabsContent value="versions">
+            <VersionHistoryTab />
           </TabsContent>
         </Tabs>
       </main>
