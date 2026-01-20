@@ -1,10 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
-import { OptimizedImage, getWebPUrl, getThumbnailUrl } from "@/components/OptimizedImage";
+import { TouchGallery } from "@/components/TouchGallery";
 import { QuotePopup } from "@/components/QuotePopup";
 import { Header } from "@/components/Header";
-import { Phone, Mail, MapPin, ArrowLeft, ArrowRight, Star, Quote, X } from "lucide-react";
+import { Phone, Mail, MapPin, Star, Quote } from "lucide-react";
 import { useState, useMemo } from "react";
 import { Link } from "wouter";
 import { trpc } from "@/lib/trpc";
@@ -358,77 +357,17 @@ export default function Gallery() {
         </div>
       </section>
 
-      {/* Gallery Grid */}
+      {/* Gallery Grid with Touch Gestures */}
       <section className="py-16 bg-[#F5F1E8] flex-1">
         <div className="container">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredItems.map((item) => (
-              <Dialog key={item.id}>
-                <DialogTrigger asChild>
-                  <Card 
-                    className="group cursor-pointer overflow-hidden hover:shadow-xl transition-all duration-300"
-                    onClick={() => { setSelectedItem(item); setShowAfter(false); }}
-                  >
-                    <div className="relative h-64 overflow-hidden">
-                      <OptimizedImage 
-                        src={item.before} 
-                        alt={`${item.title} - Before`} 
-                        className="absolute inset-0 w-full h-full transition-opacity duration-500 group-hover:opacity-0"
-                        webpSrc={getWebPUrl(item.before)}
-                        thumbnailSrc={getThumbnailUrl(item.before)}
-                        loading="lazy"
-                      />
-                      <OptimizedImage 
-                        src={item.after} 
-                        alt={`${item.title} - After`} 
-                        className="absolute inset-0 w-full h-full opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-                        webpSrc={getWebPUrl(item.after)}
-                        thumbnailSrc={getThumbnailUrl(item.after)}
-                        loading="lazy"
-                      />
-                      <div className="absolute top-3 left-3 flex gap-2">
-                        <span className="bg-red-500 text-white text-xs px-2 py-1 rounded font-medium group-hover:opacity-0 transition-opacity">BEFORE</span>
-                        <span className="bg-green-500 text-white text-xs px-2 py-1 rounded font-medium opacity-0 group-hover:opacity-100 transition-opacity">AFTER</span>
-                      </div>
-                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-                        <span className="text-white/80 text-xs uppercase tracking-wider">{item.category}</span>
-                        <h3 className="text-white font-semibold text-lg" style={{ fontFamily: "'Playfair Display', serif" }}>{item.title}</h3>
-                      </div>
-                    </div>
-                    <div className="p-4 bg-white">
-                      <p className="text-gray-600 text-sm">{item.description}</p>
-                      <p className="text-[#2C5F7F] text-sm font-medium mt-2">Hover to see transformation →</p>
-                    </div>
-                  </Card>
-                </DialogTrigger>
-                <DialogContent className="max-w-4xl p-0 overflow-hidden">
-                  <div className="relative">
-                    <img 
-                      src={showAfter ? item.after : item.before} 
-                      alt={item.title} 
-                      className="w-full h-auto max-h-[70vh] object-contain bg-black"
-                    />
-                    <div className="absolute top-4 left-4">
-                      <span className={`text-white text-sm px-3 py-1 rounded font-medium ${showAfter ? 'bg-green-500' : 'bg-red-500'}`}>
-                        {showAfter ? 'AFTER' : 'BEFORE'}
-                      </span>
-                    </div>
-                    <button 
-                      onClick={() => setShowAfter(!showAfter)}
-                      className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-white text-[#2C5F7F] px-6 py-2 rounded-full font-medium shadow-lg hover:bg-[#2C5F7F] hover:text-white transition flex items-center gap-2"
-                    >
-                      {showAfter ? <><ArrowLeft className="w-4 h-4" /> View Before</> : <>View After <ArrowRight className="w-4 h-4" /></>}
-                    </button>
-                  </div>
-                  <div className="p-6 bg-white">
-                    <span className="text-[#2C5F7F] text-sm font-medium">{item.category}</span>
-                    <h3 className="text-2xl font-bold text-[#2C2C2C] mt-1" style={{ fontFamily: "'Playfair Display', serif" }}>{item.title}</h3>
-                    <p className="text-gray-600 mt-2">{item.description}</p>
-                  </div>
-                </DialogContent>
-              </Dialog>
-            ))}
-          </div>
+          <TouchGallery 
+            images={filteredItems.map(item => ({
+              id: item.id,
+              url: item.after,
+              title: item.title,
+              category: item.category
+            }))}
+          />
         </div>
       </section>
 
