@@ -203,7 +203,7 @@ export default function Home() {
               Comprehensive Shot Blasting Solutions
             </h2>
           </div>
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               { title: "Structural Steel Frames", desc: "Comprehensive shot blasting for building frames, roof trusses, and load-bearing steel structures. Prepare surfaces for galvanizing or protective coatings.", img: "/service-structural-steel.png", link: "/services/structural-steel-frames" },
               { title: "Fire Escapes & External Stair Towers", desc: "Specialist surface preparation for fire safety infrastructure. Remove rust and corrosion, ensuring compliance with safety regulations.", img: "/service-fire-escapes.png", link: "/services/fire-escapes" },
@@ -337,7 +337,7 @@ export default function Home() {
             </Card>
           )}
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {displayTestimonials.slice(1).map((testimonial) => (
               <Card key={testimonial.id} className="p-6 hover:shadow-lg transition-shadow relative">
                 <Quote className="absolute top-4 right-4 w-10 h-10 text-[#2C5F7F]/10" />
