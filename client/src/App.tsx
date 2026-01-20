@@ -1,5 +1,4 @@
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { FloatingMobileCTA } from "@/components/FloatingMobileCTA";
 import NotFound from "@/pages/NotFound";
 import { lazy, Suspense } from "react";
 import { Route, Switch } from "wouter";
@@ -133,7 +132,6 @@ function App() {
           <Router />
           <CookieConsent />
           <FloatingCallButton />
-          <FloatingMobileCTA />
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>
